@@ -1,0 +1,10 @@
+{
+  "description": "A student portal dashboard offering course tracking, assignments, quizzes, grades, and announcements to streamline academic management and engagement.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
