@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSessionUser, getInitials } from "./auth";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
@@ -594,9 +594,322 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
   );
 }
 
+// ── Shared Learning Materials Data & Modal ──────────────────────────────────────
+export interface LearningMaterialItem {
+  id: string;
+  title: string;
+  course: string;
+  courseName: string;
+  type: "Slides" | "Document" | "Video";
+  category?: "Lecture" | "Tutorial";
+  week?: number;
+  size: string;
+  date: string;
+  icon: string;
+  description: string;
+}
+
+export const INSTRUCTOR_LEARNING_MATERIALS: LearningMaterialItem[] = [
+  {
+    id: "mat-ict301-w1-lec",
+    title: "Week 1 Lecture: System Analysis & Design",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Slides",
+    category: "Lecture",
+    week: 1,
+    size: "3.4 MB",
+    date: "Aug 18, 2026",
+    icon: "📊",
+    description: "Foundational lecture slide deck covering systems thinking, stakeholder requirements elicitation, problem framing, and UML domain modeling standards.",
+  },
+  {
+    id: "mat-ict301-w1-tut",
+    title: "Week 1 Tutorial: Requirements Engineering Worksheet",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Document",
+    category: "Tutorial",
+    week: 1,
+    size: "1.2 MB",
+    date: "Aug 19, 2026",
+    icon: "📄",
+    description: "Hands-on tutorial worksheet and exercises guiding students through user story authoring, acceptance criteria formulation, and requirements traceability.",
+  },
+  {
+    id: "mat-ict301-w2-lec",
+    title: "Week 2 Lecture: Project Planning & Estimation",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Slides",
+    category: "Lecture",
+    week: 2,
+    size: "4.1 MB",
+    date: "Aug 25, 2026",
+    icon: "📊",
+    description: "Lecture presentation on Work Breakdown Structure (WBS), Gantt scheduling, critical path method, PERT estimation, and resource allocation frameworks.",
+  },
+  {
+    id: "mat-ict301-w2-tut",
+    title: "Week 2 Tutorial: Project Charter & Estimation Template",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Document",
+    category: "Tutorial",
+    week: 2,
+    size: "850 KB",
+    date: "Aug 26, 2026",
+    icon: "📋",
+    description: "Interactive project charter template and spreadsheet model for sprint velocity planning, milestone cost estimation, and risk assessment matrices.",
+  },
+  {
+    id: "mat-ict301-rubric",
+    title: "Project Milestone 2 Rubric",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Document",
+    size: "0.5 MB",
+    date: "Aug 30, 2026",
+    icon: "📋",
+    description: "Detailed grading rubric, assessment criteria, and submission checklist for Milestone 2 Preliminary Design & Architecture.",
+  },
+  {
+    id: "mat-ict301-agile",
+    title: "Agile Methodology Handbook",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Document",
+    size: "2.8 MB",
+    date: "Aug 27, 2026",
+    icon: "📄",
+    description: "Comprehensive guide to Agile workflows, Scrum ceremonies, sprint planning, daily standups, and retrospective practices.",
+  },
+  {
+    id: "mat-ict272-w5-lec",
+    title: "Week 5 Lecture Slides",
+    course: "ICT272",
+    courseName: "Web Design and Development",
+    type: "Slides",
+    category: "Lecture",
+    week: 5,
+    size: "3.2 MB",
+    date: "Sep 2, 2026",
+    icon: "📊",
+    description: "Lecture slides focusing on React hooks (useState, useEffect), component lifecycle, and state lifting techniques.",
+  },
+  {
+    id: "mat-ict272-w5-vid",
+    title: "React Tutorial – Week 5",
+    course: "ICT272",
+    courseName: "Web Design and Development",
+    type: "Video",
+    category: "Tutorial",
+    week: 5,
+    size: "480 MB",
+    date: "Aug 29, 2026",
+    icon: "🎬",
+    description: "Guided code-along screen recording building interactive React components and managing state across child views.",
+  },
+  {
+    id: "mat-ict272-grid",
+    title: "CSS Grid & Flexbox Cheatsheet",
+    course: "ICT272",
+    courseName: "Web Design and Development",
+    type: "Document",
+    size: "0.8 MB",
+    date: "Aug 26, 2026",
+    icon: "📄",
+    description: "Visual cheat sheet and quick syntax reference for 2D CSS Grid layouts and 1D Flexbox alignment rules.",
+  },
+  {
+    id: "mat-ict126-ethics",
+    title: "AI Ethics Reading Guide",
+    course: "ICT126",
+    courseName: "Artificial Intelligence",
+    type: "Document",
+    size: "1.1 MB",
+    date: "Sep 1, 2026",
+    icon: "📄",
+    description: "Annotated readings on ethical challenges in autonomous AI, bias detection, fairness constraints, and alignment standards.",
+  },
+  {
+    id: "mat-ict126-nn-vid",
+    title: "Neural Networks Intro Video",
+    course: "ICT126",
+    courseName: "Artificial Intelligence",
+    type: "Video",
+    size: "620 MB",
+    date: "Aug 28, 2026",
+    icon: "🎬",
+    description: "Animated overview explaining biological vs artificial neurons, activation functions, loss gradients, and backpropagation.",
+  },
+  {
+    id: "mat-ict126-ml-chart",
+    title: "ML Algorithm Comparison Chart",
+    course: "ICT126",
+    courseName: "Artificial Intelligence",
+    type: "Slides",
+    size: "4.5 MB",
+    date: "Aug 25, 2026",
+    icon: "📊",
+    description: "Comparative matrix analyzing supervised, unsupervised, and reinforcement learning algorithms and decision boundaries.",
+  },
+];
+
+function MaterialPreviewModal({
+  material,
+  onClose,
+  onDownload,
+  onNavigateToMaterialsHub,
+}: {
+  material: LearningMaterialItem | null;
+  onClose: () => void;
+  onDownload: (material: LearningMaterialItem) => void;
+  onNavigateToMaterialsHub?: () => void;
+}) {
+  if (!material) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-150">
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50/70">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl p-1.5 rounded-xl bg-white shadow-xs border border-gray-100">{material.icon}</span>
+            <div>
+              <h3 className="text-base font-bold text-gray-900 leading-snug">{material.title}</h3>
+              <p className="text-xs text-blue-600 font-semibold">{material.course} — {material.courseName}</p>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+            title="Close modal"
+          >
+            <IconX className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="p-6 overflow-y-auto space-y-4">
+          {/* Metadata badges */}
+          <div className="flex flex-wrap items-center gap-2">
+            {material.week && (
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-800">
+                Week {material.week}
+              </span>
+            )}
+            {material.category && (
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-purple-800">
+                {material.category}
+              </span>
+            )}
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-100 text-gray-700">
+              {material.type}
+            </span>
+            <span className="text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-200">
+              {material.size}
+            </span>
+            <span className="text-xs text-gray-400">
+              Uploaded on {material.date}
+            </span>
+          </div>
+
+          {/* Description */}
+          <div className="bg-gray-50 rounded-xl p-3.5 text-xs text-gray-600 leading-relaxed border border-gray-100">
+            <p className="font-semibold text-gray-700 mb-1">Description & Learning Objectives:</p>
+            {material.description}
+          </div>
+
+          {/* Interactive Document / Slide Preview Window */}
+          <div className="rounded-xl border border-gray-200 bg-slate-950 text-slate-100 p-4 shadow-inner">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-xs text-slate-400 mb-4">
+              <span className="flex items-center gap-1.5 font-medium text-slate-300 truncate">
+                <span>📄</span> <span className="truncate">{material.title}</span>
+              </span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded text-[11px] text-slate-300 shrink-0">
+                Preview Mode · Page 1 of 24
+              </span>
+            </div>
+
+            {/* Simulated Document / Slide Canvas */}
+            <div className="bg-white text-gray-900 rounded-lg p-6 min-h-[170px] shadow-sm flex flex-col justify-between border border-slate-200">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">
+                    {material.course} · {material.courseName}
+                  </span>
+                  <span className="text-[10px] text-gray-400">EduFlex Academic LMS</span>
+                </div>
+                <h4 className="text-base font-bold text-gray-900">{material.title}</h4>
+                <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                  {material.description}
+                </p>
+              </div>
+
+              <div className="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-400 flex-wrap gap-2">
+                <span>Instructor: Prof. Sarita Koirala</span>
+                <span>Term 2, Academic Year 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100 bg-gray-50/70 gap-3">
+          {onNavigateToMaterialsHub ? (
+            <button
+              onClick={onNavigateToMaterialsHub}
+              className="text-xs text-blue-600 hover:text-blue-800 hover:underline font-medium flex items-center gap-1 cursor-pointer"
+            >
+              <span>View in Learning Materials Hub →</span>
+            </button>
+          ) : (
+            <div />
+          )}
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 bg-white border border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
+            >
+              Close
+            </button>
+            <button
+              onClick={() => onDownload(material)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer"
+              style={{ background: "#1a3a9e" }}
+            >
+              <IconDownload className="w-3.5 h-3.5" />
+              <span>Download ({material.size})</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── My Courses Page ───────────────────────────────────────────────────────────
 function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
   const [selected, setSelected] = useState<string | null>(null);
+  const [subView, setSubView] = useState<"topics" | "upcoming" | "students" | null>(null);
+  const [expandedWeeks, setExpandedWeeks] = useState<number[]>([1, 2]);
+  const [selectedMaterial, setSelectedMaterial] = useState<LearningMaterialItem | null>(null);
+  const [downloadToast, setDownloadToast] = useState<string | null>(null);
+
+  const toggleWeek = (week: number) => {
+    setExpandedWeeks((prev) =>
+      prev.includes(week) ? prev.filter((w) => w !== week) : [...prev, week]
+    );
+  };
+
+  const handleDownload = (material: LearningMaterialItem) => {
+    setDownloadToast(`${material.title} (${material.size})`);
+    setTimeout(() => {
+      setDownloadToast(null);
+    }, 3500);
+  };
 
   const courses = [
     {
@@ -605,14 +918,34 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
       progress: 55, color: "#2563eb", bg: "from-blue-50 to-white",
       badge: "bg-blue-100 text-blue-700", borderColor: "border-blue-200",
       topics: ["System Analysis & Design", "Project Planning", "Agile Methodology", "Documentation Standards"],
+      allTopics: [
+        { title: "System Analysis & Design", desc: "Foundational software requirements engineering, problem framing, and system modeling." },
+        { title: "Project Planning & Estimation", desc: "Gantt charting, milestone breakdown structures, and resource allocation." },
+      ],
       upcoming: [
         { label: "Milestone 2 Due", date: "Sep 5, 2026", type: "Assignment" },
         { label: "Sprint Review", date: "Sep 10, 2026", type: "Class" },
+      ],
+      allUpcoming: [
+        { label: "Milestone 2 Due", date: "Sep 5, 2026", type: "Assignment", detail: "ICT301 Preliminary Design & Architecture Submission" },
+        { label: "ICT301 Lecture: CI/CD Pipelines", date: "Sep 6, 2026", type: "Class", detail: "Room IT-201 · 8:00–10:00 AM" },
+        { label: "Sprint Review & Milestone Check", date: "Sep 10, 2026", type: "Class", detail: "Room IT-201 · 8:00–10:00 AM" },
+        { label: "Weekly Quiz 3: Project Management", date: "Sep 12, 2026", type: "Quiz", detail: "Online Quiz · 15 Multiple Choice Questions" },
+        { label: "Milestone 3 Draft Submissions", date: "Sep 18, 2026", type: "Assignment", detail: "Working software prototype demonstration" },
+        { label: "Final Project Defense & Showcase", date: "Sep 25, 2026", type: "Class", detail: "Auditorium A · 9:00 AM–1:00 PM" },
       ],
       students_list: [
         { name: "Marco Reyes", id: "STU-0231", grade: "B+" },
         { name: "Sofia Tan", id: "STU-0198", grade: "A" },
         { name: "Liam Garcia", id: "STU-0274", grade: "B" },
+      ],
+      allStudents: [
+        { name: "Marco Reyes", id: "STU-0231", email: "m.reyes@student.edu", grade: "B+", status: "Active", submitted: 8, total: 10 },
+        { name: "Liam Garcia", id: "STU-0274", email: "l.garcia@student.edu", grade: "B", status: "Active", submitted: 7, total: 10 },
+        { name: "Luna Santos", id: "STU-0422", email: "l.santos@student.edu", grade: "C+", status: "At Risk", submitted: 5, total: 10 },
+        { name: "Chloe Taylor", id: "STU-0455", email: "c.taylor@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
+        { name: "Daniel Lee", id: "STU-0466", email: "d.lee@student.edu", grade: "B+", status: "Active", submitted: 9, total: 10 },
+        { name: "Emily Watson", id: "STU-0477", email: "e.watson@student.edu", grade: "A-", status: "Active", submitted: 9, total: 10 },
       ],
     },
     {
@@ -621,14 +954,40 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
       progress: 40, color: "#0e9f6e", bg: "from-emerald-50 to-white",
       badge: "bg-emerald-100 text-emerald-700", borderColor: "border-emerald-200",
       topics: ["HTML5 & CSS3", "JavaScript Fundamentals", "React.js Basics", "Responsive Design"],
+      allTopics: [
+        { title: "HTML5 & CSS3 Semantics", desc: "Semantic markup, modern layout techniques, and modern styling rules." },
+        { title: "JavaScript Fundamentals & ES6+", desc: "Arrow functions, destructuring, promises, and async/await." },
+        { title: "DOM Manipulation & Events", desc: "Browser events, element selectors, and event delegation patterns." },
+        { title: "Responsive Design & Flexbox/Grid", desc: "Mobile-first layouts, breakpoints, container queries, and fluid typography." },
+        { title: "React.js Basics & Component Architecture", desc: "JSX, props, unidirectional data flow, and composable UI design." },
+        { title: "React State Management & Hooks", desc: "useState, useEffect, custom hooks, and shared application state." },
+        { title: "Web Accessibility (WCAG 2.1)", desc: "ARIA landmarks, screen reader optimization, and color contrast compliance." },
+        { title: "REST APIs & Client Integration", desc: "Fetching remote datasets, JSON parsing, error boundaries, and loading states." },
+      ],
       upcoming: [
         { label: "Lab Exercise 4 Due", date: "Sep 7, 2026", type: "Assignment" },
         { label: "Online Lecture Week 5", date: "Sep 9, 2026", type: "Class" },
+      ],
+      allUpcoming: [
+        { label: "Lab Exercise 3: DOM Manipulation", date: "Sep 3, 2026", type: "Assignment", detail: "Interactive JavaScript task submission" },
+        { label: "ICT272 Online Lecture: React Hooks", date: "Sep 4, 2026", type: "Class", detail: "Online – Zoom · 10:00 AM–12:00 PM" },
+        { label: "Lab Exercise 4 Due", date: "Sep 7, 2026", type: "Assignment", detail: "React component building exercise" },
+        { label: "Online Lecture Week 5: Styling Systems", date: "Sep 9, 2026", type: "Class", detail: "Online – Zoom · 10:00 AM–12:00 PM" },
+        { label: "Lab Quiz 1: JavaScript & Web Concepts", date: "Sep 10, 2026", type: "Quiz", detail: "Timed online quiz · 20 Questions" },
+        { label: "Midterm Interactive Prototype Project", date: "Sep 20, 2026", type: "Assignment", detail: "Full responsive Single Page Application" },
       ],
       students_list: [
         { name: "Aisha Patel", id: "STU-0312", grade: "A-" },
         { name: "Ethan Cruz", id: "STU-0299", grade: "B+" },
         { name: "Maya Lopez", id: "STU-0344", grade: "A" },
+      ],
+      allStudents: [
+        { name: "Sofia Tan", id: "STU-0198", email: "s.tan@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
+        { name: "Aisha Patel", id: "STU-0312", email: "a.patel@student.edu", grade: "A-", status: "Active", submitted: 9, total: 10 },
+        { name: "Ethan Cruz", id: "STU-0299", email: "e.cruz@student.edu", grade: "B+", status: "Active", submitted: 9, total: 10 },
+        { name: "Maya Lopez", id: "STU-0344", email: "m.lopez@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
+        { name: "Raj Sharma", id: "STU-0433", email: "r.sharma@student.edu", grade: "B", status: "Active", submitted: 8, total: 10 },
+        { name: "Ben Miller", id: "STU-0488", email: "b.miller@student.edu", grade: "B+", status: "Active", submitted: 8, total: 10 },
       ],
     },
     {
@@ -637,29 +996,442 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
       progress: 48, color: "#7c3aed", bg: "from-purple-50 to-white",
       badge: "bg-purple-100 text-purple-700", borderColor: "border-purple-200",
       topics: ["Introduction to AI", "Machine Learning Basics", "Neural Networks", "Ethical AI"],
+      allTopics: [
+        { title: "Introduction to AI & Intelligent Agents", desc: "Agent environments, rationality, Turing test, and foundational paradigms." },
+        { title: "Problem Solving & Search Algorithms", desc: "Uninformed search (BFS, DFS) and informed heuristic search (A* Search)." },
+        { title: "Machine Learning Basics & Supervised Learning", desc: "Linear regression, logistic regression, and decision tree classifiers." },
+        { title: "Unsupervised Learning & Clustering", desc: "K-means, dimensionality reduction via PCA, and clustering evaluation." },
+        { title: "Neural Networks & Deep Learning", desc: "Perceptrons, backpropagation, activation functions, and convolutional layers." },
+        { title: "Natural Language Processing (NLP)", desc: "Tokenization, bag-of-words, TF-IDF, transformers, and sentiment analysis." },
+        { title: "Ethical AI, Bias & Fairness", desc: "Algorithmic bias, safety alignment, transparency, and regulation standards." },
+        { title: "Reinforcement Learning & Future Trends", desc: "Markov decision processes, Q-learning, and autonomous systems outlook." },
+      ],
       upcoming: [
         { label: "Midterm Quiz", date: "Sep 8, 2026", type: "Quiz" },
         { label: "AI Case Study Presentation", date: "Sep 19, 2026", type: "Assignment" },
+      ],
+      allUpcoming: [
+        { label: "Assignment 2: ML Algorithm Analysis", date: "Sep 4, 2026", type: "Assignment", detail: "Classifier benchmark comparison report" },
+        { label: "ICT126 Lab: Neural Network Training", date: "Sep 5, 2026", type: "Class", detail: "Room IT-304 · 1:00–3:00 PM" },
+        { label: "Midterm Quiz: Core AI Foundations", date: "Sep 8, 2026", type: "Quiz", detail: "Lab Quiz · 25 Multiple Choice & Short Answer" },
+        { label: "AI Ethics Reading Reflection", date: "Sep 14, 2026", type: "Assignment", detail: "Short paper on algorithmic transparency" },
+        { label: "AI Case Study Presentation", date: "Sep 19, 2026", type: "Assignment", detail: "Group presentation and slide deck submission" },
+        { label: "Term Project: Deep Learning Pipeline", date: "Sep 28, 2026", type: "Assignment", detail: "Computer vision classification model submission" },
       ],
       students_list: [
         { name: "Noah Kim", id: "STU-0401", grade: "A+" },
         { name: "Priya Nair", id: "STU-0388", grade: "B" },
         { name: "Carlos Vega", id: "STU-0411", grade: "B+" },
       ],
+      allStudents: [
+        { name: "Noah Kim", id: "STU-0401", email: "n.kim@student.edu", grade: "A+", status: "Active", submitted: 10, total: 10 },
+        { name: "Priya Nair", id: "STU-0388", email: "p.nair@student.edu", grade: "B", status: "Active", submitted: 7, total: 10 },
+        { name: "Carlos Vega", id: "STU-0411", email: "c.vega@student.edu", grade: "B+", status: "Active", submitted: 8, total: 10 },
+        { name: "Zoe Andrade", id: "STU-0444", email: "z.andrade@student.edu", grade: "A-", status: "Active", submitted: 9, total: 10 },
+        { name: "Lucas Scott", id: "STU-0499", email: "l.scott@student.edu", grade: "B", status: "Active", submitted: 7, total: 10 },
+        { name: "Hana Tanaka", id: "STU-0501", email: "h.tanaka@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
+      ],
     },
   ];
 
   const selectedCourse = courses.find((c) => c.code === selected);
 
+  if (selectedCourse && subView === "topics") {
+    const displayTopics = (selectedCourse.allTopics || []).slice(0, 2);
+
+    return (
+      <div className="p-6">
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+          <button onClick={() => { setSelected(null); setSubView(null); }} className="hover:text-blue-600 transition-colors">My Courses</button>
+          <span>/</span>
+          <button onClick={() => setSubView(null)} className="hover:text-blue-600 transition-colors">{selectedCourse.code}</button>
+          <span>/</span>
+          <span className="text-gray-600">Course Topics</span>
+        </div>
+        <button onClick={() => setSubView(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium cursor-pointer">
+          ← Back to {selectedCourse.code} Overview
+        </button>
+
+        <div className={`rounded-2xl border ${selectedCourse.borderColor} bg-gradient-to-r ${selectedCourse.bg} p-6 mb-6`}>
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-2 ${selectedCourse.badge}`}>{selectedCourse.code}</span>
+              <h1 className="text-xl font-bold text-gray-900">Course Topics — {selectedCourse.name}</h1>
+              <p className="text-sm text-gray-500 mt-1">
+                Active curriculum syllabus and weekly learning materials (Week 1 &amp; Week 2 active)
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-gray-500 bg-white border border-gray-200 px-3 py-1.5 rounded-xl">
+              {selectedCourse.credits} Credits · {selectedCourse.schedule}
+            </span>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100">
+            <div>
+              <h2 className="text-sm font-bold text-gray-900">Weekly Modules</h2>
+              <p className="text-xs text-gray-500">Expand a week to view associated lecture and tutorial learning materials</p>
+            </div>
+            <button
+              onClick={() => {
+                if (expandedWeeks.length === displayTopics.length) {
+                  setExpandedWeeks([]);
+                } else {
+                  setExpandedWeeks(displayTopics.map((_, i) => i + 1));
+                }
+              }}
+              className="text-xs text-blue-600 font-semibold hover:underline cursor-pointer"
+            >
+              {expandedWeeks.length === displayTopics.length ? "Collapse All" : "Expand All"}
+            </button>
+          </div>
+
+          <div className="space-y-4">
+            {displayTopics.map((topic, i) => {
+              const weekNum = i + 1;
+              const isExpanded = expandedWeeks.includes(weekNum);
+              const weekMaterials = INSTRUCTOR_LEARNING_MATERIALS.filter(
+                (m) => m.course === selectedCourse.code && m.week === weekNum
+              );
+              const lectureMaterial = weekMaterials.find((m) => m.category === "Lecture");
+              const tutorialMaterial = weekMaterials.find((m) => m.category === "Tutorial");
+
+              return (
+                <div
+                  key={i}
+                  className="rounded-2xl border border-gray-200/80 bg-white overflow-hidden shadow-xs hover:border-gray-300 transition-all"
+                >
+                  {/* Expandable Topic Header */}
+                  <button
+                    onClick={() => toggleWeek(weekNum)}
+                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left hover:bg-gray-50/70 transition-colors cursor-pointer"
+                    aria-expanded={isExpanded}
+                  >
+                    <div className="flex items-start gap-3.5 flex-1 pr-4">
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 shadow-xs"
+                        style={{ background: selectedCourse.color }}
+                      >
+                        {weekNum}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                            Week {weekNum}
+                          </span>
+                          <h3 className="text-sm sm:text-base font-bold text-gray-900">
+                            Week {weekNum} — {topic.title}
+                          </h3>
+                        </div>
+                        <p className="text-xs text-gray-500 leading-relaxed">{topic.desc}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 shrink-0">
+                      <span className="text-[11px] text-gray-400 font-medium hidden sm:inline-block bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">
+                        {weekMaterials.length > 0 ? `${weekMaterials.length} materials` : "2 materials"}
+                      </span>
+                      <span
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center bg-gray-100 text-gray-500 hover:bg-gray-200 transition-transform duration-200 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      >
+                        <IconChevronDown className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </button>
+
+                  {/* Collapsible Materials Area */}
+                  {isExpanded && (
+                    <div className="border-t border-gray-100 bg-gray-50/40 p-4 sm:p-5 space-y-4">
+                      {/* Lecture Section */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-2.5">
+                          <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-gray-600">
+                            Lecture Materials
+                          </span>
+                        </div>
+                        {lectureMaterial ? (
+                          <div className="bg-white rounded-xl border border-gray-200/80 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:shadow-xs hover:border-blue-200 transition-all">
+                            <div className="flex items-start gap-3">
+                              <span className="text-2xl shrink-0 p-1.5 rounded-xl bg-blue-50 border border-blue-100">
+                                {lectureMaterial.icon}
+                              </span>
+                              <div>
+                                <h4 className="text-sm font-bold text-gray-800 hover:text-blue-600 transition-colors">
+                                  {lectureMaterial.title}
+                                </h4>
+                                <div className="flex items-center gap-2 mt-1 text-[11px] text-gray-500 flex-wrap">
+                                  <span className="font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">
+                                    {lectureMaterial.course} — {lectureMaterial.courseName}
+                                  </span>
+                                  <span>·</span>
+                                  <span>{lectureMaterial.type}</span>
+                                  <span>·</span>
+                                  <span>{lectureMaterial.size}</span>
+                                  <span>·</span>
+                                  <span>Uploaded {lectureMaterial.date}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                              <button
+                                onClick={() => setSelectedMaterial(lectureMaterial)}
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer"
+                              >
+                                <IconEye className="w-3.5 h-3.5" />
+                                <span>Preview</span>
+                              </button>
+                              <button
+                                onClick={() => handleDownload(lectureMaterial)}
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer"
+                                style={{ background: "#1a3a9e" }}
+                                title="Download Lecture Material"
+                              >
+                                <IconDownload className="w-3.5 h-3.5" />
+                                <span>Download</span>
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="bg-white rounded-xl border border-dashed border-gray-200 p-4 text-xs text-gray-400 text-center">
+                            No lecture materials uploaded for this week.
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Tutorial Section */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-2.5">
+                          <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-gray-600">
+                            Tutorial Materials
+                          </span>
+                        </div>
+                        {tutorialMaterial ? (
+                          <div className="bg-white rounded-xl border border-gray-200/80 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:shadow-xs hover:border-teal-200 transition-all">
+                            <div className="flex items-start gap-3">
+                              <span className="text-2xl shrink-0 p-1.5 rounded-xl bg-teal-50 border border-teal-100">
+                                {tutorialMaterial.icon}
+                              </span>
+                              <div>
+                                <h4 className="text-sm font-bold text-gray-800 hover:text-teal-700 transition-colors">
+                                  {tutorialMaterial.title}
+                                </h4>
+                                <div className="flex items-center gap-2 mt-1 text-[11px] text-gray-500 flex-wrap">
+                                  <span className="font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">
+                                    {tutorialMaterial.course} — {tutorialMaterial.courseName}
+                                  </span>
+                                  <span>·</span>
+                                  <span>{tutorialMaterial.type}</span>
+                                  <span>·</span>
+                                  <span>{tutorialMaterial.size}</span>
+                                  <span>·</span>
+                                  <span>Uploaded {tutorialMaterial.date}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                              <button
+                                onClick={() => setSelectedMaterial(tutorialMaterial)}
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-pointer"
+                              >
+                                <IconEye className="w-3.5 h-3.5" />
+                                <span>Preview</span>
+                              </button>
+                              <button
+                                onClick={() => handleDownload(tutorialMaterial)}
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer"
+                                style={{ background: "#1a3a9e" }}
+                                title="Download Tutorial Material"
+                              >
+                                <IconDownload className="w-3.5 h-3.5" />
+                                <span>Download</span>
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="bg-white rounded-xl border border-dashed border-gray-200 p-4 text-xs text-gray-400 text-center">
+                            No tutorial materials uploaded for this week.
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {selectedMaterial && (
+          <MaterialPreviewModal
+            material={selectedMaterial}
+            onClose={() => setSelectedMaterial(null)}
+            onDownload={handleDownload}
+            onNavigateToMaterialsHub={() => {
+              setSelectedMaterial(null);
+              setActive("materials");
+            }}
+          />
+        )}
+
+        {downloadToast && (
+          <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs animate-in fade-in slide-in-from-bottom-2 duration-200">
+            <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
+              <IconDownload className="w-3.5 h-3.5" />
+            </div>
+            <div>
+              <p className="font-semibold text-white">Downloading file</p>
+              <p className="text-gray-300 text-[11px]">{downloadToast}</p>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (selectedCourse && subView === "upcoming") {
+    return (
+      <div className="p-6">
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+          <button onClick={() => { setSelected(null); setSubView(null); }} className="hover:text-blue-600 transition-colors">My Courses</button>
+          <span>/</span>
+          <button onClick={() => setSubView(null)} className="hover:text-blue-600 transition-colors">{selectedCourse.code}</button>
+          <span>/</span>
+          <span className="text-gray-600">Upcoming</span>
+        </div>
+        <button onClick={() => setSubView(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium cursor-pointer">
+          ← Back to {selectedCourse.code} Overview
+        </button>
+
+        <div className={`rounded-2xl border ${selectedCourse.borderColor} bg-gradient-to-r ${selectedCourse.bg} p-6 mb-6`}>
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-2 ${selectedCourse.badge}`}>{selectedCourse.code}</span>
+              <h1 className="text-xl font-bold text-gray-900">All Upcoming Items — {selectedCourse.name}</h1>
+              <p className="text-sm text-gray-500 mt-1">
+                Upcoming assessments, quizzes, and class sessions ({selectedCourse.allUpcoming.length} items scheduled)
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-gray-500 bg-white border border-gray-200 px-3 py-1.5 rounded-xl">
+              {selectedCourse.schedule} · {selectedCourse.room}
+            </span>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <div className="space-y-3">
+            {selectedCourse.allUpcoming.map((item, i) => (
+              <div key={i} className="flex items-center justify-between p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-gray-50 transition-colors gap-4">
+                <div className="flex items-center gap-3.5">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                    item.type === "Assignment" ? "bg-amber-50 text-amber-600" : item.type === "Quiz" ? "bg-purple-50 text-purple-600" : "bg-blue-50 text-blue-600"
+                  }`}>
+                    {item.type === "Assignment" ? <IconAssignment /> : item.type === "Quiz" ? <IconQuiz /> : <IconCalendar />}
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-gray-800">{item.label}</h3>
+                    <p className="text-xs text-gray-500 mt-0.5">{item.detail}</p>
+                  </div>
+                </div>
+                <div className="text-right shrink-0">
+                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+                    item.type === "Assignment" ? "bg-amber-100 text-amber-800" : item.type === "Quiz" ? "bg-purple-100 text-purple-800" : "bg-blue-100 text-blue-800"
+                  }`}>
+                    {item.type}
+                  </span>
+                  <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (selectedCourse && subView === "students") {
+    return (
+      <div className="p-6">
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+          <button onClick={() => { setSelected(null); setSubView(null); }} className="hover:text-blue-600 transition-colors">My Courses</button>
+          <span>/</span>
+          <button onClick={() => setSubView(null)} className="hover:text-blue-600 transition-colors">{selectedCourse.code}</button>
+          <span>/</span>
+          <span className="text-gray-600">Students</span>
+        </div>
+        <button onClick={() => setSubView(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium cursor-pointer">
+          ← Back to {selectedCourse.code} Overview
+        </button>
+
+        <div className={`rounded-2xl border ${selectedCourse.borderColor} bg-gradient-to-r ${selectedCourse.bg} p-6 mb-6`}>
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-2 ${selectedCourse.badge}`}>{selectedCourse.code}</span>
+              <h1 className="text-xl font-bold text-gray-900">All Students — {selectedCourse.name}</h1>
+              <p className="text-sm text-gray-500 mt-1">
+                Enrolled student roster ({selectedCourse.allStudents.length} students)
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-gray-500 bg-white border border-gray-200 px-3 py-1.5 rounded-xl">
+              {selectedCourse.students} Total Enrolled
+            </span>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-gray-50 text-xs text-gray-500 font-semibold border-b border-gray-100">
+                <tr>
+                  <th className="px-6 py-3.5">Student</th>
+                  <th className="px-6 py-3.5">Student ID</th>
+                  <th className="px-6 py-3.5">Email</th>
+                  <th className="px-6 py-3.5">Submissions</th>
+                  <th className="px-6 py-3.5">Status</th>
+                  <th className="px-6 py-3.5 text-right">Current Grade</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100 text-gray-700">
+                {selectedCourse.allStudents.map((s, i) => (
+                  <tr key={i} className="hover:bg-gray-50/70 transition-colors">
+                    <td className="px-6 py-4 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0" style={{ background: selectedCourse.color }}>
+                        {s.name.split(" ").map((n: string) => n[0]).join("")}
+                      </div>
+                      <span className="font-semibold text-gray-900">{s.name}</span>
+                    </td>
+                    <td className="px-6 py-4 text-gray-500">{s.id}</td>
+                    <td className="px-6 py-4 text-gray-500">{s.email}</td>
+                    <td className="px-6 py-4 text-gray-600">{s.submitted} / {s.total} submitted</td>
+                    <td className="px-6 py-4">
+                      <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${s.status === "At Risk" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"}`}>
+                        {s.status}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-right font-bold text-gray-900">{s.grade}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (selectedCourse) {
     return (
       <div className="p-6">
         <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
-          <button onClick={() => setActive("courses")} className="hover:text-blue-600 transition-colors">My Courses</button>
+          <button onClick={() => { setSelected(null); setSubView(null); }} className="hover:text-blue-600 transition-colors">My Courses</button>
           <span>/</span>
           <span className="text-gray-600">{selectedCourse.code}</span>
         </div>
-        <button onClick={() => setSelected(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium">
+        <button onClick={() => { setSelected(null); setSubView(null); }} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium">
           ← Back to All Courses
         </button>
 
@@ -686,7 +1458,10 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
         <div className="grid sm:grid-cols-3 gap-6">
           {/* Topics */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-            <h2 className="text-sm font-bold text-gray-800 mb-3">Course Topics</h2>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-sm font-bold text-gray-800">Course Topics</h2>
+              <button onClick={() => setSubView("topics")} className="text-xs text-blue-600 font-medium hover:underline cursor-pointer">View All</button>
+            </div>
             <div className="space-y-2">
               {selectedCourse.topics.map((t, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
@@ -701,7 +1476,10 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
 
           {/* Upcoming */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-            <h2 className="text-sm font-bold text-gray-800 mb-3">Upcoming</h2>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-sm font-bold text-gray-800">Upcoming</h2>
+              <button onClick={() => setSubView("upcoming")} className="text-xs text-blue-600 font-medium hover:underline cursor-pointer">View All</button>
+            </div>
             <div className="space-y-3">
               {selectedCourse.upcoming.map((u, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -717,11 +1495,11 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
             </div>
           </div>
 
-          {/* Top Students */}
+          {/* Students */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm font-bold text-gray-800">Students (Sample)</h2>
-              <button onClick={() => setActive("students")} className="text-xs text-blue-600 font-medium hover:underline">View All</button>
+              <h2 className="text-sm font-bold text-gray-800">Students</h2>
+              <button onClick={() => setSubView("students")} className="text-xs text-blue-600 font-medium hover:underline cursor-pointer">View All</button>
             </div>
             <div className="space-y-3">
               {selectedCourse.students_list.map((s, i) => (
@@ -1256,17 +2034,8 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
 // ── Learning Materials Page ───────────────────────────────────────────────────
 function LearningMaterialsPage() {
   const [filter, setFilter] = useState("all");
-
-  const materials = [
-    { title: "Week 5 Lecture Slides", course: "ICT272", type: "Slides", size: "3.2 MB", date: "Sep 2, 2026", icon: "📊" },
-    { title: "AI Ethics Reading Guide", course: "ICT126", type: "Document", size: "1.1 MB", date: "Sep 1, 2026", icon: "📄" },
-    { title: "Project Milestone 2 Rubric", course: "ICT301", type: "Document", size: "0.5 MB", date: "Aug 30, 2026", icon: "📋" },
-    { title: "React Tutorial – Week 5", course: "ICT272", type: "Video", size: "480 MB", date: "Aug 29, 2026", icon: "🎬" },
-    { title: "Neural Networks Intro Video", course: "ICT126", type: "Video", size: "620 MB", date: "Aug 28, 2026", icon: "🎬" },
-    { title: "Agile Methodology Handbook", course: "ICT301", type: "Document", size: "2.8 MB", date: "Aug 27, 2026", icon: "📄" },
-    { title: "CSS Grid & Flexbox Cheatsheet", course: "ICT272", type: "Document", size: "0.8 MB", date: "Aug 26, 2026", icon: "📄" },
-    { title: "ML Algorithm Comparison Chart", course: "ICT126", type: "Slides", size: "4.5 MB", date: "Aug 25, 2026", icon: "📊" },
-  ];
+  const [previewMaterial, setPreviewMaterial] = useState<LearningMaterialItem | null>(null);
+  const [downloadToast, setDownloadToast] = useState<string | null>(null);
 
   const courseColors: Record<string, string> = {
     ICT301: "bg-blue-100 text-blue-700",
@@ -1274,7 +2043,16 @@ function LearningMaterialsPage() {
     ICT126: "bg-purple-100 text-purple-700",
   };
 
-  const filtered = filter === "all" ? materials : materials.filter((m) => m.course === filter || m.type.toLowerCase() === filter.toLowerCase());
+  const handleDownload = (m: LearningMaterialItem) => {
+    setDownloadToast(`${m.title} (${m.size})`);
+    setTimeout(() => {
+      setDownloadToast(null);
+    }, 3500);
+  };
+
+  const filtered = filter === "all"
+    ? INSTRUCTOR_LEARNING_MATERIALS
+    : INSTRUCTOR_LEARNING_MATERIALS.filter((m) => m.course === filter || m.type.toLowerCase() === filter.toLowerCase());
 
   return (
     <div className="p-6">
@@ -1293,7 +2071,7 @@ function LearningMaterialsPage() {
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors ${filter === f ? "text-white" : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"}`}
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors ${filter === f ? "text-white" : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 cursor-pointer"}`}
             style={filter === f ? { background: "#1a3a9e" } : {}}
           >
             {f === "all" ? "All Materials" : f}
@@ -1302,26 +2080,61 @@ function LearningMaterialsPage() {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filtered.map((m, i) => (
-          <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 hover:shadow-md transition-shadow group">
-            <div className="flex items-start justify-between mb-3">
-              <span className="text-2xl">{m.icon}</span>
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${courseColors[m.course]}`}>{m.course}</span>
+        {filtered.map((m) => (
+          <div
+            key={m.id}
+            onClick={() => setPreviewMaterial(m)}
+            className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 hover:shadow-md transition-shadow group cursor-pointer flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-start justify-between mb-3">
+                <span className="text-2xl p-1 rounded-lg bg-gray-50">{m.icon}</span>
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${courseColors[m.course] || "bg-gray-100 text-gray-700"}`}>{m.course}</span>
+              </div>
+              <h3 className="text-sm font-bold text-gray-800 leading-snug mb-1 group-hover:text-blue-600 transition-colors">{m.title}</h3>
+              <p className="text-[10px] text-gray-500 mb-1">
+                {m.week ? `Week ${m.week} · ` : ""}{m.type} · {m.size}
+              </p>
+              <p className="text-[10px] text-gray-400 mb-4">Uploaded {m.date}</p>
             </div>
-            <h3 className="text-sm font-bold text-gray-800 leading-snug mb-1">{m.title}</h3>
-            <p className="text-[10px] text-gray-500 mb-1">{m.type} · {m.size}</p>
-            <p className="text-[10px] text-gray-400 mb-4">Uploaded {m.date}</p>
-            <div className="flex gap-2">
-              <button className="flex-1 flex items-center justify-center gap-1 text-xs font-semibold py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+            <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
+              <button
+                onClick={() => setPreviewMaterial(m)}
+                className="flex-1 flex items-center justify-center gap-1 text-xs font-semibold py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer"
+              >
                 <IconEye /><span>Preview</span>
               </button>
-              <button className="p-1.5 rounded-xl bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors">
+              <button
+                onClick={() => handleDownload(m)}
+                className="p-1.5 rounded-xl bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors cursor-pointer"
+                title="Download"
+              >
                 <IconDownload />
               </button>
             </div>
           </div>
         ))}
       </div>
+
+      {previewMaterial && (
+        <MaterialPreviewModal
+          material={previewMaterial}
+          onClose={() => setPreviewMaterial(null)}
+          onDownload={handleDownload}
+        />
+      )}
+
+      {downloadToast && (
+        <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
+            <IconDownload className="w-3.5 h-3.5" />
+          </div>
+          <div>
+            <p className="font-semibold text-white">Downloading file</p>
+            <p className="text-gray-300 text-[11px]">{downloadToast}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -2149,9 +2962,15 @@ function Footer() {
 export default function InstructorDashboard({ onLogout = () => {} }: { onLogout?: () => void }) {
   const [active, setActive] = useState("dashboard");
   const [collapsed, setCollapsed] = useState(false);
+  const [userName, setUserName] = useState("Prof. Sarita Koirala");
 
-  const sessionUser  = getSessionUser();
-  const userName     = sessionUser?.name ?? "Prof. Sarita Koirala";
+  useEffect(() => {
+    const sessionUser = getSessionUser();
+    if (sessionUser?.name) {
+      setUserName(sessionUser.name);
+    }
+  }, []);
+
   const userInitials = getInitials(userName);
 
   const sidebarPx = collapsed ? "64px" : "224px";

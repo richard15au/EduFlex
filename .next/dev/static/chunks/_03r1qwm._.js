@@ -1212,6 +1212,79 @@ const Arrow = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5
         columnNumber: 21
     }, ("TURBOPACK compile-time value", void 0));
 _c = Arrow;
+function EyeIcon({ className = "h-5 w-5" }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        className: className,
+        "aria-hidden": "true",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+            }, void 0, false, {
+                fileName: "[project]/src/PublicPages.tsx",
+                lineNumber: 23,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "12",
+                cy: "12",
+                r: "3"
+            }, void 0, false, {
+                fileName: "[project]/src/PublicPages.tsx",
+                lineNumber: 24,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/PublicPages.tsx",
+        lineNumber: 12,
+        columnNumber: 5
+    }, this);
+}
+_c1 = EyeIcon;
+function EyeOffIcon({ className = "h-5 w-5" }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        className: className,
+        "aria-hidden": "true",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+            }, void 0, false, {
+                fileName: "[project]/src/PublicPages.tsx",
+                lineNumber: 42,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                x1: "1",
+                y1: "1",
+                x2: "23",
+                y2: "23"
+            }, void 0, false, {
+                fileName: "[project]/src/PublicPages.tsx",
+                lineNumber: 43,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/PublicPages.tsx",
+        lineNumber: 31,
+        columnNumber: 5
+    }, this);
+}
+_c2 = EyeOffIcon;
 function Brand({ light = false }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
         href: "/",
@@ -1227,17 +1300,17 @@ function Brand({ light = false }) {
                         d: "M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"
                     }, void 0, false, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 14,
+                        lineNumber: 52,
                         columnNumber: 74
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 14,
+                    lineNumber: 52,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 13,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1245,17 +1318,17 @@ function Brand({ light = false }) {
                 children: "EduFlex"
             }, void 0, false, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 16,
+                lineNumber: 54,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/PublicPages.tsx",
-        lineNumber: 12,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 }
-_c1 = Brand;
+_c3 = Brand;
 function HomePage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-[#f8f9fe] text-[#193e9f]",
@@ -1265,7 +1338,7 @@ function HomePage() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Brand, {}, void 0, false, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 25,
+                        lineNumber: 63,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1277,7 +1350,7 @@ function HomePage() {
                                 children: "Learning"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 27,
+                                lineNumber: 65,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1286,13 +1359,13 @@ function HomePage() {
                                 children: "About EduFlex"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 28,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 26,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1304,7 +1377,7 @@ function HomePage() {
                                 children: "Log in"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 31,
+                                lineNumber: 69,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1313,19 +1386,19 @@ function HomePage() {
                                 children: "Register"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 32,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 30,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 24,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1338,7 +1411,7 @@ function HomePage() {
                                 className: "h-px w-6 bg-[#5771bd]"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 38,
+                                lineNumber: 76,
                                 columnNumber: 11
                             }, this),
                             "EDUCATION, MADE FLEXIBLE",
@@ -1346,13 +1419,13 @@ function HomePage() {
                                 className: "h-px w-6 bg-[#5771bd]"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 40,
+                                lineNumber: 78,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 37,
+                        lineNumber: 75,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1361,7 +1434,7 @@ function HomePage() {
                             "Your learning,",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 43,
+                                lineNumber: 81,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1369,13 +1442,13 @@ function HomePage() {
                                 children: "in one place."
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 43,
+                                lineNumber: 81,
                                 columnNumber: 31
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 42,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1383,7 +1456,7 @@ function HomePage() {
                         children: "A simple and smart platform for students, instructors, and administrators."
                     }, void 0, false, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 45,
+                        lineNumber: 83,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1395,7 +1468,7 @@ function HomePage() {
                                 children: "Log in"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 49,
+                                lineNumber: 87,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1404,13 +1477,13 @@ function HomePage() {
                                 children: "Create an account"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 50,
+                                lineNumber: 88,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 48,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1420,7 +1493,7 @@ function HomePage() {
                                 className: "h-px w-16 bg-[#3675ea]"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 55,
+                                lineNumber: 93,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -1431,45 +1504,46 @@ function HomePage() {
                                     d: "M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"
                                 }, void 0, false, {
                                     fileName: "[project]/src/PublicPages.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 94,
                                     columnNumber: 91
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 56,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "h-px w-16 bg-[#3675ea]"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 57,
+                                lineNumber: 95,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 54,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 36,
+                lineNumber: 74,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/PublicPages.tsx",
-        lineNumber: 23,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 }
-_c2 = HomePage;
+_c4 = HomePage;
 function LoginPage() {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [showPassword, setShowPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const emailRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const passwordRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const submit = (event)=>{
@@ -1500,17 +1574,36 @@ function LoginPage() {
                     ref: emailRef
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 86,
+                    lineNumber: 125,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FieldRef, {
                     label: "Password",
-                    type: "password",
+                    type: showPassword ? "text" : "password",
                     placeholder: "••••••••",
-                    ref: passwordRef
+                    ref: passwordRef,
+                    rightElement: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: ()=>setShowPassword((prev)=>!prev),
+                        className: "absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-600 focus:outline-none",
+                        "aria-label": showPassword ? "Hide password" : "Show password",
+                        children: showPassword ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EyeOffIcon, {}, void 0, false, {
+                            fileName: "[project]/src/PublicPages.tsx",
+                            lineNumber: 138,
+                            columnNumber: 31
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EyeIcon, {}, void 0, false, {
+                            fileName: "[project]/src/PublicPages.tsx",
+                            lineNumber: 138,
+                            columnNumber: 48
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/PublicPages.tsx",
+                        lineNumber: 132,
+                        columnNumber: 13
+                    }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 87,
+                    lineNumber: 126,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1524,14 +1617,14 @@ function LoginPage() {
                                     className: "accent-[#173b9f]"
                                 }, void 0, false, {
                                     fileName: "[project]/src/PublicPages.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 143,
                                     columnNumber: 69
                                 }, this),
                                 "Remember me"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 89,
+                            lineNumber: 143,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1540,13 +1633,13 @@ function LoginPage() {
                             children: "Forgot password?"
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 90,
+                            lineNumber: 144,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 88,
+                    lineNumber: 142,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1554,7 +1647,7 @@ function LoginPage() {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 92,
+                    lineNumber: 146,
                     columnNumber: 19
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1563,33 +1656,33 @@ function LoginPage() {
                         "Log in ",
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Arrow, {}, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 93,
+                            lineNumber: 147,
                             columnNumber: 206
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 93,
+                    lineNumber: 147,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/PublicPages.tsx",
-            lineNumber: 85,
+            lineNumber: 124,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/PublicPages.tsx",
-        lineNumber: 84,
+        lineNumber: 123,
         columnNumber: 5
     }, this);
 }
-_s(LoginPage, "0OHfcf1BmZLOqakjcPr/AY8Vevw=", false, function() {
+_s(LoginPage, "4d64ST6hmDfiWAfGpHfk3jZVt94=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });
-_c3 = LoginPage;
+_c5 = LoginPage;
 function RegisterPage() {
     _s1();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
@@ -1597,6 +1690,8 @@ function RegisterPage() {
     const emailRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const passwordRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const confirmPasswordRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const [showPassword, setShowPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [showConfirmPassword, setShowConfirmPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [passwordError, setPasswordError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const submit = (event)=>{
         event.preventDefault();
@@ -1633,7 +1728,7 @@ function RegisterPage() {
                     ref: nameRef
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 125,
+                    lineNumber: 181,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FieldRef, {
@@ -1643,17 +1738,36 @@ function RegisterPage() {
                     ref: emailRef
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 126,
+                    lineNumber: 182,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FieldRef, {
                     label: "Create password",
-                    type: "password",
+                    type: showPassword ? "text" : "password",
                     placeholder: "At least 8 characters",
-                    ref: passwordRef
+                    ref: passwordRef,
+                    rightElement: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: ()=>setShowPassword((prev)=>!prev),
+                        className: "absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-600 focus:outline-none",
+                        "aria-label": showPassword ? "Hide password" : "Show password",
+                        children: showPassword ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EyeOffIcon, {}, void 0, false, {
+                            fileName: "[project]/src/PublicPages.tsx",
+                            lineNumber: 195,
+                            columnNumber: 31
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EyeIcon, {}, void 0, false, {
+                            fileName: "[project]/src/PublicPages.tsx",
+                            lineNumber: 195,
+                            columnNumber: 48
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/PublicPages.tsx",
+                        lineNumber: 189,
+                        columnNumber: 13
+                    }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 127,
+                    lineNumber: 183,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1661,12 +1775,31 @@ function RegisterPage() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FieldRef, {
                             label: "Confirm password",
-                            type: "password",
+                            type: showConfirmPassword ? "text" : "password",
                             placeholder: "Re-enter your password",
-                            ref: confirmPasswordRef
+                            ref: confirmPasswordRef,
+                            rightElement: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                type: "button",
+                                onClick: ()=>setShowConfirmPassword((prev)=>!prev),
+                                className: "absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-600 focus:outline-none",
+                                "aria-label": showConfirmPassword ? "Hide password" : "Show password",
+                                children: showConfirmPassword ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EyeOffIcon, {}, void 0, false, {
+                                    fileName: "[project]/src/PublicPages.tsx",
+                                    lineNumber: 212,
+                                    columnNumber: 40
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EyeIcon, {}, void 0, false, {
+                                    fileName: "[project]/src/PublicPages.tsx",
+                                    lineNumber: 212,
+                                    columnNumber: 57
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/PublicPages.tsx",
+                                lineNumber: 206,
+                                columnNumber: 15
+                            }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 129,
+                            lineNumber: 200,
                             columnNumber: 11
                         }, this),
                         passwordError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1674,13 +1807,13 @@ function RegisterPage() {
                             children: passwordError
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 130,
+                            lineNumber: 216,
                             columnNumber: 29
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 128,
+                    lineNumber: 199,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1692,14 +1825,14 @@ function RegisterPage() {
                             className: "mt-1 accent-[#173b9f]"
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 132,
+                            lineNumber: 218,
                             columnNumber: 84
                         }, this),
                         "I agree to the Terms of Service and Privacy Policy."
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 132,
+                    lineNumber: 218,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1708,55 +1841,65 @@ function RegisterPage() {
                         "Create account ",
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Arrow, {}, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 133,
+                            lineNumber: 219,
                             columnNumber: 214
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 133,
+                    lineNumber: 219,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/PublicPages.tsx",
-            lineNumber: 124,
+            lineNumber: 180,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/PublicPages.tsx",
-        lineNumber: 123,
+        lineNumber: 179,
         columnNumber: 5
     }, this);
 }
-_s1(RegisterPage, "AWNUDGFk94s+cFPrWFVx10wsuzI=", false, function() {
+_s1(RegisterPage, "MitU/d6wgB8N/xBNYSaTX32yn4E=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });
-_c4 = RegisterPage;
-const FieldRef = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(({ label, type = "text", placeholder }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+_c6 = RegisterPage;
+const FieldRef = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(({ label, type = "text", placeholder, rightElement }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
         className: "block text-sm font-semibold text-slate-700",
         children: [
             label,
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                required: true,
-                ref: ref,
-                type: type,
-                placeholder: placeholder,
-                className: "mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-700 outline-none placeholder:text-slate-400 focus:border-[#173b9f] focus:ring-2 focus:ring-blue-100"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "relative mt-2",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                        required: true,
+                        ref: ref,
+                        type: type,
+                        placeholder: placeholder,
+                        className: `w-full rounded-xl border border-slate-200 bg-white py-3 text-sm font-normal text-slate-700 outline-none placeholder:text-slate-400 focus:border-[#173b9f] focus:ring-2 focus:ring-blue-100 ${rightElement ? "pl-4 pr-11" : "px-4"}`
+                    }, void 0, false, {
+                        fileName: "[project]/src/PublicPages.tsx",
+                        lineNumber: 232,
+                        columnNumber: 7
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    rightElement
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 143,
-                columnNumber: 7
+                lineNumber: 231,
+                columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/PublicPages.tsx",
-        lineNumber: 141,
-        columnNumber: 5
+        lineNumber: 229,
+        columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)));
-_c5 = FieldRef;
+_c7 = FieldRef;
 FieldRef.displayName = "FieldRef";
 function AuthLayout({ eyebrow, title, note, link, to, children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1769,7 +1912,7 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                         light: true
                     }, void 0, false, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 153,
+                        lineNumber: 251,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1780,7 +1923,7 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                                 children: "EduFlex learning portal"
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 155,
+                                lineNumber: 253,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1788,7 +1931,7 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                                 children: "The whole learning day, in one place."
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 156,
+                                lineNumber: 254,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1796,13 +1939,13 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                                 children: "Plan, teach, connect, and celebrate every step of progress."
                             }, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 157,
+                                lineNumber: 255,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 154,
+                        lineNumber: 252,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1810,20 +1953,20 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                         children: "Simple and smart system"
                     }, void 0, false, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 159,
+                        lineNumber: 257,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "absolute -bottom-40 -right-32 h-96 w-96 rounded-full border-[50px] border-blue-400/30"
                     }, void 0, false, {
                         fileName: "[project]/src/PublicPages.tsx",
-                        lineNumber: 160,
+                        lineNumber: 258,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 152,
+                lineNumber: 250,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1835,12 +1978,12 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                             className: "lg:hidden",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Brand, {}, void 0, false, {
                                 fileName: "[project]/src/PublicPages.tsx",
-                                lineNumber: 164,
+                                lineNumber: 262,
                                 columnNumber: 38
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 164,
+                            lineNumber: 262,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1848,7 +1991,7 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                             children: eyebrow
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 165,
+                            lineNumber: 263,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1856,7 +1999,7 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                             children: title
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 166,
+                            lineNumber: 264,
                             columnNumber: 11
                         }, this),
                         children,
@@ -1871,13 +2014,13 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                                     children: link
                                 }, void 0, false, {
                                     fileName: "[project]/src/PublicPages.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 267,
                                     columnNumber: 20
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 168,
+                            lineNumber: 266,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1886,36 +2029,38 @@ function AuthLayout({ eyebrow, title, note, link, to, children }) {
                             children: "← Back to EduFlex"
                         }, void 0, false, {
                             fileName: "[project]/src/PublicPages.tsx",
-                            lineNumber: 171,
+                            lineNumber: 269,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/PublicPages.tsx",
-                    lineNumber: 163,
+                    lineNumber: 261,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/PublicPages.tsx",
-                lineNumber: 162,
+                lineNumber: 260,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/PublicPages.tsx",
-        lineNumber: 151,
+        lineNumber: 249,
         columnNumber: 5
     }, this);
 }
-_c6 = AuthLayout;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6;
+_c8 = AuthLayout;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8;
 __turbopack_context__.k.register(_c, "Arrow");
-__turbopack_context__.k.register(_c1, "Brand");
-__turbopack_context__.k.register(_c2, "HomePage");
-__turbopack_context__.k.register(_c3, "LoginPage");
-__turbopack_context__.k.register(_c4, "RegisterPage");
-__turbopack_context__.k.register(_c5, "FieldRef");
-__turbopack_context__.k.register(_c6, "AuthLayout");
+__turbopack_context__.k.register(_c1, "EyeIcon");
+__turbopack_context__.k.register(_c2, "EyeOffIcon");
+__turbopack_context__.k.register(_c3, "Brand");
+__turbopack_context__.k.register(_c4, "HomePage");
+__turbopack_context__.k.register(_c5, "LoginPage");
+__turbopack_context__.k.register(_c6, "RegisterPage");
+__turbopack_context__.k.register(_c7, "FieldRef");
+__turbopack_context__.k.register(_c8, "AuthLayout");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

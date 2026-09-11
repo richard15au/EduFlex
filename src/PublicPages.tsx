@@ -2,10 +2,48 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { forwardRef, FormEvent, useRef, useState } from "react";
+import { forwardRef, FormEvent, useRef, useState, ReactNode } from "react";
 import { registerUser, loginUser } from "./auth";
 
 const Arrow = () => <span aria-hidden="true" className="text-lg leading-none">→</span>;
+
+function EyeIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+function EyeOffIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+      <line x1="1" y1="1" x2="23" y2="23" />
+    </svg>
+  );
+}
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
@@ -65,6 +103,7 @@ export function HomePage() {
 export function LoginPage() {
   const router = useRouter();
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -84,7 +123,22 @@ export function LoginPage() {
     <AuthLayout eyebrow="Welcome back" title="Pick up where you left off." note="New to EduFlex?" link="Create an account" to="/register">
       <form onSubmit={submit} className="mt-8 space-y-4">
         <FieldRef label="Email address" type="email" placeholder="you@eduflex.edu" ref={emailRef} />
-        <FieldRef label="Password" type="password" placeholder="••••••••" ref={passwordRef} />
+        <FieldRef
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          placeholder="••••••••"
+          ref={passwordRef}
+          rightElement={
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-600 focus:outline-none"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+            </button>
+          }
+        />
         <div className="flex items-center justify-between text-sm">
           <label className="flex items-center gap-2 text-slate-500"><input type="checkbox" className="accent-[#173b9f]" />Remember me</label>
           <button type="button" className="font-semibold text-[#173b9f]">Forgot password?</button>
@@ -102,6 +156,8 @@ export function RegisterPage() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
 
   const submit = (event: FormEvent) => {
@@ -124,9 +180,39 @@ export function RegisterPage() {
       <form onSubmit={submit} className="mt-8 grid gap-4">
         <FieldRef label="Full name" placeholder="Your full name" ref={nameRef} />
         <FieldRef label="Email address" type="email" placeholder="you@eduflex.edu" ref={emailRef} />
-        <FieldRef label="Create password" type="password" placeholder="At least 8 characters" ref={passwordRef} />
+        <FieldRef
+          label="Create password"
+          type={showPassword ? "text" : "password"}
+          placeholder="At least 8 characters"
+          ref={passwordRef}
+          rightElement={
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-600 focus:outline-none"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+            </button>
+          }
+        />
         <div className="grid gap-1">
-          <FieldRef label="Confirm password" type="password" placeholder="Re-enter your password" ref={confirmPasswordRef} />
+          <FieldRef
+            label="Confirm password"
+            type={showConfirmPassword ? "text" : "password"}
+            placeholder="Re-enter your password"
+            ref={confirmPasswordRef}
+            rightElement={
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword((prev) => !prev)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-600 focus:outline-none"
+                aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+              >
+                {showConfirmPassword ? <EyeOffIcon /> : <EyeIcon />}
+              </button>
+            }
+          />
           {passwordError && <p className="text-xs text-red-500">{passwordError}</p>}
         </div>
         <label className="flex items-start gap-2 text-xs leading-5 text-slate-500"><input required type="checkbox" className="mt-1 accent-[#173b9f]" />I agree to the Terms of Service and Privacy Policy.</label>
@@ -136,14 +222,26 @@ export function RegisterPage() {
   );
 }
 
-const FieldRef = forwardRef<HTMLInputElement, { label: string; type?: string; placeholder: string }>(
-  ({ label, type = "text", placeholder }, ref) => (
-    <label className="block text-sm font-semibold text-slate-700">
-      {label}
-      <input required ref={ref} type={type} placeholder={placeholder} className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-700 outline-none placeholder:text-slate-400 focus:border-[#173b9f] focus:ring-2 focus:ring-blue-100" />
-    </label>
-  )
-);
+const FieldRef = forwardRef<
+  HTMLInputElement,
+  { label: string; type?: string; placeholder: string; rightElement?: ReactNode }
+>(({ label, type = "text", placeholder, rightElement }, ref) => (
+  <label className="block text-sm font-semibold text-slate-700">
+    {label}
+    <div className="relative mt-2">
+      <input
+        required
+        ref={ref}
+        type={type}
+        placeholder={placeholder}
+        className={`w-full rounded-xl border border-slate-200 bg-white py-3 text-sm font-normal text-slate-700 outline-none placeholder:text-slate-400 focus:border-[#173b9f] focus:ring-2 focus:ring-blue-100 ${
+          rightElement ? "pl-4 pr-11" : "px-4"
+        }`}
+      />
+      {rightElement}
+    </div>
+  </label>
+));
 FieldRef.displayName = "FieldRef";
 
 function AuthLayout({ eyebrow, title, note, link, to, children }: { eyebrow: string; title: string; note: string; link: string; to: string; children: React.ReactNode }) {

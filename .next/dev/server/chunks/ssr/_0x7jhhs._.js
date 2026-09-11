@@ -62,12 +62,12 @@ const IconGraduationCap = ({ className = "w-6 h-6" })=>/*#__PURE__*/ (0, __TURBO
             d: "M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 15,
+            lineNumber: 26,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 14,
+        lineNumber: 25,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconDashboard = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -78,12 +78,12 @@ const IconDashboard = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$p
             d: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 20,
+            lineNumber: 31,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 19,
+        lineNumber: 30,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconBook = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -97,20 +97,20 @@ const IconBook = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$projec
                 d: "M4 19.5A2.5 2.5 0 016.5 17H20"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 25,
+                lineNumber: 36,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 25,
+                lineNumber: 36,
                 columnNumber: 47
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 24,
+        lineNumber: 35,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconAssignment = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -128,7 +128,7 @@ const IconAssignment = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$
                 rx: "2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 30,
+                lineNumber: 41,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -138,7 +138,7 @@ const IconAssignment = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$
                 y2: "7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 30,
+                lineNumber: 41,
                 columnNumber: 55
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -148,7 +148,7 @@ const IconAssignment = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$
                 y2: "11"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 30,
+                lineNumber: 41,
                 columnNumber: 92
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -158,13 +158,13 @@ const IconAssignment = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$
                 y2: "15"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 30,
+                lineNumber: 41,
                 columnNumber: 131
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 29,
+        lineNumber: 40,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconQuiz = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -180,14 +180,14 @@ const IconQuiz = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$projec
                 r: "10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 35,
+                lineNumber: 46,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 35,
+                lineNumber: 46,
                 columnNumber: 38
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -197,13 +197,13 @@ const IconQuiz = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$projec
                 y2: "17"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 35,
+                lineNumber: 46,
                 columnNumber: 85
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 34,
+        lineNumber: 45,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconFolder = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -216,12 +216,12 @@ const IconFolder = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
             d: "M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 40,
+            lineNumber: 51,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 39,
+        lineNumber: 50,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconGrades = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -234,12 +234,12 @@ const IconGrades = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
             points: "22 12 18 12 15 21 9 3 6 12 2 12"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 45,
+            lineNumber: 56,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 44,
+        lineNumber: 55,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconCalendar = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -257,7 +257,7 @@ const IconCalendar = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pr
                 rx: "2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 50,
+                lineNumber: 61,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -267,7 +267,7 @@ const IconCalendar = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pr
                 y2: "6"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 50,
+                lineNumber: 61,
                 columnNumber: 55
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -277,7 +277,7 @@ const IconCalendar = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pr
                 y2: "6"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 50,
+                lineNumber: 61,
                 columnNumber: 93
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -287,13 +287,13 @@ const IconCalendar = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pr
                 y2: "10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 50,
+                lineNumber: 61,
                 columnNumber: 129
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 49,
+        lineNumber: 60,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconAnnouncement = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -307,27 +307,27 @@ const IconAnnouncement = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5
                 points: "11 5 6 9 2 9 2 15 6 15 11 19 11 5"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 55,
+                lineNumber: 66,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M15.54 8.46a5 5 0 010 7.07"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 56,
+                lineNumber: 67,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M19.07 4.93a10 10 0 010 14.14"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 57,
+                lineNumber: 68,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 54,
+        lineNumber: 65,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconMessage = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -340,12 +340,12 @@ const IconMessage = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pro
             d: "M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 62,
+            lineNumber: 73,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 61,
+        lineNumber: 72,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconProfile = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -359,7 +359,7 @@ const IconProfile = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pro
                 d: "M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 67,
+                lineNumber: 78,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -368,13 +368,13 @@ const IconProfile = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pro
                 r: "4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 67,
+                lineNumber: 78,
                 columnNumber: 57
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 66,
+        lineNumber: 77,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconSettings = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -390,20 +390,20 @@ const IconSettings = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$pr
                 r: "3"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 72,
+                lineNumber: 83,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 72,
+                lineNumber: 83,
                 columnNumber: 37
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 71,
+        lineNumber: 82,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconLogout = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -417,14 +417,14 @@ const IconLogout = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
                 d: "M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 77,
+                lineNumber: 88,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "16 17 21 12 16 7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 77,
+                lineNumber: 88,
                 columnNumber: 54
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -434,13 +434,13 @@ const IconLogout = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
                 y2: "12"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 77,
+                lineNumber: 88,
                 columnNumber: 92
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 76,
+        lineNumber: 87,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconBell = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -454,20 +454,20 @@ const IconBell = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$projec
                 d: "M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 82,
+                lineNumber: 93,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M13.73 21a2 2 0 01-3.46 0"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 82,
+                lineNumber: 93,
                 columnNumber: 59
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 81,
+        lineNumber: 92,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconMail = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -481,20 +481,20 @@ const IconMail = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$projec
                 d: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 87,
+                lineNumber: 98,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "22,6 12,13 2,6"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 87,
+                lineNumber: 98,
                 columnNumber: 93
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 86,
+        lineNumber: 97,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconSearch = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -510,7 +510,7 @@ const IconSearch = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
                 r: "8"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 92,
+                lineNumber: 103,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -520,13 +520,13 @@ const IconSearch = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
                 y2: "16.65"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 92,
+                lineNumber: 103,
                 columnNumber: 37
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 91,
+        lineNumber: 102,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconChevronRight = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -539,12 +539,12 @@ const IconChevronRight = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5
             points: "9 18 15 12 9 6"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 97,
+            lineNumber: 108,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 96,
+        lineNumber: 107,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconChevronsLeft = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -558,20 +558,20 @@ const IconChevronsLeft = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5
                 points: "11 17 6 12 11 7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 102,
+                lineNumber: 113,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "18 17 13 12 18 7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 102,
+                lineNumber: 113,
                 columnNumber: 42
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 101,
+        lineNumber: 112,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconChevronsRight = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -585,20 +585,20 @@ const IconChevronsRight = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$
                 points: "13 17 18 12 13 7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 107,
+                lineNumber: 118,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "6 17 11 12 6 7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 107,
+                lineNumber: 118,
                 columnNumber: 43
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 106,
+        lineNumber: 117,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconCheck = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -611,12 +611,12 @@ const IconCheck = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proje
             points: "20 6 9 17 4 12"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 112,
+            lineNumber: 123,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 111,
+        lineNumber: 122,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconChevronDown = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -629,12 +629,12 @@ const IconChevronDown = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPA
             points: "6 9 12 15 18 9"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 117,
+            lineNumber: 128,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 116,
+        lineNumber: 127,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconClipboardList = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -652,7 +652,7 @@ const IconClipboardList = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBO
                 rx: "2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 122,
+                lineNumber: 133,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -662,7 +662,7 @@ const IconClipboardList = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBO
                 y2: "7"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 122,
+                lineNumber: 133,
                 columnNumber: 55
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -672,7 +672,7 @@ const IconClipboardList = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBO
                 y2: "11"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 122,
+                lineNumber: 133,
                 columnNumber: 92
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -682,13 +682,13 @@ const IconClipboardList = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBO
                 y2: "15"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 122,
+                lineNumber: 133,
                 columnNumber: 131
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 121,
+        lineNumber: 132,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconAlertCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -704,7 +704,7 @@ const IconAlertCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPA
                 r: "10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 127,
+                lineNumber: 138,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -714,7 +714,7 @@ const IconAlertCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPA
                 y2: "12"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 127,
+                lineNumber: 138,
                 columnNumber: 38
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -724,13 +724,13 @@ const IconAlertCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPA
                 y2: "16"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 127,
+                lineNumber: 138,
                 columnNumber: 77
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 126,
+        lineNumber: 137,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconCheckCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -744,20 +744,20 @@ const IconCheckCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPA
                 d: "M22 11.08V12a10 10 0 11-5.93-9.14"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 132,
+                lineNumber: 143,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "22 4 12 14.01 9 11.01"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 132,
+                lineNumber: 143,
                 columnNumber: 51
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 131,
+        lineNumber: 142,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconXCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -773,7 +773,7 @@ const IconXCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__
                 r: "10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 137,
+                lineNumber: 148,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -783,7 +783,7 @@ const IconXCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__
                 y2: "15"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 137,
+                lineNumber: 148,
                 columnNumber: 38
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -793,13 +793,13 @@ const IconXCircle = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__
                 y2: "15"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 137,
+                lineNumber: 148,
                 columnNumber: 76
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 136,
+        lineNumber: 147,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconClock = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -815,20 +815,20 @@ const IconClock = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 r: "10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 142,
+                lineNumber: 153,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "12 6 12 12 16 14"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 142,
+                lineNumber: 153,
                 columnNumber: 38
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 141,
+        lineNumber: 152,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 // ── Nav items ─────────────────────────────────────────────────────────────────
@@ -837,7 +837,7 @@ const navItems = [
         label: "Dashboard",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDashboard, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 148,
+            lineNumber: 159,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "dashboard"
@@ -846,7 +846,7 @@ const navItems = [
         label: "My Courses",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 149,
+            lineNumber: 160,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "courses"
@@ -855,7 +855,7 @@ const navItems = [
         label: "Assignments",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 150,
+            lineNumber: 161,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "assignments"
@@ -864,7 +864,7 @@ const navItems = [
         label: "Quizzes",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 151,
+            lineNumber: 162,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "quizzes"
@@ -873,7 +873,7 @@ const navItems = [
         label: "Learning Materials",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 152,
+            lineNumber: 163,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "materials"
@@ -882,7 +882,7 @@ const navItems = [
         label: "Grades",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconGrades, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 153,
+            lineNumber: 164,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "grades"
@@ -891,7 +891,7 @@ const navItems = [
         label: "Calendar",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 154,
+            lineNumber: 165,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "calendar"
@@ -900,7 +900,7 @@ const navItems = [
         label: "Announcements",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAnnouncement, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 155,
+            lineNumber: 166,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "announcements"
@@ -909,7 +909,7 @@ const navItems = [
         label: "Messages",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconMessage, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 156,
+            lineNumber: 167,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "messages"
@@ -918,7 +918,7 @@ const navItems = [
         label: "Profile",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconProfile, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 157,
+            lineNumber: 168,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "profile"
@@ -927,7 +927,7 @@ const navItems = [
         label: "Settings",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSettings, {}, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 158,
+            lineNumber: 169,
             columnNumber: 39
         }, ("TURBOPACK compile-time value", void 0)),
         id: "settings"
@@ -953,7 +953,7 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                             className: "w-7 h-7"
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 185,
+                            lineNumber: 196,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -961,13 +961,13 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                             children: "EF"
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 186,
+                            lineNumber: 197,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 180,
+                    lineNumber: 191,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                     children: [
@@ -975,7 +975,7 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                             className: "w-6 h-6 text-white shrink-0"
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 190,
+                            lineNumber: 201,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -986,7 +986,7 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                                     children: "EduFlex"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 203,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -994,13 +994,13 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                                     children: "Simple and Smart system"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 193,
+                                    lineNumber: 204,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 191,
+                            lineNumber: 202,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1009,23 +1009,23 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                             title: "Collapse sidebar",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronsLeft, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 200,
+                                lineNumber: 211,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 195,
+                            lineNumber: 206,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 189,
+                    lineNumber: 200,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 178,
+                lineNumber: 189,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1045,19 +1045,19 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                                 children: item.label
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 220,
+                                lineNumber: 231,
                                 columnNumber: 30
                             }, this)
                         ]
                     }, item.id, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 211,
+                        lineNumber: 222,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 207,
+                lineNumber: 218,
                 columnNumber: 7
             }, this),
             collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1068,17 +1068,17 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                     title: "Expand",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronsRight, {}, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 234,
+                        lineNumber: 245,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 229,
+                    lineNumber: 240,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 228,
+                lineNumber: 239,
                 columnNumber: 9
             }, this),
             !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1089,25 +1089,25 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconLogout, {}, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 243,
+                            lineNumber: 254,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "Logout"
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 244,
+                            lineNumber: 255,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 242,
+                    lineNumber: 253,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 241,
+                lineNumber: 252,
                 columnNumber: 9
             }, this),
             collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1118,129 +1118,375 @@ function Sidebar({ active, setActive, collapsed, setCollapsed, onLogout }) {
                     title: "Logout",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconLogout, {}, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 254,
+                        lineNumber: 265,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 250,
+                    lineNumber: 261,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 249,
+                lineNumber: 260,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 173,
+        lineNumber: 184,
         columnNumber: 5
     }, this);
 }
 // ── Header ────────────────────────────────────────────────────────────────────
-function Header({ sidebarW, userName, userRole, userInitials, onMessages, onNotifications, onProfile }) {
+function Header({ sidebarW, userName, userRole, userInitials, onMessages, onNotifications, onProfile, searchQuery, setSearchQuery, onSearch, searchResults, onNavigateResult }) {
+    const [dropdownOpen, setDropdownOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const performSearch = ()=>{
+        const q = searchQuery.trim();
+        if (!q) return;
+        onSearch(q);
+        setDropdownOpen(false);
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const handleClickOutside = (e)=>{
+            if (containerRef.current && !containerRef.current.contains(e.target)) {
+                setDropdownOpen(false);
+            }
+        };
+        const handleKeyDown = (e)=>{
+            if (e.key === "Escape") {
+                setDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleKeyDown);
+        return ()=>{
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center px-6 gap-4 z-20 transition-all duration-300",
+        className: "fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 gap-4 z-20 transition-all duration-300",
         style: {
             left: sidebarW
         },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1 relative",
+                ref: containerRef,
+                className: "flex-1 relative max-w-2xl min-w-[240px]",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-400",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
-                            fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 272,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                        onSubmit: (e)=>{
+                            e.preventDefault();
+                            performSearch();
+                        },
+                        className: "relative w-full",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 372,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 371,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text",
+                                value: searchQuery,
+                                onChange: (e)=>{
+                                    setSearchQuery(e.target.value);
+                                    if (!dropdownOpen && e.target.value.trim().length > 0) {
+                                        setDropdownOpen(true);
+                                    }
+                                },
+                                onFocus: ()=>{
+                                    if (searchQuery.trim().length > 0) {
+                                        setDropdownOpen(true);
+                                    }
+                                },
+                                placeholder: "Search courses, assignments, quizzes, materials, grades...",
+                                className: "w-full pl-9 pr-24 py-2 bg-gray-100 rounded-full text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 374,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                type: "submit",
+                                className: "absolute right-1.5 top-1/2 -translate-y-1/2 px-4 py-1 bg-[#1a3a9e] hover:bg-[#102d80] text-white text-xs font-bold rounded-full transition-colors shadow-sm cursor-pointer",
+                                children: "Search"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 391,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 271,
+                        lineNumber: 364,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text",
-                        placeholder: "Search anything...",
-                        className: "w-full pl-9 pr-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
-                    }, void 0, false, {
+                    dropdownOpen && searchQuery.trim().length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 max-h-[70vh] flex flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "px-4 py-3 bg-gray-50 border-b border-gray-100 flex items-center justify-between",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-xs font-bold text-gray-800",
+                                                children: [
+                                                    'Search Results for "',
+                                                    searchQuery,
+                                                    '"'
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 404,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800",
+                                                children: [
+                                                    searchResults.length,
+                                                    " found"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 407,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 403,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        type: "button",
+                                        onClick: ()=>setDropdownOpen(false),
+                                        className: "text-gray-400 hover:text-gray-600 text-xs px-2 py-0.5 rounded hover:bg-gray-200 transition cursor-pointer",
+                                        children: "Close (Esc)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 411,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 402,
+                                columnNumber: 13
+                            }, this),
+                            searchResults.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-6 text-center",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm font-semibold text-gray-700",
+                                        children: "No results found"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 422,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-xs text-gray-400 mt-1",
+                                        children: 'Press Enter or click "Search" to view the full search page.'
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 423,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 421,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "overflow-y-auto divide-y divide-gray-100 max-h-[50vh]",
+                                children: searchResults.slice(0, 8).map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        type: "button",
+                                        onClick: ()=>{
+                                            setDropdownOpen(false);
+                                            onNavigateResult(item.nav, item.course);
+                                        },
+                                        className: "w-full px-4 py-3 text-left hover:bg-blue-50/50 transition-colors flex items-start gap-3 group cursor-pointer",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: `text-[10px] font-bold px-2 py-0.5 rounded-md shrink-0 mt-0.5 uppercase tracking-wider ${item.badgeBg} ${item.badgeText}`,
+                                                children: item.category
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 439,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex-1 min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center justify-between gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm font-semibold text-gray-800 group-hover:text-blue-700 transition-colors truncate",
+                                                                children: item.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 444,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-[11px] font-semibold text-blue-600 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity",
+                                                                children: [
+                                                                    item.navLabel,
+                                                                    " →"
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 447,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 443,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    item.subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-xs font-medium text-gray-500 truncate mt-0.5",
+                                                        children: item.subtitle
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 452,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 442,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, item.id, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 430,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 428,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "px-4 py-2.5 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-xs",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-gray-500",
+                                        children: "Press Enter for all results"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 463,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        type: "button",
+                                        onClick: performSearch,
+                                        className: "font-bold text-blue-700 hover:text-blue-900 transition-colors cursor-pointer",
+                                        children: "View all results page →"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 464,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 462,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 274,
-                        columnNumber: 9
+                        lineNumber: 401,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 270,
+                lineNumber: 363,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center gap-3 shrink-0",
+                className: "flex items-center gap-3 shrink-0 ml-auto",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onMessages,
-                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100",
+                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconMail, {}, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 284,
+                            lineNumber: 479,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 283,
+                        lineNumber: 478,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onNotifications,
-                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100",
+                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBell, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 287,
+                                lineNumber: 482,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 288,
+                                lineNumber: 483,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 286,
+                        lineNumber: 481,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onProfile,
-                        className: "flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity",
+                        className: "flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer shrink-0",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "text-right",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm font-semibold text-gray-800 leading-tight",
+                                        className: "text-sm font-semibold text-gray-800 leading-tight whitespace-nowrap",
                                         children: userName
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 292,
+                                        lineNumber: 487,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xs text-gray-500",
+                                        className: "text-xs text-gray-500 whitespace-nowrap",
                                         children: userRole
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 293,
+                                        lineNumber: 488,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 291,
+                                lineNumber: 486,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1248,25 +1494,25 @@ function Header({ sidebarW, userName, userRole, userInitials, onMessages, onNoti
                                 children: userInitials
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 295,
+                                lineNumber: 490,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 290,
+                        lineNumber: 485,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 282,
+                lineNumber: 477,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 265,
+        lineNumber: 358,
         columnNumber: 5
     }, this);
 }
@@ -1280,7 +1526,7 @@ function StatCard({ title, icon, bigNum, bigLabel, rows }) {
                 children: icon
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 313,
+                lineNumber: 508,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1290,7 +1536,7 @@ function StatCard({ title, icon, bigNum, bigLabel, rows }) {
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 315,
+                        lineNumber: 510,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1302,13 +1548,13 @@ function StatCard({ title, icon, bigNum, bigLabel, rows }) {
                                 children: bigLabel
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 317,
+                                lineNumber: 512,
                                 columnNumber: 19
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 316,
+                        lineNumber: 511,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1321,7 +1567,7 @@ function StatCard({ title, icon, bigNum, bigLabel, rows }) {
                                         children: r.value
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 322,
+                                        lineNumber: 517,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1329,30 +1575,30 @@ function StatCard({ title, icon, bigNum, bigLabel, rows }) {
                                         children: r.label
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 323,
+                                        lineNumber: 518,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, r.label, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 321,
+                                lineNumber: 516,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 319,
+                        lineNumber: 514,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 314,
+                lineNumber: 509,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 312,
+        lineNumber: 507,
         columnNumber: 5
     }, this);
 }
@@ -1377,17 +1623,17 @@ function AnnouncementBanner({ onClick }) {
                         d: "M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 343,
+                        lineNumber: 538,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 342,
+                    lineNumber: 537,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 341,
+                lineNumber: 536,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1398,7 +1644,7 @@ function AnnouncementBanner({ onClick }) {
                         children: "Announcements"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 347,
+                        lineNumber: 542,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1408,36 +1654,36 @@ function AnnouncementBanner({ onClick }) {
                             children: "The Notification Message will display here sliding.    Reminder: Assessment 2 for ICT301 is due September 3.    New learning materials uploaded for ICT126 AI.    Semester enrollment opens October 1."
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 349,
+                            lineNumber: 544,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 348,
+                        lineNumber: 543,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 346,
+                lineNumber: 541,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                 className: "shrink-0 text-blue-200",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronRight, {}, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 355,
+                    lineNumber: 550,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 354,
+                lineNumber: 549,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 335,
+        lineNumber: 530,
         columnNumber: 5
     }, this);
 }
@@ -1453,12 +1699,12 @@ function ProgressBar({ pct, color }) {
             }
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 365,
+            lineNumber: 560,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 364,
+        lineNumber: 559,
         columnNumber: 5
     }, this);
 }
@@ -1478,12 +1724,12 @@ function ActiveCourseCard({ code, title, term, school, pct, bgColor, accentColor
                     children: svgIcon(accentColor)
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 381,
+                    lineNumber: 576,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 380,
+                lineNumber: 575,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1494,7 +1740,7 @@ function ActiveCourseCard({ code, title, term, school, pct, bgColor, accentColor
                         children: code
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 386,
+                        lineNumber: 581,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1506,13 +1752,13 @@ function ActiveCourseCard({ code, title, term, school, pct, bgColor, accentColor
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 387,
+                        lineNumber: 582,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 385,
+                lineNumber: 580,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1526,7 +1772,7 @@ function ActiveCourseCard({ code, title, term, school, pct, bgColor, accentColor
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 390,
+                        lineNumber: 585,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -1534,13 +1780,13 @@ function ActiveCourseCard({ code, title, term, school, pct, bgColor, accentColor
                         color: accentColor
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 391,
+                        lineNumber: 586,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 389,
+                lineNumber: 584,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1552,34 +1798,43 @@ function ActiveCourseCard({ code, title, term, school, pct, bgColor, accentColor
                 children: school
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 393,
+                lineNumber: 588,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 375,
+        lineNumber: 570,
         columnNumber: 5
     }, this);
 }
 // ── Completed Course Row ──────────────────────────────────────────────────────
-function CompletedCourseRow({ code, title, term, year }) {
+function CompletedCourseRow({ course, onOpen }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-gray-100 shadow-sm hover:shadow-md transition-shadow group",
+        role: "button",
+        tabIndex: 0,
+        onClick: onOpen,
+        onKeyDown: (e)=>{
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onOpen();
+            }
+        },
+        className: "flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-gray-100 shadow-sm hover:shadow-md hover:border-green-200 transition-all cursor-pointer group",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center gap-3 min-w-0",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 shrink-0",
+                        className: "w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 shrink-0 group-hover:bg-green-100 transition-colors",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {}, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 409,
+                            lineNumber: 621,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 408,
+                        lineNumber: 620,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1588,64 +1843,77 @@ function CompletedCourseRow({ code, title, term, year }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-xs text-gray-400 font-medium",
                                 children: [
-                                    code,
+                                    course.code,
                                     " · ",
-                                    year
+                                    course.year ?? "2025"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 412,
+                                lineNumber: 624,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-sm font-semibold text-gray-800 truncate",
-                                children: title
+                                className: "text-sm font-semibold text-gray-800 truncate group-hover:text-blue-700 transition-colors",
+                                children: course.title
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 413,
+                                lineNumber: 625,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 411,
+                        lineNumber: 623,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 407,
+                lineNumber: 619,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center gap-2 shrink-0 ml-3",
+                className: "flex items-center gap-2.5 shrink-0 ml-3",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "text-[10px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-full border border-green-100",
+                        className: "text-[10px] font-bold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full border border-green-200",
                         children: "Completed"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 417,
+                        lineNumber: 629,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "text-xs text-gray-400 font-medium",
-                        children: term
+                        children: course.term
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 420,
+                        lineNumber: 632,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: (e)=>{
+                            e.stopPropagation();
+                            onOpen();
+                        },
+                        className: "text-xs font-semibold text-blue-700 bg-gray-50 group-hover:bg-blue-50 border border-gray-200 group-hover:border-blue-200 px-2.5 py-1 rounded-lg transition-colors ml-1 hidden sm:inline-block",
+                        children: "View Details"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 633,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 416,
+                lineNumber: 628,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 406,
+        lineNumber: 607,
         columnNumber: 5
     }, this);
 }
@@ -1676,7 +1944,7 @@ function GradesWidget() {
                         children: "Recent Released Grades"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 435,
+                        lineNumber: 657,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1684,13 +1952,13 @@ function GradesWidget() {
                         children: "View All >"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 436,
+                        lineNumber: 658,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 434,
+                lineNumber: 656,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1710,13 +1978,13 @@ function GradesWidget() {
                                                 children: g.course
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 443,
+                                                lineNumber: 665,
                                                 columnNumber: 28
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 442,
+                                        lineNumber: 664,
                                         columnNumber: 15
                                     }, this),
                                     g.note && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1724,13 +1992,13 @@ function GradesWidget() {
                                         children: g.note
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 445,
+                                        lineNumber: 667,
                                         columnNumber: 26
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 441,
+                                lineNumber: 663,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1738,24 +2006,24 @@ function GradesWidget() {
                                 children: g.score
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 447,
+                                lineNumber: 669,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, g.name + g.course, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 440,
+                        lineNumber: 662,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 438,
+                lineNumber: 660,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 433,
+        lineNumber: 655,
         columnNumber: 5
     }, this);
 }
@@ -1784,7 +2052,7 @@ function DeadlinesWidget() {
                         children: "Upcoming Deadlines"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 464,
+                        lineNumber: 686,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1792,13 +2060,13 @@ function DeadlinesWidget() {
                         children: "View All >"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 465,
+                        lineNumber: 687,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 463,
+                lineNumber: 685,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1820,13 +2088,13 @@ function DeadlinesWidget() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 471,
+                                        lineNumber: 693,
                                         columnNumber: 24
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 470,
+                                lineNumber: 692,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1834,24 +2102,24 @@ function DeadlinesWidget() {
                                 children: d.due
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 473,
+                                lineNumber: 695,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 469,
+                        lineNumber: 691,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 467,
+                lineNumber: 689,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 462,
+        lineNumber: 684,
         columnNumber: 5
     }, this);
 }
@@ -1872,7 +2140,7 @@ function PanelModal({ title, children, onClose }) {
                             children: title
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 487,
+                            lineNumber: 709,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1881,44 +2149,83 @@ function PanelModal({ title, children, onClose }) {
                             children: "×"
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 488,
+                            lineNumber: 710,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 486,
+                    lineNumber: 708,
                     columnNumber: 9
                 }, this),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 485,
+            lineNumber: 707,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 484,
+        lineNumber: 706,
         columnNumber: 5
     }, this);
 }
-function CourseDetailModal({ course, onClose }) {
+// ── Course Detail Modal ───────────────────────────────────────────────────────
+function CourseDetailModal({ course, onClose, onGoToCourse }) {
+    const isCompleted = course.status === "Completed" || course.pct === 100;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PanelModal, {
         title: `${course.code} — ${course.title}`,
         onClose: onClose,
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-sm text-gray-500 mb-4",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center justify-between gap-2 mb-1",
                 children: [
-                    course.school,
-                    " · ",
-                    course.term
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-sm text-gray-500",
+                        children: [
+                            course.school,
+                            " · ",
+                            course.term,
+                            " ",
+                            course.year ? `(${course.year})` : ""
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 735,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: `text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${isCompleted ? "bg-green-50 text-green-700 border-green-200" : "bg-blue-50 text-blue-700 border-blue-200"}`,
+                        children: isCompleted ? "Completed" : "Active & Enrolled"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 738,
+                        columnNumber: 9
+                    }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 506,
+                lineNumber: 734,
                 columnNumber: 7
+            }, this),
+            course.instructor && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "text-xs text-gray-600 mb-4 font-medium",
+                children: [
+                    "Instructor: ",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "font-semibold text-gray-800",
+                        children: course.instructor
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 750,
+                        columnNumber: 23
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 749,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mb-4",
@@ -1928,10 +2235,10 @@ function CourseDetailModal({ course, onClose }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-gray-600 font-medium",
-                                children: "Progress"
+                                children: isCompleted ? "Course Completion" : "Progress"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 509,
+                                lineNumber: 755,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1945,13 +2252,13 @@ function CourseDetailModal({ course, onClose }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 510,
+                                lineNumber: 756,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 508,
+                        lineNumber: 754,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -1959,18 +2266,59 @@ function CourseDetailModal({ course, onClose }) {
                         color: course.accentColor
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 512,
+                        lineNumber: 758,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 507,
+                lineNumber: 753,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-2 gap-3 mb-4",
-                children: [
+                children: isCompleted ? [
+                    {
+                        label: "Status",
+                        val: "Completed"
+                    },
+                    {
+                        label: "Final Grade",
+                        val: course.grade ?? "High Distinction (HD)"
+                    },
+                    {
+                        label: "Final Score",
+                        val: course.finalScore ?? "88%"
+                    },
+                    {
+                        label: "Academic Record",
+                        val: "Archived & Verified"
+                    }
+                ].map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-gray-50 rounded-xl p-3",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xs text-gray-500",
+                                children: s.label
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 769,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm font-semibold text-gray-800",
+                                children: s.val
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 770,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, s.label, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 768,
+                        columnNumber: 13
+                    }, this)) : [
                     {
                         label: "Assignments",
                         val: "2 pending"
@@ -1995,44 +2343,47 @@ function CourseDetailModal({ course, onClose }) {
                                 children: s.label
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 522,
-                                columnNumber: 13
+                                lineNumber: 781,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-sm font-semibold text-gray-800",
                                 children: s.val
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 523,
-                                columnNumber: 13
+                                lineNumber: 782,
+                                columnNumber: 15
                             }, this)
                         ]
                     }, s.label, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 521,
-                        columnNumber: 11
+                        lineNumber: 780,
+                        columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 514,
+                lineNumber: 760,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                onClick: onClose,
-                className: "w-full py-2 rounded-xl text-sm font-semibold text-white",
+                onClick: ()=>{
+                    onClose();
+                    onGoToCourse?.(course);
+                },
+                className: "w-full py-2 rounded-xl text-sm font-semibold text-white hover:opacity-95 transition-opacity",
                 style: {
-                    background: "#1a3a9e"
+                    background: isCompleted ? "#16a34a" : "#1a3a9e"
                 },
                 children: "Go to Course"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 527,
+                lineNumber: 787,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 505,
+        lineNumber: 733,
         columnNumber: 5
     }, this);
 }
@@ -2083,13 +2434,13 @@ function AssignmentsModal({ onClose }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 548,
+                                                lineNumber: 815,
                                                 columnNumber: 75
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 548,
+                                        lineNumber: 815,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2100,13 +2451,13 @@ function AssignmentsModal({ onClose }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 549,
+                                        lineNumber: 816,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 547,
+                                lineNumber: 814,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2114,18 +2465,18 @@ function AssignmentsModal({ onClose }) {
                                 children: a.status
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 551,
+                                lineNumber: 818,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 546,
+                        lineNumber: 813,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 544,
+                lineNumber: 811,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2137,13 +2488,13 @@ function AssignmentsModal({ onClose }) {
                 children: "View All Assignments"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 557,
+                lineNumber: 824,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 543,
+        lineNumber: 810,
         columnNumber: 5
     }, this);
 }
@@ -2197,13 +2548,13 @@ function QuizzesModal({ onClose }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 577,
+                                                lineNumber: 844,
                                                 columnNumber: 75
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 577,
+                                        lineNumber: 844,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2211,13 +2562,13 @@ function QuizzesModal({ onClose }) {
                                         children: q.date
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 578,
+                                        lineNumber: 845,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 576,
+                                lineNumber: 843,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2228,7 +2579,7 @@ function QuizzesModal({ onClose }) {
                                         children: q.status
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 581,
+                                        lineNumber: 848,
                                         columnNumber: 15
                                     }, this),
                                     q.score && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2236,24 +2587,24 @@ function QuizzesModal({ onClose }) {
                                         children: q.score
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 584,
+                                        lineNumber: 851,
                                         columnNumber: 27
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 580,
+                                lineNumber: 847,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 575,
+                        lineNumber: 842,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 573,
+                lineNumber: 840,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2265,13 +2616,13 @@ function QuizzesModal({ onClose }) {
                 children: "View All Quizzes"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 589,
+                lineNumber: 856,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 572,
+        lineNumber: 839,
         columnNumber: 5
     }, this);
 }
@@ -2285,6 +2636,8 @@ const activeCourses = [
         pct: 58,
         bgColor: "#eff6ff",
         accentColor: "#2563eb",
+        instructor: "Dr. Sarah Mitchell",
+        status: "Active",
         svgIcon: (c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 viewBox: "0 0 24 24",
                 fill: "none",
@@ -2300,20 +2653,20 @@ const activeCourses = [
                         rx: "2"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 608,
+                        lineNumber: 877,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                         d: "M8 12h8M12 8v8"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 608,
+                        lineNumber: 877,
                         columnNumber: 59
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 607,
+                lineNumber: 876,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
     },
@@ -2325,6 +2678,8 @@ const activeCourses = [
         pct: 72,
         bgColor: "#f0fdf4",
         accentColor: "#16a34a",
+        instructor: "Prof. David Chen",
+        status: "Active",
         svgIcon: (c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 viewBox: "0 0 24 24",
                 fill: "none",
@@ -2340,20 +2695,20 @@ const activeCourses = [
                         rx: "2"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 622,
+                        lineNumber: 893,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                         d: "M3 9h18M9 21V9"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 622,
+                        lineNumber: 893,
                         columnNumber: 59
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 621,
+                lineNumber: 892,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
     },
@@ -2365,6 +2720,8 @@ const activeCourses = [
         pct: 35,
         bgColor: "#fdf2f8",
         accentColor: "#db2777",
+        instructor: "Dr. Elena Rostova",
+        status: "Active",
         svgIcon: (c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 viewBox: "0 0 24 24",
                 fill: "none",
@@ -2376,7 +2733,7 @@ const activeCourses = [
                         d: "M12 2a4 4 0 014 4v1h1a3 3 0 013 3v2a3 3 0 01-3 3h-1v1a4 4 0 01-8 0v-1H7a3 3 0 01-3-3v-2a3 3 0 013-3h1V6a4 4 0 014-4z"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 636,
+                        lineNumber: 909,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -2387,7 +2744,7 @@ const activeCourses = [
                         stroke: "none"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 636,
+                        lineNumber: 909,
                         columnNumber: 138
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -2398,20 +2755,20 @@ const activeCourses = [
                         stroke: "none"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 636,
+                        lineNumber: 909,
                         columnNumber: 192
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                         d: "M9 15s1 1.5 3 1.5 3-1.5 3-1.5"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 636,
+                        lineNumber: 909,
                         columnNumber: 247
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 635,
+                lineNumber: 908,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
     }
@@ -2420,122 +2777,86 @@ const completedCourses = [
     {
         code: "ICT101",
         title: "Introduction to Programming (Python)",
-        term: "T123",
-        year: "2023"
+        term: "T125",
+        year: "2025",
+        school: "School of Information Technology",
+        instructor: "Dr. Alan Turing",
+        pct: 100,
+        status: "Completed",
+        grade: "High Distinction (HD)",
+        finalScore: "88%",
+        completionDate: "December 12, 2025",
+        bgColor: "#f0fdf4",
+        accentColor: "#16a34a",
+        svgIcon: (c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: c,
+                strokeWidth: "1.8",
+                className: "w-7 h-7",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
+                        points: "16 18 22 12 16 6"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 932,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
+                        points: "8 6 2 12 8 18"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 933,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 931,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
     },
     {
         code: "ICT102",
         title: "Discrete Mathematics for IT",
-        term: "T123",
-        year: "2023"
-    },
-    {
-        code: "ICT103",
-        title: "Computer Organisation and Architecture",
-        term: "T123",
-        year: "2023"
-    },
-    {
-        code: "ICT104",
-        title: "Professional Practice in IT",
-        term: "T123",
-        year: "2023"
-    },
-    {
-        code: "ICT105",
-        title: "Database Management Systems",
-        term: "T124",
-        year: "2024"
-    },
-    {
-        code: "ICT106",
-        title: "Object-Oriented Programming (Java)",
-        term: "T124",
-        year: "2024"
-    },
-    {
-        code: "ICT107",
-        title: "Network Architecture and Protocols",
-        term: "T124",
-        year: "2024"
-    },
-    {
-        code: "ICT108",
-        title: "Operating Systems Fundamentals",
-        term: "T124",
-        year: "2024"
-    },
-    {
-        code: "ICT201",
-        title: "Data Structures and Algorithms",
-        term: "T125",
-        year: "2025"
-    },
-    {
-        code: "ICT202",
-        title: "Software Engineering Principles",
-        term: "T125",
-        year: "2025"
-    },
-    {
-        code: "ICT203",
-        title: "Cloud Computing Foundations",
-        term: "T125",
-        year: "2025"
-    },
-    {
-        code: "ICT204",
-        title: "Human-Computer Interaction",
-        term: "T125",
-        year: "2025"
-    },
-    {
-        code: "ICT205",
-        title: "Web Technologies and Standards",
         term: "T225",
-        year: "2025"
-    },
-    {
-        code: "ICT206",
-        title: "Mobile Application Development",
-        term: "T225",
-        year: "2025"
-    },
-    {
-        code: "ICT207",
-        title: "IT Project Management",
-        term: "T225",
-        year: "2025"
-    },
-    {
-        code: "ICT208",
-        title: "Information Systems Security",
-        term: "T225",
-        year: "2025"
-    },
-    {
-        code: "ICT209",
-        title: "Machine Learning Essentials",
-        term: "T325",
-        year: "2025"
-    },
-    {
-        code: "ICT210",
-        title: "Big Data Analytics",
-        term: "T325",
-        year: "2025"
-    },
-    {
-        code: "ICT211",
-        title: "Internet of Things Architecture",
-        term: "T325",
-        year: "2025"
-    },
-    {
-        code: "ICT212",
-        title: "DevOps and Continuous Integration",
-        term: "T325",
-        year: "2025"
+        year: "2025",
+        school: "School of Information Technology",
+        instructor: "Prof. Ada Lovelace",
+        pct: 100,
+        status: "Completed",
+        grade: "Distinction (D)",
+        finalScore: "81%",
+        completionDate: "November 28, 2025",
+        bgColor: "#f0fdf4",
+        accentColor: "#16a34a",
+        svgIcon: (c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: c,
+                strokeWidth: "1.8",
+                className: "w-7 h-7",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 953,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 954,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 952,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
     }
 ];
 // ── Assignments Page ──────────────────────────────────────────────────────────
@@ -2585,7 +2906,7 @@ const courseGroups = [
             },
             {
                 id: "a2",
-                name: "ICT301 Prototyping",
+                name: "Interactive Web Prototype",
                 description: "Add interactive elements using JavaScript and DOM manipulation.",
                 dueDate: "Jun 06, 2026",
                 status: "dueSoon"
@@ -2613,6 +2934,28 @@ const courseGroups = [
                 status: "notStarted"
             }
         ]
+    },
+    {
+        code: "ICT126",
+        title: "Artificial Intelligence",
+        term: "T226",
+        iconColor: "#db2777",
+        assignments: [
+            {
+                id: "a5",
+                name: "Lab Report 1: Perceptrons",
+                description: "Implement a single-layer perceptron model and evaluate classification metrics.",
+                dueDate: "Sep 15, 2026",
+                status: "dueSoon"
+            },
+            {
+                id: "a6",
+                name: "Mid-Semester Test",
+                description: "Comprehensive assessment covering state-space search and supervised learning.",
+                dueDate: "Oct 04, 2026",
+                status: "notStarted"
+            }
+        ]
     }
 ];
 function StatusBadge({ status }) {
@@ -2624,14 +2967,14 @@ function StatusBadge({ status }) {
                 className: `w-1.5 h-1.5 rounded-full ${s.dot}`
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 744,
+                lineNumber: 1064,
                 columnNumber: 7
             }, this),
             s.label
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 743,
+        lineNumber: 1063,
         columnNumber: 5
     }, this);
 }
@@ -2648,12 +2991,12 @@ function AssignmentRow({ a }) {
                     children: a.name
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 755,
+                    lineNumber: 1075,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 754,
+                lineNumber: 1074,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2662,12 +3005,12 @@ function AssignmentRow({ a }) {
                     children: a.description
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 758,
+                    lineNumber: 1078,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 757,
+                lineNumber: 1077,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2677,20 +3020,20 @@ function AssignmentRow({ a }) {
                         className: "w-3.5 h-3.5 text-gray-400 shrink-0"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 761,
+                        lineNumber: 1081,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: a.dueDate
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 762,
+                        lineNumber: 1082,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 760,
+                lineNumber: 1080,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2698,18 +3041,18 @@ function AssignmentRow({ a }) {
                     status: a.status
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 765,
+                    lineNumber: 1085,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 764,
+                lineNumber: 1084,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 752,
+        lineNumber: 1072,
         columnNumber: 5
     }, this);
 }
@@ -2733,12 +3076,12 @@ function CourseAccordion({ group, defaultOpen = false, filter }) {
                             className: "w-4.5 h-4.5"
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 790,
+                            lineNumber: 1110,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 786,
+                        lineNumber: 1106,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2755,7 +3098,7 @@ function CourseAccordion({ group, defaultOpen = false, filter }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 793,
+                                lineNumber: 1113,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2767,31 +3110,31 @@ function CourseAccordion({ group, defaultOpen = false, filter }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 796,
+                                lineNumber: 1116,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 792,
+                        lineNumber: 1112,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: `text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {}, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 799,
+                            lineNumber: 1119,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 798,
+                        lineNumber: 1118,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 782,
+                lineNumber: 1102,
                 columnNumber: 7
             }, this),
             open && visibleAssignments.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2812,31 +3155,31 @@ function CourseAccordion({ group, defaultOpen = false, filter }) {
                                 children: h
                             }, h, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 809,
+                                lineNumber: 1129,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 806,
+                        lineNumber: 1126,
                         columnNumber: 11
                     }, this),
                     visibleAssignments.map((a)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(AssignmentRow, {
                             a: a
                         }, a.id, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 813,
+                            lineNumber: 1133,
                             columnNumber: 13
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 804,
+                lineNumber: 1124,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 781,
+        lineNumber: 1101,
         columnNumber: 5
     }, this);
 }
@@ -2951,14 +3294,14 @@ function AssignmentsPage() {
                                 children: "Assignments"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 878,
+                                lineNumber: 1198,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "/"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 879,
+                                lineNumber: 1199,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2966,13 +3309,13 @@ function AssignmentsPage() {
                                 children: "View and manage your course assignments"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 880,
+                                lineNumber: 1200,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 877,
+                        lineNumber: 1197,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -2980,13 +3323,13 @@ function AssignmentsPage() {
                         children: "Assignments"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 882,
+                        lineNumber: 1202,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 876,
+                lineNumber: 1196,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3002,12 +3345,12 @@ function AssignmentsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 890,
+                                    lineNumber: 1210,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 889,
+                                lineNumber: 1209,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3017,7 +3360,7 @@ function AssignmentsPage() {
                                         children: "Total Assignments"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 893,
+                                        lineNumber: 1213,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3025,7 +3368,7 @@ function AssignmentsPage() {
                                         children: "12"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 894,
+                                        lineNumber: 1214,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3033,19 +3376,19 @@ function AssignmentsPage() {
                                         children: "Across all courses"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 895,
+                                        lineNumber: 1215,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 892,
+                                lineNumber: 1212,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 888,
+                        lineNumber: 1208,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3058,12 +3401,12 @@ function AssignmentsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 902,
+                                    lineNumber: 1222,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 901,
+                                lineNumber: 1221,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3073,7 +3416,7 @@ function AssignmentsPage() {
                                         children: "Due Soon"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 905,
+                                        lineNumber: 1225,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3081,7 +3424,7 @@ function AssignmentsPage() {
                                         children: "2"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 906,
+                                        lineNumber: 1226,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3089,19 +3432,19 @@ function AssignmentsPage() {
                                         children: "Due in the next 7 days"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 907,
+                                        lineNumber: 1227,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 904,
+                                lineNumber: 1224,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 900,
+                        lineNumber: 1220,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3114,12 +3457,12 @@ function AssignmentsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 914,
+                                    lineNumber: 1234,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 913,
+                                lineNumber: 1233,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3129,7 +3472,7 @@ function AssignmentsPage() {
                                         children: "Submitted"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 917,
+                                        lineNumber: 1237,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3137,7 +3480,7 @@ function AssignmentsPage() {
                                         children: "5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 918,
+                                        lineNumber: 1238,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3145,19 +3488,19 @@ function AssignmentsPage() {
                                         children: "Assignments submitted"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 919,
+                                        lineNumber: 1239,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 916,
+                                lineNumber: 1236,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 912,
+                        lineNumber: 1232,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3170,12 +3513,12 @@ function AssignmentsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 926,
+                                    lineNumber: 1246,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 925,
+                                lineNumber: 1245,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3185,7 +3528,7 @@ function AssignmentsPage() {
                                         children: "Overdue"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 929,
+                                        lineNumber: 1249,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3193,7 +3536,7 @@ function AssignmentsPage() {
                                         children: "1"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 930,
+                                        lineNumber: 1250,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3201,25 +3544,25 @@ function AssignmentsPage() {
                                         children: "Past due assignments"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 931,
+                                        lineNumber: 1251,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 928,
+                                lineNumber: 1248,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 924,
+                        lineNumber: 1244,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 886,
+                lineNumber: 1206,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3241,18 +3584,18 @@ function AssignmentsPage() {
                                                     className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-t-full bg-blue-600"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 955,
+                                                    lineNumber: 1275,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, tab.id, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 944,
+                                            lineNumber: 1264,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 942,
+                                    lineNumber: 1262,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3273,13 +3616,13 @@ function AssignmentsPage() {
                                                             className: "w-3.5 h-3.5 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 970,
+                                                            lineNumber: 1290,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 965,
+                                                    lineNumber: 1285,
                                                     columnNumber: 19
                                                 }, this),
                                                 courseOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3293,18 +3636,18 @@ function AssignmentsPage() {
                                                             children: opt.label
                                                         }, opt.value, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 975,
+                                                            lineNumber: 1295,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 973,
+                                                    lineNumber: 1293,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 964,
+                                            lineNumber: 1284,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3323,13 +3666,13 @@ function AssignmentsPage() {
                                                             className: "w-3.5 h-3.5 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 994,
+                                                            lineNumber: 1314,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 989,
+                                                    lineNumber: 1309,
                                                     columnNumber: 19
                                                 }, this),
                                                 sortOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3343,35 +3686,35 @@ function AssignmentsPage() {
                                                             children: opt.label
                                                         }, opt.value, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 999,
+                                                            lineNumber: 1319,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 997,
+                                                    lineNumber: 1317,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 988,
+                                            lineNumber: 1308,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 962,
+                                    lineNumber: 1282,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 940,
+                            lineNumber: 1260,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 939,
+                        lineNumber: 1259,
                         columnNumber: 11
                     }, this),
                     visibleGroups.map((g, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CourseAccordion, {
@@ -3380,19 +3723,19 @@ function AssignmentsPage() {
                             filter: filter
                         }, g.code, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1016,
+                            lineNumber: 1336,
                             columnNumber: 13
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 937,
+                lineNumber: 1257,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 874,
+        lineNumber: 1194,
         columnNumber: 5
     }, this);
 }
@@ -3412,20 +3755,20 @@ const IconLock = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imp
                 rx: "2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1031,
+                lineNumber: 1351,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M7 11V7a5 5 0 0110 0v4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1032,
+                lineNumber: 1352,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1030,
+        lineNumber: 1350,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconPlay = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -3436,12 +3779,12 @@ const IconPlay = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imp
             points: "5 3 19 12 5 21 5 3"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1038,
+            lineNumber: 1358,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1037,
+        lineNumber: 1357,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconTrophy = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -3454,12 +3797,12 @@ const IconTrophy = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__i
             d: "M6 9H3V4h3M18 9h3V4h-3M6 9a6 6 0 0012 0M12 15v4M8 21h8M12 9V4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1044,
+            lineNumber: 1364,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1043,
+        lineNumber: 1363,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const quizCourseGroups = [
@@ -3593,20 +3936,20 @@ function QuizStatusBadge({ status }) {
                 className: "w-3 h-3"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1122,
+                lineNumber: 1442,
                 columnNumber: 30
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                 className: `w-1.5 h-1.5 rounded-full ${s.dot}`
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1122,
+                lineNumber: 1442,
                 columnNumber: 65
             }, this),
             s.label
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1121,
+        lineNumber: 1441,
         columnNumber: 5
     }, this);
 }
@@ -3634,7 +3977,7 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                         children: group.code.slice(0, 3)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1148,
+                        lineNumber: 1468,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3649,7 +3992,7 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1153,
+                                lineNumber: 1473,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3663,26 +4006,26 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1154,
+                                lineNumber: 1474,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1152,
+                        lineNumber: 1472,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
                         className: `w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1156,
+                        lineNumber: 1476,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1144,
+                lineNumber: 1464,
                 columnNumber: 7
             }, this),
             open && visible.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3704,12 +4047,12 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                 children: h
                             }, h, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1164,
+                                lineNumber: 1484,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1161,
+                        lineNumber: 1481,
                         columnNumber: 11
                     }, this),
                     visible.map((q)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3725,7 +4068,7 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                             children: q.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1172,
+                                            lineNumber: 1492,
                                             columnNumber: 17
                                         }, this),
                                         q.score && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3735,7 +4078,7 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                                     className: "w-3 h-3 text-yellow-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1175,
+                                                    lineNumber: 1495,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3743,19 +4086,19 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                                     children: q.score
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1176,
+                                                    lineNumber: 1496,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1174,
+                                            lineNumber: 1494,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1171,
+                                    lineNumber: 1491,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3763,7 +4106,7 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                     children: q.description
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1180,
+                                    lineNumber: 1500,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3773,27 +4116,27 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                             className: "w-3.5 h-3.5 text-gray-400 shrink-0"
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1182,
+                                            lineNumber: 1502,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: q.dateTaken ?? q.dueDate
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1183,
+                                            lineNumber: 1503,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1181,
+                                    lineNumber: 1501,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(QuizStatusBadge, {
                                     status: q.status
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1185,
+                                    lineNumber: 1505,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3807,21 +4150,21 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                                 className: "w-3 h-3"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1190,
+                                                lineNumber: 1510,
                                                 columnNumber: 21
                                             }, this),
                                             " Start"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1188,
+                                        lineNumber: 1508,
                                         columnNumber: 19
                                     }, this) : q.status === "completed" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-xs text-gray-400",
                                         children: "—"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1193,
+                                        lineNumber: 1513,
                                         columnNumber: 19
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         disabled: true,
@@ -3831,37 +4174,37 @@ function QuizAccordion({ group, filter, defaultOpen = false }) {
                                                 className: "w-3 h-3"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1196,
+                                                lineNumber: 1516,
                                                 columnNumber: 21
                                             }, this),
                                             " Locked"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1195,
+                                        lineNumber: 1515,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1186,
+                                    lineNumber: 1506,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, q.id, true, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1168,
+                            lineNumber: 1488,
                             columnNumber: 13
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1160,
+                lineNumber: 1480,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1143,
+        lineNumber: 1463,
         columnNumber: 5
     }, this);
 }
@@ -3923,14 +4266,14 @@ function QuizzesPage() {
                                 children: "Quizzes"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1248,
+                                lineNumber: 1568,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "/"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1249,
+                                lineNumber: 1569,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3938,13 +4281,13 @@ function QuizzesPage() {
                                 children: "View and manage your quizzes and exams"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1250,
+                                lineNumber: 1570,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1247,
+                        lineNumber: 1567,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -3952,13 +4295,13 @@ function QuizzesPage() {
                         children: "Quizzes & Exams"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1252,
+                        lineNumber: 1572,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1246,
+                lineNumber: 1566,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3972,12 +4315,12 @@ function QuizzesPage() {
                                 className: "w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1258,
+                                    lineNumber: 1578,
                                     columnNumber: 116
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1258,
+                                lineNumber: 1578,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3987,7 +4330,7 @@ function QuizzesPage() {
                                         children: "Total Quizzes"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1260,
+                                        lineNumber: 1580,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3995,7 +4338,7 @@ function QuizzesPage() {
                                         children: totalCount
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1261,
+                                        lineNumber: 1581,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4003,19 +4346,19 @@ function QuizzesPage() {
                                         children: "Across all courses"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1262,
+                                        lineNumber: 1582,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1259,
+                                lineNumber: 1579,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1257,
+                        lineNumber: 1577,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4028,12 +4371,12 @@ function QuizzesPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1266,
+                                    lineNumber: 1586,
                                     columnNumber: 121
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1266,
+                                lineNumber: 1586,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4043,7 +4386,7 @@ function QuizzesPage() {
                                         children: "Upcoming"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1268,
+                                        lineNumber: 1588,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4051,7 +4394,7 @@ function QuizzesPage() {
                                         children: upcomingCount
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1269,
+                                        lineNumber: 1589,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4059,19 +4402,19 @@ function QuizzesPage() {
                                         children: "Open or scheduled"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1270,
+                                        lineNumber: 1590,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1267,
+                                lineNumber: 1587,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1265,
+                        lineNumber: 1585,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4084,12 +4427,12 @@ function QuizzesPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1274,
+                                    lineNumber: 1594,
                                     columnNumber: 119
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1274,
+                                lineNumber: 1594,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4099,7 +4442,7 @@ function QuizzesPage() {
                                         children: "Completed"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1276,
+                                        lineNumber: 1596,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4107,7 +4450,7 @@ function QuizzesPage() {
                                         children: completedCount
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1277,
+                                        lineNumber: 1597,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4115,19 +4458,19 @@ function QuizzesPage() {
                                         children: "Attempts finished"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1278,
+                                        lineNumber: 1598,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1275,
+                                lineNumber: 1595,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1273,
+                        lineNumber: 1593,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4140,12 +4483,12 @@ function QuizzesPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1282,
+                                    lineNumber: 1602,
                                     columnNumber: 115
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1282,
+                                lineNumber: 1602,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4155,7 +4498,7 @@ function QuizzesPage() {
                                         children: "Overdue"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1284,
+                                        lineNumber: 1604,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4163,7 +4506,7 @@ function QuizzesPage() {
                                         children: overdueCount
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1285,
+                                        lineNumber: 1605,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4171,25 +4514,25 @@ function QuizzesPage() {
                                         children: "Missed quizzes"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1286,
+                                        lineNumber: 1606,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1283,
+                                lineNumber: 1603,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1281,
+                        lineNumber: 1601,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1256,
+                lineNumber: 1576,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4211,18 +4554,18 @@ function QuizzesPage() {
                                                     className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-t-full bg-blue-600"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1304,
+                                                    lineNumber: 1624,
                                                     columnNumber: 41
                                                 }, this)
                                             ]
                                         }, tab.id, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1298,
+                                            lineNumber: 1618,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1296,
+                                    lineNumber: 1616,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4243,13 +4586,13 @@ function QuizzesPage() {
                                                             className: "w-3.5 h-3.5 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 1316,
+                                                            lineNumber: 1636,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1311,
+                                                    lineNumber: 1631,
                                                     columnNumber: 17
                                                 }, this),
                                                 courseOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4263,18 +4606,18 @@ function QuizzesPage() {
                                                             children: opt.label
                                                         }, opt.value, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 1321,
+                                                            lineNumber: 1641,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1319,
+                                                    lineNumber: 1639,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1310,
+                                            lineNumber: 1630,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4293,13 +4636,13 @@ function QuizzesPage() {
                                                             className: "w-3.5 h-3.5 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 1336,
+                                                            lineNumber: 1656,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1331,
+                                                    lineNumber: 1651,
                                                     columnNumber: 17
                                                 }, this),
                                                 sortOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4313,35 +4656,35 @@ function QuizzesPage() {
                                                             children: opt.label
                                                         }, opt.value, false, {
                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                            lineNumber: 1341,
+                                                            lineNumber: 1661,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1339,
+                                                    lineNumber: 1659,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1330,
+                                            lineNumber: 1650,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1308,
+                                    lineNumber: 1628,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1295,
+                            lineNumber: 1615,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1294,
+                        lineNumber: 1614,
                         columnNumber: 9
                     }, this),
                     visibleGroups.map((g, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(QuizAccordion, {
@@ -4350,19 +4693,19 @@ function QuizzesPage() {
                             defaultOpen: i === 0
                         }, g.code, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1355,
+                            lineNumber: 1675,
                             columnNumber: 11
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1292,
+                lineNumber: 1612,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1244,
+        lineNumber: 1564,
         columnNumber: 5
     }, this);
 }
@@ -4378,14 +4721,14 @@ const IconFilePdf = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__
                 d: "M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1365,
+                lineNumber: 1685,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "14 2 14 8 20 8"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1365,
+                lineNumber: 1685,
                 columnNumber: 71
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4395,7 +4738,7 @@ const IconFilePdf = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__
                 y2: "13"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1366,
+                lineNumber: 1686,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4405,13 +4748,13 @@ const IconFilePdf = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__
                 y2: "17"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1366,
+                lineNumber: 1686,
                 columnNumber: 44
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1364,
+        lineNumber: 1684,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconVideo = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4429,20 +4772,20 @@ const IconVideo = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 rx: "2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1371,
+                lineNumber: 1691,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M16 10l5.447-2.724A1 1 0 0123 8.276v7.448a1 1 0 01-1.553.832L16 14"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1371,
+                lineNumber: 1691,
                 columnNumber: 55
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1370,
+        lineNumber: 1690,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconExternalLink = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4456,14 +4799,14 @@ const IconExternalLink = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOP
                 d: "M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1376,
+                lineNumber: 1696,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "15 3 21 3 21 9"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1376,
+                lineNumber: 1696,
                 columnNumber: 70
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4473,13 +4816,13 @@ const IconExternalLink = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOP
                 y2: "3"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1376,
+                lineNumber: 1696,
                 columnNumber: 106
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1375,
+        lineNumber: 1695,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconCode = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4493,20 +4836,20 @@ const IconCode = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imp
                 points: "16 18 22 12 16 6"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1381,
+                lineNumber: 1701,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "8 6 2 12 8 18"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1381,
+                lineNumber: 1701,
                 columnNumber: 43
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1380,
+        lineNumber: 1700,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconDownload = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4520,14 +4863,14 @@ const IconDownload = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK_
                 d: "M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1386,
+                lineNumber: 1706,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                 points: "7 10 12 15 17 10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1386,
+                lineNumber: 1706,
                 columnNumber: 57
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4537,13 +4880,13 @@ const IconDownload = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK_
                 y2: "3"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1386,
+                lineNumber: 1706,
                 columnNumber: 95
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1385,
+        lineNumber: 1705,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconGlobe = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4559,7 +4902,7 @@ const IconGlobe = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 r: "10"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1391,
+                lineNumber: 1711,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4569,20 +4912,20 @@ const IconGlobe = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 y2: "12"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1391,
+                lineNumber: 1711,
                 columnNumber: 38
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1391,
+                lineNumber: 1711,
                 columnNumber: 77
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1390,
+        lineNumber: 1710,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconPresentation = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4600,7 +4943,7 @@ const IconPresentation = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOP
                 rx: "2"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1396,
+                lineNumber: 1716,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4610,7 +4953,7 @@ const IconPresentation = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOP
                 y2: "21"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1396,
+                lineNumber: 1716,
                 columnNumber: 55
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -4620,13 +4963,13 @@ const IconPresentation = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOP
                 y2: "21"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1396,
+                lineNumber: 1716,
                 columnNumber: 94
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1395,
+        lineNumber: 1715,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconGithub = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4637,12 +4980,12 @@ const IconGithub = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__i
             d: "M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.195 22 16.44 22 12.017 22 6.484 17.522 2 12 2z"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1401,
+            lineNumber: 1721,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1400,
+        lineNumber: 1720,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconPlay2 = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4658,7 +5001,7 @@ const IconPlay2 = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 opacity: "0.15"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1406,
+                lineNumber: 1726,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
@@ -4666,13 +5009,13 @@ const IconPlay2 = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__im
                 fill: "currentColor"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1406,
+                lineNumber: 1726,
                 columnNumber: 73
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1405,
+        lineNumber: 1725,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const recentMaterials = [
@@ -4686,7 +5029,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1426,
+            lineNumber: 1746,
             columnNumber: 147
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-red-50 text-red-500",
@@ -4702,7 +5045,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1427,
+            lineNumber: 1747,
             columnNumber: 149
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-blue-50 text-blue-500",
@@ -4718,7 +5061,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1428,
+            lineNumber: 1748,
             columnNumber: 150
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-orange-50 text-orange-500",
@@ -4735,7 +5078,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1429,
+            lineNumber: 1749,
             columnNumber: 147
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-indigo-50 text-indigo-500",
@@ -4751,7 +5094,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1430,
+            lineNumber: 1750,
             columnNumber: 135
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-emerald-50 text-emerald-600",
@@ -4767,7 +5110,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1431,
+            lineNumber: 1751,
             columnNumber: 146
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-gray-100 text-gray-600",
@@ -4784,7 +5127,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1432,
+            lineNumber: 1752,
             columnNumber: 145
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-blue-50 text-blue-500",
@@ -4800,7 +5143,7 @@ const recentMaterials = [
             className: "w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 1433,
+            lineNumber: 1753,
             columnNumber: 153
         }, ("TURBOPACK compile-time value", void 0)),
         iconBg: "bg-orange-50 text-orange-500",
@@ -4850,6 +5193,34 @@ const courseMaterials = [
         size: "128 KB",
         date: "Aug 10, 2026",
         course: "ICT126"
+    },
+    {
+        name: "ICT101 Complete Python Lecture Notes & Guide",
+        type: "PDF",
+        size: "1.4 MB",
+        date: "Nov 25, 2025",
+        course: "ICT101"
+    },
+    {
+        name: "ICT101 Final Exam Revision & Practice Solutions",
+        type: "PDF",
+        size: "820 KB",
+        date: "Dec 01, 2025",
+        course: "ICT101"
+    },
+    {
+        name: "ICT102 Discrete Mathematics Theorems & Proofs Summary",
+        type: "PDF",
+        size: "1.8 MB",
+        date: "Nov 20, 2025",
+        course: "ICT102"
+    },
+    {
+        name: "ICT102 Logic, Sets & Graph Theory Formula Sheet",
+        type: "PDF",
+        size: "430 KB",
+        date: "Nov 24, 2025",
+        course: "ICT102"
     }
 ];
 const classRecordings = [
@@ -4876,6 +5247,18 @@ const classRecordings = [
         course: "ICT126",
         date: "Aug 13, 2026",
         duration: "1h 44m"
+    },
+    {
+        title: "ICT101 Final Review — Python Programming & Algorithms",
+        course: "ICT101",
+        date: "Nov 28, 2025",
+        duration: "1h 55m"
+    },
+    {
+        title: "ICT102 Final Exam Prep — Proof Techniques & Graphs",
+        course: "ICT102",
+        date: "Nov 22, 2025",
+        duration: "1h 50m"
     }
 ];
 const additionalResources = [
@@ -4951,6 +5334,27 @@ const codeAndLabResources = [
         ],
         date: "Aug 20, 2026",
         url: "#"
+    },
+    {
+        title: "ICT101 Python Archive — Solutions & Notebooks",
+        desc: "Archived complete Python notebooks and starter code",
+        tags: [
+            "Python",
+            "Jupyter",
+            "Archived"
+        ],
+        date: "Dec 05, 2025",
+        url: "#"
+    },
+    {
+        title: "ICT102 Mathematical Proofs & Graph Algorithms Code",
+        desc: "Python implementations of graph algorithms (BFS/DFS, Dijkstra)",
+        tags: [
+            "Python",
+            "Algorithms"
+        ],
+        date: "Nov 26, 2025",
+        url: "#"
     }
 ];
 const filterOptions = [
@@ -5005,7 +5409,7 @@ function LearningMaterialsPage() {
                 className: "w-4 h-4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1502,
+                lineNumber: 1830,
                 columnNumber: 69
             }, this),
             color: "text-blue-600",
@@ -5018,7 +5422,7 @@ function LearningMaterialsPage() {
                 className: "w-4 h-4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1503,
+                lineNumber: 1831,
                 columnNumber: 69
             }, this),
             color: "text-indigo-600",
@@ -5031,7 +5435,7 @@ function LearningMaterialsPage() {
                 className: "w-4 h-4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1504,
+                lineNumber: 1832,
                 columnNumber: 69
             }, this),
             color: "text-orange-600",
@@ -5044,7 +5448,7 @@ function LearningMaterialsPage() {
                 className: "w-4 h-4"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1505,
+                lineNumber: 1833,
                 columnNumber: 69
             }, this),
             color: "text-emerald-600",
@@ -5064,14 +5468,14 @@ function LearningMaterialsPage() {
                                 children: "Learning Materials"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1513,
+                                lineNumber: 1841,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "/"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1514,
+                                lineNumber: 1842,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5079,13 +5483,13 @@ function LearningMaterialsPage() {
                                 children: "Access course materials, class recordings, and additional learning resources."
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1515,
+                                lineNumber: 1843,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1512,
+                        lineNumber: 1840,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -5093,13 +5497,13 @@ function LearningMaterialsPage() {
                         children: "Learning Materials"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1517,
+                        lineNumber: 1845,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1511,
+                lineNumber: 1839,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5115,12 +5519,12 @@ function LearningMaterialsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1525,
+                                    lineNumber: 1853,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1524,
+                                lineNumber: 1852,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5130,7 +5534,7 @@ function LearningMaterialsPage() {
                                         children: "Course Materials"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1528,
+                                        lineNumber: 1856,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5138,7 +5542,7 @@ function LearningMaterialsPage() {
                                         children: "6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1529,
+                                        lineNumber: 1857,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5146,19 +5550,19 @@ function LearningMaterialsPage() {
                                         children: "6 Available"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1530,
+                                        lineNumber: 1858,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1527,
+                                lineNumber: 1855,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1523,
+                        lineNumber: 1851,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5171,12 +5575,12 @@ function LearningMaterialsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1537,
+                                    lineNumber: 1865,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1536,
+                                lineNumber: 1864,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5186,7 +5590,7 @@ function LearningMaterialsPage() {
                                         children: "Class Recordings"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1540,
+                                        lineNumber: 1868,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5194,7 +5598,7 @@ function LearningMaterialsPage() {
                                         children: "4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1541,
+                                        lineNumber: 1869,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5202,19 +5606,19 @@ function LearningMaterialsPage() {
                                         children: "4 Available"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1542,
+                                        lineNumber: 1870,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1539,
+                                lineNumber: 1867,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1535,
+                        lineNumber: 1863,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5227,12 +5631,12 @@ function LearningMaterialsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1549,
+                                    lineNumber: 1877,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1548,
+                                lineNumber: 1876,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5242,7 +5646,7 @@ function LearningMaterialsPage() {
                                         children: "Additional Resources"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1552,
+                                        lineNumber: 1880,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5250,7 +5654,7 @@ function LearningMaterialsPage() {
                                         children: "5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1553,
+                                        lineNumber: 1881,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5258,19 +5662,19 @@ function LearningMaterialsPage() {
                                         children: "2 New"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1554,
+                                        lineNumber: 1882,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1551,
+                                lineNumber: 1879,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1547,
+                        lineNumber: 1875,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5283,12 +5687,12 @@ function LearningMaterialsPage() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1561,
+                                    lineNumber: 1889,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1560,
+                                lineNumber: 1888,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5298,7 +5702,7 @@ function LearningMaterialsPage() {
                                         children: "Code & Lab Resources"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1564,
+                                        lineNumber: 1892,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5306,7 +5710,7 @@ function LearningMaterialsPage() {
                                         children: "4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1565,
+                                        lineNumber: 1893,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5314,25 +5718,25 @@ function LearningMaterialsPage() {
                                         children: "1 New"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1566,
+                                        lineNumber: 1894,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1563,
+                                lineNumber: 1891,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1559,
+                        lineNumber: 1887,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1521,
+                lineNumber: 1849,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5350,12 +5754,12 @@ function LearningMaterialsPage() {
                                             className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-400",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1579,
+                                                lineNumber: 1907,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1578,
+                                            lineNumber: 1906,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5366,18 +5770,18 @@ function LearningMaterialsPage() {
                                             className: "w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1581,
+                                            lineNumber: 1909,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1577,
+                                    lineNumber: 1905,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1576,
+                                lineNumber: 1904,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5391,24 +5795,24 @@ function LearningMaterialsPage() {
                                                 className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-t-full bg-blue-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1601,
+                                                lineNumber: 1929,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, f.id, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1592,
+                                        lineNumber: 1920,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1590,
+                                lineNumber: 1918,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1575,
+                        lineNumber: 1903,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5429,12 +5833,12 @@ function LearningMaterialsPage() {
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1616,
+                                                    lineNumber: 1944,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1615,
+                                                lineNumber: 1943,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5444,7 +5848,7 @@ function LearningMaterialsPage() {
                                                         children: "Course Materials"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1619,
+                                                        lineNumber: 1947,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5452,13 +5856,13 @@ function LearningMaterialsPage() {
                                                         children: "PDFs, slides, handouts & documents"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1620,
+                                                        lineNumber: 1948,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1618,
+                                                lineNumber: 1946,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5469,13 +5873,13 @@ function LearningMaterialsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1622,
+                                                lineNumber: 1950,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1614,
+                                        lineNumber: 1942,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5491,7 +5895,7 @@ function LearningMaterialsPage() {
                                                                 children: f.type === "PDF" ? "PDF" : f.type === "PowerPoint" ? "PPT" : "DOC"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1628,
+                                                                lineNumber: 1956,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5502,7 +5906,7 @@ function LearningMaterialsPage() {
                                                                         children: f.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1632,
+                                                                        lineNumber: 1960,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5516,19 +5920,19 @@ function LearningMaterialsPage() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1633,
+                                                                        lineNumber: 1961,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1631,
+                                                                lineNumber: 1959,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1627,
+                                                        lineNumber: 1955,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5538,31 +5942,31 @@ function LearningMaterialsPage() {
                                                                 className: "w-3.5 h-3.5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1637,
+                                                                lineNumber: 1965,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " Open"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1636,
+                                                        lineNumber: 1964,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1626,
+                                                lineNumber: 1954,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1624,
+                                        lineNumber: 1952,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1613,
+                                lineNumber: 1941,
                                 columnNumber: 11
                             }, this),
                             showAdditional && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5583,12 +5987,12 @@ function LearningMaterialsPage() {
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1650,
+                                                    lineNumber: 1978,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1649,
+                                                lineNumber: 1977,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5598,7 +6002,7 @@ function LearningMaterialsPage() {
                                                         children: "Additional Resources"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1653,
+                                                        lineNumber: 1981,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5606,13 +6010,13 @@ function LearningMaterialsPage() {
                                                         children: "YouTube, articles, documentation & websites"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1654,
+                                                        lineNumber: 1982,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1652,
+                                                lineNumber: 1980,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5623,13 +6027,13 @@ function LearningMaterialsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1656,
+                                                lineNumber: 1984,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1648,
+                                        lineNumber: 1976,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5646,12 +6050,12 @@ function LearningMaterialsPage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                                    lineNumber: 1663,
+                                                                    lineNumber: 1991,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1662,
+                                                                lineNumber: 1990,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5662,7 +6066,7 @@ function LearningMaterialsPage() {
                                                                         children: r.title
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1666,
+                                                                        lineNumber: 1994,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5674,19 +6078,19 @@ function LearningMaterialsPage() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1667,
+                                                                        lineNumber: 1995,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1665,
+                                                                lineNumber: 1993,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1661,
+                                                        lineNumber: 1989,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -5699,31 +6103,31 @@ function LearningMaterialsPage() {
                                                                 className: "w-3.5 h-3.5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1676,
+                                                                lineNumber: 2004,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " View Resource"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1670,
+                                                        lineNumber: 1998,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1660,
+                                                lineNumber: 1988,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1658,
+                                        lineNumber: 1986,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1647,
+                                lineNumber: 1975,
                                 columnNumber: 11
                             }, this),
                             showRecordings && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5744,12 +6148,12 @@ function LearningMaterialsPage() {
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1689,
+                                                    lineNumber: 2017,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1688,
+                                                lineNumber: 2016,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5759,7 +6163,7 @@ function LearningMaterialsPage() {
                                                         children: "Class Recordings"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1692,
+                                                        lineNumber: 2020,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5767,13 +6171,13 @@ function LearningMaterialsPage() {
                                                         children: "Recorded lectures and Zoom sessions"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1693,
+                                                        lineNumber: 2021,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1691,
+                                                lineNumber: 2019,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5784,13 +6188,13 @@ function LearningMaterialsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1695,
+                                                lineNumber: 2023,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1687,
+                                        lineNumber: 2015,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5807,12 +6211,12 @@ function LearningMaterialsPage() {
                                                                     className: "w-6 h-6"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                                    lineNumber: 1702,
+                                                                    lineNumber: 2030,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1701,
+                                                                lineNumber: 2029,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5823,7 +6227,7 @@ function LearningMaterialsPage() {
                                                                         children: r.title
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1705,
+                                                                        lineNumber: 2033,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5834,7 +6238,7 @@ function LearningMaterialsPage() {
                                                                                 children: r.course
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                                lineNumber: 1707,
+                                                                                lineNumber: 2035,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5842,7 +6246,7 @@ function LearningMaterialsPage() {
                                                                                 children: "·"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                                lineNumber: 1708,
+                                                                                lineNumber: 2036,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5850,7 +6254,7 @@ function LearningMaterialsPage() {
                                                                                 children: r.date
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                                lineNumber: 1709,
+                                                                                lineNumber: 2037,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5858,7 +6262,7 @@ function LearningMaterialsPage() {
                                                                                 children: "·"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                                lineNumber: 1710,
+                                                                                lineNumber: 2038,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5868,7 +6272,7 @@ function LearningMaterialsPage() {
                                                                                         className: "w-3 h-3"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                                        lineNumber: 1712,
+                                                                                        lineNumber: 2040,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     " ",
@@ -5876,25 +6280,25 @@ function LearningMaterialsPage() {
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                                lineNumber: 1711,
+                                                                                lineNumber: 2039,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1706,
+                                                                        lineNumber: 2034,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1704,
+                                                                lineNumber: 2032,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1700,
+                                                        lineNumber: 2028,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5907,31 +6311,31 @@ function LearningMaterialsPage() {
                                                                 className: "w-3 h-3"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1721,
+                                                                lineNumber: 2049,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " Watch"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1717,
+                                                        lineNumber: 2045,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1699,
+                                                lineNumber: 2027,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1697,
+                                        lineNumber: 2025,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1686,
+                                lineNumber: 2014,
                                 columnNumber: 11
                             }, this),
                             showCode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5952,12 +6356,12 @@ function LearningMaterialsPage() {
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                    lineNumber: 1734,
+                                                    lineNumber: 2062,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1733,
+                                                lineNumber: 2061,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5967,7 +6371,7 @@ function LearningMaterialsPage() {
                                                         children: "Code & Lab Resources"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1737,
+                                                        lineNumber: 2065,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5975,13 +6379,13 @@ function LearningMaterialsPage() {
                                                         children: "GitHub repos, lab files & code examples"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1738,
+                                                        lineNumber: 2066,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1736,
+                                                lineNumber: 2064,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5992,13 +6396,13 @@ function LearningMaterialsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1740,
+                                                lineNumber: 2068,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1732,
+                                        lineNumber: 2060,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6015,12 +6419,12 @@ function LearningMaterialsPage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                                    lineNumber: 1747,
+                                                                    lineNumber: 2075,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1746,
+                                                                lineNumber: 2074,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6031,7 +6435,7 @@ function LearningMaterialsPage() {
                                                                         children: r.title
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1750,
+                                                                        lineNumber: 2078,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6041,12 +6445,12 @@ function LearningMaterialsPage() {
                                                                             children: r.desc
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/LegacyApp.tsx",
-                                                                            lineNumber: 1752,
+                                                                            lineNumber: 2080,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1751,
+                                                                        lineNumber: 2079,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6057,7 +6461,7 @@ function LearningMaterialsPage() {
                                                                                     children: tag
                                                                                 }, tag, false, {
                                                                                     fileName: "[project]/src/LegacyApp.tsx",
-                                                                                    lineNumber: 1756,
+                                                                                    lineNumber: 2084,
                                                                                     columnNumber: 27
                                                                                 }, this)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6065,25 +6469,25 @@ function LearningMaterialsPage() {
                                                                                 children: r.date
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                                lineNumber: 1758,
+                                                                                lineNumber: 2086,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1754,
+                                                                        lineNumber: 2082,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1749,
+                                                                lineNumber: 2077,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1745,
+                                                        lineNumber: 2073,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -6096,37 +6500,37 @@ function LearningMaterialsPage() {
                                                                 className: "w-3.5 h-3.5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1768,
+                                                                lineNumber: 2096,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " Open"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1762,
+                                                        lineNumber: 2090,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1744,
+                                                lineNumber: 2072,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1742,
+                                        lineNumber: 2070,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1731,
+                                lineNumber: 2059,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1609,
+                        lineNumber: 1937,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6140,7 +6544,7 @@ function LearningMaterialsPage() {
                                         children: "Recent Materials"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1780,
+                                        lineNumber: 2108,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6152,13 +6556,13 @@ function LearningMaterialsPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1781,
+                                        lineNumber: 2109,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1779,
+                                lineNumber: 2107,
                                 columnNumber: 13
                             }, this),
                             filteredRecent.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6166,7 +6570,7 @@ function LearningMaterialsPage() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1786,
+                                        lineNumber: 2114,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6174,13 +6578,13 @@ function LearningMaterialsPage() {
                                         children: "No materials match your search"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1787,
+                                        lineNumber: 2115,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1785,
+                                lineNumber: 2113,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                 children: [
@@ -6200,12 +6604,12 @@ function LearningMaterialsPage() {
                                                 children: h
                                             }, h, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1794,
+                                                lineNumber: 2122,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1791,
+                                        lineNumber: 2119,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6224,7 +6628,7 @@ function LearningMaterialsPage() {
                                                                 children: m.icon
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1805,
+                                                                lineNumber: 2133,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6232,13 +6636,13 @@ function LearningMaterialsPage() {
                                                                 children: m.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1808,
+                                                                lineNumber: 2136,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1804,
+                                                        lineNumber: 2132,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6246,7 +6650,7 @@ function LearningMaterialsPage() {
                                                         children: m.course
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1810,
+                                                        lineNumber: 2138,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6254,7 +6658,7 @@ function LearningMaterialsPage() {
                                                         children: m.typeLabel
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1811,
+                                                        lineNumber: 2139,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6262,7 +6666,7 @@ function LearningMaterialsPage() {
                                                         children: m.date
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1814,
+                                                        lineNumber: 2142,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6277,7 +6681,7 @@ function LearningMaterialsPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1816,
+                                                                lineNumber: 2144,
                                                                 columnNumber: 25
                                                             }, this),
                                                             m.href ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -6290,7 +6694,7 @@ function LearningMaterialsPage() {
                                                                         className: "w-3 h-3"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1824,
+                                                                        lineNumber: 2152,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     " ",
@@ -6298,7 +6702,7 @@ function LearningMaterialsPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1818,
+                                                                lineNumber: 2146,
                                                                 columnNumber: 27
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                 className: "ml-auto md:ml-0 flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg border transition-colors text-blue-700 bg-blue-50 hover:bg-blue-100 border-blue-100",
@@ -6307,61 +6711,61 @@ function LearningMaterialsPage() {
                                                                         className: "w-3 h-3"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1828,
+                                                                        lineNumber: 2156,
                                                                         columnNumber: 53
                                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDownload, {
                                                                         className: "w-3 h-3"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                                        lineNumber: 1828,
+                                                                        lineNumber: 2156,
                                                                         columnNumber: 88
                                                                     }, this),
                                                                     m.action
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 1827,
+                                                                lineNumber: 2155,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 1815,
+                                                        lineNumber: 2143,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 1799,
+                                                lineNumber: 2127,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1797,
+                                        lineNumber: 2125,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1790,
+                                lineNumber: 2118,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1778,
+                        lineNumber: 2106,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1572,
+                lineNumber: 1900,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1509,
+        lineNumber: 1837,
         columnNumber: 5
     }, this);
 }
@@ -6375,7 +6779,7 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                 children: "My Courses"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1855,
+                lineNumber: 2183,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6388,7 +6792,7 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             title: "My Courses",
                             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1860,
+                                lineNumber: 2188,
                                 columnNumber: 46
                             }, this),
                             bigNum: "3",
@@ -6402,17 +6806,17 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                                 {
                                     color: "text-green-600",
                                     label: "Completed",
-                                    value: 20
+                                    value: 2
                                 }
                             ]
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1860,
+                            lineNumber: 2188,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1859,
+                        lineNumber: 2187,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6422,7 +6826,7 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             title: "Assignments",
                             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1864,
+                                lineNumber: 2192,
                                 columnNumber: 47
                             }, this),
                             bigNum: "2",
@@ -6441,12 +6845,12 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             ]
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1864,
+                            lineNumber: 2192,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1863,
+                        lineNumber: 2191,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6456,7 +6860,7 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             title: "Quizzes",
                             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1868,
+                                lineNumber: 2196,
                                 columnNumber: 43
                             }, this),
                             bigNum: "1",
@@ -6475,12 +6879,12 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             ]
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1868,
+                            lineNumber: 2196,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1867,
+                        lineNumber: 2195,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6490,7 +6894,7 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             title: "Learning Materials",
                             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1872,
+                                lineNumber: 2200,
                                 columnNumber: 54
                             }, this),
                             bigNum: "12",
@@ -6509,18 +6913,18 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                             ]
                         }, void 0, false, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1872,
+                            lineNumber: 2200,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1871,
+                        lineNumber: 2199,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1858,
+                lineNumber: 2186,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6529,22 +6933,22 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                     onClick: ()=>setActiveNav("announcements")
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 1878,
+                    lineNumber: 2206,
                     columnNumber: 29
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1878,
+                lineNumber: 2206,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: "text-base font-bold text-gray-800 mb-4",
-                        children: "My Enrolled Courses (3/23)"
+                        children: "My Enrolled Courses (3/5)"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1882,
+                        lineNumber: 2210,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6565,7 +6969,7 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                                             className: "w-2 h-2 rounded-full bg-blue-500 inline-block"
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1886,
+                                            lineNumber: 2214,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6573,13 +6977,13 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                                             children: "Active Courses (3)"
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1887,
+                                            lineNumber: 2215,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1885,
+                                    lineNumber: 2213,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6589,12 +6993,12 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                                             onOpen: ()=>setOpenCourse(c)
                                         }, c.code, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1891,
+                                            lineNumber: 2219,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1889,
+                                    lineNumber: 2217,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6604,58 +7008,59 @@ function MyCoursesPage({ setOpenCourse, setActiveNav }) {
                                             className: "w-2 h-2 rounded-full bg-green-500 inline-block"
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1895,
+                                            lineNumber: 2223,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-xs font-bold text-gray-600 uppercase tracking-wider",
-                                            children: "Completed Courses (20)"
+                                            children: "Completed Courses (2)"
                                         }, void 0, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1896,
+                                            lineNumber: 2224,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1894,
+                                    lineNumber: 2222,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "p-4 space-y-2",
                                     children: completedCourses.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CompletedCourseRow, {
-                                            ...c
+                                            course: c,
+                                            onOpen: ()=>setOpenCourse(c)
                                         }, c.code, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 1900,
+                                            lineNumber: 2228,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1898,
+                                    lineNumber: 2226,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/LegacyApp.tsx",
-                            lineNumber: 1884,
+                            lineNumber: 2212,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1883,
+                        lineNumber: 2211,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1881,
+                lineNumber: 2209,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1854,
+        lineNumber: 2182,
         columnNumber: 5
     }, this);
 }
@@ -6705,7 +7110,7 @@ function MiniCalendar() {
                         children: monthName
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1942,
+                        lineNumber: 2270,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6723,17 +7128,17 @@ function MiniCalendar() {
                                         points: "15 18 9 12 15 6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1945,
+                                        lineNumber: 2273,
                                         columnNumber: 114
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1945,
+                                    lineNumber: 2273,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1944,
+                                lineNumber: 2272,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6748,29 +7153,29 @@ function MiniCalendar() {
                                         points: "9 18 15 12 9 6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1948,
+                                        lineNumber: 2276,
                                         columnNumber: 114
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/LegacyApp.tsx",
-                                    lineNumber: 1948,
+                                    lineNumber: 2276,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1947,
+                                lineNumber: 2275,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1943,
+                        lineNumber: 2271,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1941,
+                lineNumber: 2269,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6788,12 +7193,12 @@ function MiniCalendar() {
                         children: d
                     }, i, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1954,
+                        lineNumber: 2282,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1952,
+                lineNumber: 2280,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6801,7 +7206,7 @@ function MiniCalendar() {
                 children: cells.map((d, i)=>{
                     if (!d) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, i, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1959,
+                        lineNumber: 2287,
                         columnNumber: 26
                     }, this);
                     const dots = calendarDots[d] || [];
@@ -6818,7 +7223,7 @@ function MiniCalendar() {
                                 children: d
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1964,
+                                lineNumber: 2292,
                                 columnNumber: 15
                             }, this),
                             dots.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6827,24 +7232,24 @@ function MiniCalendar() {
                                         className: `w-1 h-1 rounded-full ${dotColors[type]}`
                                     }, j, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 1972,
+                                        lineNumber: 2300,
                                         columnNumber: 21
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1970,
+                                lineNumber: 2298,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1963,
+                        lineNumber: 2291,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1957,
+                lineNumber: 2285,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6857,7 +7262,7 @@ function MiniCalendar() {
                                 className: "w-2 h-2 rounded-full bg-orange-400"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1982,
+                                lineNumber: 2310,
                                 columnNumber: 50
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6865,13 +7270,13 @@ function MiniCalendar() {
                                 children: "Assignment"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1982,
+                                lineNumber: 2310,
                                 columnNumber: 105
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1982,
+                        lineNumber: 2310,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6881,7 +7286,7 @@ function MiniCalendar() {
                                 className: "w-2 h-2 rounded-full bg-blue-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1983,
+                                lineNumber: 2311,
                                 columnNumber: 50
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6889,13 +7294,13 @@ function MiniCalendar() {
                                 children: "Quiz"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1983,
+                                lineNumber: 2311,
                                 columnNumber: 103
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1983,
+                        lineNumber: 2311,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6905,7 +7310,7 @@ function MiniCalendar() {
                                 className: "w-2 h-2 rounded-full bg-pink-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1984,
+                                lineNumber: 2312,
                                 columnNumber: 50
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6913,25 +7318,25 @@ function MiniCalendar() {
                                 children: "Report"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 1984,
+                                lineNumber: 2312,
                                 columnNumber: 103
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 1984,
+                        lineNumber: 2312,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1981,
+                lineNumber: 2309,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 1940,
+        lineNumber: 2268,
         columnNumber: 5
     }, this);
 }
@@ -6952,12 +7357,12 @@ function QuickAccess() {
                     d: "M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 1999,
+                    lineNumber: 2327,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 1998,
+                lineNumber: 2326,
                 columnNumber: 9
             }, this),
             bg: "#f5f3ff",
@@ -6977,20 +7382,20 @@ function QuickAccess() {
                         d: "M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2010,
+                        lineNumber: 2338,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
                         points: "9 22 9 12 15 12 15 22"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2010,
+                        lineNumber: 2338,
                         columnNumber: 68
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2009,
+                lineNumber: 2337,
                 columnNumber: 9
             }, this),
             bg: "#ecfeff",
@@ -7010,7 +7415,7 @@ function QuickAccess() {
                         d: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2021,
+                        lineNumber: 2349,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -7019,20 +7424,20 @@ function QuickAccess() {
                         r: "4"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2021,
+                        lineNumber: 2349,
                         columnNumber: 63
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                         d: "M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2021,
+                        lineNumber: 2349,
                         columnNumber: 93
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2020,
+                lineNumber: 2348,
                 columnNumber: 9
             }, this),
             bg: "#ecfdf5",
@@ -7052,20 +7457,20 @@ function QuickAccess() {
                         d: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2032,
+                        lineNumber: 2360,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                         d: "M9 12h6M9 16h4"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2032,
+                        lineNumber: 2360,
                         columnNumber: 151
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2031,
+                lineNumber: 2359,
                 columnNumber: 9
             }, this),
             bg: "#f3f4f6",
@@ -7081,7 +7486,7 @@ function QuickAccess() {
                 children: "Campus Quick Access"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2043,
+                lineNumber: 2371,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7101,7 +7506,7 @@ function QuickAccess() {
                                         children: item.icon
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2056,
+                                        lineNumber: 2384,
                                         columnNumber: 15
                                     }, this),
                                     item.badge > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7109,13 +7514,13 @@ function QuickAccess() {
                                         children: item.badge
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2063,
+                                        lineNumber: 2391,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2055,
+                                lineNumber: 2383,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7123,7 +7528,7 @@ function QuickAccess() {
                                 children: item.label
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2068,
+                                lineNumber: 2396,
                                 columnNumber: 13
                             }, this),
                             item.statusLabel && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7131,24 +7536,24 @@ function QuickAccess() {
                                 children: item.statusLabel
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2072,
+                                lineNumber: 2400,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, item.label, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2046,
+                        lineNumber: 2374,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2044,
+                lineNumber: 2372,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2042,
+        lineNumber: 2370,
         columnNumber: 5
     }, this);
 }
@@ -7163,12 +7568,12 @@ const IconVideoCamera = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPA
             d: "M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
         }, void 0, false, {
             fileName: "[project]/src/LegacyApp.tsx",
-            lineNumber: 2086,
+            lineNumber: 2414,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2085,
+        lineNumber: 2413,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const IconMapPin = ({ className = "w-3.5 h-3.5" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -7182,7 +7587,7 @@ const IconMapPin = ({ className = "w-3.5 h-3.5" })=>/*#__PURE__*/ (0, __TURBOPAC
                 d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2091,
+                lineNumber: 2419,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -7191,13 +7596,13 @@ const IconMapPin = ({ className = "w-3.5 h-3.5" })=>/*#__PURE__*/ (0, __TURBOPAC
                 r: "3"
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2091,
+                lineNumber: 2419,
                 columnNumber: 62
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2090,
+        lineNumber: 2418,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 function TodaySchedule() {
@@ -7236,7 +7641,7 @@ function TodaySchedule() {
                                 children: "Today's Schedule"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2123,
+                                lineNumber: 2451,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7244,13 +7649,13 @@ function TodaySchedule() {
                                 children: "Live Class Schedule"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2124,
+                                lineNumber: 2452,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2122,
+                        lineNumber: 2450,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7260,20 +7665,20 @@ function TodaySchedule() {
                                 className: "w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2127,
+                                lineNumber: 2455,
                                 columnNumber: 11
                             }, this),
                             "Friday, 29 Aug 2026"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2126,
+                        lineNumber: 2454,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2121,
+                lineNumber: 2449,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7292,7 +7697,7 @@ function TodaySchedule() {
                                         children: cls.time
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2137,
+                                        lineNumber: 2465,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7303,7 +7708,7 @@ function TodaySchedule() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2138,
+                                        lineNumber: 2466,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7314,13 +7719,13 @@ function TodaySchedule() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2139,
+                                        lineNumber: 2467,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2136,
+                                lineNumber: 2464,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7344,7 +7749,7 @@ function TodaySchedule() {
                                                         children: cls.code
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 2152,
+                                                        lineNumber: 2480,
                                                         columnNumber: 19
                                                     }, this),
                                                     cls.isLive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7354,20 +7759,20 @@ function TodaySchedule() {
                                                                 className: "w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 2160,
+                                                                lineNumber: 2488,
                                                                 columnNumber: 23
                                                             }, this),
                                                             "LIVE"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 2159,
+                                                        lineNumber: 2487,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2151,
+                                                lineNumber: 2479,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7375,7 +7780,7 @@ function TodaySchedule() {
                                                 children: cls.name
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2165,
+                                                lineNumber: 2493,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7385,26 +7790,26 @@ function TodaySchedule() {
                                                         className: "w-3 h-3 shrink-0 text-gray-400"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 2167,
+                                                        lineNumber: 2495,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: cls.location
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 2168,
+                                                        lineNumber: 2496,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2166,
+                                                lineNumber: 2494,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2150,
+                                        lineNumber: 2478,
                                         columnNumber: 15
                                     }, this),
                                     cls.isLive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7417,37 +7822,37 @@ function TodaySchedule() {
                                                 className: "w-3.5 h-3.5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2177,
+                                                lineNumber: 2505,
                                                 columnNumber: 19
                                             }, this),
                                             "Join Live"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2173,
+                                        lineNumber: 2501,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2146,
+                                lineNumber: 2474,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2134,
+                        lineNumber: 2462,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2132,
+                lineNumber: 2460,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2120,
+        lineNumber: 2448,
         columnNumber: 5
     }, this);
 }
@@ -7460,7 +7865,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
             label: "My Courses",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2202,
+                lineNumber: 2530,
                 columnNumber: 60
             }, this),
             note: "3 active this semester"
@@ -7470,7 +7875,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
             label: "Assignments",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2203,
+                lineNumber: 2531,
                 columnNumber: 61
             }, this),
             note: "2 due soon"
@@ -7480,7 +7885,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
             label: "Quizzes",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2204,
+                lineNumber: 2532,
                 columnNumber: 61
             }, this),
             note: "1 upcoming"
@@ -7490,7 +7895,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
             label: "Learning Materials",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2205,
+                lineNumber: 2533,
                 columnNumber: 61
             }, this),
             note: "12 resources available"
@@ -7536,7 +7941,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2220,
+                                lineNumber: 2548,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7544,13 +7949,13 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                 children: "Bachelor of Information Technology — Semester T226"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2221,
+                                lineNumber: 2549,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2219,
+                        lineNumber: 2547,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7558,13 +7963,13 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                         children: "Monday, 7 September 2026"
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2223,
+                        lineNumber: 2551,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2218,
+                lineNumber: 2546,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7581,7 +7986,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                         children: item.icon
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2235,
+                                        lineNumber: 2563,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7589,13 +7994,13 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                         children: item.label
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2238,
+                                        lineNumber: 2566,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2234,
+                                lineNumber: 2562,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7603,18 +8008,18 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                 children: item.note
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2240,
+                                lineNumber: 2568,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, item.id, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2229,
+                        lineNumber: 2557,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2227,
+                lineNumber: 2555,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7623,12 +8028,12 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                     onClick: ()=>setActiveNav("announcements")
                 }, void 0, false, {
                     fileName: "[project]/src/LegacyApp.tsx",
-                    lineNumber: 2247,
+                    lineNumber: 2575,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2246,
+                lineNumber: 2574,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7643,7 +8048,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                 children: "Enrolled Courses"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2253,
+                                lineNumber: 2581,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7652,13 +8057,13 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                 children: "View All"
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2254,
+                                lineNumber: 2582,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2252,
+                        lineNumber: 2580,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7678,7 +8083,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                         children: c.svgIcon(c.accentColor)
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2263,
+                                        lineNumber: 2591,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7695,7 +8100,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                                                 children: c.code
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 2272,
+                                                                lineNumber: 2600,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7703,7 +8108,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                                                 children: c.title
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 2273,
+                                                                lineNumber: 2601,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7711,13 +8116,13 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                                                 children: c.term
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                                lineNumber: 2274,
+                                                                lineNumber: 2602,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 2271,
+                                                        lineNumber: 2599,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7731,13 +8136,13 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/LegacyApp.tsx",
-                                                        lineNumber: 2276,
+                                                        lineNumber: 2604,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2270,
+                                                lineNumber: 2598,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -7745,7 +8150,7 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                                 color: c.accentColor
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2278,
+                                                lineNumber: 2606,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7753,36 +8158,4905 @@ function DashboardPage({ setActiveNav, setOpenCourse, userName }) {
                                                 children: c.school
                                             }, void 0, false, {
                                                 fileName: "[project]/src/LegacyApp.tsx",
-                                                lineNumber: 2279,
+                                                lineNumber: 2607,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2269,
+                                        lineNumber: 2597,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, c.code, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2258,
+                                lineNumber: 2586,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2256,
+                        lineNumber: 2584,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2251,
+                lineNumber: 2579,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2215,
+        lineNumber: 2543,
+        columnNumber: 5
+    }, this);
+}
+// ── Student Search Catalog & Helper ──────────────────────────────────────────
+function getCategoryIcon(cat) {
+    switch(cat){
+        case "Course":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2621,
+                columnNumber: 14
+            }, this);
+        case "Assignment":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2623,
+                columnNumber: 14
+            }, this);
+        case "Quiz":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2625,
+                columnNumber: 14
+            }, this);
+        case "Learning Material":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2627,
+                columnNumber: 14
+            }, this);
+        case "Grade":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconGrades, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2629,
+                columnNumber: 14
+            }, this);
+        case "Calendar":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2631,
+                columnNumber: 14
+            }, this);
+        case "Announcement":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAnnouncement, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2633,
+                columnNumber: 14
+            }, this);
+        case "Message":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconMessage, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2635,
+                columnNumber: 14
+            }, this);
+        case "Profile & Settings":
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconProfile, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2637,
+                columnNumber: 14
+            }, this);
+        default:
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDashboard, {}, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 2639,
+                columnNumber: 14
+            }, this);
+    }
+}
+function buildStudentSearchCatalog() {
+    const items = [
+        // ── Pages ──
+        {
+            id: "page-dashboard",
+            category: "Page",
+            title: "Student Dashboard",
+            subtitle: "Overview & summary",
+            description: "Overview of your courses, notifications, upcoming deadlines, and learning progress.",
+            badgeBg: "bg-sky-50",
+            badgeText: "text-sky-700",
+            nav: "dashboard",
+            navLabel: "Dashboard",
+            keywords: [
+                "home",
+                "overview",
+                "stats",
+                "deadlines"
+            ]
+        },
+        {
+            id: "page-courses",
+            category: "Page",
+            title: "My Courses",
+            subtitle: "Enrolled & completed courses",
+            description: "View all active enrolled subjects, course progress, and academic unit history.",
+            badgeBg: "bg-blue-50",
+            badgeText: "text-blue-700",
+            nav: "courses",
+            navLabel: "Courses",
+            keywords: [
+                "classes",
+                "subjects",
+                "units",
+                "enrollment"
+            ]
+        },
+        {
+            id: "page-assignments",
+            category: "Page",
+            title: "Assignments",
+            subtitle: "Course tasks & submissions",
+            description: "Track assignment due dates, submission statuses, and rubric requirements.",
+            badgeBg: "bg-purple-50",
+            badgeText: "text-purple-700",
+            nav: "assignments",
+            navLabel: "Assignments",
+            keywords: [
+                "tasks",
+                "homework",
+                "assessments",
+                "submissions",
+                "due soon"
+            ]
+        },
+        {
+            id: "page-quizzes",
+            category: "Page",
+            title: "Quizzes & Exams",
+            subtitle: "Tests, quizzes & exams",
+            description: "Take upcoming quizzes, review completed test scores, and prepare for exams.",
+            badgeBg: "bg-amber-50",
+            badgeText: "text-amber-700",
+            nav: "quizzes",
+            navLabel: "Quizzes",
+            keywords: [
+                "tests",
+                "exams",
+                "midterms",
+                "assessments"
+            ]
+        },
+        {
+            id: "page-materials",
+            category: "Page",
+            title: "Learning Materials",
+            subtitle: "Slides, recordings & labs",
+            description: "Access lecture slides, Zoom recordings, lab files, code repositories, and documentation.",
+            badgeBg: "bg-emerald-50",
+            badgeText: "text-emerald-700",
+            nav: "materials",
+            navLabel: "Materials",
+            keywords: [
+                "slides",
+                "recordings",
+                "videos",
+                "lectures",
+                "pdf",
+                "labs",
+                "code"
+            ]
+        },
+        {
+            id: "page-grades",
+            category: "Page",
+            title: "Grades & Results",
+            subtitle: "GPA, transcript & scores",
+            description: "Check your academic performance, semester GPA, assessment marks, and course grades.",
+            badgeBg: "bg-teal-50",
+            badgeText: "text-teal-700",
+            nav: "grades",
+            navLabel: "Grades",
+            keywords: [
+                "marks",
+                "results",
+                "scores",
+                "gpa",
+                "transcript",
+                "performance"
+            ]
+        },
+        {
+            id: "page-calendar",
+            category: "Page",
+            title: "Calendar & Schedule",
+            subtitle: "Timetable, classes & deadlines",
+            description: "View monthly calendar, scheduled lectures, tutorials, assignment due dates, and exam periods.",
+            badgeBg: "bg-orange-50",
+            badgeText: "text-orange-700",
+            nav: "calendar",
+            navLabel: "Calendar",
+            keywords: [
+                "schedule",
+                "timetable",
+                "events",
+                "dates",
+                "deadlines",
+                "classes"
+            ]
+        },
+        {
+            id: "page-announcements",
+            category: "Page",
+            title: "Announcements",
+            subtitle: "University & course notices",
+            description: "Stay updated with important notices, assessment reminders, and campus announcements.",
+            badgeBg: "bg-rose-50",
+            badgeText: "text-rose-700",
+            nav: "announcements",
+            navLabel: "Announcements",
+            keywords: [
+                "notices",
+                "news",
+                "updates",
+                "alerts",
+                "important"
+            ]
+        },
+        {
+            id: "page-messages",
+            category: "Page",
+            title: "Messages",
+            subtitle: "Inbox & direct communications",
+            description: "Direct messaging with lecturers, course coordinators, and university student support services.",
+            badgeBg: "bg-indigo-50",
+            badgeText: "text-indigo-700",
+            nav: "messages",
+            navLabel: "Messages",
+            keywords: [
+                "inbox",
+                "chat",
+                "email",
+                "communication",
+                "lecturers"
+            ]
+        },
+        {
+            id: "page-profile",
+            category: "Page",
+            title: "My Profile",
+            subtitle: "Student details & program",
+            description: "View and manage personal details, student ID, program, email, and contact info.",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "profile",
+            navLabel: "Profile",
+            keywords: [
+                "student id",
+                "personal",
+                "contact",
+                "name",
+                "email",
+                "program"
+            ]
+        },
+        {
+            id: "page-settings",
+            category: "Page",
+            title: "Settings",
+            subtitle: "Account & preferences",
+            description: "Manage password, notification preferences, system language, timezone, and two-factor auth.",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "settings",
+            navLabel: "Settings",
+            keywords: [
+                "password",
+                "notifications",
+                "security",
+                "language",
+                "timezone",
+                "2fa"
+            ]
+        },
+        // ── Active Courses ──
+        ...activeCourses.map((c)=>({
+                id: `course-${c.code}`,
+                category: "Course",
+                title: `${c.code} – ${c.title}`,
+                subtitle: `${c.term} · ${c.school} · ${c.pct}% complete`,
+                description: `Active enrolled course in ${c.school}. Term ${c.term}. Progress is currently ${c.pct}%.`,
+                badgeBg: "bg-blue-50",
+                badgeText: "text-blue-700",
+                nav: "courses",
+                navLabel: "Courses",
+                course: c,
+                keywords: [
+                    c.code,
+                    c.title,
+                    c.school,
+                    c.term,
+                    "active",
+                    "course",
+                    "subject"
+                ]
+            })),
+        // ── Completed Courses ──
+        ...completedCourses.map((c)=>({
+                id: `course-completed-${c.code}`,
+                category: "Course",
+                title: `${c.code} – ${c.title}`,
+                subtitle: `${c.term} (${c.year}) · Completed Course`,
+                description: `Completed academic unit from ${c.year} (${c.term}). Included in student academic history.`,
+                badgeBg: "bg-blue-50",
+                badgeText: "text-blue-700",
+                nav: "courses",
+                navLabel: "Courses",
+                course: c,
+                keywords: [
+                    c.code,
+                    c.title,
+                    c.term,
+                    c.year ?? "",
+                    "completed",
+                    "course",
+                    "history"
+                ]
+            })),
+        // ── Assignments ──
+        ...courseGroups.flatMap((g)=>g.assignments.map((a)=>({
+                    id: `assign-${a.id}`,
+                    category: "Assignment",
+                    title: a.name,
+                    subtitle: `${g.code} (${g.title}) · Due ${a.dueDate} · ${assignmentStatuses[a.status]?.label ?? a.status}`,
+                    description: `${a.description} Due on ${a.dueDate} for ${g.code} ${g.title}.`,
+                    badgeBg: "bg-purple-50",
+                    badgeText: "text-purple-700",
+                    nav: "assignments",
+                    navLabel: "Assignments",
+                    keywords: [
+                        a.name,
+                        g.code,
+                        g.title,
+                        a.dueDate,
+                        a.status,
+                        "assignment",
+                        "task",
+                        a.description
+                    ]
+                }))),
+        // ── Quizzes ──
+        ...quizCourseGroups.flatMap((g)=>g.quizzes.map((q)=>({
+                    id: `quiz-${q.id}`,
+                    category: "Quiz",
+                    title: q.name,
+                    subtitle: `${g.code} (${g.title}) · Due ${q.dueDate} · ${quizStatusStyles[q.status]?.label ?? q.status}`,
+                    description: `${q.description}${q.timeLimit ? ` Time limit: ${q.timeLimit}.` : ""}${q.score ? ` Score: ${q.score}.` : ""}${q.weight ? ` Weight: ${q.weight}.` : ""}`,
+                    badgeBg: "bg-amber-50",
+                    badgeText: "text-amber-700",
+                    nav: "quizzes",
+                    navLabel: "Quizzes",
+                    keywords: [
+                        q.name,
+                        g.code,
+                        g.title,
+                        q.dueDate,
+                        q.status,
+                        "quiz",
+                        "exam",
+                        "test",
+                        q.description
+                    ]
+                }))),
+        // ── Learning Materials ──
+        ...recentMaterials.map((m)=>({
+                id: `mat-rec-${m.name}`,
+                category: "Learning Material",
+                title: m.name,
+                subtitle: `${m.course} · ${m.typeLabel} · ${m.date}`,
+                description: `Course material and resource for ${m.course}. Type: ${m.typeLabel}. Date: ${m.date}.`,
+                badgeBg: "bg-emerald-50",
+                badgeText: "text-emerald-700",
+                nav: "materials",
+                navLabel: "Materials",
+                keywords: [
+                    m.name,
+                    m.course,
+                    m.typeLabel,
+                    m.date,
+                    "material",
+                    "slide",
+                    "recording",
+                    "resource"
+                ]
+            })),
+        ...courseMaterials.map((m)=>({
+                id: `mat-doc-${m.name}`,
+                category: "Learning Material",
+                title: m.name,
+                subtitle: `${m.course} · ${m.type} (${m.size}) · ${m.date}`,
+                description: `Course file: ${m.name} (${m.type}, ${m.size}) for ${m.course}. Added ${m.date}.`,
+                badgeBg: "bg-emerald-50",
+                badgeText: "text-emerald-700",
+                nav: "materials",
+                navLabel: "Materials",
+                keywords: [
+                    m.name,
+                    m.course,
+                    m.type,
+                    m.date,
+                    "document",
+                    "pdf",
+                    "file"
+                ]
+            })),
+        ...classRecordings.map((r)=>({
+                id: `mat-video-${r.title}`,
+                category: "Learning Material",
+                title: r.title,
+                subtitle: `${r.course} · Class Recording (${r.duration}) · ${r.date}`,
+                description: `Recorded lecture: ${r.title} for ${r.course} (Duration: ${r.duration}). Recorded ${r.date}.`,
+                badgeBg: "bg-emerald-50",
+                badgeText: "text-emerald-700",
+                nav: "materials",
+                navLabel: "Materials",
+                keywords: [
+                    r.title,
+                    r.course,
+                    r.duration,
+                    r.date,
+                    "recording",
+                    "video",
+                    "lecture",
+                    "zoom"
+                ]
+            })),
+        // ── Grades ──
+        {
+            id: "grade-gpa-summary",
+            category: "Grade",
+            title: "Academic Transcript & GPA Summary",
+            subtitle: "Semester T226 · GPA: 3.72 · Overall Average: 81.4%",
+            description: "Current GPA is 3.72. Overall average: 81.4%. 20 completed courses, 96 credits earned of 120 required.",
+            badgeBg: "bg-teal-50",
+            badgeText: "text-teal-700",
+            nav: "grades",
+            navLabel: "Grades",
+            keywords: [
+                "gpa",
+                "overall average",
+                "credits",
+                "transcript",
+                "results",
+                "marks"
+            ]
+        },
+        ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["gradeRows"].map((g)=>({
+                id: `grade-item-${g.code}-${g.assessment}`,
+                category: "Grade",
+                title: `${g.code} ${g.assessment} (${g.course})`,
+                subtitle: `Status: ${g.status} · Score: ${g.status === "Released" ? `${g.score}/${g.max} (Grade ${g.grade})` : "Pending"}`,
+                description: `Assessment mark: ${g.assessment} for ${g.course} (${g.code}). Status: ${g.status}. Score: ${g.score}/${g.max}.`,
+                badgeBg: "bg-teal-50",
+                badgeText: "text-teal-700",
+                nav: "grades",
+                navLabel: "Grades",
+                keywords: [
+                    g.code,
+                    g.course,
+                    g.assessment,
+                    g.grade,
+                    g.status,
+                    "grade",
+                    "score",
+                    "mark"
+                ]
+            })),
+        // ── Calendar Events ──
+        ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["calEvents"].map((e)=>({
+                id: `cal-event-${e.day}-${e.label}`,
+                category: "Calendar",
+                title: `${e.label} (September ${e.day})`,
+                subtitle: `September ${e.day}, 2026 · Academic Calendar`,
+                description: `Scheduled calendar date: ${e.label} on September ${e.day}, 2026.`,
+                badgeBg: "bg-orange-50",
+                badgeText: "text-orange-700",
+                nav: "calendar",
+                navLabel: "Calendar",
+                keywords: [
+                    e.label,
+                    `September ${e.day}`,
+                    "calendar",
+                    "event",
+                    "schedule",
+                    "deadline",
+                    "class"
+                ]
+            })),
+        // ── Announcements ──
+        ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["announcements"].map((a)=>({
+                id: `ann-${a.id}`,
+                category: "Announcement",
+                title: a.title,
+                subtitle: `${a.category}${a.course ? ` · ${a.course}` : ""} · ${a.date}${a.important ? " · Important" : ""}`,
+                description: a.description,
+                badgeBg: "bg-rose-50",
+                badgeText: "text-rose-700",
+                nav: "announcements",
+                navLabel: "Announcements",
+                keywords: [
+                    a.title,
+                    a.category,
+                    a.course ?? "",
+                    a.date,
+                    a.description,
+                    "announcement",
+                    "notice",
+                    "news"
+                ]
+            })),
+        // ── Messages ──
+        ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["conversations"].map((c)=>({
+                id: `msg-${c.id}`,
+                category: "Message",
+                title: `${c.sender} (${c.role})`,
+                subtitle: `Last message: "${c.lastMsg}" · ${c.time}`,
+                description: `Conversation with ${c.sender}, ${c.role}. Latest: "${c.lastMsg}". Messages include: ${c.messages.map((m)=>m.text).join(" ")}`,
+                badgeBg: "bg-indigo-50",
+                badgeText: "text-indigo-700",
+                nav: "messages",
+                navLabel: "Messages",
+                keywords: [
+                    c.sender,
+                    c.role,
+                    c.lastMsg,
+                    ...c.messages.map((m)=>m.text),
+                    "message",
+                    "chat",
+                    "inbox",
+                    "lecturer"
+                ]
+            })),
+        // ── Profile & Settings ──
+        {
+            id: "profile-student-info",
+            category: "Profile & Settings",
+            title: "Student Profile — Richard Maceda Vitug",
+            subtitle: "S00123456 · Bachelor of Information Technology",
+            description: "Student ID: S00123456. Email: richard.vitug@student.edu.au. Phone: +61 412 345 678. Status: Enrolled T226.",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "profile",
+            navLabel: "Profile",
+            keywords: [
+                "richard",
+                "vitug",
+                "profile",
+                "student id",
+                "s00123456",
+                "email",
+                "phone",
+                "enrolled"
+            ]
+        },
+        {
+            id: "settings-change-password",
+            category: "Profile & Settings",
+            title: "Change Password & Security",
+            subtitle: "Account Settings · Security",
+            description: "Update your login password and manage student account credentials.",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "settings",
+            navLabel: "Settings",
+            keywords: [
+                "password",
+                "change password",
+                "security",
+                "credentials",
+                "login"
+            ]
+        },
+        {
+            id: "settings-notification-prefs",
+            category: "Profile & Settings",
+            title: "Notification Preferences",
+            subtitle: "Account Settings · Alerts",
+            description: "Configure notifications for assignment deadlines, quizzes, announcements, and direct messages.",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "settings",
+            navLabel: "Settings",
+            keywords: [
+                "notifications",
+                "alerts",
+                "assignment alerts",
+                "quiz alerts",
+                "announcement alerts"
+            ]
+        },
+        {
+            id: "settings-language-timezone",
+            category: "Profile & Settings",
+            title: "Language and Timezone Preferences",
+            subtitle: "Account Settings · Preferences",
+            description: "Display language (English) and system timezone (Australia/Sydney AEST, UTC+10).",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "settings",
+            navLabel: "Settings",
+            keywords: [
+                "language",
+                "timezone",
+                "sydney",
+                "english",
+                "preferences"
+            ]
+        },
+        {
+            id: "settings-2fa",
+            category: "Profile & Settings",
+            title: "Two-Factor Authentication (2FA)",
+            subtitle: "Account Settings · Security",
+            description: "Add an extra layer of security to your student account with two-factor verification.",
+            badgeBg: "bg-slate-100",
+            badgeText: "text-slate-700",
+            nav: "settings",
+            navLabel: "Settings",
+            keywords: [
+                "2fa",
+                "two-factor",
+                "authentication",
+                "security",
+                "phone"
+            ]
+        }
+    ];
+    return items;
+}
+// ── Search Results Page ───────────────────────────────────────────────────────
+function SearchResultsPage({ query, results, onNavigate, onQuickSearch }) {
+    const [selectedCategory, setSelectedCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("All");
+    const categories = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        const cats = new Set();
+        results.forEach((r)=>cats.add(r.category));
+        return [
+            "All",
+            ...Array.from(cats)
+        ];
+    }, [
+        results
+    ]);
+    const filtered = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        if (selectedCategory === "All") return results;
+        return results.filter((r)=>r.category === selectedCategory);
+    }, [
+        results,
+        selectedCategory
+    ]);
+    const quickSuggestions = [
+        "ICT272",
+        "ICT301",
+        "AI",
+        "Assignment",
+        "Quiz",
+        "Materials",
+        "Grades",
+        "Calendar",
+        "Announcement",
+        "Dr. Mitchell",
+        "Password"
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "p-7",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mb-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-2 text-xs text-gray-400 mb-1",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: "Student Portal"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3057,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: "/"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3058,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "text-gray-600",
+                                children: "Search Results"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3059,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3056,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-end justify-between flex-wrap gap-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                        className: "text-2xl font-bold text-gray-900",
+                                        children: query ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                            children: [
+                                                "Search Results for ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-[#1a3a9e]",
+                                                    children: [
+                                                        '"',
+                                                        query,
+                                                        '"'
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3065,
+                                                    columnNumber: 38
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3065,
+                                            columnNumber: 17
+                                        }, this) : "Search Student Portal"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3063,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm text-gray-500 mt-1",
+                                        children: [
+                                            "Found ",
+                                            results.length,
+                                            " item",
+                                            results.length === 1 ? "" : "s",
+                                            " across courses, assignments, quizzes, materials, grades, calendar, announcements, messages, and settings"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3070,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3062,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>onNavigate("dashboard"),
+                                className: "px-4 py-2 text-xs font-semibold rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 transition-colors shadow-sm cursor-pointer",
+                                children: "← Back to Dashboard"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3074,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3061,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3055,
+                columnNumber: 7
+            }, this),
+            results.length > 0 && categories.length > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white rounded-2xl border border-gray-200 shadow-sm px-4 mb-6",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex items-center gap-2 overflow-x-auto py-2.5",
+                    children: categories.map((cat)=>{
+                        const count = cat === "All" ? results.length : results.filter((r)=>r.category === cat).length;
+                        const isSelected = selectedCategory === cat;
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setSelectedCategory(cat),
+                            className: `px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors flex items-center gap-1.5 cursor-pointer ${isSelected ? "bg-[#1a3a9e] text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`,
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: cat
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3100,
+                                    columnNumber: 19
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: `text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? "bg-blue-800 text-white" : "bg-gray-200 text-gray-600"}`,
+                                    children: count
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3101,
+                                    columnNumber: 19
+                                }, this)
+                            ]
+                        }, cat, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 3091,
+                            columnNumber: 17
+                        }, this);
+                    })
+                }, void 0, false, {
+                    fileName: "[project]/src/LegacyApp.tsx",
+                    lineNumber: 3086,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3085,
+                columnNumber: 9
+            }, this),
+            filtered.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-12 text-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-14 h-14 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 3115,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3114,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                        className: "text-lg font-bold text-gray-900 mb-1",
+                        children: query ? `No matching results for "${query}"` : "Enter a search term above"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3117,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-sm text-gray-500 max-w-md mx-auto mb-6",
+                        children: "Try searching for course codes, assignment titles, quiz names, lecture recordings, grades, lecturers, or settings."
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3120,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xs font-bold uppercase tracking-wider text-gray-400 mb-3",
+                                children: "Popular searches"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3124,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-wrap items-center justify-center gap-2 max-w-lg mx-auto",
+                                children: quickSuggestions.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>onQuickSearch(s),
+                                        className: "px-3 py-1.5 bg-gray-100 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 text-xs font-medium text-gray-700 rounded-xl border border-gray-200 transition cursor-pointer",
+                                        children: s
+                                    }, s, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3127,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3125,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3123,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3113,
+                columnNumber: 9
+            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-3",
+                children: filtered.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        onClick: ()=>onNavigate(item.nav, item.course),
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-5 hover:shadow-md hover:border-blue-200 transition-all cursor-pointer flex items-start justify-between gap-4 group",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-start gap-4 min-w-0",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: `w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${item.badgeBg} ${item.badgeText}`,
+                                        children: getCategoryIcon(item.category)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3147,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "min-w-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-2 flex-wrap mb-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: `text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider ${item.badgeBg} ${item.badgeText}`,
+                                                        children: item.category
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3152,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                        className: "text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors",
+                                                        children: item.title
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3155,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3151,
+                                                columnNumber: 19
+                                            }, this),
+                                            item.subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-xs font-semibold text-gray-500",
+                                                children: item.subtitle
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3160,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-gray-600 mt-1.5 leading-relaxed",
+                                                children: item.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3164,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3150,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3146,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "shrink-0 self-center",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] group-hover:bg-[#102d80] transition-colors shadow-sm inline-flex items-center gap-1.5 whitespace-nowrap",
+                                    children: [
+                                        "Open ",
+                                        item.navLabel,
+                                        " →"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3170,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3169,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, item.id, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3141,
+                        columnNumber: 13
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3139,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/LegacyApp.tsx",
+        lineNumber: 3053,
+        columnNumber: 5
+    }, this);
+}
+// ── Course Overview Page ──────────────────────────────────────────────────────
+const IconChevronLeft = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2.5",
+        className: "w-4 h-4",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
+            points: "15 18 9 12 15 6"
+        }, void 0, false, {
+            fileName: "[project]/src/LegacyApp.tsx",
+            lineNumber: 3185,
+            columnNumber: 5
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/LegacyApp.tsx",
+        lineNumber: 3184,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const IconUser = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        className: "w-4 h-4",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3191,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "12",
+                cy: "7",
+                r: "4"
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3191,
+                columnNumber: 57
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/LegacyApp.tsx",
+        lineNumber: 3190,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const IconPaperclip = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        className: "w-4 h-4",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
+        }, void 0, false, {
+            fileName: "[project]/src/LegacyApp.tsx",
+            lineNumber: 3197,
+            columnNumber: 5
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/LegacyApp.tsx",
+        lineNumber: 3196,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const courseZoomScheduleMap = {
+    ICT301: [
+        {
+            id: "ict301-lecture",
+            type: "Lecture",
+            title: "ICT301 Weekly Lecture",
+            day: "Monday",
+            date: "Sep 14, 2026",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "Dr. Sarah Mitchell",
+            instructorRole: "Course Lecturer",
+            location: "Online · Zoom Room A",
+            meetingId: "849 2011 3012",
+            passcode: "ICT301",
+            isLive: true,
+            topic: "System Architecture & Agile Sprint 2 Review"
+        },
+        {
+            id: "ict301-tutorial",
+            type: "Tutorial/Class",
+            title: "ICT301 Tutorial / Workshop",
+            day: "Thursday",
+            date: "Sep 17, 2026",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "James Thornton",
+            instructorRole: "Senior Lab Tutor",
+            location: "Room IT-201 & Zoom",
+            meetingId: "849 2011 3013",
+            passcode: "ICT301",
+            isLive: false,
+            topic: "Jira Sprint Tracking & Automated CI/CD Setup"
+        }
+    ],
+    ICT272: [
+        {
+            id: "ict272-lecture",
+            type: "Lecture",
+            title: "ICT272 Weekly Lecture",
+            day: "Tuesday",
+            date: "Sep 15, 2026",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "Prof. David Chen",
+            instructorRole: "Course Lecturer",
+            location: "Online · Zoom Room B",
+            meetingId: "752 4892 2721",
+            passcode: "ICT272",
+            isLive: false,
+            topic: "Modern Web Frameworks & State Architecture"
+        },
+        {
+            id: "ict272-tutorial",
+            type: "Tutorial/Class",
+            title: "ICT272 Tutorial / Practical Lab",
+            day: "Thursday",
+            date: "Sep 17, 2026",
+            startTime: "02:00 PM",
+            endTime: "04:00 PM",
+            duration: "2-hour session",
+            instructor: "Alicia Zhang",
+            instructorRole: "Workshop Demonstrator",
+            location: "Lab 3B & Zoom",
+            meetingId: "752 4892 2722",
+            passcode: "ICT272",
+            isLive: false,
+            topic: "Interactive CSS Layouts & Responsive Code Review"
+        }
+    ],
+    ICT126: [
+        {
+            id: "ict126-lecture",
+            type: "Lecture",
+            title: "ICT126 Weekly Lecture",
+            day: "Wednesday",
+            date: "Sep 16, 2026",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "Dr. Elena Rostova",
+            instructorRole: "Course Lecturer",
+            location: "Online · Zoom Room C",
+            meetingId: "618 3920 1261",
+            passcode: "ICT126",
+            isLive: false,
+            topic: "Neural Networks & Gradient Descent Intuition"
+        },
+        {
+            id: "ict126-tutorial",
+            type: "Tutorial/Class",
+            title: "ICT126 Tutorial / Practical AI Lab",
+            day: "Friday",
+            date: "Sep 18, 2026",
+            startTime: "01:00 PM",
+            endTime: "03:00 PM",
+            duration: "2-hour session",
+            instructor: "Marcus Vance",
+            instructorRole: "AI Teaching Assistant",
+            location: "Lab AI-1 & Zoom",
+            meetingId: "618 3920 1262",
+            passcode: "ICT126",
+            isLive: true,
+            topic: "Hands-on PyTorch Tensor Operations & Model Training"
+        }
+    ],
+    ICT101: [
+        {
+            id: "ict101-lecture",
+            type: "Lecture",
+            title: "ICT101 Python Programming Fundamentals",
+            day: "Monday",
+            date: "Nov 17, 2025",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "Dr. Alan Turing",
+            instructorRole: "Course Lecturer",
+            location: "Online · Zoom Archived Room",
+            meetingId: "512 8810 1011",
+            passcode: "ICT101",
+            isLive: false,
+            topic: "Python Data Structures, Functions, and OOP Review"
+        },
+        {
+            id: "ict101-tutorial",
+            type: "Tutorial/Class",
+            title: "ICT101 Interactive Code Lab",
+            day: "Wednesday",
+            date: "Nov 19, 2025",
+            startTime: "02:00 PM",
+            endTime: "04:00 PM",
+            duration: "2-hour session",
+            instructor: "Dr. Alan Turing",
+            instructorRole: "Course Lecturer",
+            location: "Lab Room 101 & Zoom",
+            meetingId: "512 8810 1012",
+            passcode: "ICT101",
+            isLive: false,
+            topic: "Algorithm Implementation & Pythonic Best Practices"
+        }
+    ],
+    ICT102: [
+        {
+            id: "ict102-lecture",
+            type: "Lecture",
+            title: "ICT102 Discrete Mathematics Lecture",
+            day: "Tuesday",
+            date: "Nov 18, 2025",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "Prof. Ada Lovelace",
+            instructorRole: "Course Lecturer",
+            location: "Online · Zoom Archived Room",
+            meetingId: "640 1934 1021",
+            passcode: "ICT102",
+            isLive: false,
+            topic: "Propositional Logic, Proofs & Set Theory"
+        },
+        {
+            id: "ict102-tutorial",
+            type: "Tutorial/Class",
+            title: "ICT102 Problem Solving Workshop",
+            day: "Thursday",
+            date: "Nov 20, 2025",
+            startTime: "01:00 PM",
+            endTime: "03:00 PM",
+            duration: "2-hour session",
+            instructor: "Prof. Ada Lovelace",
+            instructorRole: "Course Lecturer",
+            location: "Lab Room 204 & Zoom",
+            meetingId: "640 1934 1022",
+            passcode: "ICT102",
+            isLive: false,
+            topic: "Graph Theory, Combinatorics, and Boolean Algebra"
+        }
+    ]
+};
+function CourseOverviewPage({ course, onBack, setActiveNav }) {
+    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("overview");
+    const [materialsFilter, setMaterialsFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("all");
+    const [assignmentFilter, setAssignmentFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("all");
+    const [quizFilter, setQuizFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("all");
+    // Dynamic state for interactive mock submission / actions
+    const [submittingAssignment, setSubmittingAssignment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [viewingAssignment, setViewingAssignment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedQuiz, setSelectedQuiz] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [toastMessage, setToastMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const isCompleted = course.status === "Completed" || course.pct === 100;
+    const completionDate = course.completionDate ?? (course.code === "ICT102" ? "November 28, 2025" : "December 12, 2025");
+    // Local assignments state so student can submit and see changes in mock UI
+    const initialAssignments = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        const existing = courseGroups.find((g)=>g.code === course.code)?.assignments ?? [];
+        if (existing.length > 0) return existing;
+        if (course.code === "ICT101") {
+            return [
+                {
+                    id: "ict101-a1",
+                    name: "Assignment 1: Algorithms & Structured Programming",
+                    description: "Python control flow, modular functions, algorithmic problem solving, and unit test suites.",
+                    dueDate: "Oct 10, 2025",
+                    status: "submitted",
+                    score: "92/100 (HD)",
+                    submissionDate: "Oct 08, 2025",
+                    feedback: "Outstanding code structure, well-commented functions, and elegant algorithmic decomposition. All unit test cases passed with optimal execution time."
+                },
+                {
+                    id: "ict101-a2",
+                    name: "Assignment 2: Python Data Analytics & Automation",
+                    description: "End-to-end Python pipeline processing real-world CSV datasets with error handling and visualization.",
+                    dueDate: "Nov 15, 2025",
+                    status: "submitted",
+                    score: "86/100 (HD)",
+                    submissionDate: "Nov 14, 2025",
+                    feedback: "Comprehensive data preprocessing, robust exception handling, and clean visualization outputs. Demonstrated strong mastery of modular Python architecture."
+                }
+            ];
+        }
+        if (course.code === "ICT102") {
+            return [
+                {
+                    id: "ict102-a1",
+                    name: "Problem Set 1: Propositional Logic & Truth Tables",
+                    description: "Formal logic proofs, Boolean algebra reductions, and digital logic equivalence problem sets.",
+                    dueDate: "Sep 20, 2025",
+                    status: "submitted",
+                    score: "84/100 (D)",
+                    submissionDate: "Sep 18, 2025",
+                    feedback: "Rigorous logical proofs and well-structured truth tables. Induction steps are clearly stated and justified."
+                },
+                {
+                    id: "ict102-a2",
+                    name: "Problem Set 2: Graph Theory & Combinatorics",
+                    description: "Applications of Eulerian/Hamiltonian paths, tree traversals, recurrence relations, and permutations.",
+                    dueDate: "Oct 30, 2025",
+                    status: "submitted",
+                    score: "80/100 (D)",
+                    submissionDate: "Oct 28, 2025",
+                    feedback: "Accurate bipartite graph models and sound combinatorial arguments throughout."
+                }
+            ];
+        }
+        return [];
+    }, [
+        course.code
+    ]);
+    const [assignmentsList, setAssignmentsList] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(initialAssignments);
+    // Reset when course changes
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        setAssignmentsList(initialAssignments);
+        setActiveTab("overview");
+    }, [
+        course.code,
+        initialAssignments
+    ]);
+    const courseQuizzes = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        const existing = quizCourseGroups.find((g)=>g.code === course.code)?.quizzes ?? [];
+        if (existing.length > 0) return existing;
+        if (course.code === "ICT101") {
+            return [
+                {
+                    id: "q-ict101-1",
+                    name: "Python Syntax & Basic Data Types Quiz",
+                    description: "Variables, conditionals, loops, lists, and basic I/O operations.",
+                    dueDate: "Sep 18, 2025",
+                    status: "completed",
+                    score: "19/20 (95%)",
+                    dateTaken: "Sep 17, 2025",
+                    timeLimit: "30 Mins",
+                    questions: 20,
+                    weight: "10%"
+                },
+                {
+                    id: "q-ict101-2",
+                    name: "Functions, Scope & Recursion Quiz",
+                    description: "Parameter passing, recursion depth, pure functions, and namespaces.",
+                    dueDate: "Oct 22, 2025",
+                    status: "completed",
+                    score: "18/20 (90%)",
+                    dateTaken: "Oct 21, 2025",
+                    timeLimit: "30 Mins",
+                    questions: 20,
+                    weight: "10%"
+                }
+            ];
+        }
+        if (course.code === "ICT102") {
+            return [
+                {
+                    id: "q-ict102-1",
+                    name: "Set Theory & Predicate Logic Quiz",
+                    description: "Venn diagrams, set builder notation, and first-order quantifiers.",
+                    dueDate: "Sep 12, 2025",
+                    status: "completed",
+                    score: "17/20 (85%)",
+                    dateTaken: "Sep 11, 2025",
+                    timeLimit: "30 Mins",
+                    questions: 20,
+                    weight: "10%"
+                },
+                {
+                    id: "q-ict102-2",
+                    name: "Relations, Functions & Proofs Quiz",
+                    description: "Equivalence relations, partial orderings, and direct vs contradiction proofs.",
+                    dueDate: "Oct 15, 2025",
+                    status: "completed",
+                    score: "16/20 (80%)",
+                    dateTaken: "Oct 14, 2025",
+                    timeLimit: "30 Mins",
+                    questions: 20,
+                    weight: "10%"
+                }
+            ];
+        }
+        return [];
+    }, [
+        course.code
+    ]);
+    const courseMaterialsList = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        return courseMaterials.filter((m)=>m.course === course.code);
+    }, [
+        course.code
+    ]);
+    const courseRecordingsList = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        return classRecordings.filter((r)=>r.course === course.code);
+    }, [
+        course.code
+    ]);
+    const courseCodeResources = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        return codeAndLabResources.filter((r)=>r.title.includes(course.code) || course.code === "ICT301" && r.tags.includes("GitHub"));
+    }, [
+        course.code
+    ]);
+    const courseAnnouncements = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["announcements"].filter((a)=>!a.course || a.course === course.code);
+    }, [
+        course.code
+    ]);
+    const courseGrades = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        const existing = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["gradeRows"].filter((g)=>g.code === course.code);
+        if (existing.length > 0) return existing;
+        if (course.code === "ICT101") {
+            return [
+                {
+                    course: "Introduction to Programming (Python)",
+                    code: "ICT101",
+                    assessment: "Assignment 1: Algorithms & Structured Programming",
+                    score: 92,
+                    max: 100,
+                    grade: "HD",
+                    status: "Released"
+                },
+                {
+                    course: "Introduction to Programming (Python)",
+                    code: "ICT101",
+                    assessment: "Assignment 2: Python Data Analytics & Automation",
+                    score: 86,
+                    max: 100,
+                    grade: "HD",
+                    status: "Released"
+                },
+                {
+                    course: "Introduction to Programming (Python)",
+                    code: "ICT101",
+                    assessment: "Formative Quizzes & Code Exercises",
+                    score: 37,
+                    max: 40,
+                    grade: "HD",
+                    status: "Released"
+                },
+                {
+                    course: "Introduction to Programming (Python)",
+                    code: "ICT101",
+                    assessment: "Final Examination",
+                    score: 88,
+                    max: 100,
+                    grade: "HD",
+                    status: "Released"
+                }
+            ];
+        }
+        if (course.code === "ICT102") {
+            return [
+                {
+                    course: "Discrete Mathematics for IT",
+                    code: "ICT102",
+                    assessment: "Problem Set 1: Propositional Logic & Truth Tables",
+                    score: 84,
+                    max: 100,
+                    grade: "D",
+                    status: "Released"
+                },
+                {
+                    course: "Discrete Mathematics for IT",
+                    code: "ICT102",
+                    assessment: "Problem Set 2: Graph Theory & Combinatorics",
+                    score: 80,
+                    max: 100,
+                    grade: "D",
+                    status: "Released"
+                },
+                {
+                    course: "Discrete Mathematics for IT",
+                    code: "ICT102",
+                    assessment: "Mid-Term Test",
+                    score: 33,
+                    max: 40,
+                    grade: "D",
+                    status: "Released"
+                },
+                {
+                    course: "Discrete Mathematics for IT",
+                    code: "ICT102",
+                    assessment: "Final Examination",
+                    score: 81,
+                    max: 100,
+                    grade: "D",
+                    status: "Released"
+                }
+            ];
+        }
+        return [];
+    }, [
+        course.code
+    ]);
+    const zoomSessions = courseZoomScheduleMap[course.code] ?? [
+        {
+            id: `${course.code.toLowerCase()}-lecture`,
+            type: "Lecture",
+            title: `${course.code} Weekly Lecture`,
+            day: "Monday",
+            date: "Sep 14, 2026",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: course.instructor ?? "Dr. Jane Smith",
+            instructorRole: "Course Lecturer",
+            location: "Online · Zoom",
+            meetingId: "800 1234 5678",
+            passcode: "EDUFLEX",
+            isLive: false,
+            topic: "Unit overview and core conceptual lecture."
+        },
+        {
+            id: `${course.code.toLowerCase()}-tutorial`,
+            type: "Tutorial/Class",
+            title: `${course.code} Tutorial / Class`,
+            day: "Thursday",
+            date: "Sep 17, 2026",
+            startTime: "10:00 AM",
+            endTime: "12:00 PM",
+            duration: "2-hour session",
+            instructor: "Alex Rivera",
+            instructorRole: "Workshop Demonstrator",
+            location: "Online / Campus · Zoom",
+            meetingId: "800 1234 5679",
+            passcode: "EDUFLEX",
+            isLive: false,
+            topic: "Weekly practical exercises and mentoring."
+        }
+    ];
+    const [expandedSessionIds, setExpandedSessionIds] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
+    const toggleSession = (id)=>{
+        setExpandedSessionIds((prev)=>({
+                ...prev,
+                [id]: !prev[id]
+            }));
+    };
+    const showToast = (msg)=>{
+        setToastMessage(msg);
+        setTimeout(()=>setToastMessage(null), 3000);
+    };
+    const handleConfirmSubmit = (e)=>{
+        e.preventDefault();
+        if (!submittingAssignment) return;
+        setAssignmentsList((prev)=>prev.map((a)=>a.id === submittingAssignment.id ? {
+                    ...a,
+                    status: "submitted"
+                } : a));
+        showToast(`Successfully submitted ${submittingAssignment.name}!`);
+        setSubmittingAssignment(null);
+    };
+    const tabs = isCompleted ? [
+        {
+            id: "overview",
+            label: "Overview"
+        },
+        {
+            id: "materials",
+            label: "Learning Materials",
+            count: courseMaterialsList.length + courseRecordingsList.length
+        },
+        {
+            id: "assignments",
+            label: "Past Assignments",
+            count: assignmentsList.length
+        },
+        {
+            id: "quizzes",
+            label: "Past Quizzes",
+            count: courseQuizzes.length
+        },
+        {
+            id: "grades",
+            label: "Final Results"
+        }
+    ] : [
+        {
+            id: "overview",
+            label: "Overview"
+        },
+        {
+            id: "materials",
+            label: "Learning Materials",
+            count: courseMaterialsList.length + courseRecordingsList.length
+        },
+        {
+            id: "assignments",
+            label: "Assignments",
+            count: assignmentsList.length
+        },
+        {
+            id: "quizzes",
+            label: "Quizzes",
+            count: courseQuizzes.length
+        },
+        {
+            id: "grades",
+            label: "Grades",
+            count: courseGrades.length
+        }
+    ];
+    const filteredAssignments = assignmentsList.filter((a)=>{
+        if (assignmentFilter === "all") return true;
+        return a.status === assignmentFilter;
+    });
+    const filteredQuizzes = courseQuizzes.filter((q)=>{
+        if (quizFilter === "all") return true;
+        return q.status === quizFilter;
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "p-6",
+        children: [
+            toastMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-gray-700 flex items-center gap-3 animate-fade-in text-sm font-medium",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "w-2 h-2 rounded-full bg-green-400"
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3679,
+                        columnNumber: 11
+                    }, this),
+                    toastMessage
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3678,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mb-4",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: onBack,
+                    className: "inline-flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-blue-700 transition-colors bg-white px-3 py-1.5 rounded-lg border border-gray-200 shadow-sm",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronLeft, {}, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 3690,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            children: "Back to My Courses"
+                        }, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 3691,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/LegacyApp.tsx",
+                    lineNumber: 3686,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3685,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "min-w-0",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex flex-wrap items-center gap-2 mb-1.5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "px-2.5 py-0.5 rounded-md text-xs font-extrabold tracking-wide uppercase",
+                                            style: {
+                                                background: `${course.accentColor}18`,
+                                                color: course.accentColor
+                                            },
+                                            children: course.code
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3700,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-xs text-gray-300 font-medium",
+                                            children: "·"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3706,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-xs text-gray-600 font-semibold",
+                                            children: course.term
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3707,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-xs text-gray-300 font-medium",
+                                            children: "·"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3708,
+                                            columnNumber: 15
+                                        }, this),
+                                        course.status === "Completed" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-[11px] font-bold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-md border border-green-200 inline-flex items-center gap-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {
+                                                    className: "w-3.5 h-3.5"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3711,
+                                                    columnNumber: 19
+                                                }, this),
+                                                " Completed Course"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3710,
+                                            columnNumber: 17
+                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100",
+                                            children: "Enrolled & Active"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3714,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3699,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                    className: "text-2xl font-bold text-gray-900 tracking-tight mb-2",
+                                    children: course.title
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3719,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-gray-500",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "flex items-center gap-1.5",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3722,
+                                                    columnNumber: 17
+                                                }, this),
+                                                course.school
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3721,
+                                            columnNumber: 15
+                                        }, this),
+                                        course.instructor && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "flex items-center gap-1.5 font-medium text-gray-600",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconUser, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3727,
+                                                    columnNumber: 19
+                                                }, this),
+                                                "Instructor: ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    className: "text-gray-900 font-semibold",
+                                                    children: course.instructor
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3728,
+                                                    columnNumber: 31
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3726,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "flex items-center gap-1.5 text-gray-400",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3732,
+                                                    columnNumber: 17
+                                                }, this),
+                                                course.year ? `Semester ${course.term} ${course.year}` : "Semester T2 2026"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3731,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3720,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 3698,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "lg:w-80 bg-gray-50 border border-gray-200/80 rounded-xl p-4 shrink-0",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-between text-xs font-semibold text-gray-600 mb-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: isCompleted ? "Course Completion" : "Overall Course Completion"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3741,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-sm",
+                                            style: {
+                                                color: isCompleted ? "#16a34a" : course.accentColor
+                                            },
+                                            children: isCompleted ? "100%" : `${course.pct}%`
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 3742,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3740,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
+                                    pct: isCompleted ? 100 : course.pct,
+                                    color: isCompleted ? "#16a34a" : course.accentColor
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3746,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-between mt-2.5 text-[11px] font-medium",
+                                    children: isCompleted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-green-700 font-bold flex items-center gap-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {
+                                                        className: "w-3 h-3"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3751,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    " Status: Completed"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3750,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-gray-500 font-semibold",
+                                                children: completionDate
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3753,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3749,
+                                        columnNumber: 17
+                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-gray-500",
+                                                children: [
+                                                    "Status: ",
+                                                    course.pct >= 70 ? "On Track" : course.pct >= 40 ? "Progressing" : "Attention"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3757,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-gray-400",
+                                                children: "Target: 100%"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3758,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3756,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 3747,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 3739,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/LegacyApp.tsx",
+                    lineNumber: 3697,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3696,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center gap-1 border-b border-gray-200 mb-6 overflow-x-auto scrollbar-none",
+                children: tabs.map((tab)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: ()=>setActiveTab(tab.id),
+                        className: `px-4 py-3 text-sm font-semibold transition-all border-b-2 -mb-px whitespace-nowrap flex items-center gap-2 ${activeTab === tab.id ? "border-[#1a3a9e] text-[#1a3a9e]" : "border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-300"}`,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: tab.label
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3778,
+                                columnNumber: 13
+                            }, this),
+                            tab.count !== undefined && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: `text-[11px] px-2 py-0.5 rounded-full font-bold ${activeTab === tab.id ? "bg-blue-100 text-[#1a3a9e]" : "bg-gray-100 text-gray-600"}`,
+                                children: tab.count
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3780,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, tab.id, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3769,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3767,
+                columnNumber: 7
+            }, this),
+            activeTab === "overview" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-5",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between pb-3 border-b border-gray-100",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-2.5",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "p-1.5 rounded-lg bg-blue-50 text-blue-600 shrink-0",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconVideoCamera, {
+                                                    className: "w-4 h-4"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3802,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3801,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                        className: "text-base font-bold text-gray-900 leading-tight",
+                                                        children: "Zoom Class Sessions"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3805,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-[11px] text-gray-400 font-medium",
+                                                        children: "Weekly 2-hour synchronous lectures & tutorials"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3806,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3804,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3800,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-[11px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-lg shrink-0",
+                                        children: [
+                                            zoomSessions.length,
+                                            " Scheduled Sessions"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3809,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3799,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "divide-y divide-gray-100 mt-1",
+                                children: zoomSessions.map((session)=>{
+                                    const isExpanded = !!expandedSessionIds[session.id];
+                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "pt-2.5 pb-2.5 first:pt-2 last:pb-1",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                onClick: ()=>toggleSession(session.id),
+                                                className: "flex flex-col md:flex-row md:items-center justify-between gap-3 p-3 rounded-xl hover:bg-gray-50/80 cursor-pointer transition-colors group",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-3 min-w-0 flex-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: `w-7 h-7 rounded-lg flex items-center justify-center shrink-0 text-gray-400 group-hover:text-blue-600 group-hover:bg-blue-50 transition-all ${isExpanded ? "rotate-180 bg-blue-50 text-blue-600" : ""}`,
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
+                                                                    className: "w-4 h-4"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 3832,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3827,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "min-w-0 flex-1",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-2 flex-wrap mb-1",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: `text-[10px] font-extrabold uppercase tracking-wide px-2 py-0.5 rounded-md ${session.type === "Lecture" ? "bg-blue-100 text-blue-800" : "bg-indigo-100 text-indigo-800"}`,
+                                                                                children: session.type
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3837,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-[11px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded",
+                                                                                children: session.duration
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3846,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            session.isLive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "inline-flex items-center gap-1 text-[10px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-md border border-red-100 animate-pulse",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                        className: "w-1.5 h-1.5 rounded-full bg-red-500"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3851,
+                                                                                        columnNumber: 33
+                                                                                    }, this),
+                                                                                    "LIVE NOW"
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3850,
+                                                                                columnNumber: 31
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-xs font-bold text-gray-900 truncate",
+                                                                                children: session.title
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3855,
+                                                                                columnNumber: 29
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3836,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "flex items-center gap-1 font-semibold text-gray-700",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3862,
+                                                                                        columnNumber: 31
+                                                                                    }, this),
+                                                                                    session.day,
+                                                                                    ", ",
+                                                                                    session.date
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3861,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-gray-300",
+                                                                                children: "·"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3865,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "flex items-center gap-1 font-semibold text-blue-700",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconClock, {
+                                                                                        className: "w-3.5 h-3.5 text-blue-500 shrink-0"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3867,
+                                                                                        columnNumber: 31
+                                                                                    }, this),
+                                                                                    session.startTime,
+                                                                                    " – ",
+                                                                                    session.endTime
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3866,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-gray-300",
+                                                                                children: "·"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3870,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "flex items-center gap-1 text-gray-600",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconUser, {}, void 0, false, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3872,
+                                                                                        columnNumber: 31
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                        className: "text-gray-400",
+                                                                                        children: "Instructor:"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3873,
+                                                                                        columnNumber: 31
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                                        className: "text-gray-800 font-semibold",
+                                                                                        children: session.instructor
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3874,
+                                                                                        columnNumber: 31
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                        className: "text-[11px] text-gray-400 font-normal",
+                                                                                        children: [
+                                                                                            "(",
+                                                                                            session.instructorRole,
+                                                                                            ")"
+                                                                                        ]
+                                                                                    }, void 0, true, {
+                                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                                        lineNumber: 3875,
+                                                                                        columnNumber: 31
+                                                                                    }, this)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                                lineNumber: 3871,
+                                                                                columnNumber: 29
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3860,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3835,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3825,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 shrink-0 self-end md:self-center ml-10 md:ml-0",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                            type: "button",
+                                                            onClick: (e)=>{
+                                                                e.stopPropagation();
+                                                                showToast(`Launching Zoom for ${session.title}...`);
+                                                            },
+                                                            className: "px-3.5 py-1.5 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] hover:bg-[#102d80] active:scale-95 transition-all shadow-sm flex items-center gap-1.5",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconVideoCamera, {
+                                                                    className: "w-3.5 h-3.5"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 3891,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    children: "Join Zoom"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 3892,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 3883,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3882,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3821,
+                                                columnNumber: 21
+                                            }, this),
+                                            isExpanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 ml-10 mr-3 p-3.5 bg-blue-50/40 rounded-xl border border-blue-100 text-xs animate-fade-in space-y-2",
+                                                children: [
+                                                    session.topic && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-start gap-2 text-gray-700",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                className: "text-gray-900 shrink-0 font-bold",
+                                                                children: "Session Agenda:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3902,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: session.topic
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3903,
+                                                                columnNumber: 29
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3901,
+                                                        columnNumber: 27
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-[11px] text-gray-600",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-white p-2.5 rounded-lg border border-gray-100",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-gray-400 block text-[10px] uppercase font-bold tracking-wider",
+                                                                        children: "Location / Link"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3908,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-semibold text-gray-800",
+                                                                        children: session.location
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3909,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3907,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-white p-2.5 rounded-lg border border-gray-100",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-gray-400 block text-[10px] uppercase font-bold tracking-wider",
+                                                                        children: "Meeting ID"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3912,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-mono font-bold text-gray-900",
+                                                                        children: session.meetingId
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3913,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3911,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-white p-2.5 rounded-lg border border-gray-100",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-gray-400 block text-[10px] uppercase font-bold tracking-wider",
+                                                                        children: "Passcode"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3916,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-mono font-bold text-gray-900",
+                                                                        children: session.passcode
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 3917,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3915,
+                                                                columnNumber: 27
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3906,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3899,
+                                                columnNumber: 23
+                                            }, this)
+                                        ]
+                                    }, session.id, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3819,
+                                        columnNumber: 19
+                                    }, this);
+                                })
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3815,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3798,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "p-1.5 rounded-lg bg-purple-50 text-purple-600",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3932,
+                                                    columnNumber: 81
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3932,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-base font-bold text-gray-900",
+                                                children: "Upcoming Assignments"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3933,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3931,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setActiveTab("assignments"),
+                                        className: "text-xs font-semibold text-blue-700 hover:underline",
+                                        children: [
+                                            "View All (",
+                                            assignmentsList.length,
+                                            ") →"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3935,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3930,
+                                columnNumber: 13
+                            }, this),
+                            assignmentsList.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-500 py-4 text-center",
+                                children: "No assignments scheduled for this course."
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3944,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "divide-y divide-gray-100",
+                                children: assignmentsList.slice(0, 3).map((a)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "py-3.5 first:pt-0 last:pb-0 flex items-start justify-between gap-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 mb-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                className: "text-sm font-bold text-gray-900",
+                                                                children: a.name
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3951,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StatusBadge, {
+                                                                status: a.status
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3952,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3950,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-xs text-gray-500 line-clamp-1",
+                                                        children: a.description
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3954,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-[11px] text-gray-400 mt-1 font-medium flex items-center gap-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 3956,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            " Due: ",
+                                                            a.dueDate
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 3955,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3949,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "shrink-0",
+                                                children: a.status === "submitted" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>setViewingAssignment(a),
+                                                    className: "px-3 py-1.5 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors",
+                                                    children: "Details"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3961,
+                                                    columnNumber: 25
+                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>setSubmittingAssignment(a),
+                                                    className: "px-3 py-1.5 rounded-xl text-xs font-semibold text-white bg-[#1a3a9e] hover:bg-[#102d80] transition-colors shadow-sm",
+                                                    children: "Submit"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3968,
+                                                    columnNumber: 25
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3959,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, a.id, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3948,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3946,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3929,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "p-1.5 rounded-lg bg-amber-50 text-amber-600",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 3986,
+                                                    columnNumber: 79
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3986,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-base font-bold text-gray-900",
+                                                children: "Quizzes & Tests"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 3987,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3985,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setActiveTab("quizzes"),
+                                        className: "text-xs font-semibold text-blue-700 hover:underline",
+                                        children: [
+                                            "View All (",
+                                            courseQuizzes.length,
+                                            ") →"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 3989,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3984,
+                                columnNumber: 13
+                            }, this),
+                            courseQuizzes.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-500 py-4 text-center",
+                                children: "No quizzes scheduled for this course."
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 3998,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "divide-y divide-gray-100",
+                                children: courseQuizzes.slice(0, 3).map((q)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "py-3.5 first:pt-0 last:pb-0 flex items-start justify-between gap-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 mb-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                className: "text-sm font-bold text-gray-900",
+                                                                children: q.name
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4005,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(QuizStatusBadge, {
+                                                                status: q.status
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4006,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4004,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-xs text-gray-500 line-clamp-1",
+                                                        children: q.description
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4008,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-3 text-[11px] text-gray-400 mt-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: [
+                                                                    "Due: ",
+                                                                    q.dueDate
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4010,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            q.timeLimit && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: [
+                                                                    "· Limit: ",
+                                                                    q.timeLimit
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4011,
+                                                                columnNumber: 41
+                                                            }, this),
+                                                            q.score && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-semibold text-green-700",
+                                                                children: [
+                                                                    "· Score: ",
+                                                                    q.score
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4012,
+                                                                columnNumber: 37
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4009,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4003,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "shrink-0",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>setSelectedQuiz(q),
+                                                    className: `px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors ${q.status === "open" ? "text-white bg-[#1a3a9e] hover:bg-[#102d80] shadow-sm" : "text-gray-700 bg-gray-100 hover:bg-gray-200"}`,
+                                                    children: q.status === "open" ? "Start" : "View"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4016,
+                                                    columnNumber: 23
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4015,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, q.id, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4002,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4000,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 3983,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "p-1.5 rounded-lg bg-blue-50 text-blue-600",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAnnouncement, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4037,
+                                                    columnNumber: 77
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4037,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-base font-bold text-gray-900",
+                                                children: "Recent Announcements"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4038,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4036,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setActiveNav("announcements"),
+                                        className: "text-xs font-semibold text-blue-700 hover:underline",
+                                        children: "All Announcements →"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4040,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4035,
+                                columnNumber: 13
+                            }, this),
+                            courseAnnouncements.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-500 py-4 text-center",
+                                children: "No announcements for this course."
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4049,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "space-y-3",
+                                children: courseAnnouncements.slice(0, 3).map((ann)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 transition-all",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center justify-between gap-2 mb-1.5",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800",
+                                                        children: ann.category
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4055,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[11px] text-gray-400",
+                                                        children: ann.date
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4058,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4054,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                className: "text-sm font-bold text-gray-900 mb-1",
+                                                children: ann.title
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4060,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-xs text-gray-600 leading-relaxed",
+                                                children: ann.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4061,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, ann.id, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4053,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4051,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4034,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "p-1.5 rounded-lg bg-emerald-50 text-emerald-600",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4072,
+                                                    columnNumber: 83
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4072,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-base font-bold text-gray-900",
+                                                children: "Learning Materials & Resources"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4073,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4071,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setActiveTab("materials"),
+                                        className: "text-xs font-semibold text-blue-700 hover:underline",
+                                        children: [
+                                            "View All (",
+                                            courseMaterialsList.length + courseRecordingsList.length,
+                                            ") →"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4075,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4070,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "space-y-2.5",
+                                children: [
+                                    courseMaterialsList.map((m, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-gray-100 hover:bg-blue-50/40 transition-colors",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-3 min-w-0",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded-lg bg-red-50 text-red-600 shrink-0",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFilePdf, {
+                                                                className: "w-4 h-4"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4091,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4090,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "min-w-0",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-xs font-bold text-gray-800 truncate",
+                                                                    children: m.name
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 4094,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-[11px] text-gray-400",
+                                                                    children: [
+                                                                        m.type,
+                                                                        " · ",
+                                                                        m.size,
+                                                                        " · ",
+                                                                        m.date
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 4095,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4093,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4089,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>showToast(`Opening ${m.name}...`),
+                                                    className: "text-xs font-semibold text-blue-700 hover:text-blue-900 px-3 py-1 rounded-lg hover:bg-blue-50 shrink-0 ml-2",
+                                                    children: "Open"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4098,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, i, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4085,
+                                            columnNumber: 17
+                                        }, this)),
+                                    courseRecordingsList.map((r, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-gray-100 hover:bg-blue-50/40 transition-colors",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-3 min-w-0",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconVideo, {
+                                                                className: "w-4 h-4"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4114,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4113,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "min-w-0",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-xs font-bold text-gray-800 truncate",
+                                                                    children: r.title
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 4117,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-[11px] text-gray-400",
+                                                                    children: [
+                                                                        r.duration,
+                                                                        " · ",
+                                                                        r.date
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                                    lineNumber: 4118,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4116,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4112,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>showToast(`Streaming ${r.title}...`),
+                                                    className: "text-xs font-semibold text-blue-700 hover:text-blue-900 px-3 py-1 rounded-lg hover:bg-blue-50 shrink-0 ml-2",
+                                                    children: "Watch"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4121,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, i, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4108,
+                                            columnNumber: 17
+                                        }, this))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4083,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4069,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 3796,
+                columnNumber: 9
+            }, this),
+            activeTab === "materials" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-2",
+                        children: [
+                            {
+                                id: "all",
+                                label: "All Materials"
+                            },
+                            {
+                                id: "slides",
+                                label: "Slides & Documents"
+                            },
+                            {
+                                id: "recordings",
+                                label: "Class Recordings"
+                            },
+                            {
+                                id: "code",
+                                label: "Code & Lab Starter Files"
+                            }
+                        ].map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>setMaterialsFilter(f.id),
+                                className: `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${materialsFilter === f.id ? "bg-[#1a3a9e] text-white shadow-sm" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"}`,
+                                children: f.label
+                            }, f.id, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4145,
+                                columnNumber: 15
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4138,
+                        columnNumber: 11
+                    }, this),
+                    (materialsFilter === "all" || materialsFilter === "slides") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 p-6 shadow-sm",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                    className: "text-sm font-bold text-gray-900 flex items-center gap-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFilePdf, {
+                                            className: "w-4 h-4 text-red-500"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4164,
+                                            columnNumber: 19
+                                        }, this),
+                                        "Course Handouts & Lecture Slides (",
+                                        courseMaterialsList.length,
+                                        ")"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4163,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4162,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-1 md:grid-cols-2 gap-3",
+                                children: courseMaterialsList.map((m, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex items-start justify-between gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-start gap-3 min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "p-2.5 rounded-xl bg-red-50 text-red-600 shrink-0",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFilePdf, {
+                                                            className: "w-5 h-5"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4176,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4175,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "min-w-0",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                className: "text-xs font-bold text-gray-900 leading-snug",
+                                                                children: m.name
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4179,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-[11px] text-gray-400 mt-1",
+                                                                children: [
+                                                                    m.type,
+                                                                    " · ",
+                                                                    m.size,
+                                                                    " · Uploaded ",
+                                                                    m.date
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4180,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4178,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4174,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>showToast(`Downloading ${m.name}...`),
+                                                className: "p-2 text-gray-500 hover:text-blue-700 hover:bg-white rounded-lg transition-colors shrink-0",
+                                                title: "Download file",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDownload, {
+                                                    className: "w-4 h-4"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4188,
+                                                    columnNumber: 23
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4183,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, idx, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4170,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4168,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4161,
+                        columnNumber: 13
+                    }, this),
+                    (materialsFilter === "all" || materialsFilter === "recordings") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 p-6 shadow-sm",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                    className: "text-sm font-bold text-gray-900 flex items-center gap-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconVideo, {
+                                            className: "w-4 h-4 text-blue-500"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4201,
+                                            columnNumber: 19
+                                        }, this),
+                                        "Recorded Lectures & Workgroups (",
+                                        courseRecordingsList.length,
+                                        ")"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4200,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4199,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-1 md:grid-cols-2 gap-3",
+                                children: courseRecordingsList.map((rec, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex items-start justify-between gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-start gap-3 min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconVideo, {
+                                                            className: "w-5 h-5"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4213,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4212,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "min-w-0",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                className: "text-xs font-bold text-gray-900 leading-snug",
+                                                                children: rec.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4216,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-[11px] text-gray-400 mt-1",
+                                                                children: [
+                                                                    "Duration: ",
+                                                                    rec.duration,
+                                                                    " · Recorded ",
+                                                                    rec.date
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4217,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4215,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4211,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>showToast(`Opening player for ${rec.title}...`),
+                                                className: "px-3 py-1.5 bg-[#1a3a9e] text-white rounded-lg text-xs font-semibold hover:bg-[#102d80] transition-colors shrink-0",
+                                                children: "Watch"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4220,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, idx, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4207,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4205,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4198,
+                        columnNumber: 13
+                    }, this),
+                    (materialsFilter === "all" || materialsFilter === "code") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 p-6 shadow-sm",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                    className: "text-sm font-bold text-gray-900 flex items-center gap-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCode, {
+                                            className: "w-4 h-4 text-emerald-600"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4237,
+                                            columnNumber: 19
+                                        }, this),
+                                        "Code Templates & Repositories"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4236,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4235,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-1 md:grid-cols-2 gap-3",
+                                children: courseCodeResources.map((res, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex items-start justify-between gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-start gap-3 min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "p-2.5 rounded-xl bg-emerald-50 text-emerald-600 shrink-0",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCode, {
+                                                            className: "w-5 h-5"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4249,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4248,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "min-w-0",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                className: "text-xs font-bold text-gray-900 leading-snug",
+                                                                children: res.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4252,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-[11px] text-gray-500 mt-0.5",
+                                                                children: res.desc
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4253,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex gap-1.5 mt-2",
+                                                                children: res.tags.map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-[10px] font-semibold bg-white border border-gray-200 px-1.5 py-0.5 rounded text-gray-600",
+                                                                        children: tag
+                                                                    }, tag, false, {
+                                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                                        lineNumber: 4256,
+                                                                        columnNumber: 29
+                                                                    }, this))
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4254,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4251,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4247,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>showToast(`Accessing ${res.title}...`),
+                                                className: "p-2 text-gray-500 hover:text-blue-700 hover:bg-white rounded-lg transition-colors shrink-0",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconExternalLink, {
+                                                    className: "w-4 h-4"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4267,
+                                                    columnNumber: 23
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4263,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, idx, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4243,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4241,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4234,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4136,
+                columnNumber: 9
+            }, this),
+            activeTab === "assignments" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center justify-between flex-wrap gap-3",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    {
+                                        id: "all",
+                                        label: `All (${assignmentsList.length})`
+                                    },
+                                    {
+                                        id: "dueSoon",
+                                        label: "Due Soon"
+                                    },
+                                    {
+                                        id: "submitted",
+                                        label: "Submitted"
+                                    },
+                                    {
+                                        id: "notStarted",
+                                        label: "Not Started"
+                                    }
+                                ].map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setAssignmentFilter(f.id),
+                                        className: `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${assignmentFilter === f.id ? "bg-[#1a3a9e] text-white shadow-sm" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"}`,
+                                        children: f.label
+                                    }, f.id, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4289,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4282,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xs text-gray-500",
+                                children: "All submissions require academic integrity declaration"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4303,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4281,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-4",
+                        children: filteredAssignments.map((a)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6 hover:border-blue-200 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "min-w-0 max-w-2xl",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-2.5 flex-wrap mb-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider",
+                                                        children: course.code
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4315,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-gray-300",
+                                                        children: "·"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4316,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                        className: "text-base font-bold text-gray-900",
+                                                        children: a.name
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4317,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StatusBadge, {
+                                                        status: a.status
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4318,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4314,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-xs text-gray-600 leading-relaxed mb-3",
+                                                children: a.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4320,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-wrap items-center gap-4 text-xs text-gray-400 font-medium",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "flex items-center gap-1.5 text-gray-600 font-semibold",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4323,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            " Due Date: ",
+                                                            a.dueDate,
+                                                            " at 11:59 PM"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4322,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "Submission Mode: PDF Upload"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4325,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "Weight: 30% of total unit"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4326,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4321,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4313,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-3 shrink-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>showToast(`Downloading assignment brief for ${a.name}...`),
+                                                className: "px-3.5 py-2 rounded-xl text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors",
+                                                children: "Brief (PDF)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4331,
+                                                columnNumber: 19
+                                            }, this),
+                                            a.status === "submitted" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>setViewingAssignment(a),
+                                                className: "px-4 py-2 rounded-xl text-xs font-semibold text-green-700 bg-green-50 border border-green-200 hover:bg-green-100 transition-colors inline-flex items-center gap-1.5",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {}, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4342,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    "View Submission"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4338,
+                                                columnNumber: 21
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>setSubmittingAssignment(a),
+                                                className: "px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#1a3a9e] hover:bg-[#102d80] transition-colors shadow-sm",
+                                                children: "Submit Assignment"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4346,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4330,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, a.id, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4309,
+                                columnNumber: 15
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4307,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4279,
+                columnNumber: 9
+            }, this),
+            activeTab === "quizzes" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center justify-between flex-wrap gap-3",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    {
+                                        id: "all",
+                                        label: `All (${courseQuizzes.length})`
+                                    },
+                                    {
+                                        id: "open",
+                                        label: "Open Now"
+                                    },
+                                    {
+                                        id: "completed",
+                                        label: "Completed"
+                                    },
+                                    {
+                                        id: "locked",
+                                        label: "Upcoming"
+                                    }
+                                ].map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setQuizFilter(f.id),
+                                        className: `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${quizFilter === f.id ? "bg-[#1a3a9e] text-white shadow-sm" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"}`,
+                                        children: f.label
+                                    }, f.id, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4372,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4365,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xs text-gray-500",
+                                children: "Quizzes are timed once opened"
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4386,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4364,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-4",
+                        children: filteredQuizzes.map((q)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-white rounded-2xl border border-gray-200 shadow-sm p-6 hover:border-blue-200 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "min-w-0 max-w-2xl",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-2.5 flex-wrap mb-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider",
+                                                        children: course.code
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4398,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-gray-300",
+                                                        children: "·"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4399,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                        className: "text-base font-bold text-gray-900",
+                                                        children: q.name
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4400,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(QuizStatusBadge, {
+                                                        status: q.status
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4401,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4397,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-xs text-gray-600 leading-relaxed mb-3",
+                                                children: q.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4403,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-wrap items-center gap-4 text-xs text-gray-500 font-medium",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-gray-700 font-semibold",
+                                                        children: [
+                                                            "Due: ",
+                                                            q.dueDate
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4405,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    q.timeLimit && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: [
+                                                            "Time Limit: ",
+                                                            q.timeLimit
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4406,
+                                                        columnNumber: 37
+                                                    }, this),
+                                                    q.questions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: [
+                                                            q.questions,
+                                                            " Questions"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4407,
+                                                        columnNumber: 37
+                                                    }, this),
+                                                    q.weight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: [
+                                                            "Weight: ",
+                                                            q.weight
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4408,
+                                                        columnNumber: 34
+                                                    }, this),
+                                                    q.score && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200",
+                                                        children: [
+                                                            "Score: ",
+                                                            q.score
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4410,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4404,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4396,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-3 shrink-0",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setSelectedQuiz(q),
+                                            className: `px-4 py-2 rounded-xl text-xs font-semibold transition-all ${q.status === "open" ? "bg-[#1a3a9e] text-white hover:bg-[#102d80] shadow-sm" : q.status === "completed" ? "bg-green-50 text-green-700 border border-green-200 hover:bg-green-100" : "bg-gray-100 text-gray-500 hover:bg-gray-200"}`,
+                                            children: q.status === "open" ? "Start Quiz Now" : q.status === "completed" ? "Review Results" : "View Details"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4418,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4417,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, q.id, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4392,
+                                columnNumber: 15
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4390,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4362,
+                columnNumber: 9
+            }, this),
+            activeTab === "grades" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-1 md:grid-cols-3 gap-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-white rounded-2xl border border-gray-200 p-5 shadow-sm",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs text-gray-500 font-medium",
+                                        children: "Current Assessment Grade"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4443,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-baseline gap-2 mt-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-3xl font-bold text-blue-700",
+                                                children: courseGrades.find((g)=>g.grade !== "—")?.grade ?? "In Review"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4445,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-xs text-emerald-600 font-semibold",
+                                                children: "Satisfactory Standing"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4448,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4444,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-[11px] text-gray-400 mt-2",
+                                        children: "Based on released formative marks"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4450,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4442,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-white rounded-2xl border border-gray-200 p-5 shadow-sm",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs text-gray-500 font-medium",
+                                        children: "Evaluated Assessments"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4454,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-baseline gap-2 mt-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-3xl font-bold text-gray-900",
+                                                children: [
+                                                    courseGrades.filter((g)=>g.status === "Released").length,
+                                                    " / ",
+                                                    courseGrades.length
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4456,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-xs text-gray-500",
+                                                children: "Released"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4459,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4455,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-[11px] text-gray-400 mt-2",
+                                        children: "Remaining items currently in grading"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4461,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4453,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-white rounded-2xl border border-gray-200 p-5 shadow-sm",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs text-gray-500 font-medium",
+                                        children: "Credit Allocation"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4465,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-baseline gap-2 mt-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-3xl font-bold text-gray-900",
+                                                children: "6.0"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4467,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-xs text-gray-500",
+                                                children: "Credit Points"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4468,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4466,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-[11px] text-gray-400 mt-2",
+                                        children: [
+                                            "Accredited under ",
+                                            course.school
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4470,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4464,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4441,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "px-6 py-4 border-b border-gray-100 flex items-center justify-between",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-sm font-bold text-gray-900",
+                                        children: "Course Assessment Breakdown"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4477,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs text-gray-400",
+                                        children: [
+                                            "Unit Code: ",
+                                            course.code
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4478,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4476,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "overflow-x-auto",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                                    className: "w-full text-left text-sm",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
+                                            className: "bg-gray-50/75 border-b border-gray-100 text-xs font-bold text-gray-500 uppercase tracking-wider",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "px-6 py-3.5",
+                                                        children: "Assessment Item"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4484,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "px-6 py-3.5",
+                                                        children: "Score"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4485,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "px-6 py-3.5",
+                                                        children: "Max Score"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4486,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "px-6 py-3.5",
+                                                        children: "Grade"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4487,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "px-6 py-3.5",
+                                                        children: "Status"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4488,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "px-6 py-3.5 text-right",
+                                                        children: "Feedback"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/LegacyApp.tsx",
+                                                        lineNumber: 4489,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                lineNumber: 4483,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4482,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
+                                            className: "divide-y divide-gray-100 text-xs font-medium",
+                                            children: courseGrades.map((g, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                                    className: "hover:bg-blue-50/30 transition-colors",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "px-6 py-4 font-bold text-gray-900",
+                                                            children: g.assessment
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4495,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "px-6 py-4 text-gray-700 font-semibold",
+                                                            children: g.status === "Released" ? g.score : "—"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4496,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "px-6 py-4 text-gray-500",
+                                                            children: [
+                                                                g.max,
+                                                                " pts"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4497,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "px-6 py-4",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: `px-2 py-0.5 rounded font-bold ${g.grade.startsWith("A") ? "bg-emerald-50 text-emerald-700" : g.grade.startsWith("B") ? "bg-blue-50 text-blue-700" : "bg-gray-100 text-gray-500"}`,
+                                                                children: g.grade
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4499,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4498,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "px-6 py-4",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: `px-2.5 py-1 rounded-full text-[10px] font-bold ${g.status === "Released" ? "bg-green-50 text-green-700 border border-green-200" : g.status === "Pending" ? "bg-orange-50 text-orange-700 border border-orange-200" : "bg-gray-100 text-gray-500 border border-gray-200"}`,
+                                                                children: g.status
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4510,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4509,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "px-6 py-4 text-right",
+                                                            children: g.status === "Released" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                onClick: ()=>showToast(`Viewing feedback for ${g.assessment}: "Excellent work on criteria."`),
+                                                                className: "text-xs font-semibold text-blue-700 hover:underline",
+                                                                children: "View Feedback"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4522,
+                                                                columnNumber: 27
+                                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-gray-400",
+                                                                children: "Available after release"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/LegacyApp.tsx",
+                                                                lineNumber: 4529,
+                                                                columnNumber: 27
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/LegacyApp.tsx",
+                                                            lineNumber: 4520,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, idx, true, {
+                                                    fileName: "[project]/src/LegacyApp.tsx",
+                                                    lineNumber: 4494,
+                                                    columnNumber: 21
+                                                }, this))
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4492,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4481,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4480,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/LegacyApp.tsx",
+                        lineNumber: 4475,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4439,
+                columnNumber: 9
+            }, this),
+            submittingAssignment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PanelModal, {
+                title: `Submit: ${submittingAssignment.name}`,
+                onClose: ()=>setSubmittingAssignment(null),
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                    onSubmit: handleConfirmSubmit,
+                    className: "space-y-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-xs text-gray-500",
+                            children: submittingAssignment.description
+                        }, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4550,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-800 flex items-center gap-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAlertCircle, {
+                                    className: "w-4 h-4 shrink-0 text-blue-600"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4552,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: [
+                                        "Due: ",
+                                        submittingAssignment.dueDate,
+                                        " · Accepted formats: .PDF, .ZIP (max 50MB)"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4553,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4551,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "border-2 border-dashed border-gray-300 hover:border-blue-500 rounded-2xl p-6 text-center transition-colors cursor-pointer bg-gray-50/50",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-2",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconPaperclip, {}, void 0, false, {
+                                        fileName: "[project]/src/LegacyApp.tsx",
+                                        lineNumber: 4558,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4557,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-xs font-bold text-gray-800",
+                                    children: "Drag & drop your submission file here"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4560,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-[11px] text-gray-400 mt-1",
+                                    children: "or browse files from your computer"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4561,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "inline-block mt-3 px-3 py-1 bg-white border border-gray-200 rounded-lg text-xs font-semibold text-gray-700 shadow-sm",
+                                    children: "Choose File"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4562,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4556,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    className: "block text-xs font-bold text-gray-700 mb-1",
+                                    children: "Submission Comments (Optional)"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4568,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                    rows: 3,
+                                    placeholder: "Add any notes for the instructor or marker...",
+                                    className: "w-full text-xs rounded-xl border border-gray-200 p-3 focus:outline-none focus:border-blue-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4569,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4567,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center gap-2 pt-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "checkbox",
+                                    id: "integrity",
+                                    required: true,
+                                    className: "rounded border-gray-300 text-blue-600"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4577,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    htmlFor: "integrity",
+                                    className: "text-xs text-gray-600",
+                                    children: "I declare this work is entirely my own original submission."
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4578,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4576,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center justify-end gap-2 pt-3 border-t border-gray-100",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    type: "button",
+                                    onClick: ()=>setSubmittingAssignment(null),
+                                    className: "px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:bg-gray-100",
+                                    children: "Cancel"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4584,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    type: "submit",
+                                    className: "px-5 py-2 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] hover:bg-[#102d80] transition-colors shadow-sm",
+                                    children: "Confirm Submission"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4591,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4583,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/LegacyApp.tsx",
+                    lineNumber: 4549,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4545,
+                columnNumber: 9
+            }, this),
+            viewingAssignment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PanelModal, {
+                title: `Submission: ${viewingAssignment.name}`,
+                onClose: ()=>setViewingAssignment(null),
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "space-y-4 text-xs",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center justify-between p-3 bg-green-50 rounded-xl border border-green-200 text-green-800",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "font-bold flex items-center gap-1.5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {}, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4611,
+                                            columnNumber: 17
+                                        }, this),
+                                        " Submitted Successfully"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4610,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-[11px]",
+                                    children: "Receipt: #EDF-2026-8912"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4613,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4609,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-gray-50 rounded-xl p-4 space-y-2 border border-gray-200",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-between",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-500",
+                                            children: "Assignment:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4618,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-gray-800",
+                                            children: viewingAssignment.name
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4619,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4617,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-between",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-500",
+                                            children: "Unit:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4622,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-gray-800",
+                                            children: course.code
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4623,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4621,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-between",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-500",
+                                            children: "File uploaded:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4626,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-semibold text-blue-700",
+                                            children: [
+                                                course.code.toLowerCase(),
+                                                "_submission_final.pdf"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4627,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4625,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-between",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-500",
+                                            children: "Status:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4630,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-semibold text-green-700",
+                                            children: "Under Review"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4631,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4629,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4616,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setViewingAssignment(null),
+                            className: "w-full py-2 bg-gray-900 text-white font-bold rounded-xl",
+                            children: "Close"
+                        }, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4635,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/LegacyApp.tsx",
+                    lineNumber: 4608,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4604,
+                columnNumber: 9
+            }, this),
+            selectedQuiz && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PanelModal, {
+                title: selectedQuiz.name,
+                onClose: ()=>setSelectedQuiz(null),
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "space-y-4 text-xs",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-gray-600 leading-relaxed",
+                            children: selectedQuiz.description
+                        }, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4652,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "grid grid-cols-2 gap-2 bg-gray-50 p-3 rounded-xl border border-gray-200",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-400 block text-[10px]",
+                                            children: "TIME LIMIT"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4655,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-gray-800",
+                                            children: selectedQuiz.timeLimit ?? "30 Mins"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4656,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4654,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-400 block text-[10px]",
+                                            children: "TOTAL QUESTIONS"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4659,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-gray-800",
+                                            children: [
+                                                selectedQuiz.questions ?? 15,
+                                                " Questions"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4660,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4658,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-400 block text-[10px]",
+                                            children: "WEIGHT"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4663,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-gray-800",
+                                            children: selectedQuiz.weight ?? "5%"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4664,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4662,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-gray-400 block text-[10px]",
+                                            children: "DUE DATE"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4667,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold text-gray-800",
+                                            children: selectedQuiz.dueDate
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4668,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4666,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4653,
+                            columnNumber: 13
+                        }, this),
+                        selectedQuiz.status === "open" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-amber-50 border border-amber-200 rounded-xl p-3 text-amber-800 text-[11px]",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                            children: "Notice:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4675,
+                                            columnNumber: 19
+                                        }, this),
+                                        " Once you click Begin Quiz, the countdown timer will begin immediately and cannot be paused."
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4674,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>{
+                                        showToast(`Quiz "${selectedQuiz.name}" started! Session timer active.`);
+                                        setSelectedQuiz(null);
+                                    },
+                                    className: "w-full py-2.5 bg-[#1a3a9e] text-white font-bold rounded-xl hover:bg-[#102d80] transition-colors shadow-sm",
+                                    children: "Begin Quiz Now"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4677,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4673,
+                            columnNumber: 15
+                        }, this) : selectedQuiz.status === "completed" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "space-y-3",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-800 flex justify-between items-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-bold",
+                                            children: "Final Score:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4690,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-sm font-extrabold",
+                                            children: selectedQuiz.score
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/LegacyApp.tsx",
+                                            lineNumber: 4691,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4689,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>setSelectedQuiz(null),
+                                    className: "w-full py-2 bg-gray-900 text-white font-bold rounded-xl",
+                                    children: "Close"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/LegacyApp.tsx",
+                                    lineNumber: 4693,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4688,
+                            columnNumber: 15
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setSelectedQuiz(null),
+                            className: "w-full py-2 bg-gray-200 text-gray-700 font-bold rounded-xl",
+                            children: "Close (Locked)"
+                        }, void 0, false, {
+                            fileName: "[project]/src/LegacyApp.tsx",
+                            lineNumber: 4701,
+                            columnNumber: 15
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/LegacyApp.tsx",
+                    lineNumber: 4651,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/LegacyApp.tsx",
+                lineNumber: 4647,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/LegacyApp.tsx",
+        lineNumber: 3675,
         columnNumber: 5
     }, this);
 }
@@ -7790,11 +13064,46 @@ function StudentDashboard({ onLogout = ()=>{} }) {
     const [activeNav, setActiveNav] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("dashboard");
     const [collapsed, setCollapsed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [openCourse, setOpenCourse] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const sessionUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSessionUser"])();
-    const [userName, setUserName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(sessionUser?.name ?? "Richard Maceda Vitug");
-    const userRole = "Student";
+    const [selectedCourse, setSelectedCourse] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [executedSearchQuery, setExecutedSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [userName, setUserName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("Richard Maceda Vitug");
+    const [userRole, setUserRole] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("Student");
     const userInitials = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getInitials"])(userName);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const sessionUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSessionUser"])();
+        if (sessionUser?.name) {
+            setUserName(sessionUser.name);
+        }
+        if (sessionUser?.role) {
+            setUserRole(sessionUser.role.charAt(0).toUpperCase() + sessionUser.role.slice(1));
+        }
+    }, []);
     const sidebarPx = collapsed ? "64px" : "224px";
+    const allSearchItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>buildStudentSearchCatalog(), []);
+    const searchResults = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        const q = searchQuery.trim().toLowerCase();
+        if (!q) return [];
+        const words = q.split(/\s+/).filter(Boolean);
+        return allSearchItems.filter((item)=>{
+            const text = `${item.title} ${item.subtitle ?? ""} ${item.description} ${item.category} ${item.navLabel} ${(item.keywords ?? []).join(" ")}`.toLowerCase();
+            return words.every((w)=>text.includes(w));
+        });
+    }, [
+        searchQuery,
+        allSearchItems
+    ]);
+    const handleSearchExecute = (q)=>{
+        setSearchQuery(q);
+        setExecutedSearchQuery(q);
+        setActiveNav("search");
+    };
+    const handleNavigateResult = (nav, course)=>{
+        setActiveNav(nav);
+        if (course) {
+            setOpenCourse(course);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gray-100",
         style: {
@@ -7802,14 +13111,19 @@ function StudentDashboard({ onLogout = ()=>{} }) {
         },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Sidebar, {
-                active: activeNav,
-                setActive: setActiveNav,
+                active: activeNav === "course-detail" ? "courses" : activeNav,
+                setActive: (nav)=>{
+                    if (nav !== "course-detail") {
+                        setSelectedCourse(null);
+                    }
+                    setActiveNav(nav);
+                },
                 collapsed: collapsed,
                 setCollapsed: setCollapsed,
                 onLogout: onLogout
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2304,
+                lineNumber: 4767,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Header, {
@@ -7817,12 +13131,26 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                 userName: userName,
                 userRole: userRole,
                 userInitials: userInitials,
-                onMessages: ()=>setActiveNav("messages"),
-                onNotifications: ()=>setActiveNav("announcements"),
-                onProfile: ()=>setActiveNav("profile")
+                onMessages: ()=>{
+                    setSelectedCourse(null);
+                    setActiveNav("messages");
+                },
+                onNotifications: ()=>{
+                    setSelectedCourse(null);
+                    setActiveNav("announcements");
+                },
+                onProfile: ()=>{
+                    setSelectedCourse(null);
+                    setActiveNav("profile");
+                },
+                searchQuery: searchQuery,
+                setSearchQuery: setSearchQuery,
+                onSearch: handleSearchExecute,
+                searchResults: searchResults,
+                onNavigateResult: handleNavigateResult
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2311,
+                lineNumber: 4779,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -7840,7 +13168,7 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                                 userName: userName
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2319,
+                                lineNumber: 4800,
                                 columnNumber: 13
                             }, this),
                             activeNav === "courses" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MyCoursesPage, {
@@ -7848,42 +13176,54 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                                 setActiveNav: setActiveNav
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2326,
+                                lineNumber: 4807,
+                                columnNumber: 13
+                            }, this),
+                            activeNav === "course-detail" && selectedCourse && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CourseOverviewPage, {
+                                course: selectedCourse,
+                                onBack: ()=>{
+                                    setSelectedCourse(null);
+                                    setActiveNav("courses");
+                                },
+                                setActiveNav: setActiveNav
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4813,
                                 columnNumber: 13
                             }, this),
                             activeNav === "assignments" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(AssignmentsPage, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2331,
+                                lineNumber: 4822,
                                 columnNumber: 43
                             }, this),
                             activeNav === "quizzes" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(QuizzesPage, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2332,
+                                lineNumber: 4823,
                                 columnNumber: 39
                             }, this),
                             activeNav === "materials" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LearningMaterialsPage, {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2333,
+                                lineNumber: 4824,
                                 columnNumber: 41
                             }, this),
                             activeNav === "grades" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["GradesPage"], {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2334,
+                                lineNumber: 4825,
                                 columnNumber: 38
                             }, this),
                             activeNav === "calendar" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CalendarPage"], {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2335,
+                                lineNumber: 4826,
                                 columnNumber: 40
                             }, this),
                             activeNav === "announcements" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnnouncementsPage"], {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2336,
+                                lineNumber: 4827,
                                 columnNumber: 45
                             }, this),
                             activeNav === "messages" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MessagesPage"], {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2337,
+                                lineNumber: 4828,
                                 columnNumber: 40
                             }, this),
                             activeNav === "profile" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ProfilePage"], {
@@ -7891,18 +13231,28 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                                 onNameChange: setUserName
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2338,
+                                lineNumber: 4829,
                                 columnNumber: 39
                             }, this),
                             activeNav === "settings" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$StudentPages$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SettingsPage"], {}, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2339,
+                                lineNumber: 4830,
                                 columnNumber: 40
+                            }, this),
+                            activeNav === "search" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SearchResultsPage, {
+                                query: executedSearchQuery || searchQuery,
+                                results: searchResults,
+                                onNavigate: handleNavigateResult,
+                                onQuickSearch: handleSearchExecute
+                            }, void 0, false, {
+                                fileName: "[project]/src/LegacyApp.tsx",
+                                lineNumber: 4832,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2317,
+                        lineNumber: 4798,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -7921,12 +13271,12 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                                         children: l
                                     }, l, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2346,
+                                        lineNumber: 4845,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2344,
+                                lineNumber: 4843,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7936,7 +13286,7 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                                         children: "Follow Us"
                                     }, void 0, false, {
                                         fileName: "[project]/src/LegacyApp.tsx",
-                                        lineNumber: 2350,
+                                        lineNumber: 4849,
                                         columnNumber: 13
                                     }, this),
                                     [
@@ -7949,46 +13299,51 @@ function StudentDashboard({ onLogout = ()=>{} }) {
                                             children: s
                                         }, s, false, {
                                             fileName: "[project]/src/LegacyApp.tsx",
-                                            lineNumber: 2352,
+                                            lineNumber: 4851,
                                             columnNumber: 15
                                         }, this))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/LegacyApp.tsx",
-                                lineNumber: 2349,
+                                lineNumber: 4848,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/LegacyApp.tsx",
-                        lineNumber: 2343,
+                        lineNumber: 4842,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2313,
+                lineNumber: 4794,
                 columnNumber: 7
             }, this),
             openCourse && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CourseDetailModal, {
                 course: openCourse,
-                onClose: ()=>setOpenCourse(null)
+                onClose: ()=>setOpenCourse(null),
+                onGoToCourse: (course)=>{
+                    setOpenCourse(null);
+                    setSelectedCourse(course);
+                    setActiveNav("course-detail");
+                }
             }, void 0, false, {
                 fileName: "[project]/src/LegacyApp.tsx",
-                lineNumber: 2358,
-                columnNumber: 22
+                lineNumber: 4858,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2303,
+        lineNumber: 4766,
         columnNumber: 5
     }, this);
 }
 function App() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StudentDashboard, {}, void 0, false, {
         fileName: "[project]/src/LegacyApp.tsx",
-        lineNumber: 2385,
+        lineNumber: 4894,
         columnNumber: 10
     }, this);
 }
@@ -8008,7 +13363,15 @@ __turbopack_context__.s([
     "ProfilePage",
     ()=>ProfilePage,
     "SettingsPage",
-    ()=>SettingsPage
+    ()=>SettingsPage,
+    "announcements",
+    ()=>announcements,
+    "calEvents",
+    ()=>calEvents,
+    "conversations",
+    ()=>conversations,
+    "gradeRows",
+    ()=>gradeRows
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");

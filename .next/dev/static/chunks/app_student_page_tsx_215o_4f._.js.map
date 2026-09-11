@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Richard/Documents/Eduflex/EduFlex/app/student/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { StudentDashboard } from \"@/src/LegacyApp\";\r\nimport { clearSession } from \"@/src/auth\";\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nexport default function StudentRoute() {\r\n  const router = useRouter();\r\n\r\n  const handleLogout = () => {\r\n    clearSession();\r\n    router.push(\"/\");\r\n  };\r\n\r\n  return <StudentDashboard onLogout={handleLogout} />;\r\n}\r\n"],"names":["StudentRoute","router","handleLogout","push","onLogout"],"mappings":";;;;;AAEA;AACA;AACA;;;AAJA;;;;AAMe,SAASA;;IACtB,MAAMC,SAAS,IAAA,kJAAS;IAExB,MAAMC,eAAe;QACnB,IAAA,8HAAY;QACZD,OAAOE,IAAI,CAAC;IACd;IAEA,qBAAO,6LAAC,wIAAgB;QAACC,UAAUF;;;;;;AACrC;GATwBF;;QACP,kJAAS;;;KADFA"}}]
+}

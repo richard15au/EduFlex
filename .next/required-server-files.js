@@ -105,7 +105,7 @@ self.__SERVER_FILES_MANIFEST={
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\Richard\\Documents\\Eduflex\\eduflex-nextjs",
+    "outputFileTracingRoot": "C:\\Users\\Richard\\Documents\\Eduflex\\EduFlex",
     "enablePrerenderSourceMaps": true,
     "cacheComponents": false,
     "cacheLife": {
@@ -320,13 +320,13 @@ self.__SERVER_FILES_MANIFEST={
     "htmlLimitedBots": "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
-    "repoRoot": "C:\\Users\\Richard\\Documents\\Eduflex\\eduflex-nextjs",
+    "repoRoot": "C:\\Users\\Richard\\Documents\\Eduflex\\EduFlex",
     "turbopack": {
-      "root": "C:\\Users\\Richard\\Documents\\Eduflex\\eduflex-nextjs"
+      "root": "C:\\Users\\Richard\\Documents\\Eduflex\\EduFlex"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\Richard\\Documents\\Eduflex\\eduflex-nextjs",
+  "appDir": "C:\\Users\\Richard\\Documents\\Eduflex\\EduFlex",
   "relativeAppDir": "",
   "files": [
     ".next\\package.json",
