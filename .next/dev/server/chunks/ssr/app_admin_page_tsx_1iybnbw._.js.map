@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Richard/Documents/Eduflex/EduFlex/app/admin/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport AdminDashboard from \"@/src/AdminDashboard\";\r\nimport { clearSession } from \"@/src/auth\";\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nexport default function AdminRoute() {\r\n  const router = useRouter();\r\n\r\n  const handleLogout = () => {\r\n    clearSession();\r\n    router.push(\"/\");\r\n  };\r\n\r\n  return <AdminDashboard onLogout={handleLogout} />;\r\n}\r\n"],"names":["AdminRoute","router","handleLogout","push","onLogout"],"mappings":";;;;;AAEA;AACA;AACA;AAJA;;;;;AAMe,SAASA;IACtB,MAAMC,SAAS,IAAA,+IAAS;IAExB,MAAMC,eAAe;QACnB,IAAA,2HAAY;QACZD,OAAOE,IAAI,CAAC;IACd;IAEA,qBAAO,8OAAC,iIAAc;QAACC,UAAUF;;;;;;AACnC"}}]
+}

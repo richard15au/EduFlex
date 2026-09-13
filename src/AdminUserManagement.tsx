@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
+const IconCamera = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
+    <circle cx="12" cy="13" r="4" />
+  </svg>
+);
 const IconUsers = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" />
@@ -105,10 +111,10 @@ const IconClock = ({ className = "w-4 h-4" }: { className?: string }) => (
 );
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-type Role = "Student" | "Instructor";
-type Status = "Active" | "Inactive" | "Pending";
+export type Role = "Student" | "Instructor";
+export type Status = "Active" | "Inactive" | "Pending";
 
-interface User {
+export interface User {
   id: string;
   name: string;
   email: string;
@@ -116,14 +122,25 @@ interface User {
   status: Status;
   lastActive: string;
   joined: string;
+  avatar?: string;
   program?: string;
   department?: string;
   phone?: string;
   courses?: string[];
 }
 
+export interface PendingItem {
+  id: string;
+  name: string;
+  initials: string;
+  role: Role;
+  action: string;
+  email: string;
+  submitted: string;
+}
+
 // ── Sample Data ───────────────────────────────────────────────────────────────
-const INITIAL_USERS: User[] = [
+export const INITIAL_USERS: User[] = [
   { id: "STU-20262001", name: "Maria Santos",      email: "m.santos@eduflex.edu.ph",    role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 10:42 AM", joined: "Sep 1, 2026",  program: "BS Information Technology", phone: "+63 917 123 4567", courses: ["ICT301", "ICT272"] },
   { id: "STU-20262002", name: "James Reyes",        email: "j.reyes@eduflex.edu.ph",     role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 9:15 AM",  joined: "Sep 1, 2026",  program: "BS Information Technology", phone: "+63 918 234 5678", courses: ["ICT301", "ICT126"] },
   { id: "INS-20260034", name: "Anna Cruz",          email: "a.cruz@eduflex.edu.ph",      role: "Instructor", status: "Active",   lastActive: "Sep 2, 2026, 8:00 AM",  joined: "Aug 31, 2026", department: "School of IT", phone: "+63 919 345 6789", courses: ["ICT272", "ICT350"] },
@@ -138,12 +155,12 @@ const INITIAL_USERS: User[] = [
   { id: "INS-20260037", name: "Prof. Carla Tan",    email: "c.tan@eduflex.edu.ph",       role: "Instructor", status: "Active",   lastActive: "Aug 30, 2026, 11:30 AM",joined: "Jun 1, 2026",  department: "School of IT", phone: "+63 928 234 5678", courses: ["ICT350"] },
 ];
 
-const INITIAL_PENDING = [
-  { id: "PA-001", name: "Bea Tolentino",  initials: "BT", role: "Instructor" as Role, action: "New Account Registration",      email: "b.tolentino@eduflex.edu.ph", submitted: "Sep 1, 2026" },
-  { id: "PA-002", name: "Karl Navarro",   initials: "KN", role: "Student" as Role,    action: "New Account Registration",      email: "karl.navarro@eduflex.edu.ph", submitted: "Sep 1, 2026" },
-  { id: "PA-003", name: "Liza Mendoza",   initials: "LM", role: "Instructor" as Role, action: "New Account Registration",      email: "l.mendoza@eduflex.edu.ph", submitted: "Aug 31, 2026" },
-  { id: "PA-004", name: "Nico Aguilar",   initials: "NA", role: "Student" as Role,    action: "Course Override – ICT272",      email: "n.aguilar@eduflex.edu.ph", submitted: "Aug 30, 2026" },
-  { id: "PA-005", name: "Danilo Santos",  initials: "DS", role: "Student" as Role,    action: "Late Enrollment – ICT301",      email: "d.santos@eduflex.edu.ph", submitted: "Aug 29, 2026" },
+export const INITIAL_PENDING: PendingItem[] = [
+  { id: "PA-001", name: "Bea Tolentino",  initials: "BT", role: "Instructor", action: "Account Registration",   email: "b.tolentino@eduflex.edu.ph", submitted: "Sep 1, 2026" },
+  { id: "PA-002", name: "Karl Navarro",   initials: "KN", role: "Student",    action: "Late Enrollment – ICT301", email: "karl.navarro@eduflex.edu.ph", submitted: "Sep 1, 2026" },
+  { id: "PA-003", name: "Liza Mendoza",   initials: "LM", role: "Instructor", action: "Account Registration",   email: "l.mendoza@eduflex.edu.ph", submitted: "Aug 31, 2026" },
+  { id: "PA-004", name: "Nico Aguilar",   initials: "NA", role: "Student",    action: "Course Override – ICT272", email: "n.aguilar@eduflex.edu.ph", submitted: "Aug 30, 2026" },
+  { id: "PA-005", name: "Danilo Santos",  initials: "DS", role: "Student",    action: "Account Registration",   email: "d.santos@eduflex.edu.ph", submitted: "Aug 29, 2026" },
 ];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -199,9 +216,13 @@ function ViewUserModal({ user, onClose, onEdit }: { user: User; onClose: () => v
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg pointer-events-auto overflow-hidden">
           {/* Header strip */}
           <div className="flex items-start gap-4 px-6 pt-6 pb-5 border-b border-gray-100">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white text-xl font-bold shrink-0"
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white text-xl font-bold shrink-0 overflow-hidden"
               style={{ background: avatarBg(user.role) }}>
-              {initials(user.name)}
+              {user.avatar ? (
+                <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+              ) : (
+                initials(user.name)
+              )}
             </div>
             <div className="flex-1 min-w-0">
               <h2 className="text-lg font-bold text-gray-900 truncate">{user.name}</h2>
@@ -280,9 +301,43 @@ function UserFormModal({
   const [form, setForm] = useState<Partial<User>>(
     user ?? { role: "Student", status: "Active", courses: [] }
   );
+  const [avatarError, setAvatarError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   function set(field: keyof User, value: string) {
     setForm((f) => ({ ...f, [field]: value }));
+  }
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setAvatarError("Please select a valid image file (PNG, JPG, or WebP).");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      setAvatarError("Image file size must be less than 5MB.");
+      return;
+    }
+
+    setAvatarError(null);
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") {
+        setForm((f) => ({ ...f, avatar: reader.result as string }));
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function handleRemoveAvatar() {
+    setForm((f) => ({ ...f, avatar: undefined }));
+    setAvatarError(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   }
 
   function handleSave() {
@@ -296,6 +351,7 @@ function UserFormModal({
       status: (form.status as Status) ?? "Active",
       lastActive: form.lastActive ?? "—",
       joined: form.joined ?? now,
+      avatar: form.avatar,
       phone: form.phone,
       program: form.program,
       department: form.department,
@@ -322,6 +378,58 @@ function UserFormModal({
           </div>
 
           <div className="px-6 py-5 space-y-4 max-h-[60vh] overflow-y-auto">
+            {/* Profile Picture */}
+            <div>
+              <label className={labelCls}>Profile Picture</label>
+              <div className="flex items-center gap-4 p-3 bg-gray-50 border border-gray-200 rounded-xl">
+                <div
+                  className="w-14 h-14 rounded-full overflow-hidden shrink-0 flex items-center justify-center text-white text-base font-bold shadow-inner border-2 border-white ring-1 ring-gray-200"
+                  style={{ background: avatarBg((form.role as Role) ?? "Student") }}
+                >
+                  {form.avatar ? (
+                    <img src={form.avatar} alt="Profile preview" className="w-full h-full object-cover" />
+                  ) : form.name?.trim() ? (
+                    initials(form.name)
+                  ) : (
+                    <IconCamera className="w-6 h-6 text-white/80" />
+                  )}
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700 text-xs font-semibold rounded-lg shadow-sm transition-colors cursor-pointer"
+                    >
+                      <IconCamera className="w-3.5 h-3.5 text-gray-500" />
+                      {form.avatar ? "Change Photo" : "Upload Photo"}
+                    </button>
+                    {form.avatar && (
+                      <button
+                        type="button"
+                        onClick={handleRemoveAvatar}
+                        className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                      >
+                        <IconX className="w-3.5 h-3.5" />
+                        Remove
+                      </button>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-gray-400 mt-1">PNG, JPG, or WebP. Fallback to initials if unset.</p>
+                  {avatarError && <p className="text-[11px] text-red-600 font-medium mt-1">{avatarError}</p>}
+                </div>
+
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/png,image/jpeg,image/jpg,image/webp,image/svg+xml"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={labelCls}>Full Name *</label>
@@ -522,43 +630,100 @@ function RowActions({
 }
 
 // ── Stat Card ─────────────────────────────────────────────────────────────────
-function StatCard({ title, value, subtitle, icon, bg, iconBg, textColor }: {
-  title: string; value: string; subtitle: string;
-  icon: React.ReactNode; bg: string; iconBg: string; textColor: string;
+function StatCard({
+  title,
+  value,
+  subtitle,
+  icon,
+  bg,
+  iconBg,
+  textColor,
+  onClick,
+  active = false,
+}: {
+  title: string;
+  value: string;
+  subtitle: string;
+  icon: React.ReactNode;
+  bg: string;
+  iconBg: string;
+  textColor: string;
+  onClick?: () => void;
+  active?: boolean;
 }) {
   return (
-    <div className={`rounded-2xl border shadow-sm p-4 flex items-start gap-3 ${bg}`}>
+    <div
+      role="button"
+      tabIndex={0}
+      aria-label={`${title}: ${value}`}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+      className={`rounded-2xl border shadow-sm p-4 flex items-start gap-3 cursor-pointer select-none transition-all duration-150 hover:shadow-md active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-blue-400/40 ${bg} ${
+        active
+          ? title === "Pending Approvals"
+            ? "ring-2 ring-orange-400/50 shadow-sm"
+            : "ring-2 ring-blue-500/40 shadow-sm"
+          : "hover:border-gray-300"
+      }`}
+    >
       <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${iconBg}`}>
         {icon}
       </div>
-      <div>
+      <div className="min-w-0 flex-1">
         <p className={`text-[10px] font-bold uppercase tracking-wider mb-0.5 ${textColor} opacity-70`}>{title}</p>
         <p className={`text-2xl font-extrabold leading-none ${textColor}`}>{value}</p>
-        <p className={`text-xs mt-1 ${textColor} opacity-60`}>{subtitle}</p>
+        <p className={`text-xs mt-1 ${textColor} opacity-60 truncate`}>{subtitle}</p>
       </div>
     </div>
   );
 }
 
+export type AdminUserModal =
+  | { type: "view"; user: User }
+  | { type: "add" }
+  | { type: "edit"; user: User }
+  | { type: "confirm"; variant: ConfirmVariant; userId: string; name: string }
+  | { type: "confirmPending"; variant: "approve" | "reject"; pendingId: string; name: string }
+  | null;
+
 // ── Main Page ─────────────────────────────────────────────────────────────────
-export default function AdminUserManagement() {
-  const [users, setUsers] = useState<User[]>(INITIAL_USERS);
-  const [pending, setPending] = useState(INITIAL_PENDING);
+export default function AdminUserManagement({
+  users: controlledUsers,
+  setUsers: controlledSetUsers,
+  pending: controlledPending,
+  setPending: controlledSetPending,
+  initialModal = null,
+}: {
+  users?: User[];
+  setUsers?: React.Dispatch<React.SetStateAction<User[]>>;
+  pending?: PendingItem[];
+  setPending?: React.Dispatch<React.SetStateAction<PendingItem[]>>;
+  initialModal?: AdminUserModal;
+} = {}) {
+  const [internalUsers, setInternalUsers] = useState<User[]>(INITIAL_USERS);
+  const [internalPending, setInternalPending] = useState<PendingItem[]>(INITIAL_PENDING);
+
+  const users = controlledUsers ?? internalUsers;
+  const setUsers = controlledSetUsers ?? setInternalUsers;
+  const pending = controlledPending ?? internalPending;
+  const setPending = controlledSetPending ?? setInternalPending;
 
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("All Roles");
   const [statusFilter, setStatusFilter] = useState("All Status");
 
-  // Modal state
-  type Modal =
-    | { type: "view"; user: User }
-    | { type: "add" }
-    | { type: "edit"; user: User }
-    | { type: "confirm"; variant: ConfirmVariant; userId: string; name: string }
-    | { type: "confirmPending"; variant: "approve" | "reject"; pendingId: string; name: string }
-    | null;
+  const [modal, setModal] = useState<AdminUserModal>(initialModal);
 
-  const [modal, setModal] = useState<Modal>(null);
+  useEffect(() => {
+    if (initialModal) {
+      setModal(initialModal);
+    }
+  }, [initialModal]);
 
   // Toast notification
   const [toast, setToast] = useState<{ msg: string; key: number } | null>(null);
@@ -576,6 +741,44 @@ export default function AdminUserManagement() {
     const matchStatus = statusFilter === "All Status" || u.status === statusFilter;
     return matchSearch && matchRole && matchStatus;
   });
+
+  // Filtered pending items
+  const filteredPending = pending.filter((p) => {
+    const q = search.toLowerCase();
+    const matchSearch =
+      !q ||
+      p.name.toLowerCase().includes(q) ||
+      p.email.toLowerCase().includes(q) ||
+      p.id.toLowerCase().includes(q) ||
+      p.action.toLowerCase().includes(q);
+    const matchRole = roleFilter === "All Roles" || p.role === roleFilter;
+    return matchSearch && matchRole;
+  });
+
+  const handleTotalUsersClick = () => {
+    setRoleFilter("All Roles");
+    setStatusFilter("All Status");
+    setSearch("");
+  };
+
+  const handleStudentsClick = () => {
+    setRoleFilter("Student");
+    if (statusFilter === "Pending") {
+      setStatusFilter("All Status");
+    }
+  };
+
+  const handleInstructorsClick = () => {
+    setRoleFilter("Instructor");
+    if (statusFilter === "Pending") {
+      setStatusFilter("All Status");
+    }
+  };
+
+  const handlePendingApprovalsClick = () => {
+    setStatusFilter("Pending");
+    setRoleFilter("All Roles");
+  };
 
   function handleSaveUser(u: User) {
     setUsers((prev) => {
@@ -607,6 +810,24 @@ export default function AdminUserManagement() {
       }
     } else if (modal.type === "confirmPending") {
       const { variant, pendingId, name } = modal;
+      if (variant === "approve") {
+        const item = pending.find((p) => p.id === pendingId);
+        if (item) {
+          const newUser: User = {
+            id: `${item.role === "Instructor" ? "INS" : "STU"}-2026${Math.floor(1000 + Math.random() * 9000)}`,
+            name: item.name,
+            email: item.email,
+            role: item.role,
+            status: "Active",
+            lastActive: "Just now",
+            joined: "Sep 2, 2026",
+            department: item.role === "Instructor" ? "School of IT" : undefined,
+            program: item.role === "Student" ? "BS Information Technology" : undefined,
+            courses: [],
+          };
+          setUsers((prev) => [newUser, ...prev]);
+        }
+      }
       setPending((prev) => prev.filter((p) => p.id !== pendingId));
       showToast(variant === "approve" ? `${name}'s request approved.` : `${name}'s request rejected.`);
     }
@@ -658,6 +879,8 @@ export default function AdminUserManagement() {
           bg="bg-white border-gray-200"
           iconBg="bg-blue-50 text-blue-600"
           textColor="text-gray-800"
+          onClick={handleTotalUsersClick}
+          active={roleFilter === "All Roles" && statusFilter === "All Status"}
         />
         <StatCard
           title="Students"
@@ -667,6 +890,8 @@ export default function AdminUserManagement() {
           bg="bg-white border-gray-200"
           iconBg="bg-indigo-50 text-indigo-600"
           textColor="text-gray-800"
+          onClick={handleStudentsClick}
+          active={roleFilter === "Student" && statusFilter !== "Pending"}
         />
         <StatCard
           title="Instructors"
@@ -676,6 +901,8 @@ export default function AdminUserManagement() {
           bg="bg-white border-gray-200"
           iconBg="bg-purple-50 text-purple-600"
           textColor="text-gray-800"
+          onClick={handleInstructorsClick}
+          active={roleFilter === "Instructor" && statusFilter !== "Pending"}
         />
         <StatCard
           title="Pending Approvals"
@@ -685,6 +912,8 @@ export default function AdminUserManagement() {
           bg="bg-orange-50 border-orange-100"
           iconBg="bg-orange-100 text-orange-500"
           textColor="text-orange-700"
+          onClick={handlePendingApprovalsClick}
+          active={statusFilter === "Pending"}
         />
       </div>
 
@@ -726,116 +955,135 @@ export default function AdminUserManagement() {
         </div>
 
         <span className="ml-auto text-xs text-gray-400 font-medium shrink-0">
-          {filtered.length} of {users.length} users
+          {statusFilter === "Pending"
+            ? `${filteredPending.length} of ${pending.length} pending request${pending.length === 1 ? "" : "s"}`
+            : `${filtered.length} of ${users.length} users`}
         </span>
       </div>
 
       {/* User Table */}
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-5">
-        {/* Table header */}
-        <div className="grid bg-gray-50 border-b border-gray-100 px-5 py-3 gap-3"
-          style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 1.4fr 80px" }}>
-          {["User", "Role", "Email", "Status", "Last Active", "Actions"].map((h) => (
-            <p key={h} className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</p>
-          ))}
-        </div>
-
-        {filtered.length === 0 ? (
-          <div className="text-center py-16 text-gray-400">
-            <IconUsers className="w-10 h-10 mx-auto mb-3 opacity-30" />
-            <p className="text-sm font-medium">No users match your filters</p>
+      {(statusFilter !== "Pending" || filtered.length > 0) && (
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-5">
+          {/* Table header */}
+          <div className="grid bg-gray-50 border-b border-gray-100 px-5 py-3 gap-3"
+            style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 1.4fr 80px" }}>
+            {["User", "Role", "Email", "Status", "Last Active", "Actions"].map((h) => (
+              <p key={h} className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</p>
+            ))}
           </div>
-        ) : (
-          filtered.map((u) => (
-            <div
-              key={u.id}
-              className="grid items-center px-5 py-3.5 border-b border-gray-100 last:border-0 hover:bg-blue-50/20 transition-colors gap-3"
-              style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 1.4fr 80px" }}
-            >
-              {/* User */}
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
-                  style={{ background: avatarBg(u.role) }}>
-                  {initials(u.name)}
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-gray-800 truncate">{u.name}</p>
-                  <p className="text-[10px] text-gray-400 font-mono">{u.id}</p>
-                </div>
-              </div>
 
-              {/* Role */}
-              <div><RoleBadge role={u.role} /></div>
-
-              {/* Email */}
-              <p className="text-xs text-gray-500 truncate">{u.email}</p>
-
-              {/* Status */}
-              <div><StatusBadge status={u.status} /></div>
-
-              {/* Last Active */}
-              <p className="text-xs text-gray-400 truncate">{u.lastActive}</p>
-
-              {/* Actions */}
-              <div className="flex items-center gap-1">
-                <button
-                  onClick={() => setModal({ type: "view", user: u })}
-                  className="p-1.5 rounded-lg text-gray-400 hover:text-blue-700 hover:bg-blue-50 transition-colors"
-                  title="View user"
-                >
-                  <IconEye className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => setModal({ type: "edit", user: u })}
-                  className="p-1.5 rounded-lg text-gray-400 hover:text-blue-700 hover:bg-blue-50 transition-colors"
-                  title="Edit user"
-                >
-                  <IconEdit className="w-4 h-4" />
-                </button>
-                <RowActions
-                  user={u}
-                  onView={() => setModal({ type: "view", user: u })}
-                  onEdit={() => setModal({ type: "edit", user: u })}
-                  onToggleStatus={() =>
-                    setModal({
-                      type: "confirm",
-                      variant: u.status === "Active" ? "deactivate" : "activate",
-                      userId: u.id,
-                      name: u.name,
-                    })
-                  }
-                  onDelete={() => setModal({ type: "confirm", variant: "delete", userId: u.id, name: u.name })}
-                />
-              </div>
+          {filtered.length === 0 ? (
+            <div className="text-center py-16 text-gray-400">
+              <IconUsers className="w-10 h-10 mx-auto mb-3 opacity-30" />
+              <p className="text-sm font-medium">No users match your filters</p>
             </div>
-          ))
-        )}
-      </div>
+          ) : (
+            filtered.map((u) => (
+              <div
+                key={u.id}
+                className="grid items-center px-5 py-3.5 border-b border-gray-100 last:border-0 hover:bg-blue-50/20 transition-colors gap-3"
+                style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 1.4fr 80px" }}
+              >
+                {/* User */}
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 overflow-hidden"
+                    style={{ background: avatarBg(u.role) }}>
+                    {u.avatar ? (
+                      <img src={u.avatar} alt={u.name} className="w-full h-full object-cover" />
+                    ) : (
+                      initials(u.name)
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-gray-800 truncate">{u.name}</p>
+                    <p className="text-[10px] text-gray-400 font-mono">{u.id}</p>
+                  </div>
+                </div>
+
+                {/* Role */}
+                <div><RoleBadge role={u.role} /></div>
+
+                {/* Email */}
+                <p className="text-xs text-gray-500 truncate">{u.email}</p>
+
+                {/* Status */}
+                <div><StatusBadge status={u.status} /></div>
+
+                {/* Last Active */}
+                <p className="text-xs text-gray-400 truncate">{u.lastActive}</p>
+
+                {/* Actions */}
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => setModal({ type: "view", user: u })}
+                    className="p-1.5 rounded-lg text-gray-400 hover:text-blue-700 hover:bg-blue-50 transition-colors"
+                    title="View user"
+                  >
+                    <IconEye className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setModal({ type: "edit", user: u })}
+                    className="p-1.5 rounded-lg text-gray-400 hover:text-blue-700 hover:bg-blue-50 transition-colors"
+                    title="Edit user"
+                  >
+                    <IconEdit className="w-4 h-4" />
+                  </button>
+                  <RowActions
+                    user={u}
+                    onView={() => setModal({ type: "view", user: u })}
+                    onEdit={() => setModal({ type: "edit", user: u })}
+                    onToggleStatus={() =>
+                      setModal({
+                        type: "confirm",
+                        variant: u.status === "Active" ? "deactivate" : "activate",
+                        userId: u.id,
+                        name: u.name,
+                      })
+                    }
+                    onDelete={() => setModal({ type: "confirm", variant: "delete", userId: u.id, name: u.name })}
+                  />
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+      {/* Empty state when filtering exclusively for Pending and there are none */}
+      {statusFilter === "Pending" && filtered.length === 0 && filteredPending.length === 0 && (
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-12 text-center text-gray-400 mb-5">
+          <IconFilter className="w-10 h-10 mx-auto mb-3 opacity-30 text-orange-400" />
+          <p className="text-sm font-semibold text-gray-600">No pending approvals or requests requiring review</p>
+          <p className="text-xs text-gray-400 mt-1">All user accounts and registration requests have been reviewed.</p>
+        </div>
+      )}
 
       {/* Pending Approvals Section */}
-      {pending.length > 0 && (
+      {(statusFilter === "All Status" || statusFilter === "Pending") && (statusFilter === "Pending" ? filteredPending.length > 0 : pending.length > 0) && (
         <div className="bg-white rounded-2xl border border-orange-200 shadow-sm overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-orange-100 bg-orange-50/50">
             <div className="flex items-center gap-2">
               <p className="text-[10px] font-bold text-orange-600 uppercase tracking-widest">Pending Approvals</p>
-              <span className="text-[10px] font-bold bg-orange-500 text-white px-2 py-0.5 rounded-full">{pending.length}</span>
+              <span className="text-[10px] font-bold bg-orange-500 text-white px-2 py-0.5 rounded-full">
+                {statusFilter === "Pending" ? filteredPending.length : pending.length}
+              </span>
             </div>
             <p className="text-xs text-orange-500">These accounts require your review</p>
           </div>
 
           {/* Table header */}
           <div className="grid bg-gray-50/80 border-b border-gray-100 px-5 py-3 gap-3"
-            style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 120px" }}>
+            style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 180px" }}>
             {["Name", "Role", "Request", "Submitted", "Actions"].map((h) => (
               <p key={h} className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</p>
             ))}
           </div>
 
-          {pending.map((p) => (
+          {(statusFilter === "Pending" ? filteredPending : pending).map((p) => (
             <div
               key={p.id}
               className="grid items-center px-5 py-3.5 border-b border-gray-100 last:border-0 hover:bg-orange-50/20 transition-colors gap-3"
-              style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 120px" }}
+              style={{ gridTemplateColumns: "2fr 1fr 2fr 1fr 180px" }}
             >
               {/* Name */}
               <div className="flex items-center gap-2.5 min-w-0">
@@ -858,18 +1106,18 @@ export default function AdminUserManagement() {
               <p className="text-xs text-gray-400">{p.submitted}</p>
 
               {/* Actions */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => setModal({ type: "confirmPending", variant: "approve", pendingId: p.id, name: p.name })}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-50 hover:bg-green-100 text-green-700 text-xs font-semibold transition-colors"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-green-50 hover:bg-green-100 text-green-700 text-xs font-semibold transition-colors shrink-0 whitespace-nowrap"
                 >
-                  <IconCheck className="w-3.5 h-3.5" /> Approve
+                  <IconCheck className="w-3.5 h-3.5 shrink-0" /> Approve
                 </button>
                 <button
                   onClick={() => setModal({ type: "confirmPending", variant: "reject", pendingId: p.id, name: p.name })}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition-colors"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition-colors shrink-0 whitespace-nowrap"
                 >
-                  <IconXCircle className="w-3.5 h-3.5" /> Reject
+                  <IconXCircle className="w-3.5 h-3.5 shrink-0" /> Reject
                 </button>
               </div>
             </div>

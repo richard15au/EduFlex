@@ -3391,6 +3391,7 @@ function useSharedStudentProfile() {
     ];
 }
 const initialStudentSettings = {
+    theme: "Light",
     notifAssignment: true,
     notifQuiz: true,
     notifAnnouncement: true,
@@ -3459,36 +3460,9 @@ function useSharedStudentSettings() {
         updateSettings
     ];
 }
-function ProfilePage({ userName, onNameChange }) {
-    const [profile, updateProfile] = useSharedStudentProfile();
-    const [editing, setEditing] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [draft, setDraft] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
-        ...profile,
-        fullName: userName || profile.fullName
-    });
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        setDraft({
-            ...profile,
-            fullName: userName || profile.fullName
-        });
-    }, [
-        profile,
-        userName
-    ]);
+function ProfilePage({ userName, onNameChange: _onNameChange }) {
+    const [profile] = useSharedStudentProfile();
     const initials = (profile.fullName || userName || "Richard Vitug").split(" ").filter(Boolean).slice(0, 2).map((w)=>w[0].toUpperCase()).join("");
-    const openEdit = ()=>{
-        setDraft({
-            ...profile,
-            fullName: userName || profile.fullName
-        });
-        setEditing(true);
-    };
-    const cancel = ()=>setEditing(false);
-    const save = ()=>{
-        updateProfile(draft);
-        setEditing(false);
-        onNameChange?.(draft.fullName);
-    };
     const academicInfo = [
         {
             label: "Program",
@@ -3511,36 +3485,15 @@ function ProfilePage({ userName, onNameChange }) {
             value: "96 of 120"
         }
     ];
-    const inputCls = "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#1a3a9e] transition";
-    const readCls = "w-full rounded-xl border border-gray-100 bg-gray-100 px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-7",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PageHeader, {
                 title: "My Profile",
-                subtitle: "View and manage your personal information",
-                right: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    onClick: openEdit,
-                    className: "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all cursor-pointer",
-                    style: {
-                        background: "#1a3a9e"
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconEdit, {}, void 0, false, {
-                            fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 1664,
-                            columnNumber: 13
-                        }, this),
-                        " Edit Profile"
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 1663,
-                    columnNumber: 11
-                }, this)
+                subtitle: "View your student information"
             }, void 0, false, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 1659,
+                lineNumber: 1632,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3554,7 +3507,7 @@ function ProfilePage({ userName, onNameChange }) {
                         children: initials
                     }, void 0, false, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 1671,
+                        lineNumber: 1639,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3564,7 +3517,7 @@ function ProfilePage({ userName, onNameChange }) {
                                 children: profile.fullName || userName
                             }, void 0, false, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1675,
+                                lineNumber: 1643,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3572,7 +3525,7 @@ function ProfilePage({ userName, onNameChange }) {
                                 children: "Student · Bachelor of Information Technology"
                             }, void 0, false, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1676,
+                                lineNumber: 1644,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3583,7 +3536,7 @@ function ProfilePage({ userName, onNameChange }) {
                                         children: "Enrolled"
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 1678,
+                                        lineNumber: 1646,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3591,7 +3544,7 @@ function ProfilePage({ userName, onNameChange }) {
                                         children: "Semester T226"
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 1679,
+                                        lineNumber: 1647,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3599,7 +3552,7 @@ function ProfilePage({ userName, onNameChange }) {
                                         children: "·"
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 1680,
+                                        lineNumber: 1648,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3607,25 +3560,25 @@ function ProfilePage({ userName, onNameChange }) {
                                         children: "S00123456"
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 1681,
+                                        lineNumber: 1649,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1677,
+                                lineNumber: 1645,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 1674,
+                        lineNumber: 1642,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 1670,
+                lineNumber: 1638,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3639,7 +3592,7 @@ function ProfilePage({ userName, onNameChange }) {
                                 children: "Personal Information"
                             }, void 0, false, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1689,
+                                lineNumber: 1657,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3677,7 +3630,7 @@ function ProfilePage({ userName, onNameChange }) {
                                                 children: f.label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/StudentPages.tsx",
-                                                lineNumber: 1700,
+                                                lineNumber: 1668,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3685,24 +3638,24 @@ function ProfilePage({ userName, onNameChange }) {
                                                 children: f.value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/StudentPages.tsx",
-                                                lineNumber: 1701,
+                                                lineNumber: 1669,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, f.label, true, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 1699,
+                                        lineNumber: 1667,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1690,
+                                lineNumber: 1658,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 1688,
+                        lineNumber: 1656,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3713,7 +3666,7 @@ function ProfilePage({ userName, onNameChange }) {
                                 children: "Academic Information"
                             }, void 0, false, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1709,
+                                lineNumber: 1677,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3726,7 +3679,7 @@ function ProfilePage({ userName, onNameChange }) {
                                                 children: f.label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/StudentPages.tsx",
-                                                lineNumber: 1713,
+                                                lineNumber: 1681,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3734,321 +3687,36 @@ function ProfilePage({ userName, onNameChange }) {
                                                 children: f.value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/StudentPages.tsx",
-                                                lineNumber: 1714,
+                                                lineNumber: 1682,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, f.label, true, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 1712,
+                                        lineNumber: 1680,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 1710,
+                                lineNumber: 1678,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 1708,
+                        lineNumber: 1676,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 1686,
+                lineNumber: 1654,
                 columnNumber: 7
-            }, this),
-            editing && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed inset-0 z-50 flex items-center justify-center bg-black/40",
-                onClick: cancel,
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 p-7",
-                    onClick: (e)=>e.stopPropagation(),
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-lg font-bold text-gray-900 mb-1",
-                            children: "Edit Profile"
-                        }, void 0, false, {
-                            fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 1725,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-sm text-gray-400 mb-6",
-                            children: "Update your personal information below."
-                        }, void 0, false, {
-                            fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 1726,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "space-y-4",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-500 mb-1.5",
-                                            children: "Full Name"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1731,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: inputCls,
-                                            value: draft.fullName,
-                                            onChange: (e)=>setDraft((d)=>({
-                                                        ...d,
-                                                        fullName: e.target.value
-                                                    }))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1732,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1730,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-500 mb-1.5",
-                                            children: "Email Address"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1735,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: inputCls,
-                                            type: "email",
-                                            value: draft.email,
-                                            onChange: (e)=>setDraft((d)=>({
-                                                        ...d,
-                                                        email: e.target.value
-                                                    }))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1736,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1734,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-500 mb-1.5",
-                                            children: "Phone Number"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1739,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: inputCls,
-                                            type: "tel",
-                                            value: draft.phone,
-                                            onChange: (e)=>setDraft((d)=>({
-                                                        ...d,
-                                                        phone: e.target.value
-                                                    }))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1740,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1738,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-500 mb-1.5",
-                                            children: "Address"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1743,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: inputCls,
-                                            value: draft.address,
-                                            onChange: (e)=>setDraft((d)=>({
-                                                        ...d,
-                                                        address: e.target.value
-                                                    }))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1744,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1742,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-500 mb-1.5",
-                                            children: "Date of Birth"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1747,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: inputCls,
-                                            value: draft.dateOfBirth,
-                                            onChange: (e)=>setDraft((d)=>({
-                                                        ...d,
-                                                        dateOfBirth: e.target.value
-                                                    }))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1748,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1746,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-400 mb-1.5",
-                                            children: [
-                                                "Student ID ",
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "font-normal",
-                                                    children: "(read-only)"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 1753,
-                                                    columnNumber: 96
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1753,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: readCls,
-                                            value: "S00123456",
-                                            readOnly: true
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1754,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1752,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                            className: "block text-xs font-semibold text-gray-400 mb-1.5",
-                                            children: [
-                                                "Program ",
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "font-normal",
-                                                    children: "(read-only)"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 1757,
-                                                    columnNumber: 93
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1757,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            className: readCls,
-                                            value: "Bachelor of Information Technology",
-                                            readOnly: true
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 1758,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1756,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 1728,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex gap-3 mt-7",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: save,
-                                    className: "flex-1 py-2.5 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-all cursor-pointer",
-                                    style: {
-                                        background: "#1a3a9e"
-                                    },
-                                    children: "Save Changes"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1763,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: cancel,
-                                    className: "flex-1 py-2.5 rounded-xl text-sm font-semibold text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all cursor-pointer",
-                                    children: "Cancel"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 1766,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 1762,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 1724,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 1723,
-                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/StudentPages.tsx",
-        lineNumber: 1658,
+        lineNumber: 1631,
         columnNumber: 5
     }, this);
 }
@@ -4069,7 +3737,7 @@ const TIMEZONE_OPTIONS = [
     "UTC",
     "America/New_York (EST, UTC-5)"
 ];
-function SettingsPage() {
+function SettingsPage({ theme: controlledTheme, onThemeChange } = {}) {
     const [profile, updateProfile] = useSharedStudentProfile();
     const [settings, updateSettings] = useSharedStudentSettings();
     // Local state initialized from shared profile and settings
@@ -4084,8 +3752,16 @@ function SettingsPage() {
     });
     const [language, setLanguage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(settings.language);
     const [timezone, setTimezone] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(settings.timezone);
+    const [theme, setTheme] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(controlledTheme || settings.theme || "Light");
     const [twoFactor, setTwoFactor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(settings.twoFactor);
     const [activeSessions, setActiveSessions] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(settings.activeSessions);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (controlledTheme) {
+            setTheme(controlledTheme);
+        }
+    }, [
+        controlledTheme
+    ]);
     // Sync when profile updates externally
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         setEmail(profile.email);
@@ -4106,6 +3782,9 @@ function SettingsPage() {
         });
         setLanguage(settings.language);
         setTimezone(settings.timezone);
+        if (settings.theme) {
+            setTheme(settings.theme);
+        }
         setTwoFactor(settings.twoFactor);
         setActiveSessions(settings.activeSessions);
     }, [
@@ -4172,6 +3851,20 @@ function SettingsPage() {
         updateSettings({
             timezone: val
         });
+    };
+    const handleSelectTheme = (t)=>{
+        setTheme(t);
+        updateSettings({
+            theme: t
+        });
+        if (onThemeChange) {
+            onThemeChange(t);
+        }
+        try {
+            localStorage.setItem("eduflex_student_theme", t);
+        } catch  {
+        // ignore
+        }
     };
     const handleToggle2FA = ()=>{
         if (!twoFactor) {
@@ -4283,11 +3976,20 @@ function SettingsPage() {
         // Save changes to shared settings
         updateSettings({
             ...notifs,
+            theme,
             language,
             timezone,
             twoFactor,
             activeSessions
         });
+        if (onThemeChange) {
+            onThemeChange(theme);
+        }
+        try {
+            localStorage.setItem("eduflex_student_theme", theme);
+        } catch  {
+        // ignore
+        }
         setSaved(true);
         setTimeout(()=>setSaved(false), 3000);
     };
@@ -4299,14 +4001,14 @@ function SettingsPage() {
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 2022,
+                    lineNumber: 1975,
                     columnNumber: 7
                 }, this),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/src/StudentPages.tsx",
-            lineNumber: 2021,
+            lineNumber: 1974,
             columnNumber: 5
         }, this);
     const Field = ({ label, sub, children })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4319,7 +4021,7 @@ function SettingsPage() {
                             children: label
                         }, void 0, false, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2030,
+                            lineNumber: 1983,
                             columnNumber: 9
                         }, this),
                         sub && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4327,20 +4029,20 @@ function SettingsPage() {
                             children: sub
                         }, void 0, false, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2031,
+                            lineNumber: 1984,
                             columnNumber: 17
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 2029,
+                    lineNumber: 1982,
                     columnNumber: 7
                 }, this),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/src/StudentPages.tsx",
-            lineNumber: 2028,
+            lineNumber: 1981,
             columnNumber: 5
         }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4351,7 +4053,7 @@ function SettingsPage() {
                 subtitle: "Manage your account and preferences"
             }, void 0, false, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 2039,
+                lineNumber: 1992,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4379,7 +4081,7 @@ function SettingsPage() {
                                                     className: `text-sm text-gray-700 border rounded-xl px-3 py-2 w-64 focus:outline-none focus:ring-2 transition-colors ${emailError ? "border-red-400 focus:ring-red-200 bg-red-50/40" : "border-gray-200 focus:ring-blue-300 bg-gray-50"}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2047,
+                                                    lineNumber: 2000,
                                                     columnNumber: 17
                                                 }, this),
                                                 emailError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4387,18 +4089,18 @@ function SettingsPage() {
                                                     children: emailError
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2062,
+                                                    lineNumber: 2015,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2046,
+                                            lineNumber: 1999,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2045,
+                                        lineNumber: 1998,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4418,7 +4120,7 @@ function SettingsPage() {
                                                     className: `text-sm text-gray-700 border rounded-xl px-3 py-2 w-64 focus:outline-none focus:ring-2 transition-colors ${phoneError ? "border-red-400 focus:ring-red-200 bg-red-50/40" : "border-gray-200 focus:ring-blue-300 bg-gray-50"}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2070,
+                                                    lineNumber: 2023,
                                                     columnNumber: 17
                                                 }, this),
                                                 phoneError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4426,18 +4128,18 @@ function SettingsPage() {
                                                     children: phoneError
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2085,
+                                                    lineNumber: 2038,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2069,
+                                            lineNumber: 2022,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2068,
+                                        lineNumber: 2021,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4457,7 +4159,7 @@ function SettingsPage() {
                                                     className: `text-sm text-gray-700 border rounded-xl px-3 py-2 w-64 focus:outline-none focus:ring-2 transition-colors ${addressError ? "border-red-400 focus:ring-red-200 bg-red-50/40" : "border-gray-200 focus:ring-blue-300 bg-gray-50"}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2093,
+                                                    lineNumber: 2046,
                                                     columnNumber: 17
                                                 }, this),
                                                 addressError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4465,18 +4167,18 @@ function SettingsPage() {
                                                     children: addressError
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2108,
+                                                    lineNumber: 2061,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2092,
+                                            lineNumber: 2045,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2091,
+                                        lineNumber: 2044,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4489,25 +4191,25 @@ function SettingsPage() {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconKey, {}, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2120,
+                                                    lineNumber: 2073,
                                                     columnNumber: 17
                                                 }, this),
                                                 " Change Password"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2115,
+                                            lineNumber: 2068,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2114,
+                                        lineNumber: 2067,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 2044,
+                                lineNumber: 1997,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Section, {
@@ -4530,27 +4232,27 @@ function SettingsPage() {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconGlobe, {}, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2137,
+                                                            lineNumber: 2090,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: language
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2138,
+                                                            lineNumber: 2091,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
                                                             className: `w-3.5 h-3.5 text-gray-400 transition-transform ${langDropdownOpen ? "rotate-180" : ""}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2139,
+                                                            lineNumber: 2092,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2129,
+                                                    lineNumber: 2082,
                                                     columnNumber: 17
                                                 }, this),
                                                 langDropdownOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4564,7 +4266,7 @@ function SettingsPage() {
                                                                     children: lang
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                                    lineNumber: 2154,
+                                                                    lineNumber: 2107,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 language === lang && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4572,29 +4274,29 @@ function SettingsPage() {
                                                                     children: "✓"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                                    lineNumber: 2155,
+                                                                    lineNumber: 2108,
                                                                     columnNumber: 47
                                                                 }, this)
                                                             ]
                                                         }, lang, true, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2144,
+                                                            lineNumber: 2097,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2142,
+                                                    lineNumber: 2095,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2128,
+                                            lineNumber: 2081,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2127,
+                                        lineNumber: 2080,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4617,20 +4319,20 @@ function SettingsPage() {
                                                             children: timezone
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2172,
+                                                            lineNumber: 2125,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
                                                             className: `w-3.5 h-3.5 text-gray-400 shrink-0 transition-transform ${tzDropdownOpen ? "rotate-180" : ""}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2173,
+                                                            lineNumber: 2126,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2164,
+                                                    lineNumber: 2117,
                                                     columnNumber: 17
                                                 }, this),
                                                 tzDropdownOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4645,7 +4347,7 @@ function SettingsPage() {
                                                                     children: tz
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                                    lineNumber: 2188,
+                                                                    lineNumber: 2141,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 timezone === tz && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4653,29 +4355,29 @@ function SettingsPage() {
                                                                     children: "✓"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                                    lineNumber: 2189,
+                                                                    lineNumber: 2142,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             ]
                                                         }, tz, true, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2178,
+                                                            lineNumber: 2131,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2176,
+                                                    lineNumber: 2129,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2163,
+                                            lineNumber: 2116,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2162,
+                                        lineNumber: 2115,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4683,35 +4385,39 @@ function SettingsPage() {
                                         sub: "Portal appearance",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex gap-2",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                type: "button",
-                                                className: "text-sm font-semibold px-4 py-2 rounded-xl border border-blue-600 text-blue-700 bg-blue-50 cursor-default",
-                                                children: "Light"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/StudentPages.tsx",
-                                                lineNumber: 2198,
-                                                columnNumber: 17
-                                            }, this)
+                                            children: [
+                                                "Light",
+                                                "Dark"
+                                            ].map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    type: "button",
+                                                    onClick: ()=>handleSelectTheme(t),
+                                                    className: `text-sm font-medium px-4 py-2 rounded-xl border transition-colors cursor-pointer ${theme === t ? "border-blue-600 text-blue-700 bg-blue-50 font-semibold" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`,
+                                                    children: t
+                                                }, t, false, {
+                                                    fileName: "[project]/src/StudentPages.tsx",
+                                                    lineNumber: 2152,
+                                                    columnNumber: 19
+                                                }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2197,
+                                            lineNumber: 2150,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2196,
+                                        lineNumber: 2149,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 2126,
+                                lineNumber: 2079,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 2042,
+                        lineNumber: 1995,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4727,12 +4433,12 @@ function SettingsPage() {
                                             onChange: ()=>handleToggleNotif("notifAssignment")
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2213,
+                                            lineNumber: 2174,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2212,
+                                        lineNumber: 2173,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4743,12 +4449,12 @@ function SettingsPage() {
                                             onChange: ()=>handleToggleNotif("notifQuiz")
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2216,
+                                            lineNumber: 2177,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2215,
+                                        lineNumber: 2176,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4759,12 +4465,12 @@ function SettingsPage() {
                                             onChange: ()=>handleToggleNotif("notifAnnouncement")
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2219,
+                                            lineNumber: 2180,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2218,
+                                        lineNumber: 2179,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4775,18 +4481,18 @@ function SettingsPage() {
                                             onChange: ()=>handleToggleNotif("notifMessage")
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2222,
+                                            lineNumber: 2183,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2221,
+                                        lineNumber: 2182,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 2211,
+                                lineNumber: 2172,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Section, {
@@ -4800,12 +4506,12 @@ function SettingsPage() {
                                             onChange: handleToggle2FA
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2232,
+                                            lineNumber: 2193,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2228,
+                                        lineNumber: 2189,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -4818,37 +4524,37 @@ function SettingsPage() {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconShield, {}, void 0, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2240,
+                                                    lineNumber: 2201,
                                                     columnNumber: 17
                                                 }, this),
                                                 " View Sessions"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2235,
+                                            lineNumber: 2196,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2234,
+                                        lineNumber: 2195,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/StudentPages.tsx",
-                                lineNumber: 2227,
+                                lineNumber: 2188,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 2209,
+                        lineNumber: 2170,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 2041,
+                lineNumber: 1994,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4863,7 +4569,7 @@ function SettingsPage() {
                         children: saved ? "Saved!" : "Save Changes"
                     }, void 0, false, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 2249,
+                        lineNumber: 2210,
                         columnNumber: 9
                     }, this),
                     saved && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4871,7 +4577,7 @@ function SettingsPage() {
                         children: "Your settings have been saved."
                     }, void 0, false, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 2256,
+                        lineNumber: 2217,
                         columnNumber: 19
                     }, this),
                     (emailError || phoneError || addressError) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4879,13 +4585,13 @@ function SettingsPage() {
                         children: emailError || phoneError || addressError
                     }, void 0, false, {
                         fileName: "[project]/src/StudentPages.tsx",
-                        lineNumber: 2258,
+                        lineNumber: 2219,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 2248,
+                lineNumber: 2209,
                 columnNumber: 7
             }, this),
             passwordModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4903,14 +4609,14 @@ function SettingsPage() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconKey, {}, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2270,
+                                            lineNumber: 2231,
                                             columnNumber: 17
                                         }, this),
                                         " Change Password"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2269,
+                                    lineNumber: 2230,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4919,18 +4625,18 @@ function SettingsPage() {
                                     className: "text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition cursor-pointer",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconX, {}, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2277,
+                                        lineNumber: 2238,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2272,
+                                    lineNumber: 2233,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2268,
+                            lineNumber: 2229,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4938,7 +4644,7 @@ function SettingsPage() {
                             children: "Update your account login password"
                         }, void 0, false, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2280,
+                            lineNumber: 2241,
                             columnNumber: 13
                         }, this),
                         passwordSuccess ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4948,12 +4654,12 @@ function SettingsPage() {
                                     className: "w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-3",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheckCircle, {}, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2285,
+                                        lineNumber: 2246,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2284,
+                                    lineNumber: 2245,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -4961,7 +4667,7 @@ function SettingsPage() {
                                     children: "Password Changed!"
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2287,
+                                    lineNumber: 2248,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4969,7 +4675,7 @@ function SettingsPage() {
                                     children: "Your password has been successfully updated."
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2288,
+                                    lineNumber: 2249,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4982,13 +4688,13 @@ function SettingsPage() {
                                     children: "Done"
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2289,
+                                    lineNumber: 2250,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2283,
+                            lineNumber: 2244,
                             columnNumber: 15
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                             onSubmit: handlePasswordSubmit,
@@ -5001,7 +4707,7 @@ function SettingsPage() {
                                             children: "Current Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2301,
+                                            lineNumber: 2262,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5015,13 +4721,13 @@ function SettingsPage() {
                                             className: "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#1a3a9e] transition"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2302,
+                                            lineNumber: 2263,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2300,
+                                    lineNumber: 2261,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5031,7 +4737,7 @@ function SettingsPage() {
                                             children: "New Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2314,
+                                            lineNumber: 2275,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5045,13 +4751,13 @@ function SettingsPage() {
                                             className: "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#1a3a9e] transition"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2315,
+                                            lineNumber: 2276,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2313,
+                                    lineNumber: 2274,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5061,7 +4767,7 @@ function SettingsPage() {
                                             children: "Confirm New Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2327,
+                                            lineNumber: 2288,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5075,13 +4781,13 @@ function SettingsPage() {
                                             className: "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#1a3a9e] transition"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2328,
+                                            lineNumber: 2289,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2326,
+                                    lineNumber: 2287,
                                     columnNumber: 17
                                 }, this),
                                 passwordError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5089,7 +4795,7 @@ function SettingsPage() {
                                     children: passwordError
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2341,
+                                    lineNumber: 2302,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5104,7 +4810,7 @@ function SettingsPage() {
                                             children: "Update Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2347,
+                                            lineNumber: 2308,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5114,30 +4820,30 @@ function SettingsPage() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2354,
+                                            lineNumber: 2315,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2346,
+                                    lineNumber: 2307,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2299,
+                            lineNumber: 2260,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 2267,
+                    lineNumber: 2228,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 2266,
+                lineNumber: 2227,
                 columnNumber: 9
             }, this),
             twoFactorModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5155,14 +4861,14 @@ function SettingsPage() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconShield, {}, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2374,
+                                            lineNumber: 2335,
                                             columnNumber: 17
                                         }, this),
                                         " Setup Two-Factor Authentication"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2373,
+                                    lineNumber: 2334,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5171,18 +4877,18 @@ function SettingsPage() {
                                     className: "text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition cursor-pointer",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconX, {}, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2381,
+                                        lineNumber: 2342,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2376,
+                                    lineNumber: 2337,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2372,
+                            lineNumber: 2333,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5190,7 +4896,7 @@ function SettingsPage() {
                             children: "Scan the QR code with your authenticator app (e.g. Google Authenticator) or enter the setup key."
                         }, void 0, false, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2384,
+                            lineNumber: 2345,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5207,12 +4913,12 @@ function SettingsPage() {
                                                     className: `${(i % 2 === 0 || i % 5 === 0) && i % 7 !== 0 ? "bg-gray-900" : "bg-transparent"} rounded-[2px]`
                                                 }, i, false, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2392,
+                                                    lineNumber: 2353,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2390,
+                                            lineNumber: 2351,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5222,18 +4928,18 @@ function SettingsPage() {
                                                 children: "EDUFLEX"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/StudentPages.tsx",
-                                                lineNumber: 2399,
+                                                lineNumber: 2360,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2398,
+                                            lineNumber: 2359,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2389,
+                                    lineNumber: 2350,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5244,7 +4950,7 @@ function SettingsPage() {
                                             children: "Setup Key"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2405,
+                                            lineNumber: 2366,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
@@ -5252,19 +4958,19 @@ function SettingsPage() {
                                             children: "EDFX-9428-SECURE-KEY"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2406,
+                                            lineNumber: 2367,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2404,
+                                    lineNumber: 2365,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2388,
+                            lineNumber: 2349,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5277,7 +4983,7 @@ function SettingsPage() {
                                             children: "6-Digit Verification Code"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2414,
+                                            lineNumber: 2375,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -5292,7 +4998,7 @@ function SettingsPage() {
                                             className: "w-full text-center text-lg font-mono tracking-widest rounded-xl border border-gray-200 bg-gray-50 px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#1a3a9e] transition"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2415,
+                                            lineNumber: 2376,
                                             columnNumber: 17
                                         }, this),
                                         twoFactorError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5300,13 +5006,13 @@ function SettingsPage() {
                                             children: twoFactorError
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2427,
+                                            lineNumber: 2388,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2413,
+                                    lineNumber: 2374,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5322,7 +5028,7 @@ function SettingsPage() {
                                             children: "Verify & Enable"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2432,
+                                            lineNumber: 2393,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5332,30 +5038,30 @@ function SettingsPage() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2440,
+                                            lineNumber: 2401,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2431,
+                                    lineNumber: 2392,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2412,
+                            lineNumber: 2373,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 2371,
+                    lineNumber: 2332,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 2370,
+                lineNumber: 2331,
                 columnNumber: 9
             }, this),
             sessionsModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5373,14 +5079,14 @@ function SettingsPage() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconShield, {}, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2459,
+                                            lineNumber: 2420,
                                             columnNumber: 17
                                         }, this),
                                         " Active Sessions"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2458,
+                                    lineNumber: 2419,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5389,18 +5095,18 @@ function SettingsPage() {
                                     className: "text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition cursor-pointer",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconX, {}, void 0, false, {
                                         fileName: "[project]/src/StudentPages.tsx",
-                                        lineNumber: 2466,
+                                        lineNumber: 2427,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2461,
+                                    lineNumber: 2422,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2457,
+                            lineNumber: 2418,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5408,7 +5114,7 @@ function SettingsPage() {
                             children: "Devices and browsers currently logged into your EduFlex account."
                         }, void 0, false, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2469,
+                            lineNumber: 2430,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5426,7 +5132,7 @@ function SettingsPage() {
                                                             children: session.device
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2481,
+                                                            lineNumber: 2442,
                                                             columnNumber: 23
                                                         }, this),
                                                         session.isCurrent && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5434,13 +5140,13 @@ function SettingsPage() {
                                                             children: "Current Device"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/StudentPages.tsx",
-                                                            lineNumber: 2483,
+                                                            lineNumber: 2444,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2480,
+                                                    lineNumber: 2441,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5452,7 +5158,7 @@ function SettingsPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2488,
+                                                    lineNumber: 2449,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5465,13 +5171,13 @@ function SettingsPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/StudentPages.tsx",
-                                                    lineNumber: 2491,
+                                                    lineNumber: 2452,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2479,
+                                            lineNumber: 2440,
                                             columnNumber: 19
                                         }, this),
                                         !session.isCurrent ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5481,25 +5187,25 @@ function SettingsPage() {
                                             children: "Sign Out"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2496,
+                                            lineNumber: 2457,
                                             columnNumber: 21
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-xs text-gray-400 italic shrink-0",
                                             children: "Active"
                                         }, void 0, false, {
                                             fileName: "[project]/src/StudentPages.tsx",
-                                            lineNumber: 2504,
+                                            lineNumber: 2465,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, session.id, true, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2475,
+                                    lineNumber: 2436,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2473,
+                            lineNumber: 2434,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5512,14 +5218,14 @@ function SettingsPage() {
                                     children: "Sign out of all other sessions"
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2512,
+                                    lineNumber: 2473,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "text-xs text-gray-400",
                                     children: "No other active sessions."
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2520,
+                                    lineNumber: 2481,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5529,30 +5235,30 @@ function SettingsPage() {
                                     children: "Done"
                                 }, void 0, false, {
                                     fileName: "[project]/src/StudentPages.tsx",
-                                    lineNumber: 2522,
+                                    lineNumber: 2483,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/StudentPages.tsx",
-                            lineNumber: 2510,
+                            lineNumber: 2471,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/StudentPages.tsx",
-                    lineNumber: 2456,
+                    lineNumber: 2417,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/StudentPages.tsx",
-                lineNumber: 2455,
+                lineNumber: 2416,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/StudentPages.tsx",
-        lineNumber: 2038,
+        lineNumber: 1991,
         columnNumber: 5
     }, this);
 }

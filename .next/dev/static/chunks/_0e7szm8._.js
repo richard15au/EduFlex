@@ -47,16 +47,22 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "INITIAL_ASSIGNMENT_COURSES",
+    ()=>INITIAL_ASSIGNMENT_COURSES,
     "INSTRUCTOR_LEARNING_MATERIALS",
     ()=>INSTRUCTOR_LEARNING_MATERIALS,
     "default",
-    ()=>InstructorDashboard
+    ()=>InstructorDashboard,
+    "formatDueDate",
+    ()=>formatDueDate,
+    "getInstructorSearchPool",
+    ()=>getInstructorSearchPool
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/auth.ts [app-client] (ecmascript)");
 ;
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature(), _s5 = __turbopack_context__.k.signature(), _s6 = __turbopack_context__.k.signature(), _s7 = __turbopack_context__.k.signature(), _s8 = __turbopack_context__.k.signature(), _s9 = __turbopack_context__.k.signature(), _s10 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature(), _s5 = __turbopack_context__.k.signature(), _s6 = __turbopack_context__.k.signature(), _s7 = __turbopack_context__.k.signature(), _s8 = __turbopack_context__.k.signature(), _s9 = __turbopack_context__.k.signature(), _s10 = __turbopack_context__.k.signature(), _s11 = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
@@ -1052,6 +1058,34 @@ const IconX = ({ className = "w-5 h-5" })=>/*#__PURE__*/ (0, __TURBOPACK__import
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 _c32 = IconX;
+const IconTrash = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        className: className,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
+                points: "3 6 5 6 21 6"
+            }, void 0, false, {
+                fileName: "[project]/src/InstructorDashboard.tsx",
+                lineNumber: 178,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+            }, void 0, false, {
+                fileName: "[project]/src/InstructorDashboard.tsx",
+                lineNumber: 178,
+                columnNumber: 39
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/InstructorDashboard.tsx",
+        lineNumber: 177,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+_c33 = IconTrash;
 const IconDownload = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
         viewBox: "0 0 24 24",
         fill: "none",
@@ -1063,7 +1097,7 @@ const IconDownload = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK_
                 points: "8 17 12 21 16 17"
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 178,
+                lineNumber: 183,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -1073,30 +1107,30 @@ const IconDownload = ({ className = "w-4 h-4" })=>/*#__PURE__*/ (0, __TURBOPACK_
                 y2: "21"
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 178,
+                lineNumber: 183,
                 columnNumber: 43
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                 d: "M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 179,
+                lineNumber: 184,
                 columnNumber: 5
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 177,
+        lineNumber: 182,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
-_c33 = IconDownload;
+_c34 = IconDownload;
 // ── Nav Config ────────────────────────────────────────────────────────────────
 const navItems = [
     {
         label: "Dashboard",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDashboard, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 185,
+            lineNumber: 190,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "dashboard"
@@ -1105,7 +1139,7 @@ const navItems = [
         label: "My Courses",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 186,
+            lineNumber: 191,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "courses"
@@ -1114,7 +1148,7 @@ const navItems = [
         label: "Students",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconUsers, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 187,
+            lineNumber: 192,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "students"
@@ -1123,7 +1157,7 @@ const navItems = [
         label: "Assignments",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 188,
+            lineNumber: 193,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "assignments"
@@ -1132,7 +1166,7 @@ const navItems = [
         label: "Quizzes",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 189,
+            lineNumber: 194,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "quizzes"
@@ -1141,7 +1175,7 @@ const navItems = [
         label: "Learning Materials",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconFolder, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 190,
+            lineNumber: 195,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "materials"
@@ -1150,7 +1184,7 @@ const navItems = [
         label: "Grades",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconGrades, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 191,
+            lineNumber: 196,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "grades"
@@ -1159,7 +1193,7 @@ const navItems = [
         label: "Announcements",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAnnouncement, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 192,
+            lineNumber: 197,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "announcements"
@@ -1168,7 +1202,7 @@ const navItems = [
         label: "Calendar",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 193,
+            lineNumber: 198,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "calendar"
@@ -1177,7 +1211,7 @@ const navItems = [
         label: "Messages",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconMessage, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 194,
+            lineNumber: 199,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "messages"
@@ -1186,7 +1220,7 @@ const navItems = [
         label: "Profile",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconProfile, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 195,
+            lineNumber: 200,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "profile"
@@ -1195,7 +1229,7 @@ const navItems = [
         label: "Settings",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSettings, {}, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 196,
+            lineNumber: 201,
             columnNumber: 40
         }, ("TURBOPACK compile-time value", void 0)),
         id: "settings"
@@ -1221,7 +1255,7 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                             className: "w-7 h-7"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 216,
+                            lineNumber: 221,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1229,13 +1263,13 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                             children: "EF"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 217,
+                            lineNumber: 222,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 215,
+                    lineNumber: 220,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                     children: [
@@ -1243,7 +1277,7 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                             className: "w-6 h-6 text-white shrink-0"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 221,
+                            lineNumber: 226,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1254,7 +1288,7 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                                     children: "EduFlex"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 223,
+                                    lineNumber: 228,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1262,13 +1296,13 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                                     children: "Instructor Portal"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 224,
+                                    lineNumber: 229,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 222,
+                            lineNumber: 227,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1277,23 +1311,23 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                             title: "Collapse sidebar",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronsLeft, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 227,
+                                lineNumber: 232,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 226,
+                            lineNumber: 231,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 220,
+                    lineNumber: 225,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 213,
+                lineNumber: 218,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1313,19 +1347,19 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                                 children: item.label
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 246,
+                                lineNumber: 251,
                                 columnNumber: 30
                             }, this)
                         ]
                     }, item.id, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 237,
+                        lineNumber: 242,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 233,
+                lineNumber: 238,
                 columnNumber: 7
             }, this),
             collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1336,17 +1370,17 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                     title: "Expand",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronsRight, {}, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 255,
+                        lineNumber: 260,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 254,
+                    lineNumber: 259,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 253,
+                lineNumber: 258,
                 columnNumber: 9
             }, this),
             !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1357,25 +1391,25 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconLogout, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 263,
+                            lineNumber: 268,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "Logout"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 263,
+                            lineNumber: 268,
                             columnNumber: 27
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 262,
+                    lineNumber: 267,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 261,
+                lineNumber: 266,
                 columnNumber: 9
             }, this),
             collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1386,29 +1420,636 @@ function InstructorSidebar({ active, setActive, collapsed, setCollapsed, onLogou
                     title: "Logout",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconLogout, {}, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 270,
+                        lineNumber: 275,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 269,
+                    lineNumber: 274,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 268,
+                lineNumber: 273,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 209,
+        lineNumber: 214,
         columnNumber: 5
     }, this);
 }
-_c34 = InstructorSidebar;
+_c35 = InstructorSidebar;
+const INITIAL_ASSIGNMENT_COURSES = [
+    {
+        code: "ICT301",
+        name: "Information Technology Project 1",
+        color: "#2563eb",
+        assignments: [
+            {
+                id: "ict301-a1",
+                title: "Milestone 1: Project Proposal",
+                due: "Aug 25, 2026",
+                submissions: 32,
+                total: 32,
+                type: "Assignment",
+                graded: true,
+                maxScore: 100,
+                description: "Comprehensive project proposal detailing project scope, team roles, and Gantt chart schedule."
+            },
+            {
+                id: "ict301-a2",
+                title: "Milestone 2: Preliminary Design",
+                due: "Sep 5, 2026",
+                submissions: 28,
+                total: 32,
+                type: "Assignment",
+                graded: false,
+                maxScore: 100,
+                description: "Preliminary architecture design diagrams, class models, and UX wireframe deliverables."
+            },
+            {
+                id: "ict301-a3",
+                title: "Weekly Journal Entry 1",
+                due: "Aug 22, 2026",
+                submissions: 30,
+                total: 32,
+                type: "Assignment",
+                graded: true,
+                maxScore: 50,
+                description: "Reflective learning journal entry covering sprint planning and risk management notes."
+            }
+        ],
+        assessments: [
+            {
+                id: "ict301-ass1",
+                title: "Milestone 3: Final System Implementation & Defense",
+                due: "Sep 25, 2026",
+                submissions: 20,
+                total: 32,
+                type: "Assessment",
+                graded: false,
+                maxScore: 100,
+                weight: 35,
+                description: "Final functional software submission and panel presentation defense demonstrating project deliverables.",
+                status: "Published"
+            }
+        ]
+    },
+    {
+        code: "ICT272",
+        name: "Web Design and Development",
+        color: "#0e9f6e",
+        assignments: [
+            {
+                id: "ict272-a1",
+                title: "Lab Exercise 1: HTML Basics",
+                due: "Aug 20, 2026",
+                submissions: 38,
+                total: 38,
+                type: "Assignment",
+                graded: true,
+                maxScore: 50,
+                description: "Semantic markup exercise creating accessible multi-page structure."
+            },
+            {
+                id: "ict272-a2",
+                title: "Lab Exercise 2: CSS Layouts",
+                due: "Aug 27, 2026",
+                submissions: 37,
+                total: 38,
+                type: "Assignment",
+                graded: true,
+                maxScore: 50,
+                description: "Flexbox and Grid layout implementation matching design specifications."
+            },
+            {
+                id: "ict272-a3",
+                title: "Lab Exercise 3: JavaScript DOM",
+                due: "Sep 3, 2026",
+                submissions: 36,
+                total: 38,
+                type: "Assignment",
+                graded: false,
+                maxScore: 50,
+                description: "Interactive client-side web application handling DOM events and form validation."
+            },
+            {
+                id: "ict272-a4",
+                title: "Lab Exercise 4: React Basics",
+                due: "Sep 7, 2026",
+                submissions: 12,
+                total: 38,
+                type: "Assignment",
+                graded: false,
+                maxScore: 50,
+                description: "Component-based web application with React state and props."
+            }
+        ],
+        assessments: [
+            {
+                id: "ict272-ass1",
+                title: "Major Project: Interactive Web Application",
+                due: "Sep 22, 2026",
+                submissions: 35,
+                total: 38,
+                type: "Assessment",
+                graded: true,
+                maxScore: 100,
+                weight: 30,
+                description: "Production-ready web application built with responsive design and modern frontend framework.",
+                status: "Published"
+            }
+        ]
+    },
+    {
+        code: "ICT126",
+        name: "Artificial Intelligence",
+        color: "#7c3aed",
+        assignments: [
+            {
+                id: "ict126-a1",
+                title: "AI Case Study Research Paper",
+                due: "Sep 19, 2026",
+                submissions: 10,
+                total: 26,
+                type: "Assignment",
+                graded: false,
+                maxScore: 100,
+                description: "Research paper surveying contemporary applications of generative AI in education."
+            },
+            {
+                id: "ict126-a2",
+                title: "Assignment 1: AI History Review",
+                due: "Aug 28, 2026",
+                submissions: 26,
+                total: 26,
+                type: "Assignment",
+                graded: true,
+                maxScore: 100,
+                description: "Literature review of classical AI paradigms and symbolic reasoning systems."
+            },
+            {
+                id: "ict126-a3",
+                title: "Assignment 2: ML Algorithm Analysis",
+                due: "Sep 4, 2026",
+                submissions: 24,
+                total: 26,
+                type: "Assignment",
+                graded: false,
+                maxScore: 100,
+                description: "Empirical evaluation of decision trees versus random forests on benchmark classification data."
+            }
+        ],
+        assessments: [
+            {
+                id: "ict126-ass1",
+                title: "Mid-Term Practical AI Assessment",
+                due: "Sep 18, 2026",
+                submissions: 22,
+                total: 26,
+                type: "Assessment",
+                graded: false,
+                maxScore: 100,
+                weight: 25,
+                description: "Hands-on machine learning implementation and empirical performance evaluation report.",
+                status: "Published"
+            }
+        ]
+    }
+];
+function formatDueDate(dateStr) {
+    if (!dateStr) return "";
+    try {
+        const parts = dateStr.split("-");
+        if (parts.length === 3) {
+            const year = parts[0];
+            const monthIndex = parseInt(parts[1], 10) - 1;
+            const day = parseInt(parts[2], 10);
+            const months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec"
+            ];
+            if (months[monthIndex]) {
+                return `${months[monthIndex]} ${day}, ${year}`;
+            }
+        }
+    } catch  {}
+    return dateStr;
+}
+function getInstructorSearchPool(assignmentCourses) {
+    const pool = [];
+    // 1. Courses
+    pool.push({
+        id: "course-ict301",
+        category: "Course",
+        title: "ICT301 — Information Technology Project 1",
+        subtitle: "3 Credits · Mon/Wed 8:00–10:00 AM · Room IT-201 · 32 Students Enrolled",
+        badgeColor: "bg-blue-100 text-blue-700",
+        targetPage: "courses"
+    }, {
+        id: "course-ict272",
+        category: "Course",
+        title: "ICT272 — Web Design and Development",
+        subtitle: "3 Credits · Tue/Thu 10:00 AM–12:00 PM · Online Zoom · 38 Students Enrolled",
+        badgeColor: "bg-blue-100 text-blue-700",
+        targetPage: "courses"
+    }, {
+        id: "course-ict126",
+        category: "Course",
+        title: "ICT126 — Artificial Intelligence",
+        subtitle: "3 Credits · Fri 1:00–3:00 PM · Room IT-304 · 26 Students Enrolled",
+        badgeColor: "bg-blue-100 text-blue-700",
+        targetPage: "courses"
+    });
+    // 2. Students
+    const sampleStudents = [
+        {
+            name: "Marco Reyes",
+            id: "STU-0231",
+            course: "ICT301",
+            email: "m.reyes@student.edu",
+            grade: "B+",
+            status: "Active"
+        },
+        {
+            name: "Sofia Tan",
+            id: "STU-0198",
+            course: "ICT272",
+            email: "s.tan@student.edu",
+            grade: "A",
+            status: "Active"
+        },
+        {
+            name: "Liam Garcia",
+            id: "STU-0274",
+            course: "ICT301",
+            email: "l.garcia@student.edu",
+            grade: "B",
+            status: "Active"
+        },
+        {
+            name: "Aisha Patel",
+            id: "STU-0312",
+            course: "ICT272",
+            email: "a.patel@student.edu",
+            grade: "A-",
+            status: "Active"
+        },
+        {
+            name: "Ethan Cruz",
+            id: "STU-0299",
+            course: "ICT272",
+            email: "e.cruz@student.edu",
+            grade: "B+",
+            status: "Active"
+        },
+        {
+            name: "Maya Lopez",
+            id: "STU-0344",
+            course: "ICT272",
+            email: "m.lopez@student.edu",
+            grade: "A",
+            status: "Active"
+        },
+        {
+            name: "Noah Kim",
+            id: "STU-0401",
+            course: "ICT126",
+            email: "n.kim@student.edu",
+            grade: "A+",
+            status: "Active"
+        },
+        {
+            name: "Priya Nair",
+            id: "STU-0388",
+            course: "ICT126",
+            email: "p.nair@student.edu",
+            grade: "B",
+            status: "Active"
+        },
+        {
+            name: "Carlos Vega",
+            id: "STU-0411",
+            course: "ICT126",
+            email: "c.vega@student.edu",
+            grade: "B+",
+            status: "Active"
+        },
+        {
+            name: "Luna Santos",
+            id: "STU-0422",
+            course: "ICT301",
+            email: "l.santos@student.edu",
+            grade: "C+",
+            status: "At Risk"
+        },
+        {
+            name: "Raj Sharma",
+            id: "STU-0433",
+            course: "ICT272",
+            email: "r.sharma@student.edu",
+            grade: "B",
+            status: "Active"
+        },
+        {
+            name: "Zoe Andrade",
+            id: "STU-0444",
+            course: "ICT126",
+            email: "z.andrade@student.edu",
+            grade: "A-",
+            status: "Active"
+        }
+    ];
+    sampleStudents.forEach((s)=>{
+        pool.push({
+            id: `student-${s.id}`,
+            category: "Student",
+            title: s.name,
+            subtitle: `${s.id} · ${s.course} · ${s.email} · Current Grade: ${s.grade} · ${s.status}`,
+            badgeColor: "bg-emerald-100 text-emerald-700",
+            targetPage: "students"
+        });
+    });
+    // 3. Assignments & Assessments (dynamically includes newly created items!)
+    assignmentCourses.forEach((c)=>{
+        c.assignments.forEach((a, idx)=>{
+            pool.push({
+                id: `assign-${c.code}-${idx}-${a.title}`,
+                category: "Assignment",
+                title: a.title,
+                subtitle: `${c.code} · Assignment · Due: ${a.due} · ${a.submissions}/${a.total} submitted · ${a.graded ? "Graded" : "Pending Grading"}`,
+                badgeColor: "bg-amber-100 text-amber-700",
+                targetPage: "assignments"
+            });
+        });
+        if (c.assessments) {
+            c.assessments.forEach((ass, idx)=>{
+                pool.push({
+                    id: `assess-${c.code}-${idx}-${ass.title}`,
+                    category: "Assignment",
+                    title: ass.title,
+                    subtitle: `${c.code} · Assessment (Weight: ${ass.weight ?? 0}%) · Due: ${ass.due} · ${ass.status ?? "Published"}`,
+                    badgeColor: "bg-purple-100 text-purple-700",
+                    targetPage: "assignments"
+                });
+            });
+        }
+    });
+    // 4. Quizzes
+    const sampleQuizzes = [
+        {
+            title: "Weekly Quiz 1",
+            course: "ICT301",
+            date: "Aug 19, 2026",
+            status: "Completed",
+            avg: "Avg Score: 82%"
+        },
+        {
+            title: "Weekly Quiz 2",
+            course: "ICT272",
+            date: "Aug 26, 2026",
+            status: "Completed",
+            avg: "Avg Score: 78%"
+        },
+        {
+            title: "Weekly Quiz 3",
+            course: "ICT126",
+            date: "Sep 2, 2026",
+            status: "Active",
+            avg: "24/26 submissions"
+        },
+        {
+            title: "Midterm Quiz",
+            course: "ICT126",
+            date: "Sep 8, 2026",
+            status: "Upcoming",
+            avg: "Lab Quiz · 25 Questions"
+        },
+        {
+            title: "Lab Quiz 1",
+            course: "ICT272",
+            date: "Sep 10, 2026",
+            status: "Upcoming",
+            avg: "Online Quiz · 20 Questions"
+        },
+        {
+            title: "Weekly Quiz 3",
+            course: "ICT301",
+            date: "Sep 3, 2026",
+            status: "Active",
+            avg: "18/32 submissions"
+        }
+    ];
+    sampleQuizzes.forEach((q, idx)=>{
+        pool.push({
+            id: `quiz-${idx}-${q.title}`,
+            category: "Quiz",
+            title: q.title,
+            subtitle: `${q.course} · Scheduled: ${q.date} · ${q.status} · ${q.avg}`,
+            badgeColor: "bg-purple-100 text-purple-700",
+            targetPage: "quizzes"
+        });
+    });
+    // 5. Learning Materials
+    if (typeof INSTRUCTOR_LEARNING_MATERIALS !== "undefined" && Array.isArray(INSTRUCTOR_LEARNING_MATERIALS)) {
+        INSTRUCTOR_LEARNING_MATERIALS.forEach((m)=>{
+            pool.push({
+                id: `material-${m.id}`,
+                category: "Learning Material",
+                title: m.title,
+                subtitle: `${m.course} — ${m.courseName} · ${m.type} · ${m.size} · Uploaded ${m.date}`,
+                badgeColor: "bg-teal-100 text-teal-700",
+                targetPage: "materials"
+            });
+        });
+    }
+    // 6. Grades
+    pool.push({
+        id: "grade-ict301",
+        category: "Grade",
+        title: "ICT301 Student Grades",
+        subtitle: "Information Technology Project 1 · Grade roster and submission tracking",
+        badgeColor: "bg-indigo-100 text-indigo-700",
+        targetPage: "grades"
+    }, {
+        id: "grade-ict272",
+        category: "Grade",
+        title: "ICT272 Student Grades",
+        subtitle: "Web Design and Development · Grade roster and submission tracking",
+        badgeColor: "bg-indigo-100 text-indigo-700",
+        targetPage: "grades"
+    }, {
+        id: "grade-ict126",
+        category: "Grade",
+        title: "ICT126 Student Grades",
+        subtitle: "Artificial Intelligence · Grade roster and submission tracking",
+        badgeColor: "bg-indigo-100 text-indigo-700",
+        targetPage: "grades"
+    });
+    // 7. Announcements
+    const sampleAnnouncements = [
+        {
+            title: "Milestone 2 Submission Reminder",
+            course: "ICT301",
+            status: "Published",
+            date: "Sep 1, 2026"
+        },
+        {
+            title: "Updated Learning Materials — Week 8",
+            course: "All Courses",
+            status: "Published",
+            date: "Aug 28, 2026"
+        },
+        {
+            title: "Guest Lecture: AI in Healthcare Industry",
+            course: "ICT126",
+            status: "Published",
+            date: "Aug 20, 2026"
+        },
+        {
+            title: "Final Project Report Guidelines & Submission Portal",
+            course: "ICT301",
+            status: "Draft",
+            date: "Aug 15, 2026"
+        },
+        {
+            title: "Mid-Semester Course Feedback Survey",
+            course: "All Courses",
+            status: "Scheduled",
+            date: "Sep 10, 2026"
+        }
+    ];
+    sampleAnnouncements.forEach((a, idx)=>{
+        pool.push({
+            id: `announcement-${idx}`,
+            category: "Announcement",
+            title: a.title,
+            subtitle: `${a.course} · Status: ${a.status} · ${a.date}`,
+            badgeColor: "bg-rose-100 text-rose-700",
+            targetPage: "announcements"
+        });
+    });
+    // 8. Messages
+    const sampleMessages = [
+        {
+            name: "Marco Reyes",
+            detail: "Question about Milestone 2 rubric and submission deadline",
+            course: "ICT301"
+        },
+        {
+            name: "Sofia Tan",
+            detail: "Thank you for the feedback on the lab exercise",
+            course: "ICT272"
+        },
+        {
+            name: "Prof. Eduardo Lim",
+            detail: "Faculty meeting scheduled for tomorrow at 2 PM in Room IT-301",
+            course: "Faculty"
+        },
+        {
+            name: "Liam Garcia",
+            detail: "Request for office hours consult regarding project architecture",
+            course: "ICT301"
+        }
+    ];
+    sampleMessages.forEach((msg, idx)=>{
+        pool.push({
+            id: `msg-${idx}`,
+            category: "Message",
+            title: `Message with ${msg.name}`,
+            subtitle: `${msg.course} · "${msg.detail}"`,
+            badgeColor: "bg-cyan-100 text-cyan-700",
+            targetPage: "messages"
+        });
+    });
+    // 9. Calendar
+    const sampleCalendar = [
+        {
+            title: "ICT301 Lecture",
+            detail: "Mon/Wed 8:00–10:00 AM · Room IT-201"
+        },
+        {
+            title: "ICT272 Online Lecture",
+            detail: "Tue/Thu 10:00 AM–12:00 PM · Online Zoom"
+        },
+        {
+            title: "ICT126 Lab",
+            detail: "Fri 1:00–3:00 PM · Room IT-304"
+        },
+        {
+            title: "ICT126 Midterm Quiz",
+            detail: "Sep 8, 2026 · 1:00–2:00 PM · Room IT-304"
+        },
+        {
+            title: "Faculty Meeting",
+            detail: "Sep 10, 2026 · 2:00–3:00 PM · Room IT-301"
+        }
+    ];
+    sampleCalendar.forEach((cal, idx)=>{
+        pool.push({
+            id: `calendar-${idx}`,
+            category: "Calendar",
+            title: cal.title,
+            subtitle: cal.detail,
+            badgeColor: "bg-orange-100 text-orange-700",
+            targetPage: "calendar"
+        });
+    });
+    return pool;
+}
 // ── Header ────────────────────────────────────────────────────────────────────
-function InstructorHeader({ sidebarW, userName, userInitials }) {
+function InstructorHeader({ sidebarW, userName, userInitials, setActive, assignmentCourses = INITIAL_ASSIGNMENT_COURSES }) {
+    _s();
+    const [query, setQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const searchRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const searchPool = getInstructorSearchPool(assignmentCourses);
+    const trimmed = query.trim().toLowerCase();
+    const matches = trimmed.length > 0 ? searchPool.filter((item)=>{
+        return item.title.toLowerCase().includes(trimmed) || item.subtitle.toLowerCase().includes(trimmed) || item.category.toLowerCase().includes(trimmed);
+    }) : [];
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "InstructorHeader.useEffect": ()=>{
+            function handleClickOutside(e) {
+                if (searchRef.current && !searchRef.current.contains(e.target)) {
+                    setIsOpen(false);
+                }
+            }
+            document.addEventListener("mousedown", handleClickOutside);
+            return ({
+                "InstructorHeader.useEffect": ()=>document.removeEventListener("mousedown", handleClickOutside)
+            })["InstructorHeader.useEffect"];
+        }
+    }["InstructorHeader.useEffect"], []);
+    const handleSelect = (item)=>{
+        if (setActive) {
+            setActive(item.targetPage);
+        }
+        setQuery("");
+        setIsOpen(false);
+    };
+    const handleKeyDown = (e)=>{
+        if (e.key === "Enter") {
+            e.preventDefault();
+            if (matches.length > 0) {
+                handleSelect(matches[0]);
+            }
+        } else if (e.key === "Escape") {
+            setIsOpen(false);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: "fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center px-6 gap-4 z-20 transition-all duration-300",
         style: {
@@ -1417,68 +2058,263 @@ function InstructorHeader({ sidebarW, userName, userInitials }) {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-1 relative",
+                ref: searchRef,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-400",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 286,
-                            columnNumber: 82
+                            lineNumber: 642,
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 286,
+                        lineNumber: 641,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                         type: "text",
+                        value: query,
+                        onChange: (e)=>{
+                            setQuery(e.target.value);
+                            setIsOpen(true);
+                        },
+                        onFocus: ()=>{
+                            if (query.trim().length > 0) setIsOpen(true);
+                        },
+                        onKeyDown: handleKeyDown,
                         placeholder: "Search courses, students, materials...",
-                        className: "w-full pl-9 pr-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                        className: "w-full pl-9 pr-9 py-2 bg-gray-100 rounded-full text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 287,
+                        lineNumber: 644,
                         columnNumber: 9
+                    }, this),
+                    query.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: ()=>{
+                            setQuery("");
+                            setIsOpen(false);
+                        },
+                        className: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 rounded-full cursor-pointer",
+                        title: "Clear search",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconX, {
+                            className: "w-3.5 h-3.5"
+                        }, void 0, false, {
+                            fileName: "[project]/src/InstructorDashboard.tsx",
+                            lineNumber: 668,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/InstructorDashboard.tsx",
+                        lineNumber: 659,
+                        columnNumber: 11
+                    }, this),
+                    isOpen && query.trim().length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 max-h-96 overflow-y-auto divide-y divide-gray-50 animate-in fade-in zoom-in-95 duration-150",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "px-4 py-2 bg-gray-50 border-b border-gray-100 flex items-center justify-between text-[11px] text-gray-500 font-medium",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: [
+                                            "Search Results (",
+                                            matches.length,
+                                            ")"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 675,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: "Press Enter to select top result"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 676,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                lineNumber: 674,
+                                columnNumber: 13
+                            }, this),
+                            matches.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "py-1",
+                                children: matches.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>handleSelect(item),
+                                        className: "w-full px-4 py-3 text-left flex items-center justify-between gap-3 hover:bg-blue-50/60 transition-colors cursor-pointer group",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-3 min-w-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: `text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${item.badgeColor || "bg-gray-100 text-gray-700"}`,
+                                                        children: item.category
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                                        lineNumber: 688,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "min-w-0",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors truncate",
+                                                                children: item.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                                                lineNumber: 692,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-xs text-gray-500 truncate",
+                                                                children: item.subtitle
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                                                lineNumber: 695,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                                        lineNumber: 691,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                                lineNumber: 687,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-1.5 text-xs text-blue-600 shrink-0 font-medium opacity-0 group-hover:opacity-100 transition-opacity",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: [
+                                                            "Go to ",
+                                                            item.targetPage.charAt(0).toUpperCase() + item.targetPage.slice(1)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                                        lineNumber: 701,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronRight, {
+                                                        className: "w-3.5 h-3.5"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                                        lineNumber: 702,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                                lineNumber: 700,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, item.id, true, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 682,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                lineNumber: 680,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-6 text-center text-gray-500",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-10 h-10 mx-auto mb-2 rounded-full bg-gray-100 flex items-center justify-center text-gray-400",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 710,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 709,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm font-semibold text-gray-700",
+                                        children: "No results found"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 712,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-xs text-gray-400 mt-1",
+                                        children: [
+                                            "No matching results found for “",
+                                            query,
+                                            "”. Try searching for courses, students, assignments, quizzes, or materials."
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 713,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                lineNumber: 708,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/InstructorDashboard.tsx",
+                        lineNumber: 673,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 285,
+                lineNumber: 640,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center gap-3 shrink-0",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100",
+                        onClick: ()=>setActive && setActive("messages"),
+                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer",
+                        title: "Messages",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconMail, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 295,
+                            lineNumber: 728,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 294,
+                        lineNumber: 723,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100",
+                        onClick: ()=>setActive && setActive("announcements"),
+                        className: "relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer",
+                        title: "Notifications",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBell, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 298,
+                                lineNumber: 735,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 299,
+                                lineNumber: 736,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 297,
+                        lineNumber: 730,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1492,7 +2328,7 @@ function InstructorHeader({ sidebarW, userName, userInitials }) {
                                         children: userName
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 303,
+                                        lineNumber: 740,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1500,13 +2336,13 @@ function InstructorHeader({ sidebarW, userName, userInitials }) {
                                         children: "Instructor"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 304,
+                                        lineNumber: 741,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 302,
+                                lineNumber: 739,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1517,29 +2353,30 @@ function InstructorHeader({ sidebarW, userName, userInitials }) {
                                 children: userInitials
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 306,
+                                lineNumber: 743,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 301,
+                        lineNumber: 738,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 293,
+                lineNumber: 722,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 281,
+        lineNumber: 636,
         columnNumber: 5
     }, this);
 }
-_c35 = InstructorHeader;
+_s(InstructorHeader, "C6/TrvvancCH04F1U/f0P3GPHMI=");
+_c36 = InstructorHeader;
 // ── Summary Card ──────────────────────────────────────────────────────────────
 function SummaryCard({ title, value, subtitle, icon, bg, iconBg, textColor, onClick }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1551,7 +2388,7 @@ function SummaryCard({ title, value, subtitle, icon, bg, iconBg, textColor, onCl
                 children: icon
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 325,
+                lineNumber: 762,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1561,7 +2398,7 @@ function SummaryCard({ title, value, subtitle, icon, bg, iconBg, textColor, onCl
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 329,
+                        lineNumber: 766,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1569,7 +2406,7 @@ function SummaryCard({ title, value, subtitle, icon, bg, iconBg, textColor, onCl
                         children: value
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 330,
+                        lineNumber: 767,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1577,23 +2414,23 @@ function SummaryCard({ title, value, subtitle, icon, bg, iconBg, textColor, onCl
                         children: subtitle
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 331,
+                        lineNumber: 768,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 328,
+                lineNumber: 765,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 324,
+        lineNumber: 761,
         columnNumber: 5
     }, this);
 }
-_c36 = SummaryCard;
+_c37 = SummaryCard;
 // ── Progress Bar ──────────────────────────────────────────────────────────────
 function ProgressBar({ pct, color }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1606,16 +2443,16 @@ function ProgressBar({ pct, color }) {
             }
         }, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 341,
+            lineNumber: 778,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 340,
+        lineNumber: 777,
         columnNumber: 5
     }, this);
 }
-_c37 = ProgressBar;
+_c38 = ProgressBar;
 // ── Dashboard Page ────────────────────────────────────────────────────────────
 function DashboardHome({ setActive, userName }) {
     const greeting = userName.startsWith("Prof.") ? userName.split(" ").slice(0, 2).join(" ") : userName.split(" ")[0];
@@ -1787,14 +2624,14 @@ function DashboardHome({ setActive, userName }) {
                                         children: "Instructor"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 426,
+                                        lineNumber: 863,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "/"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 426,
+                                        lineNumber: 863,
                                         columnNumber: 36
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1802,13 +2639,13 @@ function DashboardHome({ setActive, userName }) {
                                         children: "Dashboard"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 427,
+                                        lineNumber: 864,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 425,
+                                lineNumber: 862,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1820,7 +2657,7 @@ function DashboardHome({ setActive, userName }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 429,
+                                lineNumber: 866,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1828,13 +2665,13 @@ function DashboardHome({ setActive, userName }) {
                                 children: "Here's an overview of your teaching activities."
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 430,
+                                lineNumber: 867,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 424,
+                        lineNumber: 861,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1842,7 +2679,7 @@ function DashboardHome({ setActive, userName }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 433,
+                                lineNumber: 870,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1852,7 +2689,7 @@ function DashboardHome({ setActive, userName }) {
                                         children: "Semester 1 — 2026"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 435,
+                                        lineNumber: 872,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1860,25 +2697,25 @@ function DashboardHome({ setActive, userName }) {
                                         children: "Term 1 · Sep 2026 – Jan 2027"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 436,
+                                        lineNumber: 873,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 434,
+                                lineNumber: 871,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 432,
+                        lineNumber: 869,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 423,
+                lineNumber: 860,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1890,7 +2727,7 @@ function DashboardHome({ setActive, userName }) {
                         subtitle: "Active Courses",
                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 445,
+                            lineNumber: 882,
                             columnNumber: 17
                         }, this),
                         bg: "bg-blue-50 border-blue-100",
@@ -1899,7 +2736,7 @@ function DashboardHome({ setActive, userName }) {
                         onClick: ()=>setActive("courses")
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 443,
+                        lineNumber: 880,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SummaryCard, {
@@ -1908,7 +2745,7 @@ function DashboardHome({ setActive, userName }) {
                         subtitle: "Students Enrolled",
                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconUsers, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 451,
+                            lineNumber: 888,
                             columnNumber: 17
                         }, this),
                         bg: "bg-emerald-50 border-emerald-100",
@@ -1917,7 +2754,7 @@ function DashboardHome({ setActive, userName }) {
                         onClick: ()=>setActive("students")
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 449,
+                        lineNumber: 886,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SummaryCard, {
@@ -1926,7 +2763,7 @@ function DashboardHome({ setActive, userName }) {
                         subtitle: "Submissions",
                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 457,
+                            lineNumber: 894,
                             columnNumber: 17
                         }, this),
                         bg: "bg-amber-50 border-amber-100",
@@ -1935,7 +2772,7 @@ function DashboardHome({ setActive, userName }) {
                         onClick: ()=>setActive("grades")
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 455,
+                        lineNumber: 892,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SummaryCard, {
@@ -1944,7 +2781,7 @@ function DashboardHome({ setActive, userName }) {
                         subtitle: "This Week",
                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 463,
+                            lineNumber: 900,
                             columnNumber: 17
                         }, this),
                         bg: "bg-purple-50 border-purple-100",
@@ -1953,13 +2790,13 @@ function DashboardHome({ setActive, userName }) {
                         onClick: ()=>setActive("calendar")
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 461,
+                        lineNumber: 898,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 442,
+                lineNumber: 879,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1976,20 +2813,20 @@ function DashboardHome({ setActive, userName }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAnnouncement, {}, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 912,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Announcements"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 912,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 474,
+                                        lineNumber: 911,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1998,13 +2835,13 @@ function DashboardHome({ setActive, userName }) {
                                         children: "View All"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 477,
+                                        lineNumber: 914,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 473,
+                                lineNumber: 910,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2025,7 +2862,7 @@ function DashboardHome({ setActive, userName }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 484,
+                                                            lineNumber: 921,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2033,13 +2870,13 @@ function DashboardHome({ setActive, userName }) {
                                                             children: a.detail
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 485,
+                                                            lineNumber: 922,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 483,
+                                                    lineNumber: 920,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2047,29 +2884,29 @@ function DashboardHome({ setActive, userName }) {
                                                     children: a.time
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 924,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 482,
+                                            lineNumber: 919,
                                             columnNumber: 19
                                         }, this)
                                     }, i, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 481,
+                                        lineNumber: 918,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 479,
+                                lineNumber: 916,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 472,
+                        lineNumber: 909,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2083,20 +2920,20 @@ function DashboardHome({ setActive, userName }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconBook, {}, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 498,
+                                                lineNumber: 935,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "My Courses"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 498,
+                                                lineNumber: 935,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 497,
+                                        lineNumber: 934,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2105,13 +2942,13 @@ function DashboardHome({ setActive, userName }) {
                                         children: "Manage All"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 500,
+                                        lineNumber: 937,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 496,
+                                lineNumber: 933,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2124,7 +2961,7 @@ function DashboardHome({ setActive, userName }) {
                                                 children: c.code
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 505,
+                                                lineNumber: 942,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2132,7 +2969,7 @@ function DashboardHome({ setActive, userName }) {
                                                 children: c.name
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 506,
+                                                lineNumber: 943,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2142,7 +2979,7 @@ function DashboardHome({ setActive, userName }) {
                                                         className: "w-3 h-3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 508,
+                                                        lineNumber: 945,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2152,13 +2989,13 @@ function DashboardHome({ setActive, userName }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 508,
+                                                        lineNumber: 945,
                                                         columnNumber: 54
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 507,
+                                                lineNumber: 944,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2171,7 +3008,7 @@ function DashboardHome({ setActive, userName }) {
                                                                 children: "Progress"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 512,
+                                                                lineNumber: 949,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2181,13 +3018,13 @@ function DashboardHome({ setActive, userName }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 512,
+                                                                lineNumber: 949,
                                                                 columnNumber: 44
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 511,
+                                                        lineNumber: 948,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -2195,13 +3032,13 @@ function DashboardHome({ setActive, userName }) {
                                                         color: c.color
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 514,
+                                                        lineNumber: 951,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 510,
+                                                lineNumber: 947,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2211,14 +3048,14 @@ function DashboardHome({ setActive, userName }) {
                                                         className: "w-3 h-3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 517,
+                                                        lineNumber: 954,
                                                         columnNumber: 21
                                                     }, this),
                                                     c.upcoming
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 516,
+                                                lineNumber: 953,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2230,24 +3067,24 @@ function DashboardHome({ setActive, userName }) {
                                                 children: "View Course"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 519,
+                                                lineNumber: 956,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, c.code, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 504,
+                                        lineNumber: 941,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 502,
+                                lineNumber: 939,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 495,
+                        lineNumber: 932,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2264,20 +3101,20 @@ function DashboardHome({ setActive, userName }) {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 537,
+                                                        lineNumber: 974,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "Upcoming Classes"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 537,
+                                                        lineNumber: 974,
                                                         columnNumber: 35
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 536,
+                                                lineNumber: 973,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2286,13 +3123,13 @@ function DashboardHome({ setActive, userName }) {
                                                 children: "Calendar"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 539,
+                                                lineNumber: 976,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 535,
+                                        lineNumber: 972,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2307,7 +3144,7 @@ function DashboardHome({ setActive, userName }) {
                                                                 children: cls.course
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 545,
+                                                                lineNumber: 982,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2319,7 +3156,7 @@ function DashboardHome({ setActive, userName }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 546,
+                                                                lineNumber: 983,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2327,13 +3164,13 @@ function DashboardHome({ setActive, userName }) {
                                                                 children: cls.room
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 547,
+                                                                lineNumber: 984,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 544,
+                                                        lineNumber: 981,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2341,24 +3178,24 @@ function DashboardHome({ setActive, userName }) {
                                                         children: cls.online ? "Start Class" : "View Class"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 551,
+                                                        lineNumber: 988,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 543,
+                                                lineNumber: 980,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 541,
+                                        lineNumber: 978,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 534,
+                                lineNumber: 971,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2372,20 +3209,20 @@ function DashboardHome({ setActive, userName }) {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 569,
+                                                        lineNumber: 1006,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "Pending Grading"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 569,
+                                                        lineNumber: 1006,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 568,
+                                                lineNumber: 1005,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2394,13 +3231,13 @@ function DashboardHome({ setActive, userName }) {
                                                 children: "All Grades"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 571,
+                                                lineNumber: 1008,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 567,
+                                        lineNumber: 1004,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2415,7 +3252,7 @@ function DashboardHome({ setActive, userName }) {
                                                                 children: g.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 577,
+                                                                lineNumber: 1014,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2427,7 +3264,7 @@ function DashboardHome({ setActive, userName }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 578,
+                                                                lineNumber: 1015,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2438,13 +3275,13 @@ function DashboardHome({ setActive, userName }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 579,
+                                                                lineNumber: 1016,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 576,
+                                                        lineNumber: 1013,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2453,46 +3290,46 @@ function DashboardHome({ setActive, userName }) {
                                                         children: "Grade Now"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 581,
+                                                        lineNumber: 1018,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 575,
+                                                lineNumber: 1012,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 573,
+                                        lineNumber: 1010,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 566,
+                                lineNumber: 1003,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 532,
+                        lineNumber: 969,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 469,
+                lineNumber: 906,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 421,
+        lineNumber: 858,
         columnNumber: 5
     }, this);
 }
-_c38 = DashboardHome;
+_c39 = DashboardHome;
 const INSTRUCTOR_LEARNING_MATERIALS = [
     {
         id: "mat-ict301-w1-lec",
@@ -2657,7 +3494,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     children: material.icon
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 778,
+                                    lineNumber: 1215,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2667,7 +3504,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                             children: material.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 780,
+                                            lineNumber: 1217,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2679,19 +3516,19 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 781,
+                                            lineNumber: 1218,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 779,
+                                    lineNumber: 1216,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 777,
+                            lineNumber: 1214,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2702,18 +3539,18 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                 className: "w-5 h-5"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 789,
+                                lineNumber: 1226,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 784,
+                            lineNumber: 1221,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 776,
+                    lineNumber: 1213,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2730,7 +3567,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 798,
+                                    lineNumber: 1235,
                                     columnNumber: 15
                                 }, this),
                                 material.category && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2738,7 +3575,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     children: material.category
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 803,
+                                    lineNumber: 1240,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2746,7 +3583,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     children: material.type
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 807,
+                                    lineNumber: 1244,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2754,7 +3591,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     children: material.size
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 810,
+                                    lineNumber: 1247,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2765,13 +3602,13 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 813,
+                                    lineNumber: 1250,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 796,
+                            lineNumber: 1233,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2782,14 +3619,14 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     children: "Description & Learning Objectives:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 820,
+                                    lineNumber: 1257,
                                     columnNumber: 13
                                 }, this),
                                 material.description
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 819,
+                            lineNumber: 1256,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2805,7 +3642,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                     children: "📄"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 828,
+                                                    lineNumber: 1265,
                                                     columnNumber: 17
                                                 }, this),
                                                 " ",
@@ -2814,13 +3651,13 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                     children: material.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 828,
+                                                    lineNumber: 1265,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 827,
+                                            lineNumber: 1264,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2828,13 +3665,13 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                             children: "Preview Mode · Page 1 of 24"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 830,
+                                            lineNumber: 1267,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 826,
+                                    lineNumber: 1263,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2854,7 +3691,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 839,
+                                                            lineNumber: 1276,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2862,13 +3699,13 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                             children: "EduFlex Academic LMS"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 842,
+                                                            lineNumber: 1279,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 838,
+                                                    lineNumber: 1275,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -2876,7 +3713,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                     children: material.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 844,
+                                                    lineNumber: 1281,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2884,13 +3721,13 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                     children: material.description
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 845,
+                                                    lineNumber: 1282,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 837,
+                                            lineNumber: 1274,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2900,38 +3737,38 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                                     children: "Instructor: Prof. Sarita Koirala"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 851,
+                                                    lineNumber: 1288,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "Term 2, Academic Year 2026"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 852,
+                                                    lineNumber: 1289,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 850,
+                                            lineNumber: 1287,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 836,
+                                    lineNumber: 1273,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 825,
+                            lineNumber: 1262,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 794,
+                    lineNumber: 1231,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2944,16 +3781,16 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                 children: "View in Learning Materials Hub →"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 865,
+                                lineNumber: 1302,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 861,
+                            lineNumber: 1298,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 868,
+                            lineNumber: 1305,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2965,7 +3802,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                     children: "Close"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 872,
+                                    lineNumber: 1309,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2979,7 +3816,7 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                             className: "w-3.5 h-3.5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 883,
+                                            lineNumber: 1320,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2990,43 +3827,43 @@ function MaterialPreviewModal({ material, onClose, onDownload, onNavigateToMater
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 884,
+                                            lineNumber: 1321,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 878,
+                                    lineNumber: 1315,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 871,
+                            lineNumber: 1308,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 859,
+                    lineNumber: 1296,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 774,
+            lineNumber: 1211,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 773,
+        lineNumber: 1210,
         columnNumber: 5
     }, this);
 }
-_c39 = MaterialPreviewModal;
+_c40 = MaterialPreviewModal;
 // ── My Courses Page ───────────────────────────────────────────────────────────
 function MyCoursesPage({ setActive }) {
-    _s();
+    _s1();
     const [selected, setSelected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [subView, setSubView] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [expandedWeeks, setExpandedWeeks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
@@ -3571,14 +4408,14 @@ function MyCoursesPage({ setActive }) {
                             children: "My Courses"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1045,
+                            lineNumber: 1482,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1046,
+                            lineNumber: 1483,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3587,14 +4424,14 @@ function MyCoursesPage({ setActive }) {
                             children: selectedCourse.code
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1047,
+                            lineNumber: 1484,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1048,
+                            lineNumber: 1485,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3602,13 +4439,13 @@ function MyCoursesPage({ setActive }) {
                             children: "Course Topics"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1049,
+                            lineNumber: 1486,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1044,
+                    lineNumber: 1481,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3621,7 +4458,7 @@ function MyCoursesPage({ setActive }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1051,
+                    lineNumber: 1488,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3636,7 +4473,7 @@ function MyCoursesPage({ setActive }) {
                                         children: selectedCourse.code
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1058,
+                                        lineNumber: 1495,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -3647,7 +4484,7 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1059,
+                                        lineNumber: 1496,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3655,13 +4492,13 @@ function MyCoursesPage({ setActive }) {
                                         children: "Active curriculum syllabus and weekly learning materials (Week 1 & Week 2 active)"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1060,
+                                        lineNumber: 1497,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1057,
+                                lineNumber: 1494,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3673,18 +4510,18 @@ function MyCoursesPage({ setActive }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1064,
+                                lineNumber: 1501,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1056,
+                        lineNumber: 1493,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1055,
+                    lineNumber: 1492,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3700,7 +4537,7 @@ function MyCoursesPage({ setActive }) {
                                             children: "Weekly Modules"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1073,
+                                            lineNumber: 1510,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3708,13 +4545,13 @@ function MyCoursesPage({ setActive }) {
                                             children: "Expand a week to view associated lecture and tutorial learning materials"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1074,
+                                            lineNumber: 1511,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1072,
+                                    lineNumber: 1509,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3729,13 +4566,13 @@ function MyCoursesPage({ setActive }) {
                                     children: expandedWeeks.length === displayTopics.length ? "Collapse All" : "Expand All"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1076,
+                                    lineNumber: 1513,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1071,
+                            lineNumber: 1508,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3765,7 +4602,7 @@ function MyCoursesPage({ setActive }) {
                                                             children: weekNum
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1112,
+                                                            lineNumber: 1549,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3781,7 +4618,7 @@ function MyCoursesPage({ setActive }) {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1120,
+                                                                            lineNumber: 1557,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3794,13 +4631,13 @@ function MyCoursesPage({ setActive }) {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1123,
+                                                                            lineNumber: 1560,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1119,
+                                                                    lineNumber: 1556,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3808,19 +4645,19 @@ function MyCoursesPage({ setActive }) {
                                                                     children: topic.desc
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1127,
+                                                                    lineNumber: 1564,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1118,
+                                                            lineNumber: 1555,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1111,
+                                                    lineNumber: 1548,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3831,7 +4668,7 @@ function MyCoursesPage({ setActive }) {
                                                             children: weekMaterials.length > 0 ? `${weekMaterials.length} materials` : "2 materials"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1132,
+                                                            lineNumber: 1569,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3840,24 +4677,24 @@ function MyCoursesPage({ setActive }) {
                                                                 className: "w-4 h-4"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1140,
+                                                                lineNumber: 1577,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1135,
+                                                            lineNumber: 1572,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1131,
+                                                    lineNumber: 1568,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1106,
+                                            lineNumber: 1543,
                                             columnNumber: 19
                                         }, this),
                                         isExpanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3872,7 +4709,7 @@ function MyCoursesPage({ setActive }) {
                                                                     className: "w-2 h-2 rounded-full bg-blue-600"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1151,
+                                                                    lineNumber: 1588,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3880,13 +4717,13 @@ function MyCoursesPage({ setActive }) {
                                                                     children: "Lecture Materials"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1152,
+                                                                    lineNumber: 1589,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1150,
+                                                            lineNumber: 1587,
                                                             columnNumber: 25
                                                         }, this),
                                                         lectureMaterial ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3900,7 +4737,7 @@ function MyCoursesPage({ setActive }) {
                                                                             children: lectureMaterial.icon
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1159,
+                                                                            lineNumber: 1596,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3910,7 +4747,7 @@ function MyCoursesPage({ setActive }) {
                                                                                     children: lectureMaterial.title
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1163,
+                                                                                    lineNumber: 1600,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3925,42 +4762,42 @@ function MyCoursesPage({ setActive }) {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1167,
+                                                                                            lineNumber: 1604,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "·"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1170,
+                                                                                            lineNumber: 1607,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: lectureMaterial.type
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1171,
+                                                                                            lineNumber: 1608,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "·"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1172,
+                                                                                            lineNumber: 1609,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: lectureMaterial.size
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1173,
+                                                                                            lineNumber: 1610,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "·"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1174,
+                                                                                            lineNumber: 1611,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3970,25 +4807,25 @@ function MyCoursesPage({ setActive }) {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1175,
+                                                                                            lineNumber: 1612,
                                                                                             columnNumber: 35
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1166,
+                                                                                    lineNumber: 1603,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1162,
+                                                                            lineNumber: 1599,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1158,
+                                                                    lineNumber: 1595,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4002,20 +4839,20 @@ function MyCoursesPage({ setActive }) {
                                                                                     className: "w-3.5 h-3.5"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1184,
+                                                                                    lineNumber: 1621,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                     children: "Preview"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1185,
+                                                                                    lineNumber: 1622,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1180,
+                                                                            lineNumber: 1617,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4030,45 +4867,45 @@ function MyCoursesPage({ setActive }) {
                                                                                     className: "w-3.5 h-3.5"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1193,
+                                                                                    lineNumber: 1630,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                     children: "Download"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1194,
+                                                                                    lineNumber: 1631,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1187,
+                                                                            lineNumber: 1624,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1179,
+                                                                    lineNumber: 1616,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1157,
+                                                            lineNumber: 1594,
                                                             columnNumber: 27
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "bg-white rounded-xl border border-dashed border-gray-200 p-4 text-xs text-gray-400 text-center",
                                                             children: "No lecture materials uploaded for this week."
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1199,
+                                                            lineNumber: 1636,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1149,
+                                                    lineNumber: 1586,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4080,7 +4917,7 @@ function MyCoursesPage({ setActive }) {
                                                                     className: "w-2 h-2 rounded-full bg-teal-600"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1208,
+                                                                    lineNumber: 1645,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4088,13 +4925,13 @@ function MyCoursesPage({ setActive }) {
                                                                     children: "Tutorial Materials"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1209,
+                                                                    lineNumber: 1646,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1207,
+                                                            lineNumber: 1644,
                                                             columnNumber: 25
                                                         }, this),
                                                         tutorialMaterial ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4108,7 +4945,7 @@ function MyCoursesPage({ setActive }) {
                                                                             children: tutorialMaterial.icon
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1216,
+                                                                            lineNumber: 1653,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4118,7 +4955,7 @@ function MyCoursesPage({ setActive }) {
                                                                                     children: tutorialMaterial.title
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1220,
+                                                                                    lineNumber: 1657,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4133,42 +4970,42 @@ function MyCoursesPage({ setActive }) {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1224,
+                                                                                            lineNumber: 1661,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "·"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1227,
+                                                                                            lineNumber: 1664,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: tutorialMaterial.type
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1228,
+                                                                                            lineNumber: 1665,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "·"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1229,
+                                                                                            lineNumber: 1666,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: tutorialMaterial.size
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1230,
+                                                                                            lineNumber: 1667,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "·"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1231,
+                                                                                            lineNumber: 1668,
                                                                                             columnNumber: 35
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4178,25 +5015,25 @@ function MyCoursesPage({ setActive }) {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                            lineNumber: 1232,
+                                                                                            lineNumber: 1669,
                                                                                             columnNumber: 35
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1223,
+                                                                                    lineNumber: 1660,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1219,
+                                                                            lineNumber: 1656,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1215,
+                                                                    lineNumber: 1652,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4210,20 +5047,20 @@ function MyCoursesPage({ setActive }) {
                                                                                     className: "w-3.5 h-3.5"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1241,
+                                                                                    lineNumber: 1678,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                     children: "Preview"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1242,
+                                                                                    lineNumber: 1679,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1237,
+                                                                            lineNumber: 1674,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4238,69 +5075,69 @@ function MyCoursesPage({ setActive }) {
                                                                                     className: "w-3.5 h-3.5"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1250,
+                                                                                    lineNumber: 1687,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                     children: "Download"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                                    lineNumber: 1251,
+                                                                                    lineNumber: 1688,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                            lineNumber: 1244,
+                                                                            lineNumber: 1681,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1236,
+                                                                    lineNumber: 1673,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1214,
+                                                            lineNumber: 1651,
                                                             columnNumber: 27
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "bg-white rounded-xl border border-dashed border-gray-200 p-4 text-xs text-gray-400 text-center",
                                                             children: "No tutorial materials uploaded for this week."
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1256,
+                                                            lineNumber: 1693,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1206,
+                                                    lineNumber: 1643,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1147,
+                                            lineNumber: 1584,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, i, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1101,
+                                    lineNumber: 1538,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1090,
+                            lineNumber: 1527,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1070,
+                    lineNumber: 1507,
                     columnNumber: 9
                 }, this),
                 selectedMaterial && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MaterialPreviewModal, {
@@ -4313,7 +5150,7 @@ function MyCoursesPage({ setActive }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1270,
+                    lineNumber: 1707,
                     columnNumber: 11
                 }, this),
                 downloadToast && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4325,12 +5162,12 @@ function MyCoursesPage({ setActive }) {
                                 className: "w-3.5 h-3.5"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1284,
+                                lineNumber: 1721,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1283,
+                            lineNumber: 1720,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4340,7 +5177,7 @@ function MyCoursesPage({ setActive }) {
                                     children: "Downloading file"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1287,
+                                    lineNumber: 1724,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4348,25 +5185,25 @@ function MyCoursesPage({ setActive }) {
                                     children: downloadToast
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1288,
+                                    lineNumber: 1725,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1286,
+                            lineNumber: 1723,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1282,
+                    lineNumber: 1719,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1043,
+            lineNumber: 1480,
             columnNumber: 7
         }, this);
     }
@@ -4386,14 +5223,14 @@ function MyCoursesPage({ setActive }) {
                             children: "My Courses"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1300,
+                            lineNumber: 1737,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1301,
+                            lineNumber: 1738,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4402,14 +5239,14 @@ function MyCoursesPage({ setActive }) {
                             children: selectedCourse.code
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1302,
+                            lineNumber: 1739,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1303,
+                            lineNumber: 1740,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4417,13 +5254,13 @@ function MyCoursesPage({ setActive }) {
                             children: "Upcoming"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1304,
+                            lineNumber: 1741,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1299,
+                    lineNumber: 1736,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4436,7 +5273,7 @@ function MyCoursesPage({ setActive }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1306,
+                    lineNumber: 1743,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4451,7 +5288,7 @@ function MyCoursesPage({ setActive }) {
                                         children: selectedCourse.code
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1313,
+                                        lineNumber: 1750,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -4462,7 +5299,7 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1314,
+                                        lineNumber: 1751,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4474,13 +5311,13 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1315,
+                                        lineNumber: 1752,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1312,
+                                lineNumber: 1749,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4492,18 +5329,18 @@ function MyCoursesPage({ setActive }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1319,
+                                lineNumber: 1756,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1311,
+                        lineNumber: 1748,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1310,
+                    lineNumber: 1747,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4520,20 +5357,20 @@ function MyCoursesPage({ setActive }) {
                                                 className: `w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${item.type === "Assignment" ? "bg-amber-50 text-amber-600" : item.type === "Quiz" ? "bg-purple-50 text-purple-600" : "bg-blue-50 text-blue-600"}`,
                                                 children: item.type === "Assignment" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1333,
+                                                    lineNumber: 1770,
                                                     columnNumber: 51
                                                 }, this) : item.type === "Quiz" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1333,
+                                                    lineNumber: 1770,
                                                     columnNumber: 95
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1333,
+                                                    lineNumber: 1770,
                                                     columnNumber: 110
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1330,
+                                                lineNumber: 1767,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4543,7 +5380,7 @@ function MyCoursesPage({ setActive }) {
                                                         children: item.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1336,
+                                                        lineNumber: 1773,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4551,19 +5388,19 @@ function MyCoursesPage({ setActive }) {
                                                         children: item.detail
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1337,
+                                                        lineNumber: 1774,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1335,
+                                                lineNumber: 1772,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1329,
+                                        lineNumber: 1766,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4574,7 +5411,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: item.type
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1341,
+                                                lineNumber: 1778,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4582,35 +5419,35 @@ function MyCoursesPage({ setActive }) {
                                                 children: item.date
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1346,
+                                                lineNumber: 1783,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1340,
+                                        lineNumber: 1777,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, i, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1328,
+                                lineNumber: 1765,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1326,
+                        lineNumber: 1763,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1325,
+                    lineNumber: 1762,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1298,
+            lineNumber: 1735,
             columnNumber: 7
         }, this);
     }
@@ -4630,14 +5467,14 @@ function MyCoursesPage({ setActive }) {
                             children: "My Courses"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1360,
+                            lineNumber: 1797,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1361,
+                            lineNumber: 1798,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4646,14 +5483,14 @@ function MyCoursesPage({ setActive }) {
                             children: selectedCourse.code
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1362,
+                            lineNumber: 1799,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1363,
+                            lineNumber: 1800,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4661,13 +5498,13 @@ function MyCoursesPage({ setActive }) {
                             children: "Students"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1364,
+                            lineNumber: 1801,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1359,
+                    lineNumber: 1796,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4680,7 +5517,7 @@ function MyCoursesPage({ setActive }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1366,
+                    lineNumber: 1803,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4695,7 +5532,7 @@ function MyCoursesPage({ setActive }) {
                                         children: selectedCourse.code
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1373,
+                                        lineNumber: 1810,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -4706,7 +5543,7 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1374,
+                                        lineNumber: 1811,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4718,13 +5555,13 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1375,
+                                        lineNumber: 1812,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1372,
+                                lineNumber: 1809,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4735,18 +5572,18 @@ function MyCoursesPage({ setActive }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1379,
+                                lineNumber: 1816,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1371,
+                        lineNumber: 1808,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1370,
+                    lineNumber: 1807,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4765,7 +5602,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Student"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1390,
+                                                lineNumber: 1827,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4773,7 +5610,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Student ID"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1391,
+                                                lineNumber: 1828,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4781,7 +5618,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Email"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1392,
+                                                lineNumber: 1829,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4789,7 +5626,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Submissions"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1393,
+                                                lineNumber: 1830,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4797,7 +5634,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1394,
+                                                lineNumber: 1831,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4805,18 +5642,18 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Current Grade"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1395,
+                                                lineNumber: 1832,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1389,
+                                        lineNumber: 1826,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1388,
+                                    lineNumber: 1825,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -4835,7 +5672,7 @@ function MyCoursesPage({ setActive }) {
                                                             children: s.name.split(" ").map((n)=>n[0]).join("")
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1402,
+                                                            lineNumber: 1839,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4843,13 +5680,13 @@ function MyCoursesPage({ setActive }) {
                                                             children: s.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1405,
+                                                            lineNumber: 1842,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1401,
+                                                    lineNumber: 1838,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4857,7 +5694,7 @@ function MyCoursesPage({ setActive }) {
                                                     children: s.id
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1407,
+                                                    lineNumber: 1844,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4865,7 +5702,7 @@ function MyCoursesPage({ setActive }) {
                                                     children: s.email
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1408,
+                                                    lineNumber: 1845,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4878,7 +5715,7 @@ function MyCoursesPage({ setActive }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1409,
+                                                    lineNumber: 1846,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4888,12 +5725,12 @@ function MyCoursesPage({ setActive }) {
                                                         children: s.status
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1411,
+                                                        lineNumber: 1848,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1410,
+                                                    lineNumber: 1847,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4901,40 +5738,40 @@ function MyCoursesPage({ setActive }) {
                                                     children: s.grade
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1415,
+                                                    lineNumber: 1852,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1400,
+                                            lineNumber: 1837,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1398,
+                                    lineNumber: 1835,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1387,
+                            lineNumber: 1824,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1386,
+                        lineNumber: 1823,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1385,
+                    lineNumber: 1822,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1358,
+            lineNumber: 1795,
             columnNumber: 7
         }, this);
     }
@@ -4954,14 +5791,14 @@ function MyCoursesPage({ setActive }) {
                             children: "My Courses"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1430,
+                            lineNumber: 1867,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: "/"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1431,
+                            lineNumber: 1868,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4969,13 +5806,13 @@ function MyCoursesPage({ setActive }) {
                             children: selectedCourse.code
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1432,
+                            lineNumber: 1869,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1429,
+                    lineNumber: 1866,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4987,7 +5824,7 @@ function MyCoursesPage({ setActive }) {
                     children: "← Back to All Courses"
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1434,
+                    lineNumber: 1871,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5003,7 +5840,7 @@ function MyCoursesPage({ setActive }) {
                                             children: selectedCourse.code
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1441,
+                                            lineNumber: 1878,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -5011,7 +5848,7 @@ function MyCoursesPage({ setActive }) {
                                             children: selectedCourse.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1442,
+                                            lineNumber: 1879,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5026,13 +5863,13 @@ function MyCoursesPage({ setActive }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1443,
+                                            lineNumber: 1880,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1440,
+                                    lineNumber: 1877,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5044,7 +5881,7 @@ function MyCoursesPage({ setActive }) {
                                             children: "Assignments"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1446,
+                                            lineNumber: 1883,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5056,19 +5893,19 @@ function MyCoursesPage({ setActive }) {
                                             children: "Course Materials"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1447,
+                                            lineNumber: 1884,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1445,
+                                    lineNumber: 1882,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1439,
+                            lineNumber: 1876,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5081,7 +5918,7 @@ function MyCoursesPage({ setActive }) {
                                             children: "Semester Progress"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1452,
+                                            lineNumber: 1889,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5091,13 +5928,13 @@ function MyCoursesPage({ setActive }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1452,
+                                            lineNumber: 1889,
                                             columnNumber: 45
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1451,
+                                    lineNumber: 1888,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -5105,19 +5942,19 @@ function MyCoursesPage({ setActive }) {
                                     color: selectedCourse.color
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1454,
+                                    lineNumber: 1891,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1450,
+                            lineNumber: 1887,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1438,
+                    lineNumber: 1875,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5134,7 +5971,7 @@ function MyCoursesPage({ setActive }) {
                                             children: "Course Topics"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1462,
+                                            lineNumber: 1899,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5143,13 +5980,13 @@ function MyCoursesPage({ setActive }) {
                                             children: "View All"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1463,
+                                            lineNumber: 1900,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1461,
+                                    lineNumber: 1898,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5165,25 +6002,25 @@ function MyCoursesPage({ setActive }) {
                                                     children: i + 1
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1468,
+                                                    lineNumber: 1905,
                                                     columnNumber: 19
                                                 }, this),
                                                 t
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1467,
+                                            lineNumber: 1904,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1465,
+                                    lineNumber: 1902,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1460,
+                            lineNumber: 1897,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5197,7 +6034,7 @@ function MyCoursesPage({ setActive }) {
                                             children: "Upcoming"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1480,
+                                            lineNumber: 1917,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5206,13 +6043,13 @@ function MyCoursesPage({ setActive }) {
                                             children: "View All"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1481,
+                                            lineNumber: 1918,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1479,
+                                    lineNumber: 1916,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5224,20 +6061,20 @@ function MyCoursesPage({ setActive }) {
                                                     className: `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${u.type === "Assignment" ? "bg-amber-50 text-amber-600" : u.type === "Quiz" ? "bg-purple-50 text-purple-600" : "bg-blue-50 text-blue-600"}`,
                                                     children: u.type === "Assignment" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconAssignment, {}, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1487,
+                                                        lineNumber: 1924,
                                                         columnNumber: 48
                                                     }, this) : u.type === "Quiz" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconQuiz, {}, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1487,
+                                                        lineNumber: 1924,
                                                         columnNumber: 89
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1487,
+                                                        lineNumber: 1924,
                                                         columnNumber: 104
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1486,
+                                                    lineNumber: 1923,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5247,7 +6084,7 @@ function MyCoursesPage({ setActive }) {
                                                             children: u.label
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1490,
+                                                            lineNumber: 1927,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5259,30 +6096,30 @@ function MyCoursesPage({ setActive }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1491,
+                                                            lineNumber: 1928,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1489,
+                                                    lineNumber: 1926,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1485,
+                                            lineNumber: 1922,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1483,
+                                    lineNumber: 1920,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1478,
+                            lineNumber: 1915,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5296,7 +6133,7 @@ function MyCoursesPage({ setActive }) {
                                             children: "Students"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1501,
+                                            lineNumber: 1938,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5305,13 +6142,13 @@ function MyCoursesPage({ setActive }) {
                                             children: "View All"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1502,
+                                            lineNumber: 1939,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1500,
+                                    lineNumber: 1937,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5330,7 +6167,7 @@ function MyCoursesPage({ setActive }) {
                                                             children: s.name.split(" ").map((n)=>n[0]).join("")
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1508,
+                                                            lineNumber: 1945,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5340,7 +6177,7 @@ function MyCoursesPage({ setActive }) {
                                                                     children: s.name
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1512,
+                                                                    lineNumber: 1949,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5348,19 +6185,19 @@ function MyCoursesPage({ setActive }) {
                                                                     children: s.id
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1513,
+                                                                    lineNumber: 1950,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1511,
+                                                            lineNumber: 1948,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1507,
+                                                    lineNumber: 1944,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5368,36 +6205,36 @@ function MyCoursesPage({ setActive }) {
                                                     children: s.grade
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1516,
+                                                    lineNumber: 1953,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1506,
+                                            lineNumber: 1943,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1504,
+                                    lineNumber: 1941,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1499,
+                            lineNumber: 1936,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1458,
+                    lineNumber: 1895,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1428,
+            lineNumber: 1865,
             columnNumber: 7
         }, this);
     }
@@ -5411,14 +6248,14 @@ function MyCoursesPage({ setActive }) {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1529,
+                        lineNumber: 1966,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1529,
+                        lineNumber: 1966,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5426,13 +6263,13 @@ function MyCoursesPage({ setActive }) {
                         children: "My Courses"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1529,
+                        lineNumber: 1966,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1528,
+                lineNumber: 1965,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5442,12 +6279,12 @@ function MyCoursesPage({ setActive }) {
                     children: "My Courses"
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1532,
+                    lineNumber: 1969,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1531,
+                lineNumber: 1968,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5463,7 +6300,7 @@ function MyCoursesPage({ setActive }) {
                                         children: c.code
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1538,
+                                        lineNumber: 1975,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5474,13 +6311,13 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1539,
+                                        lineNumber: 1976,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1537,
+                                lineNumber: 1974,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -5488,7 +6325,7 @@ function MyCoursesPage({ setActive }) {
                                 children: c.name
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1541,
+                                lineNumber: 1978,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5498,7 +6335,7 @@ function MyCoursesPage({ setActive }) {
                                         className: "w-3 h-3"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1543,
+                                        lineNumber: 1980,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5508,13 +6345,13 @@ function MyCoursesPage({ setActive }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1543,
+                                        lineNumber: 1980,
                                         columnNumber: 48
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1542,
+                                lineNumber: 1979,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5524,20 +6361,20 @@ function MyCoursesPage({ setActive }) {
                                         className: "w-3 h-3"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1546,
+                                        lineNumber: 1983,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: c.schedule
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1546,
+                                        lineNumber: 1983,
                                         columnNumber: 48
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1545,
+                                lineNumber: 1982,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5550,7 +6387,7 @@ function MyCoursesPage({ setActive }) {
                                                 children: "Semester Progress"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1550,
+                                                lineNumber: 1987,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5560,13 +6397,13 @@ function MyCoursesPage({ setActive }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1550,
+                                                lineNumber: 1987,
                                                 columnNumber: 47
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1549,
+                                        lineNumber: 1986,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -5574,13 +6411,13 @@ function MyCoursesPage({ setActive }) {
                                         color: c.color
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1552,
+                                        lineNumber: 1989,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1548,
+                                lineNumber: 1985,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5595,50 +6432,50 @@ function MyCoursesPage({ setActive }) {
                                         children: "View Course"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1555,
+                                        lineNumber: 1992,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: "px-3 py-2 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-colors text-gray-500",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconEdit, {}, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1563,
+                                            lineNumber: 2000,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1562,
+                                        lineNumber: 1999,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1554,
+                                lineNumber: 1991,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, c.code, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1536,
+                        lineNumber: 1973,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1534,
+                lineNumber: 1971,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 1527,
+        lineNumber: 1964,
         columnNumber: 5
     }, this);
 }
-_s(MyCoursesPage, "99G4sZQ7XehKtfiIT3qm4mjSA8g=");
-_c40 = MyCoursesPage;
+_s1(MyCoursesPage, "99G4sZQ7XehKtfiIT3qm4mjSA8g=");
+_c41 = MyCoursesPage;
 // ── Students Page ─────────────────────────────────────────────────────────────
 function StudentsPage() {
-    _s1();
+    _s2();
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [filter, setFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [viewStudent, setViewStudent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -5785,7 +6622,7 @@ function StudentsPage() {
                     children: "← Back to Students"
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1610,
+                    lineNumber: 2047,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5799,7 +6636,7 @@ function StudentsPage() {
                             children: viewStudent.name.split(" ").map((n)=>n[0]).join("")
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1614,
+                            lineNumber: 2051,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5809,7 +6646,7 @@ function StudentsPage() {
                                     children: viewStudent.name
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1618,
+                                    lineNumber: 2055,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5821,7 +6658,7 @@ function StudentsPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1619,
+                                    lineNumber: 2056,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5832,7 +6669,7 @@ function StudentsPage() {
                                             children: viewStudent.course
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1621,
+                                            lineNumber: 2058,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5840,19 +6677,19 @@ function StudentsPage() {
                                             children: viewStudent.status
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1622,
+                                            lineNumber: 2059,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1620,
+                                    lineNumber: 2057,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1617,
+                            lineNumber: 2054,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5863,7 +6700,7 @@ function StudentsPage() {
                                     children: viewStudent.grade
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1626,
+                                    lineNumber: 2063,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5871,19 +6708,19 @@ function StudentsPage() {
                                     children: "Current Grade"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1627,
+                                    lineNumber: 2064,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1625,
+                            lineNumber: 2062,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1613,
+                    lineNumber: 2050,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5897,7 +6734,7 @@ function StudentsPage() {
                                     children: "Submission Status"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1632,
+                                    lineNumber: 2069,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5908,7 +6745,7 @@ function StudentsPage() {
                                             children: viewStudent.submitted
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1634,
+                                            lineNumber: 2071,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5920,13 +6757,13 @@ function StudentsPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1635,
+                                            lineNumber: 2072,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1633,
+                                    lineNumber: 2070,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -5934,13 +6771,13 @@ function StudentsPage() {
                                     color: "#1a3a9e"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1637,
+                                    lineNumber: 2074,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1631,
+                            lineNumber: 2068,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5951,7 +6788,7 @@ function StudentsPage() {
                                     children: "Attendance"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1640,
+                                    lineNumber: 2077,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5962,7 +6799,7 @@ function StudentsPage() {
                                             children: "90%"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1642,
+                                            lineNumber: 2079,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5970,13 +6807,13 @@ function StudentsPage() {
                                             children: "attendance rate"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1643,
+                                            lineNumber: 2080,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1641,
+                                    lineNumber: 2078,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -5984,13 +6821,13 @@ function StudentsPage() {
                                     color: "#0e9f6e"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1645,
+                                    lineNumber: 2082,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1639,
+                            lineNumber: 2076,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6001,7 +6838,7 @@ function StudentsPage() {
                                     children: "Participation"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1648,
+                                    lineNumber: 2085,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6012,7 +6849,7 @@ function StudentsPage() {
                                             children: "75%"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1650,
+                                            lineNumber: 2087,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6020,13 +6857,13 @@ function StudentsPage() {
                                             children: "class participation"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1651,
+                                            lineNumber: 2088,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1649,
+                                    lineNumber: 2086,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -6034,25 +6871,25 @@ function StudentsPage() {
                                     color: "#7c3aed"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1653,
+                                    lineNumber: 2090,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1647,
+                            lineNumber: 2084,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1630,
+                    lineNumber: 2067,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1609,
+            lineNumber: 2046,
             columnNumber: 7
         }, this);
     }
@@ -6066,14 +6903,14 @@ function StudentsPage() {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1663,
+                        lineNumber: 2100,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1663,
+                        lineNumber: 2100,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6081,13 +6918,13 @@ function StudentsPage() {
                         children: "Students"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1663,
+                        lineNumber: 2100,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1662,
+                lineNumber: 2099,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6098,7 +6935,7 @@ function StudentsPage() {
                         children: "Students"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1666,
+                        lineNumber: 2103,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6111,12 +6948,12 @@ function StudentsPage() {
                                         className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-400",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1669,
+                                            lineNumber: 2106,
                                             columnNumber: 86
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1669,
+                                        lineNumber: 2106,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -6126,13 +6963,13 @@ function StudentsPage() {
                                         className: "pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300 w-56"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1670,
+                                        lineNumber: 2107,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1668,
+                                lineNumber: 2105,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -6145,7 +6982,7 @@ function StudentsPage() {
                                         children: "All Courses"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1680,
+                                        lineNumber: 2117,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -6153,7 +6990,7 @@ function StudentsPage() {
                                         children: "ICT301"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1681,
+                                        lineNumber: 2118,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -6161,7 +6998,7 @@ function StudentsPage() {
                                         children: "ICT272"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1682,
+                                        lineNumber: 2119,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -6169,7 +7006,7 @@ function StudentsPage() {
                                         children: "ICT126"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1683,
+                                        lineNumber: 2120,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -6177,25 +7014,25 @@ function StudentsPage() {
                                         children: "At Risk"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1684,
+                                        lineNumber: 2121,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1676,
+                                lineNumber: 2113,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1667,
+                        lineNumber: 2104,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1665,
+                lineNumber: 2102,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6215,7 +7052,7 @@ function StudentsPage() {
                                                 children: "Student"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1694,
+                                                lineNumber: 2131,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -6223,7 +7060,7 @@ function StudentsPage() {
                                                 children: "Course"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1695,
+                                                lineNumber: 2132,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -6231,7 +7068,7 @@ function StudentsPage() {
                                                 children: "Submissions"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1696,
+                                                lineNumber: 2133,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -6239,7 +7076,7 @@ function StudentsPage() {
                                                 children: "Grade"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1697,
+                                                lineNumber: 2134,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -6247,7 +7084,7 @@ function StudentsPage() {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1698,
+                                                lineNumber: 2135,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -6255,18 +7092,18 @@ function StudentsPage() {
                                                 children: "Actions"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1699,
+                                                lineNumber: 2136,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1693,
+                                        lineNumber: 2130,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1692,
+                                    lineNumber: 2129,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -6287,7 +7124,7 @@ function StudentsPage() {
                                                                 children: s.name.split(" ").map((n)=>n[0]).join("")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1707,
+                                                                lineNumber: 2144,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6297,7 +7134,7 @@ function StudentsPage() {
                                                                         children: s.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                        lineNumber: 1711,
+                                                                        lineNumber: 2148,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6305,24 +7142,24 @@ function StudentsPage() {
                                                                         children: s.id
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                        lineNumber: 1712,
+                                                                        lineNumber: 2149,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1710,
+                                                                lineNumber: 2147,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1706,
+                                                        lineNumber: 2143,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1705,
+                                                    lineNumber: 2142,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -6332,12 +7169,12 @@ function StudentsPage() {
                                                         children: s.course
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1717,
+                                                        lineNumber: 2154,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1716,
+                                                    lineNumber: 2153,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -6354,7 +7191,7 @@ function StudentsPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1721,
+                                                                lineNumber: 2158,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6364,23 +7201,23 @@ function StudentsPage() {
                                                                     color: "#1a3a9e"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1723,
+                                                                    lineNumber: 2160,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1722,
+                                                                lineNumber: 2159,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1720,
+                                                        lineNumber: 2157,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1719,
+                                                    lineNumber: 2156,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -6390,12 +7227,12 @@ function StudentsPage() {
                                                         children: s.grade
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1728,
+                                                        lineNumber: 2165,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1727,
+                                                    lineNumber: 2164,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -6405,12 +7242,12 @@ function StudentsPage() {
                                                         children: s.status
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1731,
+                                                        lineNumber: 2168,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1730,
+                                                    lineNumber: 2167,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -6424,12 +7261,12 @@ function StudentsPage() {
                                                                 title: "View",
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconEye, {}, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1738,
+                                                                    lineNumber: 2175,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1737,
+                                                                lineNumber: 2174,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6437,45 +7274,45 @@ function StudentsPage() {
                                                                 title: "Message",
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconMessage, {}, void 0, false, {
                                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                    lineNumber: 1741,
+                                                                    lineNumber: 2178,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1740,
+                                                                lineNumber: 2177,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1736,
+                                                        lineNumber: 2173,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1735,
+                                                    lineNumber: 2172,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1704,
+                                            lineNumber: 2141,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1702,
+                                    lineNumber: 2139,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1691,
+                            lineNumber: 2128,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1690,
+                        lineNumber: 2127,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6492,7 +7329,7 @@ function StudentsPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1751,
+                                lineNumber: 2188,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6509,143 +7346,111 @@ function StudentsPage() {
                                         children: p
                                     }, p, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1754,
+                                        lineNumber: 2191,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1752,
+                                lineNumber: 2189,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1750,
+                        lineNumber: 2187,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1689,
+                lineNumber: 2126,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 1661,
+        lineNumber: 2098,
         columnNumber: 5
     }, this);
 }
-_s1(StudentsPage, "GkWBCZiiR6KrW/TldsyvIKq2GyU=");
-_c41 = StudentsPage;
+_s2(StudentsPage, "GkWBCZiiR6KrW/TldsyvIKq2GyU=");
+_c42 = StudentsPage;
 // ── Assignments Page ──────────────────────────────────────────────────────────
-function AssignmentsPage({ setActive }) {
-    _s2();
+function AssignmentsPage({ setActive, courses: externalCourses, setCourses: externalSetCourses }) {
+    _s3();
+    const [internalCourses, setInternalCourses] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(INITIAL_ASSIGNMENT_COURSES);
+    const courses = externalCourses ?? internalCourses;
+    const setCourses = externalSetCourses ?? setInternalCourses;
     const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("ICT301");
     const [viewAssignment, setViewAssignment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const courses = [
-        {
-            code: "ICT301",
-            name: "Information Technology Project 1",
-            color: "#2563eb",
-            assignments: [
-                {
-                    title: "Milestone 1: Project Proposal",
-                    due: "Aug 25, 2026",
-                    submissions: 32,
-                    total: 32,
-                    type: "Assignment",
-                    graded: true
-                },
-                {
-                    title: "Milestone 2: Preliminary Design",
-                    due: "Sep 5, 2026",
-                    submissions: 28,
-                    total: 32,
-                    type: "Assignment",
-                    graded: false
-                },
-                {
-                    title: "Weekly Journal Entry 1",
-                    due: "Aug 22, 2026",
-                    submissions: 30,
-                    total: 32,
-                    type: "Assignment",
-                    graded: true
-                }
-            ]
-        },
-        {
-            code: "ICT272",
-            name: "Web Design and Development",
-            color: "#0e9f6e",
-            assignments: [
-                {
-                    title: "Lab Exercise 1: HTML Basics",
-                    due: "Aug 20, 2026",
-                    submissions: 38,
-                    total: 38,
-                    type: "Assignment",
-                    graded: true
-                },
-                {
-                    title: "Lab Exercise 2: CSS Layouts",
-                    due: "Aug 27, 2026",
-                    submissions: 37,
-                    total: 38,
-                    type: "Assignment",
-                    graded: true
-                },
-                {
-                    title: "Lab Exercise 3: JavaScript DOM",
-                    due: "Sep 3, 2026",
-                    submissions: 36,
-                    total: 38,
-                    type: "Assignment",
-                    graded: false
-                },
-                {
-                    title: "Lab Exercise 4: React Basics",
-                    due: "Sep 7, 2026",
-                    submissions: 12,
-                    total: 38,
-                    type: "Assignment",
-                    graded: false
-                }
-            ]
-        },
-        {
-            code: "ICT126",
-            name: "Artificial Intelligence",
-            color: "#7c3aed",
-            assignments: [
-                {
-                    title: "AI Case Study Research Paper",
-                    due: "Sep 19, 2026",
-                    submissions: 10,
-                    total: 26,
-                    type: "Assignment",
-                    graded: false
-                },
-                {
-                    title: "Assignment 1: AI History Review",
-                    due: "Aug 28, 2026",
-                    submissions: 26,
-                    total: 26,
-                    type: "Assignment",
-                    graded: true
-                },
-                {
-                    title: "Assignment 2: ML Algorithm Analysis",
-                    due: "Sep 4, 2026",
-                    submissions: 24,
-                    total: 26,
-                    type: "Assignment",
-                    graded: false
-                }
-            ]
+    // New Assignment Modal State
+    const [isCreateOpen, setIsCreateOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [createCourse, setCreateCourse] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("ICT301");
+    const [createTitle, setCreateTitle] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [createDesc, setCreateDesc] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [createDue, setCreateDue] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [createMaxScore, setCreateMaxScore] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("100");
+    const [formErrors, setFormErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
+    const [toastMessage, setToastMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const handleCreateAssignment = (e)=>{
+        e.preventDefault();
+        const errors = {};
+        if (!createTitle.trim()) {
+            errors.title = "Assignment title is required";
         }
-    ];
+        if (!createDesc.trim()) {
+            errors.desc = "Description / instructions are required";
+        }
+        if (!createDue.trim()) {
+            errors.due = "Due date is required";
+        }
+        const scoreNum = Number(createMaxScore);
+        if (!createMaxScore || isNaN(scoreNum) || scoreNum <= 0) {
+            errors.maxScore = "Please enter a valid maximum score (greater than 0)";
+        }
+        if (Object.keys(errors).length > 0) {
+            setFormErrors(errors);
+            return;
+        }
+        const formattedDate = formatDueDate(createDue);
+        const courseTotals = {
+            ICT301: 32,
+            ICT272: 38,
+            ICT126: 26
+        };
+        const newAssignment = {
+            id: `assign-${Date.now()}`,
+            title: createTitle.trim(),
+            due: formattedDate,
+            submissions: 0,
+            total: courseTotals[createCourse] || 30,
+            type: "Assignment",
+            graded: false,
+            maxScore: scoreNum,
+            description: createDesc.trim()
+        };
+        setCourses((prevCourses)=>prevCourses.map((c)=>{
+                if (c.code === createCourse) {
+                    return {
+                        ...c,
+                        assignments: [
+                            newAssignment,
+                            ...c.assignments
+                        ]
+                    };
+                }
+                return c;
+            }));
+        setOpen(createCourse);
+        setToastMessage(`Assignment "${createTitle.trim()}" created successfully for ${createCourse}!`);
+        setTimeout(()=>setToastMessage(null), 4000);
+        setCreateTitle("");
+        setCreateDesc("");
+        setCreateDue("");
+        setCreateMaxScore("100");
+        setFormErrors({});
+        setIsCreateOpen(false);
+    };
     if (viewAssignment) {
         const pending = viewAssignment.total - viewAssignment.submissions;
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6657,7 +7462,7 @@ function AssignmentsPage({ setActive }) {
                     children: "← Back to Assignments"
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1802,
+                    lineNumber: 2299,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6673,7 +7478,7 @@ function AssignmentsPage({ setActive }) {
                                             children: viewAssignment.course
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1808,
+                                            lineNumber: 2305,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -6681,7 +7486,7 @@ function AssignmentsPage({ setActive }) {
                                             children: viewAssignment.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1809,
+                                            lineNumber: 2306,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6694,13 +7499,13 @@ function AssignmentsPage({ setActive }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1810,
+                                            lineNumber: 2307,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1807,
+                                    lineNumber: 2304,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6712,13 +7517,13 @@ function AssignmentsPage({ setActive }) {
                                     children: "Grade Submissions"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1812,
+                                    lineNumber: 2309,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1806,
+                            lineNumber: 2303,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6732,7 +7537,7 @@ function AssignmentsPage({ setActive }) {
                                             children: viewAssignment.submissions
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1818,
+                                            lineNumber: 2315,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6740,13 +7545,13 @@ function AssignmentsPage({ setActive }) {
                                             children: "Submitted"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1819,
+                                            lineNumber: 2316,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1817,
+                                    lineNumber: 2314,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6757,7 +7562,7 @@ function AssignmentsPage({ setActive }) {
                                             children: pending
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1822,
+                                            lineNumber: 2319,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6765,13 +7570,13 @@ function AssignmentsPage({ setActive }) {
                                             children: "Pending"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1823,
+                                            lineNumber: 2320,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1821,
+                                    lineNumber: 2318,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6782,7 +7587,7 @@ function AssignmentsPage({ setActive }) {
                                             children: viewAssignment.total
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1826,
+                                            lineNumber: 2323,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6790,19 +7595,19 @@ function AssignmentsPage({ setActive }) {
                                             children: "Total Students"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1827,
+                                            lineNumber: 2324,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1825,
+                                    lineNumber: 2322,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1816,
+                            lineNumber: 2313,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6815,7 +7620,7 @@ function AssignmentsPage({ setActive }) {
                                             children: "Submission rate"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1832,
+                                            lineNumber: 2329,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6825,13 +7630,13 @@ function AssignmentsPage({ setActive }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1833,
+                                            lineNumber: 2330,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1831,
+                                    lineNumber: 2328,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProgressBar, {
@@ -6839,19 +7644,19 @@ function AssignmentsPage({ setActive }) {
                                     color: "#1a3a9e"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1835,
+                                    lineNumber: 2332,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1830,
+                            lineNumber: 2327,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1805,
+                    lineNumber: 2302,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6862,7 +7667,7 @@ function AssignmentsPage({ setActive }) {
                             children: "Recent Submissions"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1839,
+                            lineNumber: 2336,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6886,7 +7691,7 @@ function AssignmentsPage({ setActive }) {
                                                     children: name.split(" ").map((n)=>n[0]).join("")
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1844,
+                                                    lineNumber: 2341,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6896,7 +7701,7 @@ function AssignmentsPage({ setActive }) {
                                                             children: name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1848,
+                                                            lineNumber: 2345,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6907,19 +7712,19 @@ function AssignmentsPage({ setActive }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1849,
+                                                            lineNumber: 2346,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 1847,
+                                                    lineNumber: 2344,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1843,
+                                            lineNumber: 2340,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6928,30 +7733,30 @@ function AssignmentsPage({ setActive }) {
                                             children: "Grade Now"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1852,
+                                            lineNumber: 2349,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, i, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1842,
+                                    lineNumber: 2339,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1840,
+                            lineNumber: 2337,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1838,
+                    lineNumber: 2335,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1801,
+            lineNumber: 2298,
             columnNumber: 7
         }, this);
     }
@@ -6965,14 +7770,14 @@ function AssignmentsPage({ setActive }) {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1866,
+                        lineNumber: 2363,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1866,
+                        lineNumber: 2363,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6980,13 +7785,13 @@ function AssignmentsPage({ setActive }) {
                         children: "Assignments"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1866,
+                        lineNumber: 2363,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1865,
+                lineNumber: 2362,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6997,37 +7802,41 @@ function AssignmentsPage({ setActive }) {
                         children: "Assignments"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1869,
+                        lineNumber: 2366,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors",
+                        onClick: ()=>{
+                            setIsCreateOpen(true);
+                            setFormErrors({});
+                        },
+                        className: "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer hover:opacity-95",
                         style: {
                             background: "#1a3a9e"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconPlus, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1871,
+                                lineNumber: 2375,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "New Assignment"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1871,
+                                lineNumber: 2375,
                                 columnNumber: 23
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1870,
+                        lineNumber: 2367,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1868,
+                lineNumber: 2365,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7049,7 +7858,7 @@ function AssignmentsPage({ setActive }) {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1882,
+                                                lineNumber: 2386,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7064,7 +7873,7 @@ function AssignmentsPage({ setActive }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1884,
+                                                        lineNumber: 2388,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7077,32 +7886,32 @@ function AssignmentsPage({ setActive }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1885,
+                                                        lineNumber: 2389,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1883,
+                                                lineNumber: 2387,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1881,
+                                        lineNumber: 2385,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
                                         className: `w-4 h-4 text-gray-400 transition-transform duration-200 ${open === c.code ? "rotate-180" : ""}`
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1888,
+                                        lineNumber: 2392,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1877,
+                                lineNumber: 2381,
                                 columnNumber: 13
                             }, this),
                             open === c.code && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7117,16 +7926,16 @@ function AssignmentsPage({ setActive }) {
                                                         className: `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${a.graded ? "bg-green-50 text-green-600" : "bg-amber-50 text-amber-500"}`,
                                                         children: a.graded ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {}, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1896,
+                                                            lineNumber: 2400,
                                                             columnNumber: 37
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconClock, {}, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 1896,
+                                                            lineNumber: 2400,
                                                             columnNumber: 53
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1895,
+                                                        lineNumber: 2399,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7136,7 +7945,7 @@ function AssignmentsPage({ setActive }) {
                                                                 children: a.title
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1899,
+                                                                lineNumber: 2403,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7152,19 +7961,19 @@ function AssignmentsPage({ setActive }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 1900,
+                                                                lineNumber: 2404,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1898,
+                                                        lineNumber: 2402,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1894,
+                                                lineNumber: 2398,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7178,7 +7987,7 @@ function AssignmentsPage({ setActive }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1905,
+                                                        lineNumber: 2409,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7190,49 +7999,522 @@ function AssignmentsPage({ setActive }) {
                                                         children: "View Details"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 1909,
+                                                        lineNumber: 2413,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 1903,
+                                                lineNumber: 2407,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, i, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 1893,
+                                        lineNumber: 2397,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1891,
+                                lineNumber: 2395,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, c.code, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1876,
+                        lineNumber: 2380,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1874,
+                lineNumber: 2378,
                 columnNumber: 7
+            }, this),
+            isCreateOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-150",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center justify-between pb-4 border-b border-gray-100 mb-5",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-lg font-bold text-gray-900",
+                                            children: "New Assignment"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2434,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-gray-500 mt-0.5",
+                                            children: "Create and publish an assessment for your students"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2435,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2433,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>{
+                                        setIsCreateOpen(false);
+                                        setFormErrors({});
+                                    },
+                                    className: "text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconX, {
+                                        className: "w-5 h-5"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/InstructorDashboard.tsx",
+                                        lineNumber: 2441,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2437,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/InstructorDashboard.tsx",
+                            lineNumber: 2432,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                            onSubmit: handleCreateAssignment,
+                            className: "space-y-4",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "block text-xs font-semibold text-gray-700 mb-1.5",
+                                            children: [
+                                                "Course ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-red-500",
+                                                    children: "*"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2449,
+                                                    columnNumber: 26
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2448,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                            value: createCourse,
+                                            onChange: (e)=>setCreateCourse(e.target.value),
+                                            className: "w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                    value: "ICT301",
+                                                    children: "ICT301 — Information Technology Project 1"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2456,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                    value: "ICT272",
+                                                    children: "ICT272 — Web Design and Development"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2457,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                    value: "ICT126",
+                                                    children: "ICT126 — Artificial Intelligence"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2458,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2451,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2447,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "block text-xs font-semibold text-gray-700 mb-1.5",
+                                            children: [
+                                                "Assignment Title ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-red-500",
+                                                    children: "*"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2465,
+                                                    columnNumber: 36
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2464,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "text",
+                                            value: createTitle,
+                                            onChange: (e)=>{
+                                                setCreateTitle(e.target.value);
+                                                if (formErrors.title) setFormErrors((prev)=>({
+                                                        ...prev,
+                                                        title: ""
+                                                    }));
+                                            },
+                                            placeholder: "e.g. Milestone 3: System Implementation",
+                                            className: `w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition ${formErrors.title ? "border-red-400 bg-red-50/30" : "border-gray-200"}`
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2467,
+                                            columnNumber: 17
+                                        }, this),
+                                        formErrors.title && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-red-600 mt-1 flex items-center gap-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "⚠️"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2481,
+                                                    columnNumber: 21
+                                                }, this),
+                                                " ",
+                                                formErrors.title
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2480,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2463,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            className: "block text-xs font-semibold text-gray-700 mb-1.5",
+                                            children: [
+                                                "Description & Instructions ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-red-500",
+                                                    children: "*"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2489,
+                                                    columnNumber: 50
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2488,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                            rows: 3,
+                                            value: createDesc,
+                                            onChange: (e)=>{
+                                                setCreateDesc(e.target.value);
+                                                if (formErrors.desc) setFormErrors((prev)=>({
+                                                        ...prev,
+                                                        desc: ""
+                                                    }));
+                                            },
+                                            placeholder: "Provide submission guidelines, deliverables, and requirements...",
+                                            className: `w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition resize-none ${formErrors.desc ? "border-red-400 bg-red-50/30" : "border-gray-200"}`
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2491,
+                                            columnNumber: 17
+                                        }, this),
+                                        formErrors.desc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-red-600 mt-1 flex items-center gap-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "⚠️"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2505,
+                                                    columnNumber: 21
+                                                }, this),
+                                                " ",
+                                                formErrors.desc
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2504,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2487,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                    className: "block text-xs font-semibold text-gray-700 mb-1.5",
+                                                    children: [
+                                                        "Due Date ",
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-red-500",
+                                                            children: "*"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                                            lineNumber: 2514,
+                                                            columnNumber: 30
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2513,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                    type: "date",
+                                                    value: createDue,
+                                                    onChange: (e)=>{
+                                                        setCreateDue(e.target.value);
+                                                        if (formErrors.due) setFormErrors((prev)=>({
+                                                                ...prev,
+                                                                due: ""
+                                                            }));
+                                                    },
+                                                    className: `w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition ${formErrors.due ? "border-red-400 bg-red-50/30" : "border-gray-200"}`
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2516,
+                                                    columnNumber: 19
+                                                }, this),
+                                                formErrors.due && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-red-600 mt-1 flex items-center gap-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            children: "⚠️"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                                            lineNumber: 2529,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        " ",
+                                                        formErrors.due
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2528,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2512,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                    className: "block text-xs font-semibold text-gray-700 mb-1.5",
+                                                    children: [
+                                                        "Maximum Score ",
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-red-500",
+                                                            children: "*"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                                            lineNumber: 2536,
+                                                            columnNumber: 35
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2535,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                    type: "number",
+                                                    min: "1",
+                                                    max: "1000",
+                                                    value: createMaxScore,
+                                                    onChange: (e)=>{
+                                                        setCreateMaxScore(e.target.value);
+                                                        if (formErrors.maxScore) setFormErrors((prev)=>({
+                                                                ...prev,
+                                                                maxScore: ""
+                                                            }));
+                                                    },
+                                                    placeholder: "100",
+                                                    className: `w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition ${formErrors.maxScore ? "border-red-400 bg-red-50/30" : "border-gray-200"}`
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2538,
+                                                    columnNumber: 19
+                                                }, this),
+                                                formErrors.maxScore && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-red-600 mt-1 flex items-center gap-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            children: "⚠️"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                                            lineNumber: 2554,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        " ",
+                                                        formErrors.maxScore
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                                    lineNumber: 2553,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2534,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2511,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-end gap-3 pt-4 border-t border-gray-100",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: ()=>{
+                                                setIsCreateOpen(false);
+                                                setFormErrors({});
+                                            },
+                                            className: "px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer",
+                                            children: "Cancel"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2562,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "submit",
+                                            className: "px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer",
+                                            style: {
+                                                background: "#1a3a9e"
+                                            },
+                                            children: "Create Assignment"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/InstructorDashboard.tsx",
+                                            lineNumber: 2569,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/InstructorDashboard.tsx",
+                                    lineNumber: 2561,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/InstructorDashboard.tsx",
+                            lineNumber: 2445,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/InstructorDashboard.tsx",
+                    lineNumber: 2431,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/InstructorDashboard.tsx",
+                lineNumber: 2430,
+                columnNumber: 9
+            }, this),
+            toastMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs animate-in fade-in slide-in-from-bottom-2 duration-200",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCheck, {
+                            className: "w-3.5 h-3.5"
+                        }, void 0, false, {
+                            fileName: "[project]/src/InstructorDashboard.tsx",
+                            lineNumber: 2586,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/InstructorDashboard.tsx",
+                        lineNumber: 2585,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "font-semibold text-white",
+                                children: "Assignment Created"
+                            }, void 0, false, {
+                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                lineNumber: 2589,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-300 text-[11px]",
+                                children: toastMessage
+                            }, void 0, false, {
+                                fileName: "[project]/src/InstructorDashboard.tsx",
+                                lineNumber: 2590,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/InstructorDashboard.tsx",
+                        lineNumber: 2588,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/InstructorDashboard.tsx",
+                lineNumber: 2584,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 1864,
+        lineNumber: 2361,
         columnNumber: 5
     }, this);
 }
-_s2(AssignmentsPage, "fajemvsVLeauLgd7fnNQF1DP76I=");
-_c42 = AssignmentsPage;
+_s3(AssignmentsPage, "0zjWKm1cQVP1OYMuN15rUgX9yN4=");
+_c43 = AssignmentsPage;
 // ── Quizzes Page ──────────────────────────────────────────────────────────────
 function QuizzesPage({ setActive }) {
-    _s3();
+    _s4();
     const [viewQuiz, setViewQuiz] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const quizzes = [
         {
@@ -7305,7 +8587,7 @@ function QuizzesPage({ setActive }) {
                     children: "← Back to Quizzes"
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1949,
+                    lineNumber: 2620,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7321,7 +8603,7 @@ function QuizzesPage({ setActive }) {
                                             children: viewQuiz.course
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1955,
+                                            lineNumber: 2626,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -7329,7 +8611,7 @@ function QuizzesPage({ setActive }) {
                                             children: viewQuiz.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1956,
+                                            lineNumber: 2627,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7340,13 +8622,13 @@ function QuizzesPage({ setActive }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1957,
+                                            lineNumber: 2628,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1954,
+                                    lineNumber: 2625,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7360,7 +8642,7 @@ function QuizzesPage({ setActive }) {
                                             children: "Edit Quiz"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1961,
+                                            lineNumber: 2632,
                                             columnNumber: 17
                                         }, this),
                                         viewQuiz.status !== "Upcoming" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7372,19 +8654,19 @@ function QuizzesPage({ setActive }) {
                                             children: "View Submissions"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1964,
+                                            lineNumber: 2635,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1959,
+                                    lineNumber: 2630,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1953,
+                            lineNumber: 2624,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7398,7 +8680,7 @@ function QuizzesPage({ setActive }) {
                                             children: viewQuiz.submissions
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1970,
+                                            lineNumber: 2641,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7406,13 +8688,13 @@ function QuizzesPage({ setActive }) {
                                             children: "Submitted"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1971,
+                                            lineNumber: 2642,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1969,
+                                    lineNumber: 2640,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7423,7 +8705,7 @@ function QuizzesPage({ setActive }) {
                                             children: viewQuiz.total
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1974,
+                                            lineNumber: 2645,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7431,13 +8713,13 @@ function QuizzesPage({ setActive }) {
                                             children: "Total Students"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1975,
+                                            lineNumber: 2646,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1973,
+                                    lineNumber: 2644,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7451,7 +8733,7 @@ function QuizzesPage({ setActive }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1978,
+                                            lineNumber: 2649,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7459,31 +8741,31 @@ function QuizzesPage({ setActive }) {
                                             children: "Avg Score"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 1979,
+                                            lineNumber: 2650,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 1977,
+                                    lineNumber: 2648,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 1968,
+                            lineNumber: 2639,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 1952,
+                    lineNumber: 2623,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 1948,
+            lineNumber: 2619,
             columnNumber: 7
         }, this);
     }
@@ -7497,14 +8779,14 @@ function QuizzesPage({ setActive }) {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1990,
+                        lineNumber: 2661,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1990,
+                        lineNumber: 2661,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7512,13 +8794,13 @@ function QuizzesPage({ setActive }) {
                         children: "Quizzes"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1990,
+                        lineNumber: 2661,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1989,
+                lineNumber: 2660,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7529,7 +8811,7 @@ function QuizzesPage({ setActive }) {
                         children: "Quizzes & Assessments"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1993,
+                        lineNumber: 2664,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7540,26 +8822,26 @@ function QuizzesPage({ setActive }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconPlus, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1995,
+                                lineNumber: 2666,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "New Quiz"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 1995,
+                                lineNumber: 2666,
                                 columnNumber: 23
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 1994,
+                        lineNumber: 2665,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 1992,
+                lineNumber: 2663,
                 columnNumber: 7
             }, this),
             [
@@ -7579,14 +8861,14 @@ function QuizzesPage({ setActive }) {
                                     className: `w-2 h-2 rounded-full inline-block ${section === "Active" ? "bg-blue-500" : section === "Upcoming" ? "bg-gray-400" : "bg-green-500"}`
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2005,
+                                    lineNumber: 2676,
                                     columnNumber: 15
                                 }, this),
                                 section
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2004,
+                            lineNumber: 2675,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7602,7 +8884,7 @@ function QuizzesPage({ setActive }) {
                                                     children: q.course
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2012,
+                                                    lineNumber: 2683,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7610,13 +8892,13 @@ function QuizzesPage({ setActive }) {
                                                     children: q.status
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2013,
+                                                    lineNumber: 2684,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2011,
+                                            lineNumber: 2682,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -7624,7 +8906,7 @@ function QuizzesPage({ setActive }) {
                                             children: q.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2015,
+                                            lineNumber: 2686,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7632,7 +8914,7 @@ function QuizzesPage({ setActive }) {
                                             children: q.date
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2016,
+                                            lineNumber: 2687,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7648,7 +8930,7 @@ function QuizzesPage({ setActive }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2018,
+                                                    lineNumber: 2689,
                                                     columnNumber: 21
                                                 }, this),
                                                 q.avgScore && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7660,13 +8942,13 @@ function QuizzesPage({ setActive }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2019,
+                                                    lineNumber: 2690,
                                                     columnNumber: 36
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2017,
+                                            lineNumber: 2688,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7675,39 +8957,39 @@ function QuizzesPage({ setActive }) {
                                             children: "View Details"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2021,
+                                            lineNumber: 2692,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, i, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2010,
+                                    lineNumber: 2681,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2008,
+                            lineNumber: 2679,
                             columnNumber: 13
                         }, this)
                     ]
                 }, section, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 2003,
+                    lineNumber: 2674,
                     columnNumber: 11
                 }, this);
             })
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 1988,
+        lineNumber: 2659,
         columnNumber: 5
     }, this);
 }
-_s3(QuizzesPage, "7BNGFTRojUSAsNdn3SkgXZczBRU=");
-_c43 = QuizzesPage;
+_s4(QuizzesPage, "7BNGFTRojUSAsNdn3SkgXZczBRU=");
+_c44 = QuizzesPage;
 // ── Learning Materials Page ───────────────────────────────────────────────────
 function LearningMaterialsPage() {
-    _s4();
+    _s5();
     const [filter, setFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [previewMaterial, setPreviewMaterial] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [downloadToast, setDownloadToast] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -7733,14 +9015,14 @@ function LearningMaterialsPage() {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2060,
+                        lineNumber: 2731,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2060,
+                        lineNumber: 2731,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7748,13 +9030,13 @@ function LearningMaterialsPage() {
                         children: "Learning Materials"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2060,
+                        lineNumber: 2731,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2059,
+                lineNumber: 2730,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7765,7 +9047,7 @@ function LearningMaterialsPage() {
                         children: "Learning Materials"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2063,
+                        lineNumber: 2734,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7776,26 +9058,26 @@ function LearningMaterialsPage() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconUpload, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2065,
+                                lineNumber: 2736,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "Upload Material"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2065,
+                                lineNumber: 2736,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2064,
+                        lineNumber: 2735,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2062,
+                lineNumber: 2733,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7817,12 +9099,12 @@ function LearningMaterialsPage() {
                         children: f === "all" ? "All Materials" : f
                     }, f, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2071,
+                        lineNumber: 2742,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2069,
+                lineNumber: 2740,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7841,7 +9123,7 @@ function LearningMaterialsPage() {
                                                 children: m.icon
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2091,
+                                                lineNumber: 2762,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7849,13 +9131,13 @@ function LearningMaterialsPage() {
                                                 children: m.course
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2092,
+                                                lineNumber: 2763,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2090,
+                                        lineNumber: 2761,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -7863,7 +9145,7 @@ function LearningMaterialsPage() {
                                         children: m.title
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2094,
+                                        lineNumber: 2765,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7876,7 +9158,7 @@ function LearningMaterialsPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2095,
+                                        lineNumber: 2766,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7887,13 +9169,13 @@ function LearningMaterialsPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2098,
+                                        lineNumber: 2769,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2089,
+                                lineNumber: 2760,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7906,20 +9188,20 @@ function LearningMaterialsPage() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconEye, {}, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2105,
+                                                lineNumber: 2776,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Preview"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2105,
+                                                lineNumber: 2776,
                                                 columnNumber: 28
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2101,
+                                        lineNumber: 2772,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7928,29 +9210,29 @@ function LearningMaterialsPage() {
                                         title: "Download",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDownload, {}, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2112,
+                                            lineNumber: 2783,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2107,
+                                        lineNumber: 2778,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2100,
+                                lineNumber: 2771,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, m.id, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2084,
+                        lineNumber: 2755,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2082,
+                lineNumber: 2753,
                 columnNumber: 7
             }, this),
             previewMaterial && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MaterialPreviewModal, {
@@ -7959,7 +9241,7 @@ function LearningMaterialsPage() {
                 onDownload: handleDownload
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2120,
+                lineNumber: 2791,
                 columnNumber: 9
             }, this),
             downloadToast && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7971,12 +9253,12 @@ function LearningMaterialsPage() {
                             className: "w-3.5 h-3.5"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2130,
+                            lineNumber: 2801,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2129,
+                        lineNumber: 2800,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7986,7 +9268,7 @@ function LearningMaterialsPage() {
                                 children: "Downloading file"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2133,
+                                lineNumber: 2804,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7994,33 +9276,33 @@ function LearningMaterialsPage() {
                                 children: downloadToast
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2134,
+                                lineNumber: 2805,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2132,
+                        lineNumber: 2803,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2128,
+                lineNumber: 2799,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2058,
+        lineNumber: 2729,
         columnNumber: 5
     }, this);
 }
-_s4(LearningMaterialsPage, "+N00UueOureiea74hfErnaOs1Ig=");
-_c44 = LearningMaterialsPage;
+_s5(LearningMaterialsPage, "+N00UueOureiea74hfErnaOs1Ig=");
+_c45 = LearningMaterialsPage;
 // ── Grades Page ───────────────────────────────────────────────────────────────
 function GradesPage() {
-    _s5();
+    _s6();
     const [course, setCourse] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("ICT301");
     const [gradingItem, setGradingItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [scores, setScores] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
@@ -8176,14 +9458,14 @@ function GradesPage() {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2181,
+                        lineNumber: 2852,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2181,
+                        lineNumber: 2852,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -8191,13 +9473,13 @@ function GradesPage() {
                         children: "Grades"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2181,
+                        lineNumber: 2852,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2180,
+                lineNumber: 2851,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8208,7 +9490,7 @@ function GradesPage() {
                         children: "Student Grades"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2184,
+                        lineNumber: 2855,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8224,7 +9506,7 @@ function GradesPage() {
                                         children: "ICT301 – IT Project 1"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2190,
+                                        lineNumber: 2861,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -8232,7 +9514,7 @@ function GradesPage() {
                                         children: "ICT272 – Web Design"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2191,
+                                        lineNumber: 2862,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -8240,13 +9522,13 @@ function GradesPage() {
                                         children: "ICT126 – Artificial Intelligence"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2192,
+                                        lineNumber: 2863,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2186,
+                                lineNumber: 2857,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8254,32 +9536,32 @@ function GradesPage() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconDownload, {}, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2195,
+                                        lineNumber: 2866,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Export"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2195,
+                                        lineNumber: 2866,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2194,
+                                lineNumber: 2865,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2185,
+                        lineNumber: 2856,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2183,
+                lineNumber: 2854,
                 columnNumber: 7
             }, this),
             gradingItem && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8295,7 +9577,7 @@ function GradesPage() {
                                     children: "Grade Submission"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2204,
+                                    lineNumber: 2875,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8303,18 +9585,18 @@ function GradesPage() {
                                     className: "text-gray-400 hover:text-gray-600",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconX, {}, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2206,
+                                        lineNumber: 2877,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2205,
+                                    lineNumber: 2876,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2203,
+                            lineNumber: 2874,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8324,12 +9606,12 @@ function GradesPage() {
                                 children: gradingItem.student
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2209,
+                                lineNumber: 2880,
                                 columnNumber: 55
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2209,
+                            lineNumber: 2880,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8341,7 +9623,7 @@ function GradesPage() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2210,
+                            lineNumber: 2881,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -8349,7 +9631,7 @@ function GradesPage() {
                             children: "Score (0–100)"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2211,
+                            lineNumber: 2882,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -8365,7 +9647,7 @@ function GradesPage() {
                             placeholder: "Enter score"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2212,
+                            lineNumber: 2883,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -8373,7 +9655,7 @@ function GradesPage() {
                             children: "Feedback (optional)"
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2219,
+                            lineNumber: 2890,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -8382,7 +9664,7 @@ function GradesPage() {
                             placeholder: "Add feedback..."
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2220,
+                            lineNumber: 2891,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8394,7 +9676,7 @@ function GradesPage() {
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2222,
+                                    lineNumber: 2893,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8406,24 +9688,24 @@ function GradesPage() {
                                     children: "Save Grade"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2223,
+                                    lineNumber: 2894,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2221,
+                            lineNumber: 2892,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 2202,
+                    lineNumber: 2873,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2201,
+                lineNumber: 2872,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8442,7 +9724,7 @@ function GradesPage() {
                                             children: "Student"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2234,
+                                            lineNumber: 2905,
                                             columnNumber: 17
                                         }, this),
                                         cols.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -8450,7 +9732,7 @@ function GradesPage() {
                                                 children: c
                                             }, c, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2236,
+                                                lineNumber: 2907,
                                                 columnNumber: 19
                                             }, this)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -8458,7 +9740,7 @@ function GradesPage() {
                                             children: "Quiz"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2238,
+                                            lineNumber: 2909,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -8466,18 +9748,18 @@ function GradesPage() {
                                             children: "Total"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2239,
+                                            lineNumber: 2910,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2233,
+                                    lineNumber: 2904,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2232,
+                                lineNumber: 2903,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -8498,7 +9780,7 @@ function GradesPage() {
                                                             children: row.student.split(" ").map((n)=>n[0]).join("")
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 2247,
+                                                            lineNumber: 2918,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -8506,18 +9788,18 @@ function GradesPage() {
                                                             children: row.student
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 2250,
+                                                            lineNumber: 2921,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2246,
+                                                    lineNumber: 2917,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2245,
+                                                lineNumber: 2916,
                                                 columnNumber: 19
                                             }, this),
                                             row.assignments.map((score, j)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -8527,7 +9809,7 @@ function GradesPage() {
                                                         children: score
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 2256,
+                                                        lineNumber: 2927,
                                                         columnNumber: 25
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                         onClick: ()=>setGradingItem({
@@ -8538,12 +9820,12 @@ function GradesPage() {
                                                         children: "Grade"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 2258,
+                                                        lineNumber: 2929,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, j, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2254,
+                                                    lineNumber: 2925,
                                                     columnNumber: 21
                                                 }, this)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -8553,7 +9835,7 @@ function GradesPage() {
                                                     children: row.quiz
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2269,
+                                                    lineNumber: 2940,
                                                     columnNumber: 23
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setGradingItem({
@@ -8564,12 +9846,12 @@ function GradesPage() {
                                                     children: "Grade"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2271,
+                                                    lineNumber: 2942,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2267,
+                                                lineNumber: 2938,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -8579,60 +9861,60 @@ function GradesPage() {
                                                     children: row.total
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2281,
+                                                    lineNumber: 2952,
                                                     columnNumber: 23
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-xs text-gray-400",
                                                     children: "Pending"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2283,
+                                                    lineNumber: 2954,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2279,
+                                                lineNumber: 2950,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, i, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2244,
+                                        lineNumber: 2915,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2242,
+                                lineNumber: 2913,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2231,
+                        lineNumber: 2902,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 2230,
+                    lineNumber: 2901,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2229,
+                lineNumber: 2900,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2179,
+        lineNumber: 2850,
         columnNumber: 5
     }, this);
 }
-_s5(GradesPage, "F71VCLSW5YbbPVp39fGWaPKGxKE=");
-_c45 = GradesPage;
+_s6(GradesPage, "F71VCLSW5YbbPVp39fGWaPKGxKE=");
+_c46 = GradesPage;
 // ── Calendar Page ─────────────────────────────────────────────────────────────
 function CalendarPage() {
-    _s6();
+    _s7();
     const [selectedDay, setSelectedDay] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(3);
     const events = {
         3: [
@@ -8747,14 +10029,14 @@ function CalendarPage() {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2320,
+                        lineNumber: 2991,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2320,
+                        lineNumber: 2991,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -8762,13 +10044,13 @@ function CalendarPage() {
                         children: "Calendar"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2320,
+                        lineNumber: 2991,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2319,
+                lineNumber: 2990,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8779,7 +10061,7 @@ function CalendarPage() {
                         children: "Calendar"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2323,
+                        lineNumber: 2994,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8787,20 +10069,20 @@ function CalendarPage() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2325,
+                                lineNumber: 2996,
                                 columnNumber: 11
                             }, this),
                             " September 2026"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2324,
+                        lineNumber: 2995,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2322,
+                lineNumber: 2993,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8816,12 +10098,12 @@ function CalendarPage() {
                                         children: d
                                     }, d, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2333,
+                                        lineNumber: 3004,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2331,
+                                lineNumber: 3002,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8831,7 +10113,7 @@ function CalendarPage() {
                                         length: startOffset
                                     }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, `empty-${i}`, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2337,
+                                            lineNumber: 3008,
                                             columnNumber: 64
                                         }, this)),
                                     days.map((d)=>{
@@ -8849,26 +10131,26 @@ function CalendarPage() {
                                                     className: "w-1 h-1 rounded-full bg-blue-500 mt-0.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2351,
+                                                    lineNumber: 3022,
                                                     columnNumber: 47
                                                 }, this)
                                             ]
                                         }, d, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2342,
+                                            lineNumber: 3013,
                                             columnNumber: 17
                                         }, this);
                                     })
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2336,
+                                lineNumber: 3007,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2330,
+                        lineNumber: 3001,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8879,7 +10161,7 @@ function CalendarPage() {
                                 children: selectedDay ? `September ${selectedDay}, 2026` : "Select a day"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2359,
+                                lineNumber: 3030,
                                 columnNumber: 11
                             }, this),
                             selectedDay && events[selectedDay] ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8896,7 +10178,7 @@ function CalendarPage() {
                                                 children: e.title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2366,
+                                                lineNumber: 3037,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8904,7 +10186,7 @@ function CalendarPage() {
                                                 children: e.time
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2367,
+                                                lineNumber: 3038,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8912,7 +10194,7 @@ function CalendarPage() {
                                                 children: e.room
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2368,
+                                                lineNumber: 3039,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8923,25 +10205,25 @@ function CalendarPage() {
                                                 children: e.online ? "Start Class" : "View Class"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2369,
+                                                lineNumber: 3040,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, i, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2365,
+                                        lineNumber: 3036,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2363,
+                                lineNumber: 3034,
                                 columnNumber: 13
                             }, this) : selectedDay ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "text-center py-8 text-gray-400",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconCalendar, {}, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2380,
+                                        lineNumber: 3051,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8949,36 +10231,36 @@ function CalendarPage() {
                                         children: "No classes scheduled"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2381,
+                                        lineNumber: 3052,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2379,
+                                lineNumber: 3050,
                                 columnNumber: 13
                             }, this) : null
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2358,
+                        lineNumber: 3029,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2329,
+                lineNumber: 3000,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2318,
+        lineNumber: 2989,
         columnNumber: 5
     }, this);
 }
-_s6(CalendarPage, "cNbnASYFu+Y+3RLdg5sdRLxxGyM=");
-_c46 = CalendarPage;
+_s7(CalendarPage, "cNbnASYFu+Y+3RLdg5sdRLxxGyM=");
+_c47 = CalendarPage;
 // ── Generic Placeholder Page ──────────────────────────────────────────────────
 function PlaceholderPage({ title, icon }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8992,7 +10274,7 @@ function PlaceholderPage({ title, icon }) {
                 children: icon
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2394,
+                lineNumber: 3065,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -9000,7 +10282,7 @@ function PlaceholderPage({ title, icon }) {
                 children: title
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2397,
+                lineNumber: 3068,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9008,17 +10290,17 @@ function PlaceholderPage({ title, icon }) {
                 children: "This section is coming soon."
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2398,
+                lineNumber: 3069,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2393,
+        lineNumber: 3064,
         columnNumber: 5
     }, this);
 }
-_c47 = PlaceholderPage;
+_c48 = PlaceholderPage;
 const iAnnouncements = [
     {
         id: 1,
@@ -9059,7 +10341,7 @@ const announcementStatusColors = {
     Scheduled: "bg-blue-50 text-blue-700 border-blue-100"
 };
 function InstructorAnnouncementsPage() {
-    _s7();
+    _s8();
     const [filter, setFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("All");
     const filtered = filter === "All" ? iAnnouncements : iAnnouncements.filter((a)=>a.status === filter);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9072,14 +10354,14 @@ function InstructorAnnouncementsPage() {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2462,
+                        lineNumber: 3133,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2462,
+                        lineNumber: 3133,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9087,13 +10369,13 @@ function InstructorAnnouncementsPage() {
                         children: "Announcements"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2462,
+                        lineNumber: 3133,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2461,
+                lineNumber: 3132,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9106,7 +10388,7 @@ function InstructorAnnouncementsPage() {
                                 children: "Announcements"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2466,
+                                lineNumber: 3137,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9114,13 +10396,13 @@ function InstructorAnnouncementsPage() {
                                 children: "Create and manage announcements for your students"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2467,
+                                lineNumber: 3138,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2465,
+                        lineNumber: 3136,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -9131,26 +10413,26 @@ function InstructorAnnouncementsPage() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconPlus, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2470,
+                                lineNumber: 3141,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "New Announcement"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2470,
+                                lineNumber: 3141,
                                 columnNumber: 23
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2469,
+                        lineNumber: 3140,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2464,
+                lineNumber: 3135,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9171,23 +10453,23 @@ function InstructorAnnouncementsPage() {
                                     className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-t-full bg-blue-600"
                                 }, void 0, false, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2484,
+                                    lineNumber: 3155,
                                     columnNumber: 32
                                 }, this)
                             ]
                         }, f, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2478,
+                            lineNumber: 3149,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 2476,
+                    lineNumber: 3147,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2475,
+                lineNumber: 3146,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9208,7 +10490,7 @@ function InstructorAnnouncementsPage() {
                                                     children: a.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2497,
+                                                    lineNumber: 3168,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9216,13 +10498,13 @@ function InstructorAnnouncementsPage() {
                                                     children: a.status
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2498,
+                                                    lineNumber: 3169,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2496,
+                                            lineNumber: 3167,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9230,7 +10512,7 @@ function InstructorAnnouncementsPage() {
                                             children: a.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2502,
+                                            lineNumber: 3173,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9243,33 +10525,33 @@ function InstructorAnnouncementsPage() {
                                                             className: "w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 2505,
+                                                            lineNumber: 3176,
                                                             columnNumber: 21
                                                         }, this),
                                                         a.audience
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2504,
+                                                    lineNumber: 3175,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: a.date
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2508,
+                                                    lineNumber: 3179,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2503,
+                                            lineNumber: 3174,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2495,
+                                    lineNumber: 3166,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9282,14 +10564,14 @@ function InstructorAnnouncementsPage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2513,
+                                                    lineNumber: 3184,
                                                     columnNumber: 19
                                                 }, this),
                                                 " View"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2512,
+                                            lineNumber: 3183,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -9299,14 +10581,14 @@ function InstructorAnnouncementsPage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2516,
+                                                    lineNumber: 3187,
                                                     columnNumber: 19
                                                 }, this),
                                                 " Edit"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2515,
+                                            lineNumber: 3186,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -9316,47 +10598,47 @@ function InstructorAnnouncementsPage() {
                                                     className: "w-3.5 h-3.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2519,
+                                                    lineNumber: 3190,
                                                     columnNumber: 19
                                                 }, this),
                                                 " Delete"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2518,
+                                            lineNumber: 3189,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2511,
+                                    lineNumber: 3182,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2494,
+                            lineNumber: 3165,
                             columnNumber: 13
                         }, this)
                     }, a.id, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2493,
+                        lineNumber: 3164,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2491,
+                lineNumber: 3162,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2460,
+        lineNumber: 3131,
         columnNumber: 5
     }, this);
 }
-_s7(InstructorAnnouncementsPage, "aTTAYHvTVp56ZKAOh1/oGfK1+4g=");
-_c48 = InstructorAnnouncementsPage;
+_s8(InstructorAnnouncementsPage, "aTTAYHvTVp56ZKAOh1/oGfK1+4g=");
+_c49 = InstructorAnnouncementsPage;
 const iConversations = [
     {
         id: "c1",
@@ -9453,7 +10735,7 @@ const iConversations = [
     }
 ];
 function InstructorMessagesPage({ userName }) {
-    _s8();
+    _s9();
     const [activeId, setActiveId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("c1");
     const [input, setInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const active = iConversations.find((c)=>c.id === activeId);
@@ -9470,14 +10752,14 @@ function InstructorMessagesPage({ userName }) {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2611,
+                        lineNumber: 3282,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2611,
+                        lineNumber: 3282,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9485,13 +10767,13 @@ function InstructorMessagesPage({ userName }) {
                         children: "Messages"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2611,
+                        lineNumber: 3282,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2610,
+                lineNumber: 3281,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9502,7 +10784,7 @@ function InstructorMessagesPage({ userName }) {
                         children: "Messages"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2614,
+                        lineNumber: 3285,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9510,13 +10792,13 @@ function InstructorMessagesPage({ userName }) {
                         children: "Communicate with students and staff"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2615,
+                        lineNumber: 3286,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2613,
+                lineNumber: 3284,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9534,12 +10816,12 @@ function InstructorMessagesPage({ userName }) {
                                             className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-400",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconSearch, {}, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2623,
+                                                lineNumber: 3294,
                                                 columnNumber: 88
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2623,
+                                            lineNumber: 3294,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -9548,18 +10830,18 @@ function InstructorMessagesPage({ userName }) {
                                             className: "w-full pl-9 pr-3 py-2 bg-gray-50 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 border border-gray-200 transition"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2624,
+                                            lineNumber: 3295,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2622,
+                                    lineNumber: 3293,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2621,
+                                lineNumber: 3292,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9576,7 +10858,7 @@ function InstructorMessagesPage({ userName }) {
                                                 children: c.initials
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2634,
+                                                lineNumber: 3305,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9590,7 +10872,7 @@ function InstructorMessagesPage({ userName }) {
                                                                 children: c.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 2639,
+                                                                lineNumber: 3310,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9598,13 +10880,13 @@ function InstructorMessagesPage({ userName }) {
                                                                 children: c.time
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                                lineNumber: 2640,
+                                                                lineNumber: 3311,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 2638,
+                                                        lineNumber: 3309,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9612,7 +10894,7 @@ function InstructorMessagesPage({ userName }) {
                                                         children: c.context
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 2642,
+                                                        lineNumber: 3313,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9620,13 +10902,13 @@ function InstructorMessagesPage({ userName }) {
                                                         children: c.lastMsg
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                                        lineNumber: 2643,
+                                                        lineNumber: 3314,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2637,
+                                                lineNumber: 3308,
                                                 columnNumber: 17
                                             }, this),
                                             c.unread > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9637,24 +10919,24 @@ function InstructorMessagesPage({ userName }) {
                                                 children: c.unread
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2646,
+                                                lineNumber: 3317,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, c.id, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2629,
+                                        lineNumber: 3300,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2627,
+                                lineNumber: 3298,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2620,
+                        lineNumber: 3291,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9671,7 +10953,7 @@ function InstructorMessagesPage({ userName }) {
                                         children: active.initials
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2658,
+                                        lineNumber: 3329,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9681,7 +10963,7 @@ function InstructorMessagesPage({ userName }) {
                                                 children: active.name
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2662,
+                                                lineNumber: 3333,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9689,19 +10971,19 @@ function InstructorMessagesPage({ userName }) {
                                                 children: active.context
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2663,
+                                                lineNumber: 3334,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2661,
+                                        lineNumber: 3332,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2657,
+                                lineNumber: 3328,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9719,7 +11001,7 @@ function InstructorMessagesPage({ userName }) {
                                                     children: m.text
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2670,
+                                                    lineNumber: 3341,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9727,23 +11009,23 @@ function InstructorMessagesPage({ userName }) {
                                                     children: m.time
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2674,
+                                                    lineNumber: 3345,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2669,
+                                            lineNumber: 3340,
                                             columnNumber: 17
                                         }, this)
                                     }, i, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2668,
+                                        lineNumber: 3339,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2666,
+                                lineNumber: 3337,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9763,17 +11045,17 @@ function InstructorMessagesPage({ userName }) {
                                                     d: "M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2683,
+                                                    lineNumber: 3354,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2682,
+                                                lineNumber: 3353,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2681,
+                                            lineNumber: 3352,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -9785,7 +11067,7 @@ function InstructorMessagesPage({ userName }) {
                                             onKeyDown: (e)=>e.key === "Enter" && setInput("")
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2686,
+                                            lineNumber: 3357,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -9809,61 +11091,61 @@ function InstructorMessagesPage({ userName }) {
                                                             y2: "13"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 2700,
+                                                            lineNumber: 3371,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
                                                             points: "22 2 15 22 11 13 2 9 22 2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                                            lineNumber: 2700,
+                                                            lineNumber: 3371,
                                                             columnNumber: 58
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2699,
+                                                    lineNumber: 3370,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Send"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2694,
+                                            lineNumber: 3365,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                    lineNumber: 2680,
+                                    lineNumber: 3351,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2679,
+                                lineNumber: 3350,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2656,
+                        lineNumber: 3327,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2618,
+                lineNumber: 3289,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2609,
+        lineNumber: 3280,
         columnNumber: 5
     }, this);
 }
-_s8(InstructorMessagesPage, "uqduxG8KuPzOgYhoOcNnKctnL3I=");
-_c49 = InstructorMessagesPage;
+_s9(InstructorMessagesPage, "uqduxG8KuPzOgYhoOcNnKctnL3I=");
+_c50 = InstructorMessagesPage;
 // ── Instructor Profile Page ────────────────────────────────────────────────────
 function InstructorProfilePage({ userName }) {
     const parts = userName.replace(/^Prof\.\s*/i, "").split(" ");
@@ -9919,14 +11201,14 @@ function InstructorProfilePage({ userName }) {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2736,
+                        lineNumber: 3407,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2736,
+                        lineNumber: 3407,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -9934,13 +11216,13 @@ function InstructorProfilePage({ userName }) {
                         children: "Profile"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2736,
+                        lineNumber: 3407,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2735,
+                lineNumber: 3406,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9953,7 +11235,7 @@ function InstructorProfilePage({ userName }) {
                                 children: "My Profile"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2740,
+                                lineNumber: 3411,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -9961,13 +11243,13 @@ function InstructorProfilePage({ userName }) {
                                 children: "View and manage your instructor information"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2741,
+                                lineNumber: 3412,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2739,
+                        lineNumber: 3410,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -9978,20 +11260,20 @@ function InstructorProfilePage({ userName }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconEdit, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2744,
+                                lineNumber: 3415,
                                 columnNumber: 11
                             }, this),
                             " Edit Profile"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2743,
+                        lineNumber: 3414,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2738,
+                lineNumber: 3409,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10005,7 +11287,7 @@ function InstructorProfilePage({ userName }) {
                         children: initials
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2750,
+                        lineNumber: 3421,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10015,7 +11297,7 @@ function InstructorProfilePage({ userName }) {
                                 children: displayName
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2754,
+                                lineNumber: 3425,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -10023,7 +11305,7 @@ function InstructorProfilePage({ userName }) {
                                 children: "Instructor · School of Information Technology"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2755,
+                                lineNumber: 3426,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10034,7 +11316,7 @@ function InstructorProfilePage({ userName }) {
                                         children: "Full-time"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2757,
+                                        lineNumber: 3428,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10042,7 +11324,7 @@ function InstructorProfilePage({ userName }) {
                                         children: "STF-00845"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2758,
+                                        lineNumber: 3429,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10050,7 +11332,7 @@ function InstructorProfilePage({ userName }) {
                                         children: "·"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2759,
+                                        lineNumber: 3430,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10058,25 +11340,25 @@ function InstructorProfilePage({ userName }) {
                                         children: "sarita.koirala@university.edu.au"
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2760,
+                                        lineNumber: 3431,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2756,
+                                lineNumber: 3427,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2753,
+                        lineNumber: 3424,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2749,
+                lineNumber: 3420,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10090,7 +11372,7 @@ function InstructorProfilePage({ userName }) {
                                 children: "Personal Information"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2768,
+                                lineNumber: 3439,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10103,7 +11385,7 @@ function InstructorProfilePage({ userName }) {
                                                 children: f.label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2772,
+                                                lineNumber: 3443,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10111,24 +11393,24 @@ function InstructorProfilePage({ userName }) {
                                                 children: f.value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2773,
+                                                lineNumber: 3444,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, f.label, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2771,
+                                        lineNumber: 3442,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2769,
+                                lineNumber: 3440,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2767,
+                        lineNumber: 3438,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10139,7 +11421,7 @@ function InstructorProfilePage({ userName }) {
                                 children: "Instructor Information"
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2781,
+                                lineNumber: 3452,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10152,7 +11434,7 @@ function InstructorProfilePage({ userName }) {
                                                 children: f.label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2785,
+                                                lineNumber: 3456,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10160,43 +11442,43 @@ function InstructorProfilePage({ userName }) {
                                                 children: f.value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                                lineNumber: 2786,
+                                                lineNumber: 3457,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, f.label, true, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2784,
+                                        lineNumber: 3455,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2782,
+                                lineNumber: 3453,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2780,
+                        lineNumber: 3451,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2765,
+                lineNumber: 3436,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2734,
+        lineNumber: 3405,
         columnNumber: 5
     }, this);
 }
-_c50 = InstructorProfilePage;
+_c51 = InstructorProfilePage;
 // ── Instructor Settings Page ───────────────────────────────────────────────────
 function InstructorSettingsPage() {
-    _s9();
+    _s10();
     const [saved, setSaved] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [email, setEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("sarita.koirala@university.edu.au");
     const [phone, setPhone] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("+61 2 9876 5432");
@@ -10226,12 +11508,12 @@ function InstructorSettingsPage() {
                 className: `inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition-transform duration-200 ${on ? "translate-x-5" : "translate-x-0.5"}`
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2826,
+                lineNumber: 3497,
                 columnNumber: 7
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 2822,
+            lineNumber: 3493,
             columnNumber: 5
         }, this);
     const Section = ({ title, children })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10242,14 +11524,14 @@ function InstructorSettingsPage() {
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 2832,
+                    lineNumber: 3503,
                     columnNumber: 7
                 }, this),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 2831,
+            lineNumber: 3502,
             columnNumber: 5
         }, this);
     const Field = ({ label, sub, children })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10262,7 +11544,7 @@ function InstructorSettingsPage() {
                             children: label
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2840,
+                            lineNumber: 3511,
                             columnNumber: 9
                         }, this),
                         sub && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -10270,20 +11552,20 @@ function InstructorSettingsPage() {
                             children: sub
                         }, void 0, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2841,
+                            lineNumber: 3512,
                             columnNumber: 17
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/InstructorDashboard.tsx",
-                    lineNumber: 2839,
+                    lineNumber: 3510,
                     columnNumber: 7
                 }, this),
                 children
             ]
         }, void 0, true, {
             fileName: "[project]/src/InstructorDashboard.tsx",
-            lineNumber: 2838,
+            lineNumber: 3509,
             columnNumber: 5
         }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10296,14 +11578,14 @@ function InstructorSettingsPage() {
                         children: "Instructor"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2850,
+                        lineNumber: 3521,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "/"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2850,
+                        lineNumber: 3521,
                         columnNumber: 32
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10311,13 +11593,13 @@ function InstructorSettingsPage() {
                         children: "Settings"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2850,
+                        lineNumber: 3521,
                         columnNumber: 46
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2849,
+                lineNumber: 3520,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10328,7 +11610,7 @@ function InstructorSettingsPage() {
                         children: "Settings"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2853,
+                        lineNumber: 3524,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -10336,13 +11618,13 @@ function InstructorSettingsPage() {
                         children: "Manage your account and portal preferences"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2854,
+                        lineNumber: 3525,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2852,
+                lineNumber: 3523,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10363,12 +11645,12 @@ function InstructorSettingsPage() {
                                             className: "text-sm text-gray-700 border border-gray-200 rounded-xl px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gray-50"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2861,
+                                            lineNumber: 3532,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2860,
+                                        lineNumber: 3531,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -10381,12 +11663,12 @@ function InstructorSettingsPage() {
                                             className: "text-sm text-gray-700 border border-gray-200 rounded-xl px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gray-50"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2865,
+                                            lineNumber: 3536,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2864,
+                                        lineNumber: 3535,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -10397,18 +11679,18 @@ function InstructorSettingsPage() {
                                             children: "Change Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2869,
+                                            lineNumber: 3540,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2868,
+                                        lineNumber: 3539,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2859,
+                                lineNumber: 3530,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Section, {
@@ -10424,25 +11706,25 @@ function InstructorSettingsPage() {
                                                     children: language
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2878,
+                                                    lineNumber: 3549,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
                                                     className: "w-3.5 h-3.5 text-gray-400"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2879,
+                                                    lineNumber: 3550,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2877,
+                                            lineNumber: 3548,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2876,
+                                        lineNumber: 3547,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -10456,25 +11738,25 @@ function InstructorSettingsPage() {
                                                     children: timezone
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2884,
+                                                    lineNumber: 3555,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(IconChevronDown, {
                                                     className: "w-3.5 h-3.5 text-gray-400 shrink-0"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2885,
+                                                    lineNumber: 3556,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2883,
+                                            lineNumber: 3554,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2882,
+                                        lineNumber: 3553,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -10491,29 +11773,29 @@ function InstructorSettingsPage() {
                                                     children: t
                                                 }, t, false, {
                                                     fileName: "[project]/src/InstructorDashboard.tsx",
-                                                    lineNumber: 2891,
+                                                    lineNumber: 3562,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2889,
+                                            lineNumber: 3560,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2888,
+                                        lineNumber: 3559,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2875,
+                                lineNumber: 3546,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2858,
+                        lineNumber: 3529,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10554,17 +11836,17 @@ function InstructorSettingsPage() {
                                             onChange: ()=>toggleNotif(key)
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2911,
+                                            lineNumber: 3582,
                                             columnNumber: 17
                                         }, this)
                                     }, key, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2910,
+                                        lineNumber: 3581,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2902,
+                                lineNumber: 3573,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Section, {
@@ -10578,12 +11860,12 @@ function InstructorSettingsPage() {
                                             onChange: ()=>setTwoFactor((v)=>!v)
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2918,
+                                            lineNumber: 3589,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2917,
+                                        lineNumber: 3588,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -10594,30 +11876,30 @@ function InstructorSettingsPage() {
                                             children: "View Sessions"
                                         }, void 0, false, {
                                             fileName: "[project]/src/InstructorDashboard.tsx",
-                                            lineNumber: 2921,
+                                            lineNumber: 3592,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/InstructorDashboard.tsx",
-                                        lineNumber: 2920,
+                                        lineNumber: 3591,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2916,
+                                lineNumber: 3587,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2901,
+                        lineNumber: 3572,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2857,
+                lineNumber: 3528,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10632,7 +11914,7 @@ function InstructorSettingsPage() {
                         children: saved ? "Saved!" : "Save Changes"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2931,
+                        lineNumber: 3602,
                         columnNumber: 9
                     }, this),
                     saved && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -10640,24 +11922,24 @@ function InstructorSettingsPage() {
                         children: "Your settings have been saved."
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2936,
+                        lineNumber: 3607,
                         columnNumber: 19
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2930,
+                lineNumber: 3601,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2848,
+        lineNumber: 3519,
         columnNumber: 5
     }, this);
 }
-_s9(InstructorSettingsPage, "CWltEbeL9+5zyjcEUXkwE5Xf3Ag=");
-_c51 = InstructorSettingsPage;
+_s10(InstructorSettingsPage, "CWltEbeL9+5zyjcEUXkwE5Xf3Ag=");
+_c52 = InstructorSettingsPage;
 // ── Footer ────────────────────────────────────────────────────────────────────
 function Footer() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -10676,12 +11958,12 @@ function Footer() {
                         children: l
                     }, l, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2948,
+                        lineNumber: 3619,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2946,
+                lineNumber: 3617,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -10691,7 +11973,7 @@ function Footer() {
                         children: "Follow Us"
                     }, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2952,
+                        lineNumber: 3623,
                         columnNumber: 9
                     }, this),
                     [
@@ -10704,28 +11986,29 @@ function Footer() {
                             children: s
                         }, s, false, {
                             fileName: "[project]/src/InstructorDashboard.tsx",
-                            lineNumber: 2954,
+                            lineNumber: 3625,
                             columnNumber: 11
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2951,
+                lineNumber: 3622,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2945,
+        lineNumber: 3616,
         columnNumber: 5
     }, this);
 }
-_c52 = Footer;
+_c53 = Footer;
 function InstructorDashboard({ onLogout = ()=>{} }) {
-    _s10();
+    _s11();
     const [active, setActive] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("dashboard");
     const [collapsed, setCollapsed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [userName, setUserName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("Prof. Sarita Koirala");
+    const [assignmentCourses, setAssignmentCourses] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(INITIAL_ASSIGNMENT_COURSES);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "InstructorDashboard.useEffect": ()=>{
             const sessionUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSessionUser"])();
@@ -10750,16 +12033,18 @@ function InstructorDashboard({ onLogout = ()=>{} }) {
                 onLogout: onLogout
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2980,
+                lineNumber: 3652,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InstructorHeader, {
                 sidebarW: sidebarPx,
                 userName: userName,
-                userInitials: userInitials
+                userInitials: userInitials,
+                setActive: setActive,
+                assignmentCourses: assignmentCourses
             }, void 0, false, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2981,
+                lineNumber: 3653,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -10776,101 +12061,103 @@ function InstructorDashboard({ onLogout = ()=>{} }) {
                                 userName: userName
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2985,
+                                lineNumber: 3663,
                                 columnNumber: 42
                             }, this),
                             active === "courses" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MyCoursesPage, {
                                 setActive: setActive
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2986,
+                                lineNumber: 3664,
                                 columnNumber: 42
                             }, this),
                             active === "students" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StudentsPage, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2987,
+                                lineNumber: 3665,
                                 columnNumber: 42
                             }, this),
                             active === "assignments" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AssignmentsPage, {
-                                setActive: setActive
+                                setActive: setActive,
+                                courses: assignmentCourses,
+                                setCourses: setAssignmentCourses
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2988,
-                                columnNumber: 42
+                                lineNumber: 3667,
+                                columnNumber: 13
                             }, this),
                             active === "quizzes" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(QuizzesPage, {
                                 setActive: setActive
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2989,
+                                lineNumber: 3673,
                                 columnNumber: 42
                             }, this),
                             active === "materials" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(LearningMaterialsPage, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2990,
+                                lineNumber: 3674,
                                 columnNumber: 42
                             }, this),
                             active === "grades" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(GradesPage, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2991,
+                                lineNumber: 3675,
                                 columnNumber: 42
                             }, this),
                             active === "announcements" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InstructorAnnouncementsPage, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2992,
+                                lineNumber: 3676,
                                 columnNumber: 42
                             }, this),
                             active === "calendar" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CalendarPage, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2993,
+                                lineNumber: 3677,
                                 columnNumber: 42
                             }, this),
                             active === "messages" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InstructorMessagesPage, {
                                 userName: userName
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2994,
+                                lineNumber: 3678,
                                 columnNumber: 42
                             }, this),
                             active === "profile" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InstructorProfilePage, {
                                 userName: userName
                             }, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2995,
+                                lineNumber: 3679,
                                 columnNumber: 42
                             }, this),
                             active === "settings" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InstructorSettingsPage, {}, void 0, false, {
                                 fileName: "[project]/src/InstructorDashboard.tsx",
-                                lineNumber: 2996,
+                                lineNumber: 3680,
                                 columnNumber: 42
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2984,
+                        lineNumber: 3662,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Footer, {}, void 0, false, {
                         fileName: "[project]/src/InstructorDashboard.tsx",
-                        lineNumber: 2998,
+                        lineNumber: 3682,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/InstructorDashboard.tsx",
-                lineNumber: 2983,
+                lineNumber: 3661,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/InstructorDashboard.tsx",
-        lineNumber: 2979,
+        lineNumber: 3651,
         columnNumber: 5
     }, this);
 }
-_s10(InstructorDashboard, "vz8UALiLCkRIluCPpu4Im5cQ9lg=");
-_c53 = InstructorDashboard;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11, _c12, _c13, _c14, _c15, _c16, _c17, _c18, _c19, _c20, _c21, _c22, _c23, _c24, _c25, _c26, _c27, _c28, _c29, _c30, _c31, _c32, _c33, _c34, _c35, _c36, _c37, _c38, _c39, _c40, _c41, _c42, _c43, _c44, _c45, _c46, _c47, _c48, _c49, _c50, _c51, _c52, _c53;
+_s11(InstructorDashboard, "FLDlT/7Wse4HDhQzkSEmTKtw9a4=");
+_c54 = InstructorDashboard;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11, _c12, _c13, _c14, _c15, _c16, _c17, _c18, _c19, _c20, _c21, _c22, _c23, _c24, _c25, _c26, _c27, _c28, _c29, _c30, _c31, _c32, _c33, _c34, _c35, _c36, _c37, _c38, _c39, _c40, _c41, _c42, _c43, _c44, _c45, _c46, _c47, _c48, _c49, _c50, _c51, _c52, _c53, _c54;
 __turbopack_context__.k.register(_c, "IconGraduationCap");
 __turbopack_context__.k.register(_c1, "IconDashboard");
 __turbopack_context__.k.register(_c2, "IconBook");
@@ -10904,27 +12191,28 @@ __turbopack_context__.k.register(_c29, "IconFilter");
 __turbopack_context__.k.register(_c30, "IconBarChart");
 __turbopack_context__.k.register(_c31, "IconAlertCircle");
 __turbopack_context__.k.register(_c32, "IconX");
-__turbopack_context__.k.register(_c33, "IconDownload");
-__turbopack_context__.k.register(_c34, "InstructorSidebar");
-__turbopack_context__.k.register(_c35, "InstructorHeader");
-__turbopack_context__.k.register(_c36, "SummaryCard");
-__turbopack_context__.k.register(_c37, "ProgressBar");
-__turbopack_context__.k.register(_c38, "DashboardHome");
-__turbopack_context__.k.register(_c39, "MaterialPreviewModal");
-__turbopack_context__.k.register(_c40, "MyCoursesPage");
-__turbopack_context__.k.register(_c41, "StudentsPage");
-__turbopack_context__.k.register(_c42, "AssignmentsPage");
-__turbopack_context__.k.register(_c43, "QuizzesPage");
-__turbopack_context__.k.register(_c44, "LearningMaterialsPage");
-__turbopack_context__.k.register(_c45, "GradesPage");
-__turbopack_context__.k.register(_c46, "CalendarPage");
-__turbopack_context__.k.register(_c47, "PlaceholderPage");
-__turbopack_context__.k.register(_c48, "InstructorAnnouncementsPage");
-__turbopack_context__.k.register(_c49, "InstructorMessagesPage");
-__turbopack_context__.k.register(_c50, "InstructorProfilePage");
-__turbopack_context__.k.register(_c51, "InstructorSettingsPage");
-__turbopack_context__.k.register(_c52, "Footer");
-__turbopack_context__.k.register(_c53, "InstructorDashboard");
+__turbopack_context__.k.register(_c33, "IconTrash");
+__turbopack_context__.k.register(_c34, "IconDownload");
+__turbopack_context__.k.register(_c35, "InstructorSidebar");
+__turbopack_context__.k.register(_c36, "InstructorHeader");
+__turbopack_context__.k.register(_c37, "SummaryCard");
+__turbopack_context__.k.register(_c38, "ProgressBar");
+__turbopack_context__.k.register(_c39, "DashboardHome");
+__turbopack_context__.k.register(_c40, "MaterialPreviewModal");
+__turbopack_context__.k.register(_c41, "MyCoursesPage");
+__turbopack_context__.k.register(_c42, "StudentsPage");
+__turbopack_context__.k.register(_c43, "AssignmentsPage");
+__turbopack_context__.k.register(_c44, "QuizzesPage");
+__turbopack_context__.k.register(_c45, "LearningMaterialsPage");
+__turbopack_context__.k.register(_c46, "GradesPage");
+__turbopack_context__.k.register(_c47, "CalendarPage");
+__turbopack_context__.k.register(_c48, "PlaceholderPage");
+__turbopack_context__.k.register(_c49, "InstructorAnnouncementsPage");
+__turbopack_context__.k.register(_c50, "InstructorMessagesPage");
+__turbopack_context__.k.register(_c51, "InstructorProfilePage");
+__turbopack_context__.k.register(_c52, "InstructorSettingsPage");
+__turbopack_context__.k.register(_c53, "Footer");
+__turbopack_context__.k.register(_c54, "InstructorDashboard");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

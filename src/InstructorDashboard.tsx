@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getSessionUser, getInitials } from "./auth";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
@@ -47,11 +47,13 @@ const IconGrades = () => (
 );
 const IconAnnouncement = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 shrink-0">
-    <path d="M3 11l19-9-9 19-2-8-8-2z" />
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 010 7.07" />
+    <path d="M19.07 4.93a10 10 0 010 14.14" />
   </svg>
 );
-const IconCalendar = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 shrink-0">
+const IconCalendar = ({ className = "w-5 h-5 shrink-0" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
     <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
   </svg>
 );
@@ -98,6 +100,11 @@ const IconChevronsLeft = () => (
 const IconChevronsRight = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
     <polyline points="13 17 18 12 13 7" /><polyline points="6 17 11 12 6 7" />
+  </svg>
+);
+const IconChevronLeft = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={className}>
+    <polyline points="15 18 9 12 15 6" />
   </svg>
 );
 const IconChevronRight = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -173,6 +180,11 @@ const IconX = ({ className = "w-5 h-5" }: { className?: string }) => (
     <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
+const IconTrash = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+  </svg>
+);
 const IconDownload = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
     <polyline points="8 17 12 21 16 17" /><line x1="12" y1="12" x2="12" y2="21" />
@@ -189,9 +201,6 @@ const navItems = [
   { label: "Quizzes",            icon: <IconQuiz />,         id: "quizzes" },
   { label: "Learning Materials", icon: <IconFolder />,       id: "materials" },
   { label: "Grades",             icon: <IconGrades />,       id: "grades" },
-  { label: "Announcements",      icon: <IconAnnouncement />, id: "announcements" },
-  { label: "Calendar",           icon: <IconCalendar />,     id: "calendar" },
-  { label: "Messages",           icon: <IconMessage />,      id: "messages" },
   { label: "Profile",            icon: <IconProfile />,      id: "profile" },
   { label: "Settings",           icon: <IconSettings />,     id: "settings" },
 ];
@@ -275,30 +284,495 @@ function InstructorSidebar({
   );
 }
 
+// ── Shared Assignment Interfaces & Data ───────────────────────────────────────
+export interface InstructorAssignmentItem {
+  id?: string;
+  title: string;
+  due: string;
+  submissions: number;
+  total: number;
+  type: string;
+  graded: boolean;
+  maxScore?: number;
+  description?: string;
+  weight?: number;
+  status?: "Draft" | "Published";
+}
+
+export interface InstructorCourseAssignments {
+  code: string;
+  name: string;
+  color: string;
+  assignments: InstructorAssignmentItem[];
+  assessments?: InstructorAssignmentItem[];
+}
+
+export const INITIAL_ASSIGNMENT_COURSES: InstructorCourseAssignments[] = [
+  {
+    code: "ICT301", name: "Information Technology Project 1", color: "#2563eb",
+    assignments: [
+      { id: "ict301-a1", title: "Milestone 1: Project Proposal", due: "Aug 25, 2026", submissions: 32, total: 32, type: "Assignment", graded: true, maxScore: 100, description: "Comprehensive project proposal detailing project scope, team roles, and Gantt chart schedule." },
+      { id: "ict301-a2", title: "Milestone 2: Preliminary Design", due: "Sep 5, 2026", submissions: 28, total: 32, type: "Assignment", graded: false, maxScore: 100, description: "Preliminary architecture design diagrams, class models, and UX wireframe deliverables." },
+      { id: "ict301-a3", title: "Weekly Journal Entry 1", due: "Aug 22, 2026", submissions: 30, total: 32, type: "Assignment", graded: true, maxScore: 50, description: "Reflective learning journal entry covering sprint planning and risk management notes." },
+    ],
+    assessments: [
+      { id: "ict301-ass1", title: "Milestone 3: Final System Implementation & Defense", due: "Sep 25, 2026", submissions: 20, total: 32, type: "Assessment", graded: false, maxScore: 100, weight: 35, description: "Final functional software submission and panel presentation defense demonstrating project deliverables.", status: "Published" },
+    ],
+  },
+  {
+    code: "ICT272", name: "Web Design and Development", color: "#0e9f6e",
+    assignments: [
+      { id: "ict272-a1", title: "Lab Exercise 1: HTML Basics", due: "Aug 20, 2026", submissions: 38, total: 38, type: "Assignment", graded: true, maxScore: 50, description: "Semantic markup exercise creating accessible multi-page structure." },
+      { id: "ict272-a2", title: "Lab Exercise 2: CSS Layouts", due: "Aug 27, 2026", submissions: 37, total: 38, type: "Assignment", graded: true, maxScore: 50, description: "Flexbox and Grid layout implementation matching design specifications." },
+      { id: "ict272-a3", title: "Lab Exercise 3: JavaScript DOM", due: "Sep 3, 2026", submissions: 36, total: 38, type: "Assignment", graded: false, maxScore: 50, description: "Interactive client-side web application handling DOM events and form validation." },
+      { id: "ict272-a4", title: "Lab Exercise 4: React Basics", due: "Sep 7, 2026", submissions: 12, total: 38, type: "Assignment", graded: false, maxScore: 50, description: "Component-based web application with React state and props." },
+    ],
+    assessments: [
+      { id: "ict272-ass1", title: "Major Project: Interactive Web Application", due: "Sep 22, 2026", submissions: 35, total: 38, type: "Assessment", graded: true, maxScore: 100, weight: 30, description: "Production-ready web application built with responsive design and modern frontend framework.", status: "Published" },
+    ],
+  },
+  {
+    code: "ICT126", name: "Artificial Intelligence", color: "#7c3aed",
+    assignments: [
+      { id: "ict126-a1", title: "AI Case Study Research Paper", due: "Sep 19, 2026", submissions: 10, total: 26, type: "Assignment", graded: false, maxScore: 100, description: "Research paper surveying contemporary applications of generative AI in education." },
+      { id: "ict126-a2", title: "Assignment 1: AI History Review", due: "Aug 28, 2026", submissions: 26, total: 26, type: "Assignment", graded: true, maxScore: 100, description: "Literature review of classical AI paradigms and symbolic reasoning systems." },
+      { id: "ict126-a3", title: "Assignment 2: ML Algorithm Analysis", due: "Sep 4, 2026", submissions: 24, total: 26, type: "Assignment", graded: false, maxScore: 100, description: "Empirical evaluation of decision trees versus random forests on benchmark classification data." },
+    ],
+    assessments: [
+      { id: "ict126-ass1", title: "Mid-Term Practical AI Assessment", due: "Sep 18, 2026", submissions: 22, total: 26, type: "Assessment", graded: false, maxScore: 100, weight: 25, description: "Hands-on machine learning implementation and empirical performance evaluation report.", status: "Published" },
+    ],
+  },
+];
+
+// Helper to format HTML date picker values (e.g. "2026-09-28" to "Sep 28, 2026")
+export function formatDueDate(dateStr: string): string {
+  if (!dateStr) return "";
+  try {
+    const parts = dateStr.split("-");
+    if (parts.length === 3) {
+      const year = parts[0];
+      const monthIndex = parseInt(parts[1], 10) - 1;
+      const day = parseInt(parts[2], 10);
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      if (months[monthIndex]) {
+        return `${months[monthIndex]} ${day}, ${year}`;
+      }
+    }
+  } catch {}
+  return dateStr;
+}
+
+// ── Search Pool Interface & Builder ───────────────────────────────────────────
+export interface SearchResultItem {
+  id: string;
+  category: "Course" | "Student" | "Assignment" | "Quiz" | "Learning Material" | "Grade" | "Announcement" | "Message" | "Calendar";
+  title: string;
+  subtitle: string;
+  badgeColor?: string;
+  targetPage: string;
+}
+
+export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssignments[]): SearchResultItem[] {
+  const pool: SearchResultItem[] = [];
+
+  // 1. Courses
+  pool.push(
+    {
+      id: "course-ict301",
+      category: "Course",
+      title: "ICT301 — Information Technology Project 1",
+      subtitle: "3 Credits · Mon/Wed 8:00–10:00 AM · Room IT-201 · 32 Students Enrolled",
+      badgeColor: "bg-blue-100 text-blue-700",
+      targetPage: "courses",
+    },
+    {
+      id: "course-ict272",
+      category: "Course",
+      title: "ICT272 — Web Design and Development",
+      subtitle: "3 Credits · Tue/Thu 10:00 AM–12:00 PM · Online Zoom · 38 Students Enrolled",
+      badgeColor: "bg-blue-100 text-blue-700",
+      targetPage: "courses",
+    },
+    {
+      id: "course-ict126",
+      category: "Course",
+      title: "ICT126 — Artificial Intelligence",
+      subtitle: "3 Credits · Fri 1:00–3:00 PM · Room IT-304 · 26 Students Enrolled",
+      badgeColor: "bg-blue-100 text-blue-700",
+      targetPage: "courses",
+    }
+  );
+
+  // 2. Students
+  const sampleStudents = [
+    { name: "Marco Reyes", id: "STU-0231", course: "ICT301", email: "m.reyes@student.edu", grade: "B+", status: "Active" },
+    { name: "Sofia Tan", id: "STU-0198", course: "ICT272", email: "s.tan@student.edu", grade: "A", status: "Active" },
+    { name: "Liam Garcia", id: "STU-0274", course: "ICT301", email: "l.garcia@student.edu", grade: "B", status: "Active" },
+    { name: "Aisha Patel", id: "STU-0312", course: "ICT272", email: "a.patel@student.edu", grade: "A-", status: "Active" },
+    { name: "Ethan Cruz", id: "STU-0299", course: "ICT272", email: "e.cruz@student.edu", grade: "B+", status: "Active" },
+    { name: "Maya Lopez", id: "STU-0344", course: "ICT272", email: "m.lopez@student.edu", grade: "A", status: "Active" },
+    { name: "Noah Kim", id: "STU-0401", course: "ICT126", email: "n.kim@student.edu", grade: "A+", status: "Active" },
+    { name: "Priya Nair", id: "STU-0388", course: "ICT126", email: "p.nair@student.edu", grade: "B", status: "Active" },
+    { name: "Carlos Vega", id: "STU-0411", course: "ICT126", email: "c.vega@student.edu", grade: "B+", status: "Active" },
+    { name: "Luna Santos", id: "STU-0422", course: "ICT301", email: "l.santos@student.edu", grade: "C+", status: "At Risk" },
+    { name: "Raj Sharma", id: "STU-0433", course: "ICT272", email: "r.sharma@student.edu", grade: "B", status: "Active" },
+    { name: "Zoe Andrade", id: "STU-0444", course: "ICT126", email: "z.andrade@student.edu", grade: "A-", status: "Active" },
+  ];
+  sampleStudents.forEach((s) => {
+    pool.push({
+      id: `student-${s.id}`,
+      category: "Student",
+      title: s.name,
+      subtitle: `${s.id} · ${s.course} · ${s.email} · Current Grade: ${s.grade} · ${s.status}`,
+      badgeColor: "bg-emerald-100 text-emerald-700",
+      targetPage: "students",
+    });
+  });
+
+  // 3. Assignments & Assessments (dynamically includes newly created items!)
+  assignmentCourses.forEach((c) => {
+    c.assignments.forEach((a, idx) => {
+      pool.push({
+        id: `assign-${c.code}-${idx}-${a.title}`,
+        category: "Assignment",
+        title: a.title,
+        subtitle: `${c.code} · Assignment · Due: ${a.due} · ${a.submissions}/${a.total} submitted · ${a.graded ? "Graded" : "Pending Grading"}`,
+        badgeColor: "bg-amber-100 text-amber-700",
+        targetPage: "assignments",
+      });
+    });
+    if (c.assessments) {
+      c.assessments.forEach((ass, idx) => {
+        pool.push({
+          id: `assess-${c.code}-${idx}-${ass.title}`,
+          category: "Assignment",
+          title: ass.title,
+          subtitle: `${c.code} · Assessment (Weight: ${ass.weight ?? 0}%) · Due: ${ass.due} · ${ass.status ?? "Published"}`,
+          badgeColor: "bg-purple-100 text-purple-700",
+          targetPage: "assignments",
+        });
+      });
+    }
+  });
+
+  // 4. Quizzes
+  const sampleQuizzes = [
+    { title: "Weekly Quiz 1", course: "ICT301", date: "Aug 19, 2026", status: "Completed", avg: "Avg Score: 82%" },
+    { title: "Weekly Quiz 2", course: "ICT272", date: "Aug 26, 2026", status: "Completed", avg: "Avg Score: 78%" },
+    { title: "Weekly Quiz 3", course: "ICT126", date: "Sep 2, 2026", status: "Active", avg: "24/26 submissions" },
+    { title: "Midterm Quiz", course: "ICT126", date: "Sep 8, 2026", status: "Upcoming", avg: "Lab Quiz · 25 Questions" },
+    { title: "Lab Quiz 1", course: "ICT272", date: "Sep 10, 2026", status: "Upcoming", avg: "Online Quiz · 20 Questions" },
+    { title: "Weekly Quiz 3", course: "ICT301", date: "Sep 3, 2026", status: "Active", avg: "18/32 submissions" },
+  ];
+  sampleQuizzes.forEach((q, idx) => {
+    pool.push({
+      id: `quiz-${idx}-${q.title}`,
+      category: "Quiz",
+      title: q.title,
+      subtitle: `${q.course} · Scheduled: ${q.date} · ${q.status} · ${q.avg}`,
+      badgeColor: "bg-purple-100 text-purple-700",
+      targetPage: "quizzes",
+    });
+  });
+
+  // 5. Learning Materials
+  if (typeof INSTRUCTOR_LEARNING_MATERIALS !== "undefined" && Array.isArray(INSTRUCTOR_LEARNING_MATERIALS)) {
+    INSTRUCTOR_LEARNING_MATERIALS.forEach((m) => {
+      pool.push({
+        id: `material-${m.id}`,
+        category: "Learning Material",
+        title: m.title,
+        subtitle: `${m.course} — ${m.courseName} · ${m.type} · ${m.size} · Uploaded ${m.date}`,
+        badgeColor: "bg-teal-100 text-teal-700",
+        targetPage: "materials",
+      });
+    });
+  }
+
+  // 6. Grades
+  pool.push(
+    {
+      id: "grade-ict301",
+      category: "Grade",
+      title: "ICT301 Student Grades",
+      subtitle: "Information Technology Project 1 · Grade roster and submission tracking",
+      badgeColor: "bg-indigo-100 text-indigo-700",
+      targetPage: "grades",
+    },
+    {
+      id: "grade-ict272",
+      category: "Grade",
+      title: "ICT272 Student Grades",
+      subtitle: "Web Design and Development · Grade roster and submission tracking",
+      badgeColor: "bg-indigo-100 text-indigo-700",
+      targetPage: "grades",
+    },
+    {
+      id: "grade-ict126",
+      category: "Grade",
+      title: "ICT126 Student Grades",
+      subtitle: "Artificial Intelligence · Grade roster and submission tracking",
+      badgeColor: "bg-indigo-100 text-indigo-700",
+      targetPage: "grades",
+    }
+  );
+
+  // 7. Announcements
+  const sampleAnnouncements = [
+    { title: "Milestone 2 Submission Reminder", course: "ICT301", status: "Published", date: "Sep 1, 2026" },
+    { title: "Updated Learning Materials — Week 8", course: "All Courses", status: "Published", date: "Aug 28, 2026" },
+    { title: "Guest Lecture: AI in Healthcare Industry", course: "ICT126", status: "Published", date: "Aug 20, 2026" },
+    { title: "Final Project Report Guidelines & Submission Portal", course: "ICT301", status: "Draft", date: "Aug 15, 2026" },
+    { title: "Mid-Semester Course Feedback Survey", course: "All Courses", status: "Scheduled", date: "Sep 10, 2026" },
+  ];
+  sampleAnnouncements.forEach((a, idx) => {
+    pool.push({
+      id: `announcement-${idx}`,
+      category: "Announcement",
+      title: a.title,
+      subtitle: `${a.course} · Status: ${a.status} · ${a.date}`,
+      badgeColor: "bg-rose-100 text-rose-700",
+      targetPage: "announcements",
+    });
+  });
+
+  // 8. Messages
+  const sampleMessages = [
+    { name: "Marco Reyes", detail: "Question about Milestone 2 rubric and submission deadline", course: "ICT301" },
+    { name: "Sofia Tan", detail: "Thank you for the feedback on the lab exercise", course: "ICT272" },
+    { name: "Prof. Eduardo Lim", detail: "Faculty meeting scheduled for tomorrow at 2 PM in Room IT-301", course: "Faculty" },
+    { name: "Liam Garcia", detail: "Request for office hours consult regarding project architecture", course: "ICT301" },
+  ];
+  sampleMessages.forEach((msg, idx) => {
+    pool.push({
+      id: `msg-${idx}`,
+      category: "Message",
+      title: `Message with ${msg.name}`,
+      subtitle: `${msg.course} · "${msg.detail}"`,
+      badgeColor: "bg-cyan-100 text-cyan-700",
+      targetPage: "messages",
+    });
+  });
+
+  // 9. Calendar
+  const sampleCalendar = [
+    { title: "ICT301 Lecture", detail: "Mon/Wed 8:00–10:00 AM · Room IT-201" },
+    { title: "ICT272 Online Lecture", detail: "Tue/Thu 10:00 AM–12:00 PM · Online Zoom" },
+    { title: "ICT126 Lab", detail: "Fri 1:00–3:00 PM · Room IT-304" },
+    { title: "ICT126 Midterm Quiz", detail: "Sep 8, 2026 · 1:00–2:00 PM · Room IT-304" },
+    { title: "Faculty Meeting", detail: "Sep 10, 2026 · 2:00–3:00 PM · Room IT-301" },
+  ];
+  sampleCalendar.forEach((cal, idx) => {
+    pool.push({
+      id: `calendar-${idx}`,
+      category: "Calendar",
+      title: cal.title,
+      subtitle: cal.detail,
+      badgeColor: "bg-orange-100 text-orange-700",
+      targetPage: "calendar",
+    });
+  });
+
+  return pool;
+}
+
 // ── Header ────────────────────────────────────────────────────────────────────
-function InstructorHeader({ sidebarW, userName, userInitials }: { sidebarW: string; userName: string; userInitials: string }) {
+function InstructorHeader({
+  sidebarW,
+  userName,
+  userInitials,
+  setActive,
+  assignmentCourses = INITIAL_ASSIGNMENT_COURSES,
+}: {
+  sidebarW: string;
+  userName: string;
+  userInitials: string;
+  setActive?: (id: string) => void;
+  assignmentCourses?: InstructorCourseAssignments[];
+}) {
+  const [query, setQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  const searchPool = getInstructorSearchPool(assignmentCourses);
+
+  const trimmed = query.trim().toLowerCase();
+  const matches = trimmed.length > 0
+    ? searchPool.filter((item) => {
+        return (
+          item.title.toLowerCase().includes(trimmed) ||
+          item.subtitle.toLowerCase().includes(trimmed) ||
+          item.category.toLowerCase().includes(trimmed)
+        );
+      })
+    : [];
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleSelect = (item: SearchResultItem) => {
+    if (setActive) {
+      setActive(item.targetPage);
+    }
+    setQuery("");
+    setIsOpen(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (matches.length > 0) {
+        handleSelect(matches[0]);
+      }
+    } else if (e.key === "Escape") {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <header
-      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center px-6 gap-4 z-20 transition-all duration-300"
+      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 gap-4 z-20 transition-all duration-300"
       style={{ left: sidebarW }}
     >
-      <div className="flex-1 relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><IconSearch /></span>
-        <input
-          type="text"
-          placeholder="Search courses, students, materials..."
-          className="w-full pl-9 pr-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
-        />
+      <div className="flex-1 relative max-w-2xl min-w-[240px]" ref={searchRef}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (matches.length > 0) {
+              handleSelect(matches[0]);
+            }
+          }}
+          className="relative w-full"
+        >
+          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+            <IconSearch />
+          </span>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setIsOpen(true);
+            }}
+            onFocus={() => {
+              if (query.trim().length > 0) setIsOpen(true);
+            }}
+            onKeyDown={handleKeyDown}
+            placeholder="Search courses, students, materials..."
+            className="w-full pl-9 pr-24 py-2 bg-gray-100 rounded-full text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+          />
+          {query.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setIsOpen(false);
+              }}
+              className="absolute right-20 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 rounded-full cursor-pointer"
+              title="Clear search"
+            >
+              <IconX className="w-3.5 h-3.5" />
+            </button>
+          )}
+          <button
+            type="submit"
+            className="absolute right-1.5 top-1/2 -translate-y-1/2 px-4 py-1 bg-[#1a3a9e] hover:bg-[#102d80] text-white text-xs font-bold rounded-full transition-colors shadow-sm cursor-pointer"
+          >
+            Search
+          </button>
+        </form>
+
+        {isOpen && query.trim().length > 0 && (
+          <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 max-h-96 overflow-y-auto divide-y divide-gray-50 animate-in fade-in zoom-in-95 duration-150">
+            <div className="px-4 py-2 bg-gray-50 border-b border-gray-100 flex items-center justify-between text-[11px] text-gray-500 font-medium">
+              <span>Search Results ({matches.length})</span>
+              <span>Press Enter to select top result</span>
+            </div>
+
+            {matches.length > 0 ? (
+              <div className="py-1">
+                {matches.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleSelect(item)}
+                    className="w-full px-4 py-3 text-left flex items-center justify-between gap-3 hover:bg-blue-50/60 transition-colors cursor-pointer group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${item.badgeColor || "bg-gray-100 text-gray-700"}`}>
+                        {item.category}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors truncate">
+                          {item.title}
+                        </p>
+                        <p className="text-xs text-gray-500 truncate">
+                          {item.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs text-blue-600 shrink-0 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>Go to {item.targetPage.charAt(0).toUpperCase() + item.targetPage.slice(1)}</span>
+                      <IconChevronRight className="w-3.5 h-3.5" />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="p-6 text-center text-gray-500">
+                <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
+                  <IconSearch />
+                </div>
+                <p className="text-sm font-semibold text-gray-700">No results found</p>
+                <p className="text-xs text-gray-400 mt-1">
+                  No matching results found for &ldquo;{query}&rdquo;. Try searching for courses, students, assignments, quizzes, or materials.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
+
       <div className="flex items-center gap-3 shrink-0">
-        <button className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100">
-          <IconMail />
+        <button
+          type="button"
+          onClick={() => setActive && setActive("calendar")}
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+          title="Calendar"
+          aria-label="Calendar"
+        >
+          <IconCalendar />
         </button>
-        <button className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100">
-          <IconBell />
+        <button
+          type="button"
+          onClick={() => setActive && setActive("announcements")}
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+          title="Announcements"
+          aria-label="Announcements"
+        >
+          <IconAnnouncement />
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white" />
         </button>
-        <div className="flex items-center gap-2 pl-3 border-l border-gray-200">
+        <button
+          type="button"
+          onClick={() => setActive && setActive("messages")}
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+          title="Messages"
+          aria-label="Messages"
+        >
+          <IconMail />
+        </button>
+        <button
+          type="button"
+          onClick={() => setActive && setActive("profile")}
+          className="flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer text-left"
+        >
           <div className="text-right">
             <p className="text-sm font-semibold text-gray-800 leading-tight">{userName}</p>
             <p className="text-xs text-gray-500">Instructor</p>
@@ -306,7 +780,7 @@ function InstructorHeader({ sidebarW, userName, userInitials }: { sidebarW: stri
           <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0" style={{ background: "#0e9f6e" }}>
             {userInitials}
           </div>
-        </div>
+        </button>
       </div>
     </header>
   );
@@ -1763,59 +2237,405 @@ function StudentsPage() {
 }
 
 // ── Assignments Page ──────────────────────────────────────────────────────────
-function AssignmentsPage({ setActive }: { setActive: (id: string) => void }) {
+function toInputDateFormat(dateStr: string): string {
+  if (!dateStr) return "";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+  try {
+    const d = new Date(dateStr);
+    if (!isNaN(d.getTime())) {
+      return d.toISOString().split("T")[0];
+    }
+  } catch {}
+  return "";
+}
+
+function AssignmentsPage({
+  setActive,
+  courses: externalCourses,
+  setCourses: externalSetCourses,
+}: {
+  setActive: (id: string) => void;
+  courses?: InstructorCourseAssignments[];
+  setCourses?: React.Dispatch<React.SetStateAction<InstructorCourseAssignments[]>>;
+}) {
+  const [internalCourses, setInternalCourses] = useState<InstructorCourseAssignments[]>(INITIAL_ASSIGNMENT_COURSES);
+  const courses = externalCourses ?? internalCourses;
+  const setCourses = externalSetCourses ?? setInternalCourses;
+
   const [open, setOpen] = useState<string | null>("ICT301");
-  const [viewAssignment, setViewAssignment] = useState<null | { title: string; course: string; due: string; submissions: number; total: number; type: string }>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const courses = [
-    {
-      code: "ICT301", name: "Information Technology Project 1", color: "#2563eb",
-      assignments: [
-        { title: "Milestone 1: Project Proposal", due: "Aug 25, 2026", submissions: 32, total: 32, type: "Assignment", graded: true },
-        { title: "Milestone 2: Preliminary Design", due: "Sep 5, 2026", submissions: 28, total: 32, type: "Assignment", graded: false },
-        { title: "Weekly Journal Entry 1", due: "Aug 22, 2026", submissions: 30, total: 32, type: "Assignment", graded: true },
-      ],
-    },
-    {
-      code: "ICT272", name: "Web Design and Development", color: "#0e9f6e",
-      assignments: [
-        { title: "Lab Exercise 1: HTML Basics", due: "Aug 20, 2026", submissions: 38, total: 38, type: "Assignment", graded: true },
-        { title: "Lab Exercise 2: CSS Layouts", due: "Aug 27, 2026", submissions: 37, total: 38, type: "Assignment", graded: true },
-        { title: "Lab Exercise 3: JavaScript DOM", due: "Sep 3, 2026", submissions: 36, total: 38, type: "Assignment", graded: false },
-        { title: "Lab Exercise 4: React Basics", due: "Sep 7, 2026", submissions: 12, total: 38, type: "Assignment", graded: false },
-      ],
-    },
-    {
-      code: "ICT126", name: "Artificial Intelligence", color: "#7c3aed",
-      assignments: [
-        { title: "AI Case Study Research Paper", due: "Sep 19, 2026", submissions: 10, total: 26, type: "Assignment", graded: false },
-        { title: "Assignment 1: AI History Review", due: "Aug 28, 2026", submissions: 26, total: 26, type: "Assignment", graded: true },
-        { title: "Assignment 2: ML Algorithm Analysis", due: "Sep 4, 2026", submissions: 24, total: 26, type: "Assignment", graded: false },
-      ],
-    },
-  ];
+  // Detail View State
+  const [viewItem, setViewItem] = useState<null | {
+    id?: string;
+    title: string;
+    course: string;
+    due: string;
+    submissions: number;
+    total: number;
+    type: string;
+    graded: boolean;
+    maxScore?: number;
+    description?: string;
+    weight?: number;
+    status?: "Draft" | "Published";
+  }>(null);
 
-  if (viewAssignment) {
-    const pending = viewAssignment.total - viewAssignment.submissions;
+  // Create Menu Dropdown State
+  const [isCreateMenuOpen, setIsCreateMenuOpen] = useState(false);
+  const createMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (createMenuRef.current && !createMenuRef.current.contains(e.target as Node)) {
+        setIsCreateMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // ── New Assignment Modal State ──
+  const [isAssignmentModalOpen, setIsAssignmentModalOpen] = useState(false);
+  const [createAssignmentCourse, setCreateAssignmentCourse] = useState("ICT301");
+  const [createAssignmentTitle, setCreateAssignmentTitle] = useState("");
+  const [createAssignmentDesc, setCreateAssignmentDesc] = useState("");
+  const [createAssignmentDue, setCreateAssignmentDue] = useState("");
+  const [createAssignmentMaxScore, setCreateAssignmentMaxScore] = useState("100");
+  const [assignmentErrors, setAssignmentErrors] = useState<Record<string, string>>({});
+
+  // ── New Assessment Modal State ──
+  const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState(false);
+  const [createAssessmentCourse, setCreateAssessmentCourse] = useState("ICT301");
+  const [createAssessmentTitle, setCreateAssessmentTitle] = useState("");
+  const [createAssessmentDesc, setCreateAssessmentDesc] = useState("");
+  const [createAssessmentDue, setCreateAssessmentDue] = useState("");
+  const [createAssessmentMaxScore, setCreateAssessmentMaxScore] = useState("100");
+  const [createAssessmentWeight, setCreateAssessmentWeight] = useState("25");
+  const [assessmentErrors, setAssessmentErrors] = useState<Record<string, string>>({});
+
+  // ── Edit Modal State ──
+  const [editTarget, setEditTarget] = useState<null | {
+    item: InstructorAssignmentItem;
+    courseCode: string;
+    isAssessment: boolean;
+  }>(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDesc, setEditDesc] = useState("");
+  const [editDue, setEditDue] = useState("");
+  const [editMaxScore, setEditMaxScore] = useState("100");
+  const [editWeight, setEditWeight] = useState("20");
+  const [editStatus, setEditStatus] = useState<"Draft" | "Published">("Published");
+  const [editErrors, setEditErrors] = useState<Record<string, string>>({});
+
+  // ── Delete Confirm State ──
+  const [deleteTarget, setDeleteTarget] = useState<null | {
+    item: InstructorAssignmentItem;
+    courseCode: string;
+    isAssessment: boolean;
+  }>(null);
+
+  const courseTotals: Record<string, number> = {
+    ICT301: 32,
+    ICT272: 38,
+    ICT126: 26,
+  };
+
+  // ── Handlers ──
+  const handleCreateAssignment = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errors: Record<string, string> = {};
+
+    if (!createAssignmentTitle.trim()) {
+      errors.title = "Assignment title is required";
+    }
+    if (!createAssignmentDesc.trim()) {
+      errors.desc = "Description & instructions are required";
+    }
+    if (!createAssignmentDue.trim()) {
+      errors.due = "Due date is required";
+    }
+    const scoreNum = Number(createAssignmentMaxScore);
+    if (!createAssignmentMaxScore || isNaN(scoreNum) || scoreNum <= 0) {
+      errors.maxScore = "Please enter a valid maximum score (greater than 0)";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setAssignmentErrors(errors);
+      return;
+    }
+
+    const formattedDate = formatDueDate(createAssignmentDue);
+    const newAssignment: InstructorAssignmentItem = {
+      id: `assign-${Date.now()}`,
+      title: createAssignmentTitle.trim(),
+      due: formattedDate,
+      submissions: 0,
+      total: courseTotals[createAssignmentCourse] || 30,
+      type: "Assignment",
+      graded: false,
+      maxScore: scoreNum,
+      description: createAssignmentDesc.trim(),
+    };
+
+    setCourses((prevCourses) =>
+      prevCourses.map((c) => {
+        if (c.code === createAssignmentCourse) {
+          return {
+            ...c,
+            assignments: [newAssignment, ...c.assignments],
+          };
+        }
+        return c;
+      })
+    );
+
+    setOpen(createAssignmentCourse);
+    setToastMessage(`Assignment "${createAssignmentTitle.trim()}" created successfully for ${createAssignmentCourse}!`);
+    setTimeout(() => setToastMessage(null), 4000);
+
+    setCreateAssignmentTitle("");
+    setCreateAssignmentDesc("");
+    setCreateAssignmentDue("");
+    setCreateAssignmentMaxScore("100");
+    setAssignmentErrors({});
+    setIsAssignmentModalOpen(false);
+  };
+
+  const handleSaveAssessment = (publish: boolean) => {
+    const errors: Record<string, string> = {};
+
+    if (!createAssessmentTitle.trim()) {
+      errors.title = "Assessment title is required";
+    }
+    if (!createAssessmentDesc.trim()) {
+      errors.desc = "Description is required";
+    }
+    if (!createAssessmentDue.trim()) {
+      errors.due = "Due date is required";
+    }
+    const scoreNum = Number(createAssessmentMaxScore);
+    if (!createAssessmentMaxScore || isNaN(scoreNum) || scoreNum <= 0) {
+      errors.maxScore = "Please enter a valid maximum score (greater than 0)";
+    }
+    const weightNum = Number(createAssessmentWeight);
+    if (!createAssessmentWeight || isNaN(weightNum) || weightNum <= 0 || weightNum > 100) {
+      errors.weight = "Please enter a valid weight between 1% and 100%";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setAssessmentErrors(errors);
+      return;
+    }
+
+    const formattedDate = formatDueDate(createAssessmentDue);
+    const newAssessment: InstructorAssignmentItem = {
+      id: `assess-${Date.now()}`,
+      title: createAssessmentTitle.trim(),
+      due: formattedDate,
+      submissions: 0,
+      total: courseTotals[createAssessmentCourse] || 30,
+      type: "Assessment",
+      graded: false,
+      maxScore: scoreNum,
+      weight: weightNum,
+      description: createAssessmentDesc.trim(),
+      status: publish ? "Published" : "Draft",
+    };
+
+    setCourses((prevCourses) =>
+      prevCourses.map((c) => {
+        if (c.code === createAssessmentCourse) {
+          const currentAssessments = c.assessments || [];
+          return {
+            ...c,
+            assessments: [newAssessment, ...currentAssessments],
+          };
+        }
+        return c;
+      })
+    );
+
+    setOpen(createAssessmentCourse);
+    if (publish) {
+      setToastMessage(`Assessment "${createAssessmentTitle.trim()}" published successfully for ${createAssessmentCourse}!`);
+    } else {
+      setToastMessage(`Assessment "${createAssessmentTitle.trim()}" saved as draft for ${createAssessmentCourse}.`);
+    }
+    setTimeout(() => setToastMessage(null), 4000);
+
+    setCreateAssessmentTitle("");
+    setCreateAssessmentDesc("");
+    setCreateAssessmentDue("");
+    setCreateAssessmentMaxScore("100");
+    setCreateAssessmentWeight("25");
+    setAssessmentErrors({});
+    setIsAssessmentModalOpen(false);
+  };
+
+  const openEditModal = (item: InstructorAssignmentItem, courseCode: string, isAssessment: boolean) => {
+    setEditTarget({ item, courseCode, isAssessment });
+    setEditTitle(item.title);
+    setEditDesc(item.description || "");
+    setEditDue(toInputDateFormat(item.due));
+    setEditMaxScore(String(item.maxScore ?? 100));
+    setEditWeight(String(item.weight ?? 20));
+    setEditStatus(item.status ?? "Published");
+    setEditErrors({});
+  };
+
+  const handleSaveEdit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editTarget) return;
+
+    const errors: Record<string, string> = {};
+    if (!editTitle.trim()) errors.title = "Title is required";
+    if (!editDesc.trim()) errors.desc = "Description is required";
+    if (!editDue.trim()) errors.due = "Due date is required";
+    const scoreNum = Number(editMaxScore);
+    if (!editMaxScore || isNaN(scoreNum) || scoreNum <= 0) {
+      errors.maxScore = "Enter a valid score (> 0)";
+    }
+    const weightNum = Number(editWeight);
+    if (editTarget.isAssessment && (!editWeight || isNaN(weightNum) || weightNum <= 0 || weightNum > 100)) {
+      errors.weight = "Enter a valid weight (1-100%)";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setEditErrors(errors);
+      return;
+    }
+
+    const updatedDate = formatDueDate(editDue);
+
+    setCourses((prev) =>
+      prev.map((c) => {
+        if (c.code === editTarget.courseCode) {
+          if (editTarget.isAssessment) {
+            const updatedAssessments = (c.assessments || []).map((ass) => {
+              if (ass.id === editTarget.item.id || ass.title === editTarget.item.title) {
+                return {
+                  ...ass,
+                  title: editTitle.trim(),
+                  description: editDesc.trim(),
+                  due: updatedDate,
+                  maxScore: scoreNum,
+                  weight: weightNum,
+                  status: editStatus,
+                };
+              }
+              return ass;
+            });
+            return { ...c, assessments: updatedAssessments };
+          } else {
+            const updatedAssignments = c.assignments.map((a) => {
+              if (a.id === editTarget.item.id || a.title === editTarget.item.title) {
+                return {
+                  ...a,
+                  title: editTitle.trim(),
+                  description: editDesc.trim(),
+                  due: updatedDate,
+                  maxScore: scoreNum,
+                };
+              }
+              return a;
+            });
+            return { ...c, assignments: updatedAssignments };
+          }
+        }
+        return c;
+      })
+    );
+
+    setToastMessage(`${editTarget.isAssessment ? "Assessment" : "Assignment"} updated successfully.`);
+    setTimeout(() => setToastMessage(null), 4000);
+    setEditTarget(null);
+  };
+
+  const handleConfirmDelete = () => {
+    if (!deleteTarget) return;
+
+    setCourses((prev) =>
+      prev.map((c) => {
+        if (c.code === deleteTarget.courseCode) {
+          if (deleteTarget.isAssessment) {
+            return {
+              ...c,
+              assessments: (c.assessments || []).filter(
+                (ass) => ass.id !== deleteTarget.item.id && ass.title !== deleteTarget.item.title
+              ),
+            };
+          } else {
+            return {
+              ...c,
+              assignments: c.assignments.filter(
+                (a) => a.id !== deleteTarget.item.id && a.title !== deleteTarget.item.title
+              ),
+            };
+          }
+        }
+        return c;
+      })
+    );
+
+    setToastMessage(`${deleteTarget.isAssessment ? "Assessment" : "Assignment"} deleted successfully.`);
+    setTimeout(() => setToastMessage(null), 4000);
+    setDeleteTarget(null);
+  };
+
+  // ── Dedicated View Details View ──
+  if (viewItem) {
+    const pending = viewItem.total - viewItem.submissions;
+    const isAssessment = viewItem.type === "Assessment" || !!viewItem.weight;
+
     return (
       <div className="p-6">
-        <button onClick={() => setViewAssignment(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium">
+        <button
+          onClick={() => setViewItem(null)}
+          className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium cursor-pointer"
+        >
           ← Back to Assignments
         </button>
+
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6">
           <div className="flex items-start justify-between flex-wrap gap-3">
             <div>
-              <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 mb-2 inline-block">{viewAssignment.course}</span>
-              <h2 className="text-xl font-bold text-gray-900">{viewAssignment.title}</h2>
-              <p className="text-sm text-gray-500 mt-1">Due: {viewAssignment.due} · {viewAssignment.type}</p>
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700">
+                  {viewItem.course}
+                </span>
+                <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${isAssessment ? "bg-purple-100 text-purple-700" : "bg-amber-100 text-amber-700"}`}>
+                  {isAssessment ? "Assessment" : "Assignment"}
+                </span>
+                {viewItem.weight && (
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-700">
+                    Weight: {viewItem.weight}%
+                  </span>
+                )}
+                {viewItem.status && (
+                  <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${viewItem.status === "Draft" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"}`}>
+                    {viewItem.status}
+                  </span>
+                )}
+              </div>
+              <h2 className="text-xl font-bold text-gray-900">{viewItem.title}</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Due: {viewItem.due} · Max Score: {viewItem.maxScore ?? 100} pts
+              </p>
             </div>
-            <button onClick={() => setActive("grades")} className="px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors" style={{ background: "#1a3a9e" }}>
+            <button
+              onClick={() => setActive("grades")}
+              className="px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer hover:opacity-95 shadow-xs"
+              style={{ background: "#1a3a9e" }}
+            >
               Grade Submissions
             </button>
           </div>
+
           <div className="grid grid-cols-3 gap-4 mt-5">
             <div className="text-center p-3 bg-blue-50 rounded-xl">
-              <p className="text-2xl font-extrabold text-blue-700">{viewAssignment.submissions}</p>
+              <p className="text-2xl font-extrabold text-blue-700">{viewItem.submissions}</p>
               <p className="text-xs text-blue-600 mt-0.5">Submitted</p>
             </div>
             <div className="text-center p-3 bg-amber-50 rounded-xl">
@@ -1823,22 +2643,31 @@ function AssignmentsPage({ setActive }: { setActive: (id: string) => void }) {
               <p className="text-xs text-amber-600 mt-0.5">Pending</p>
             </div>
             <div className="text-center p-3 bg-gray-50 rounded-xl">
-              <p className="text-2xl font-extrabold text-gray-700">{viewAssignment.total}</p>
+              <p className="text-2xl font-extrabold text-gray-700">{viewItem.total}</p>
               <p className="text-xs text-gray-500 mt-0.5">Total Students</p>
             </div>
           </div>
+
           <div className="mt-4">
             <div className="flex justify-between text-xs text-gray-500 mb-1">
               <span>Submission rate</span>
-              <span>{Math.round((viewAssignment.submissions / viewAssignment.total) * 100)}%</span>
+              <span>{Math.round((viewItem.submissions / viewItem.total) * 100)}%</span>
             </div>
-            <ProgressBar pct={(viewAssignment.submissions / viewAssignment.total) * 100} color="#1a3a9e" />
+            <ProgressBar pct={(viewItem.submissions / viewItem.total) * 100} color="#1a3a9e" />
           </div>
         </div>
+
+        {viewItem.description && (
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6">
+            <h3 className="text-sm font-bold text-gray-800 mb-2">Instructions &amp; Criteria</h3>
+            <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">{viewItem.description}</p>
+          </div>
+        )}
+
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
           <h3 className="text-sm font-bold text-gray-800 mb-4">Recent Submissions</h3>
           <div className="space-y-3">
-            {["Marco Reyes", "Sofia Tan", "Aisha Patel", "Ethan Cruz"].slice(0, viewAssignment.submissions >= 3 ? 3 : viewAssignment.submissions).map((name, i) => (
+            {["Marco Reyes", "Sofia Tan", "Aisha Patel", "Ethan Cruz"].slice(0, viewItem.submissions >= 3 ? 3 : Math.max(1, viewItem.submissions)).map((name, i) => (
               <div key={i} className="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#1a3a9e" }}>
@@ -1849,7 +2678,7 @@ function AssignmentsPage({ setActive }: { setActive: (id: string) => void }) {
                     <p className="text-[10px] text-gray-400">Submitted {i === 0 ? "5 min ago" : i === 1 ? "1 hr ago" : "3 hrs ago"}</p>
                   </div>
                 </div>
-                <button onClick={() => setActive("grades")} className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors">
+                <button onClick={() => setActive("grades")} className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer">
                   Grade Now
                 </button>
               </div>
@@ -1860,66 +2689,804 @@ function AssignmentsPage({ setActive }: { setActive: (id: string) => void }) {
     );
   }
 
+  // ── Main Assignments & Assessments Page ──
   return (
     <div className="p-6">
+      {/* Breadcrumbs */}
       <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
         <span>Instructor</span><span>/</span><span className="text-gray-600">Assignments</span>
       </div>
+
+      {/* Page Heading & Actions */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <h1 className="text-2xl font-bold text-gray-900">Assignments</h1>
-        <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors" style={{ background: "#1a3a9e" }}>
-          <IconPlus /><span>New Assignment</span>
-        </button>
-      </div>
-      <div className="space-y-4">
-        {courses.map((c) => (
-          <div key={c.code} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+
+        <div className="flex items-center gap-3">
+          {/* Search */}
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <IconSearch />
+            </span>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search assignments & assessments..."
+              className="pl-9 pr-8 py-2 bg-white border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300 w-64"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs p-1"
+                title="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+
+          {/* + Create ▼ Dropdown */}
+          <div className="relative" ref={createMenuRef}>
             <button
-              className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors"
-              onClick={() => setOpen(open === c.code ? null : c.code)}
+              type="button"
+              onClick={() => setIsCreateMenuOpen((prev) => !prev)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer hover:opacity-95 shadow-xs"
+              style={{ background: "#1a3a9e" }}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: c.color }} />
-                <div className="text-left">
-                  <p className="text-sm font-bold text-gray-800">{c.code} – {c.name}</p>
-                  <p className="text-xs text-gray-500">{c.assignments.length} assignments · {c.assignments.filter((a) => !a.graded).length} pending grading</p>
-                </div>
-              </div>
-              <IconChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open === c.code ? "rotate-180" : ""}`} />
+              <IconPlus className="w-4 h-4" />
+              <span>Create</span>
+              <IconChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isCreateMenuOpen ? "rotate-180" : ""}`} />
             </button>
-            {open === c.code && (
-              <div className="border-t border-gray-100">
-                {c.assignments.map((a, i) => (
-                  <div key={i} className="flex items-center justify-between px-5 py-3.5 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${a.graded ? "bg-green-50 text-green-600" : "bg-amber-50 text-amber-500"}`}>
-                        {a.graded ? <IconCheck /> : <IconClock />}
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-800">{a.title}</p>
-                        <p className="text-xs text-gray-500">Due: {a.due} · {a.submissions}/{a.total} submitted</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {!a.graded && (
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
-                          {a.submissions - (a.total - a.submissions > 0 ? 0 : 0)} to grade
-                        </span>
-                      )}
-                      <button
-                        onClick={() => setViewAssignment({ ...a, course: c.code })}
-                        className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
-                      >
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                ))}
+
+            {isCreateMenuOpen && (
+              <div className="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 z-40 animate-in fade-in zoom-in-95 duration-100">
+                <div className="px-3.5 py-1 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                  Create
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsCreateMenuOpen(false);
+                    setIsAssignmentModalOpen(true);
+                    setAssignmentErrors({});
+                  }}
+                  className="w-full text-left px-3.5 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 flex items-center gap-2.5 transition-colors cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
+                  <span className="font-medium">Assignment</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsCreateMenuOpen(false);
+                    setIsAssessmentModalOpen(true);
+                    setAssessmentErrors({});
+                  }}
+                  className="w-full text-left px-3.5 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 flex items-center gap-2.5 transition-colors cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-purple-600 shrink-0" />
+                  <span className="font-medium">Assessment</span>
+                </button>
               </div>
             )}
           </div>
-        ))}
+        </div>
       </div>
+
+      {/* Course Sections Accordions */}
+      <div className="space-y-4">
+        {courses.map((c) => {
+          const q = searchQuery.toLowerCase().trim();
+          const courseAssignments = c.assignments.filter((a) => {
+            if (!q) return true;
+            return a.title.toLowerCase().includes(q) || (a.description && a.description.toLowerCase().includes(q));
+          });
+          const courseAssessments = (c.assessments || []).filter((ass) => {
+            if (!q) return true;
+            return ass.title.toLowerCase().includes(q) || (ass.description && ass.description.toLowerCase().includes(q));
+          });
+
+          const totalAssignmentsCount = c.assignments.length;
+          const totalAssessmentsCount = (c.assessments || []).length;
+          const totalPendingCount =
+            c.assignments.filter((a) => !a.graded).length +
+            (c.assessments || []).filter((a) => !a.graded && a.status !== "Draft").length;
+
+          return (
+            <div key={c.code} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+              <button
+                type="button"
+                className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors cursor-pointer text-left"
+                onClick={() => setOpen(open === c.code ? null : c.code)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: c.color }} />
+                  <div>
+                    <p className="text-sm font-bold text-gray-800">{c.code} – {c.name}</p>
+                    <p className="text-xs text-gray-500">
+                      {totalAssignmentsCount} assignments · {totalAssessmentsCount} assessments · {totalPendingCount} pending grading
+                    </p>
+                  </div>
+                </div>
+                <IconChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open === c.code ? "rotate-180" : ""}`} />
+              </button>
+
+              {open === c.code && (
+                <div className="border-t border-gray-100">
+                  {/* ── ASSIGNMENTS SECTION ── */}
+                  <div className="px-5 py-2.5 bg-gray-50/75 border-b border-gray-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-gray-600">Assignments</span>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">
+                        {courseAssignments.length}
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-gray-400">Regular coursework &amp; lab exercises</span>
+                  </div>
+
+                  {courseAssignments.length === 0 ? (
+                    <div className="px-5 py-4 text-center text-xs text-gray-400">
+                      {q ? "No assignments match your search." : "No assignments in this course."}
+                    </div>
+                  ) : (
+                    <div className="divide-y divide-gray-50">
+                      {courseAssignments.map((a, i) => (
+                        <div key={a.id || i} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50/60 transition-colors gap-3 flex-wrap sm:flex-nowrap">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${a.graded ? "bg-green-50 text-green-600" : "bg-amber-50 text-amber-500"}`}>
+                              {a.graded ? <IconCheck /> : <IconClock />}
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold text-gray-800">{a.title}</p>
+                              <p className="text-xs text-gray-500">
+                                Due: {a.due} · {a.submissions}/{a.total} submitted · Max: {a.maxScore ?? 100} pts
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 shrink-0">
+                            {!a.graded && (
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
+                                {a.submissions > 0 ? `${a.submissions} to grade` : "Pending"}
+                              </span>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() => setViewItem({ ...a, course: c.code, isAssessment: false } as any)}
+                              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors cursor-pointer"
+                            >
+                              View Details
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => openEditModal(a, c.code, false)}
+                              className="p-1.5 rounded-lg text-gray-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                              title="Edit Assignment"
+                            >
+                              <IconEdit className="w-4 h-4" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setDeleteTarget({ item: a, courseCode: c.code, isAssessment: false })}
+                              className="p-1.5 rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                              title="Delete Assignment"
+                            >
+                              <IconTrash className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* ── ASSESSMENTS SECTION ── */}
+                  <div className="px-5 py-2.5 bg-purple-50/70 border-t border-b border-purple-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-purple-900">Assessments</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                        {courseAssessments.length}
+                      </span>
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                        Weighted
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-purple-700 font-medium">Major coursework, milestones &amp; summative tasks</span>
+                  </div>
+
+                  {courseAssessments.length === 0 ? (
+                    <div className="px-5 py-4 text-center text-xs text-gray-400">
+                      {q ? "No assessments match your search." : "No assessments published yet for this course. Use + Create → Assessment to add one."}
+                    </div>
+                  ) : (
+                    <div className="divide-y divide-gray-50">
+                      {courseAssessments.map((ass, i) => (
+                        <div key={ass.id || i} className="flex items-center justify-between px-5 py-3.5 hover:bg-purple-50/30 transition-colors gap-3 flex-wrap sm:flex-nowrap">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-purple-50 text-purple-600">
+                              <IconAssignment />
+                            </div>
+                            <div>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <p className="text-sm font-semibold text-gray-800">{ass.title}</p>
+                                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                                  Weight: {ass.weight ?? 0}%
+                                </span>
+                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                  ass.status === "Draft" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"
+                                }`}>
+                                  {ass.status ?? "Published"}
+                                </span>
+                              </div>
+                              <p className="text-xs text-gray-500 mt-0.5">
+                                Due: {ass.due} · {ass.submissions}/{ass.total} submitted · Max: {ass.maxScore ?? 100} pts
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => setViewItem({ ...ass, course: c.code, isAssessment: true } as any)}
+                              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors cursor-pointer"
+                            >
+                              View Details
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => openEditModal(ass, c.code, true)}
+                              className="p-1.5 rounded-lg text-gray-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                              title="Edit Assessment"
+                            >
+                              <IconEdit className="w-4 h-4" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setDeleteTarget({ item: ass, courseCode: c.code, isAssessment: true })}
+                              className="p-1.5 rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                              title="Delete Assessment"
+                            >
+                              <IconTrash className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ── New Assignment Modal ── */}
+      {isAssignmentModalOpen && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-5">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900">New Assignment</h3>
+                <p className="text-xs text-gray-500 mt-0.5">Create and publish an assignment for your students</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => { setIsAssignmentModalOpen(false); setAssignmentErrors({}); }}
+                className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleCreateAssignment} className="space-y-4">
+              {/* Course Selection */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Course <span className="text-red-500">*</span>
+                </label>
+                <select
+                  value={createAssignmentCourse}
+                  onChange={(e) => setCreateAssignmentCourse(e.target.value)}
+                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition"
+                >
+                  <option value="ICT301">ICT301 — Information Technology Project 1</option>
+                  <option value="ICT272">ICT272 — Web Design and Development</option>
+                  <option value="ICT126">ICT126 — Artificial Intelligence</option>
+                </select>
+              </div>
+
+              {/* Assignment Title */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Assignment Title <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={createAssignmentTitle}
+                  onChange={(e) => {
+                    setCreateAssignmentTitle(e.target.value);
+                    if (assignmentErrors.title) setAssignmentErrors((prev) => ({ ...prev, title: "" }));
+                  }}
+                  placeholder="e.g. Milestone 3: System Implementation"
+                  className={`w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition ${
+                    assignmentErrors.title ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                  }`}
+                />
+                {assignmentErrors.title && (
+                  <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
+                    <span>⚠️</span> {assignmentErrors.title}
+                  </p>
+                )}
+              </div>
+
+              {/* Description / Instructions */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Description &amp; Instructions <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  rows={3}
+                  value={createAssignmentDesc}
+                  onChange={(e) => {
+                    setCreateAssignmentDesc(e.target.value);
+                    if (assignmentErrors.desc) setAssignmentErrors((prev) => ({ ...prev, desc: "" }));
+                  }}
+                  placeholder="Provide submission guidelines, deliverables, and requirements..."
+                  className={`w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition resize-none ${
+                    assignmentErrors.desc ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                  }`}
+                />
+                {assignmentErrors.desc && (
+                  <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
+                    <span>⚠️</span> {assignmentErrors.desc}
+                  </p>
+                )}
+              </div>
+
+              {/* Two-column row: Due Date & Maximum Score */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Due Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    value={createAssignmentDue}
+                    onChange={(e) => {
+                      setCreateAssignmentDue(e.target.value);
+                      if (assignmentErrors.due) setAssignmentErrors((prev) => ({ ...prev, due: "" }));
+                    }}
+                    className={`w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition ${
+                      assignmentErrors.due ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                    }`}
+                  />
+                  {assignmentErrors.due && (
+                    <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
+                      <span>⚠️</span> {assignmentErrors.due}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Maximum Score <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    value={createAssignmentMaxScore}
+                    onChange={(e) => {
+                      setCreateAssignmentMaxScore(e.target.value);
+                      if (assignmentErrors.maxScore) setAssignmentErrors((prev) => ({ ...prev, maxScore: "" }));
+                    }}
+                    placeholder="100"
+                    className={`w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition ${
+                      assignmentErrors.maxScore ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                    }`}
+                  />
+                  {assignmentErrors.maxScore && (
+                    <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
+                      <span>⚠️</span> {assignmentErrors.maxScore}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Modal Actions */}
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={() => { setIsAssignmentModalOpen(false); setAssignmentErrors({}); }}
+                  className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer hover:opacity-95 shadow-xs"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Create Assignment
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ── New Assessment Modal ── */}
+      {isAssessmentModalOpen && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-5">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg font-bold text-gray-900">New Assessment</h3>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                    Weighted Coursework
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500 mt-0.5">Configure summative assessment details, weight percentage, and submission rules</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => { setIsAssessmentModalOpen(false); setAssessmentErrors({}); }}
+                className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              {/* Course Selection */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Course <span className="text-red-500">*</span>
+                </label>
+                <select
+                  value={createAssessmentCourse}
+                  onChange={(e) => setCreateAssessmentCourse(e.target.value)}
+                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition"
+                >
+                  <option value="ICT301">ICT301 — Information Technology Project 1</option>
+                  <option value="ICT272">ICT272 — Web Design and Development</option>
+                  <option value="ICT126">ICT126 — Artificial Intelligence</option>
+                </select>
+              </div>
+
+              {/* Assessment Title */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Assessment Title <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={createAssessmentTitle}
+                  onChange={(e) => {
+                    setCreateAssessmentTitle(e.target.value);
+                    if (assessmentErrors.title) setAssessmentErrors((prev) => ({ ...prev, title: "" }));
+                  }}
+                  placeholder="e.g. Major Project Capstone Assessment"
+                  className={`w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition ${
+                    assessmentErrors.title ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                  }`}
+                />
+                {assessmentErrors.title && (
+                  <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
+                    <span>⚠️</span> {assessmentErrors.title}
+                  </p>
+                )}
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Description &amp; Rubric Summary <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  rows={3}
+                  value={createAssessmentDesc}
+                  onChange={(e) => {
+                    setCreateAssessmentDesc(e.target.value);
+                    if (assessmentErrors.desc) setAssessmentErrors((prev) => ({ ...prev, desc: "" }));
+                  }}
+                  placeholder="Define assessment deliverables, grading criteria, and learning outcomes..."
+                  className={`w-full px-3.5 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition resize-none ${
+                    assessmentErrors.desc ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                  }`}
+                />
+                {assessmentErrors.desc && (
+                  <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
+                    <span>⚠️</span> {assessmentErrors.desc}
+                  </p>
+                )}
+              </div>
+
+              {/* Three-column row: Due Date, Maximum Score, Weight */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Due Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    value={createAssessmentDue}
+                    onChange={(e) => {
+                      setCreateAssessmentDue(e.target.value);
+                      if (assessmentErrors.due) setAssessmentErrors((prev) => ({ ...prev, due: "" }));
+                    }}
+                    className={`w-full px-3 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition ${
+                      assessmentErrors.due ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                    }`}
+                  />
+                  {assessmentErrors.due && (
+                    <p className="text-xs text-red-600 mt-1">⚠️ {assessmentErrors.due}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Maximum Score <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    value={createAssessmentMaxScore}
+                    onChange={(e) => {
+                      setCreateAssessmentMaxScore(e.target.value);
+                      if (assessmentErrors.maxScore) setAssessmentErrors((prev) => ({ ...prev, maxScore: "" }));
+                    }}
+                    placeholder="100"
+                    className={`w-full px-3 py-2.5 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition ${
+                      assessmentErrors.maxScore ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                    }`}
+                  />
+                  {assessmentErrors.maxScore && (
+                    <p className="text-xs text-red-600 mt-1">⚠️ {assessmentErrors.maxScore}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Weight (%) <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="number"
+                      min="1"
+                      max="100"
+                      value={createAssessmentWeight}
+                      onChange={(e) => {
+                        setCreateAssessmentWeight(e.target.value);
+                        if (assessmentErrors.weight) setAssessmentErrors((prev) => ({ ...prev, weight: "" }));
+                      }}
+                      placeholder="25"
+                      className={`w-full px-3 py-2.5 pr-7 bg-gray-50 border rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition ${
+                        assessmentErrors.weight ? "border-red-400 bg-red-50/30" : "border-gray-200"
+                      }`}
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">%</span>
+                  </div>
+                  {assessmentErrors.weight && (
+                    <p className="text-xs text-red-600 mt-1">⚠️ {assessmentErrors.weight}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Modal Actions */}
+              <div className="flex items-center justify-between pt-4 border-t border-gray-100 flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => { setIsAssessmentModalOpen(false); setAssessmentErrors({}); }}
+                  className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleSaveAssessment(false)}
+                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-colors cursor-pointer"
+                  >
+                    Save Draft
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleSaveAssessment(true)}
+                    className="px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer hover:opacity-95 shadow-xs"
+                    style={{ background: "#1a3a9e" }}
+                  >
+                    Publish Assessment
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Edit Modal ── */}
+      {editTarget && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-5">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900">
+                  Edit {editTarget.isAssessment ? "Assessment" : "Assignment"}
+                </h3>
+                <p className="text-xs text-gray-500 mt-0.5">Course: {editTarget.courseCode}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditTarget(null)}
+                className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveEdit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Title <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={editTitle}
+                  onChange={(e) => setEditTitle(e.target.value)}
+                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition"
+                />
+                {editErrors.title && <p className="text-xs text-red-600 mt-1">⚠️ {editErrors.title}</p>}
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Description <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  rows={3}
+                  value={editDesc}
+                  onChange={(e) => setEditDesc(e.target.value)}
+                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition resize-none"
+                />
+                {editErrors.desc && <p className="text-xs text-red-600 mt-1">⚠️ {editErrors.desc}</p>}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Due Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    value={editDue}
+                    onChange={(e) => setEditDue(e.target.value)}
+                    className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition"
+                  />
+                  {editErrors.due && <p className="text-xs text-red-600 mt-1">⚠️ {editErrors.due}</p>}
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    Maximum Score <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={editMaxScore}
+                    onChange={(e) => setEditMaxScore(e.target.value)}
+                    className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition"
+                  />
+                  {editErrors.maxScore && <p className="text-xs text-red-600 mt-1">⚠️ {editErrors.maxScore}</p>}
+                </div>
+              </div>
+
+              {editTarget.isAssessment && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Weight (%) <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      max="100"
+                      value={editWeight}
+                      onChange={(e) => setEditWeight(e.target.value)}
+                      className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition"
+                    />
+                    {editErrors.weight && <p className="text-xs text-red-600 mt-1">⚠️ {editErrors.weight}</p>}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Status
+                    </label>
+                    <select
+                      value={editStatus}
+                      onChange={(e) => setEditStatus(e.target.value as "Draft" | "Published")}
+                      className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition"
+                    >
+                      <option value="Published">Published</option>
+                      <option value="Draft">Draft</option>
+                    </select>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={() => setEditTarget(null)}
+                  className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer hover:opacity-95 shadow-xs"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ── Delete Confirmation Modal ── */}
+      {deleteTarget && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center gap-3 text-red-600 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                <IconTrash className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-gray-900">
+                  Delete {deleteTarget.isAssessment ? "Assessment" : "Assignment"}?
+                </h3>
+                <p className="text-xs text-gray-500">This action cannot be undone.</p>
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-600 mb-5 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
+              Are you sure you want to remove <strong className="text-gray-900">&ldquo;{deleteTarget.item.title}&rdquo;</strong> from <strong className="text-gray-900">{deleteTarget.courseCode}</strong>?
+            </p>
+
+            <div className="flex items-center justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setDeleteTarget(null)}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmDelete}
+                className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-red-600 hover:bg-red-700 transition-colors cursor-pointer shadow-xs"
+              >
+                Confirm Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Success Toast */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+            <IconCheck className="w-3.5 h-3.5" />
+          </div>
+          <div>
+            <p className="font-semibold text-white">Update Successful</p>
+            <p className="text-gray-300 text-[11px]">{toastMessage}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -2293,96 +3860,1272 @@ function GradesPage() {
   );
 }
 
-// ── Calendar Page ─────────────────────────────────────────────────────────────
-function CalendarPage() {
-  const [selectedDay, setSelectedDay] = useState<number | null>(3);
+// ── Calendar Page & Academic Events ───────────────────────────────────────────
+export interface InstructorCalendarEvent {
+  id: string;
+  year: number;
+  month: number; // 0-indexed (8 = September)
+  day: number;
+  days?: number[];
+  title: string;
+  course?: string;
+  courseCode?: string;
+  type: "Lecture" | "Tutorial" | "Assignment" | "Assessment" | "Quiz" | "Exam" | "Holiday" | "Break";
+  time?: string;
+  room?: string;
+  online?: boolean;
+  color?: string;
+  description?: string;
+  instructor?: string;
+  enrolledStudents?: number;
+  topic?: string;
+  shortLabel?: string;
+  submissions?: string;
+  duration?: string;
+  dateFormatted?: string;
+  info?: string;
+}
 
-  const events: Record<number, { title: string; time: string; room: string; color: string; online: boolean }[]> = {
-    3:  [{ title: "ICT301 Lecture", time: "8:00–10:00 AM", room: "IT-201", color: "#2563eb", online: false }],
-    4:  [{ title: "ICT272 Online Lecture", time: "10:00 AM–12:00 PM", room: "Zoom", color: "#0e9f6e", online: true }],
-    5:  [{ title: "ICT126 Lab", time: "1:00–3:00 PM", room: "IT-304", color: "#7c3aed", online: false }],
-    6:  [{ title: "ICT301 Lecture", time: "8:00–10:00 AM", room: "IT-201", color: "#2563eb", online: false }],
-    8:  [{ title: "ICT126 Midterm Quiz", time: "1:00–2:00 PM", room: "IT-304", color: "#7c3aed", online: false }],
-    10: [{ title: "ICT272 Online Lecture", time: "10:00 AM–12:00 PM", room: "Zoom", color: "#0e9f6e", online: true },
-         { title: "Faculty Meeting", time: "2:00–3:00 PM", room: "IT-301", color: "#f59e0b", online: false }],
-    12: [{ title: "ICT301 Lecture", time: "8:00–10:00 AM", room: "IT-201", color: "#2563eb", online: false }],
-    13: [{ title: "ICT272 Online Lecture", time: "10:00 AM–12:00 PM", room: "Zoom", color: "#0e9f6e", online: true }],
-    14: [{ title: "ICT126 Lab", time: "1:00–3:00 PM", room: "IT-304", color: "#7c3aed", online: false }],
+export function getEventTypeStyles(type: InstructorCalendarEvent["type"]) {
+  switch (type) {
+    case "Lecture":
+      return {
+        color: "bg-blue-50 text-blue-800 border-blue-200",
+        dot: "bg-blue-500",
+        badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+      };
+    case "Tutorial":
+      return {
+        color: "bg-emerald-50 text-emerald-800 border-emerald-200",
+        dot: "bg-emerald-500",
+        badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+      };
+    case "Assignment":
+      return {
+        color: "bg-amber-50 text-amber-800 border-amber-200",
+        dot: "bg-amber-500",
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
+      };
+    case "Assessment":
+      return {
+        color: "bg-amber-50 text-amber-800 border-amber-200",
+        dot: "bg-amber-500",
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
+      };
+    case "Quiz":
+      return {
+        color: "bg-indigo-50 text-indigo-800 border-indigo-200",
+        dot: "bg-indigo-500",
+        badgeColor: "bg-indigo-100 text-indigo-800 border-indigo-200",
+      };
+    case "Exam":
+      return {
+        color: "bg-red-50 text-red-800 border-red-200",
+        dot: "bg-red-500",
+        badgeColor: "bg-red-100 text-red-800 border-red-200",
+      };
+    case "Break":
+      return {
+        color: "bg-teal-50 text-teal-800 border-teal-200",
+        dot: "bg-teal-500",
+        badgeColor: "bg-teal-100 text-teal-800 border-teal-200",
+      };
+    case "Holiday":
+      return {
+        color: "bg-sky-50 text-sky-800 border-sky-200",
+        dot: "bg-sky-500",
+        badgeColor: "bg-sky-100 text-sky-800 border-sky-200",
+      };
+    default:
+      return {
+        color: "bg-gray-50 text-gray-800 border-gray-200",
+        dot: "bg-gray-500",
+        badgeColor: "bg-gray-100 text-gray-800 border-gray-200",
+      };
+  }
+}
+
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
+  // ── AUGUST 2026 (Month 7) ────────────────────────────────────────────────
+  {
+    id: "cal-aug-18",
+    year: 2026, month: 7, day: 18,
+    title: "Semester 2 Teaching Commences & Orientation",
+    course: "Campus Academic Calendar",
+    type: "Break",
+    time: "All Day",
+    room: "Campus-Wide",
+    online: false,
+    color: "#059669",
+    shortLabel: "Semester Starts",
+    dateFormatted: "August 18, 2026",
+    description: "Orientation briefing, lab setup, and semester course syllabus distribution.",
+    info: "Semester 2 Academic Launch",
+  },
+  {
+    id: "cal-aug-20",
+    year: 2026, month: 7, day: 20,
+    title: "Lab Exercise 1 Due: HTML Basics",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Lab 1 Due",
+    submissions: "38/38 Submitted (100%) · Graded",
+    dateFormatted: "August 20, 2026",
+    description: "Semantic markup and structural HTML assignment submission.",
+  },
+  {
+    id: "cal-aug-22",
+    year: 2026, month: 7, day: 22,
+    title: "Weekly Journal Entry 1 Due",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Journal 1 Due",
+    submissions: "32/32 Submitted (100%) · Graded",
+    dateFormatted: "August 22, 2026",
+    description: "Reflective log on team formation, sprint allocation, and project vision statement.",
+  },
+  {
+    id: "cal-aug-25",
+    year: 2026, month: 7, day: 25,
+    title: "Milestone 1 Due: Project Proposal",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Milestone 1 Due",
+    submissions: "32/32 Submitted (100%) · Graded",
+    dateFormatted: "August 25, 2026",
+    description: "Formal submission of project proposal charter and team workload distribution.",
+  },
+  {
+    id: "cal-aug-27",
+    year: 2026, month: 7, day: 27,
+    title: "Lab Exercise 2 Due: CSS Layouts",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Lab 2 Due",
+    submissions: "37/38 Submitted (97%) · Graded",
+    dateFormatted: "August 27, 2026",
+    description: "Modern CSS Flexbox and Grid responsive layouts.",
+  },
+  {
+    id: "cal-aug-28",
+    year: 2026, month: 7, day: 28,
+    title: "Assignment 1 Due: AI History Review",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Assign 1 Due",
+    submissions: "26/26 Submitted (100%) · Graded",
+    dateFormatted: "August 28, 2026",
+    description: "Survey paper examining classical symbolic reasoning to contemporary machine learning.",
+  },
+
+  // ── SEPTEMBER 2026 (Month 8) ─────────────────────────────────────────────
+  {
+    id: "cal-sep-1",
+    year: 2026, month: 8, day: 1,
+    title: "ICT272 Online Lecture: Advanced DOM Scripting",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Lecture",
+    time: "10:00 AM–12:00 PM",
+    room: "Zoom Meeting (ID: 842-119-301)",
+    online: true,
+    color: "#0e9f6e",
+    shortLabel: "ICT272 Lecture",
+    description: "Deep dive into event delegation, mutation observers, and dynamic client-side rendering.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 38,
+    topic: "Week 3: Advanced DOM & Events",
+    dateFormatted: "September 1, 2026",
+  },
+  {
+    id: "cal-sep-2-lec",
+    year: 2026, month: 8, day: 2,
+    title: "ICT126 Lecture: Supervised Learning Foundations",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Lecture",
+    time: "1:00–3:00 PM",
+    room: "Room IT-304",
+    online: false,
+    color: "#7c3aed",
+    shortLabel: "ICT126 Lecture",
+    description: "Classification algorithms, linear regression, and cross-validation techniques.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 26,
+    topic: "Week 3: Machine Learning Algorithms",
+    dateFormatted: "September 2, 2026",
+  },
+  {
+    id: "cal-sep-2-quiz",
+    year: 2026, month: 8, day: 2,
+    title: "Weekly Quiz 3 — Supervised Learning",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Quiz",
+    time: "3:00–3:30 PM",
+    room: "Room IT-304",
+    online: false,
+    color: "#dc2626",
+    shortLabel: "Quiz 3: ML",
+    duration: "30 Mins · 20 Questions · 5% Weight",
+    dateFormatted: "September 2, 2026",
+    description: "Timed 20-minute multiple choice quiz assessing regression and decision trees.",
+  },
+  {
+    id: "cal-sep-3-lec",
+    year: 2026, month: 8, day: 3,
+    title: "ICT301 Lecture: System Architecture Design",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Lecture",
+    time: "8:00–10:00 AM",
+    room: "Room IT-201",
+    online: false,
+    color: "#2563eb",
+    shortLabel: "ICT301 Lecture",
+    description: "Architectural decomposition, layered patterns, and client-server communication.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 32,
+    topic: "Week 3: System Modeling & Architecture",
+    dateFormatted: "September 3, 2026",
+  },
+  {
+    id: "cal-sep-3-ass",
+    year: 2026, month: 8, day: 3,
+    title: "Lab Exercise 3 Due: JavaScript DOM",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Lab 3 Due",
+    submissions: "34/38 Submitted (89%) · 4 to Grade",
+    dateFormatted: "September 3, 2026",
+    description: "Interactive DOM application with input validation and event listeners.",
+  },
+  {
+    id: "cal-sep-4-tut",
+    year: 2026, month: 8, day: 4,
+    title: "ICT301 Tutorial: Architecture Modeling Workshop",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Tutorial",
+    time: "10:00–11:30 AM",
+    room: "Room IT-202",
+    online: false,
+    color: "#2563eb",
+    shortLabel: "ICT301 Tutorial",
+    description: "Group consultation on UML component diagrams and data flow modeling.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 32,
+    topic: "Architecture Diagrams & CRC Cards",
+    dateFormatted: "September 4, 2026",
+  },
+  {
+    id: "cal-sep-4-ass",
+    year: 2026, month: 8, day: 4,
+    title: "Assignment 2 Due: ML Algorithm Analysis",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Assign 2 Due",
+    submissions: "24/26 Submitted (92%) · 8 to Grade",
+    dateFormatted: "September 4, 2026",
+    description: "Empirical evaluation of decision trees versus random forests on benchmark classification data.",
+  },
+  {
+    id: "cal-sep-5",
+    year: 2026, month: 8, day: 5,
+    title: "Milestone 2 Due: Preliminary Design",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Milestone 2 Due",
+    submissions: "30/32 Submitted (94%) · 6 to Grade",
+    dateFormatted: "September 5, 2026",
+    description: "Preliminary architectural diagrams, database entity models, and UI wireframes.",
+  },
+  {
+    id: "cal-sep-7",
+    year: 2026, month: 8, day: 7,
+    title: "Lab Exercise 4 Due: React Basics",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Lab 4 Due",
+    submissions: "36/38 Submitted (95%) · 10 to Grade",
+    dateFormatted: "September 7, 2026",
+    description: "Component hierarchy, functional props, and state management in React.",
+  },
+  {
+    id: "cal-sep-8-tut",
+    year: 2026, month: 8, day: 8,
+    title: "ICT272 Tutorial: React Hooks & State Management",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Tutorial",
+    time: "10:00 AM–12:00 PM",
+    room: "Zoom Meeting (ID: 842-119-301)",
+    online: true,
+    color: "#0e9f6e",
+    shortLabel: "ICT272 Tutorial",
+    description: "Hands-on coding lab implementing useState, useEffect, and custom hook wrappers.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 38,
+    topic: "React Hooks Lab",
+    dateFormatted: "September 8, 2026",
+  },
+  {
+    id: "cal-sep-8-quiz",
+    year: 2026, month: 8, day: 8,
+    title: "Midterm Quiz: Machine Learning Concepts",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Quiz",
+    time: "1:00–2:30 PM",
+    room: "Room IT-304",
+    online: false,
+    color: "#dc2626",
+    shortLabel: "ML Midterm Quiz",
+    duration: "90 Mins · 25 Questions · 10% Weight",
+    dateFormatted: "September 8, 2026",
+    description: "Mid-semester laboratory quiz covering 25 supervised learning questions.",
+  },
+  {
+    id: "cal-sep-10-lec",
+    year: 2026, month: 8, day: 10,
+    title: "ICT301 Lecture: Database Integration & REST APIs",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Lecture",
+    time: "8:00–10:00 AM",
+    room: "Room IT-201",
+    online: false,
+    color: "#2563eb",
+    shortLabel: "ICT301 Lecture",
+    description: "RESTful architecture, OpenAPI documentation, and PostgreSQL schema normalization.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 32,
+    topic: "Week 4: API Design & Persistence",
+    dateFormatted: "September 10, 2026",
+  },
+  {
+    id: "cal-sep-10-quiz",
+    year: 2026, month: 8, day: 10,
+    title: "Lab Quiz 1: Frontend Web Essentials",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Quiz",
+    time: "2:00–3:00 PM",
+    room: "Online Zoom",
+    online: true,
+    color: "#dc2626",
+    shortLabel: "Frontend Quiz",
+    duration: "60 Mins · 20 Questions · 5% Weight",
+    dateFormatted: "September 10, 2026",
+    description: "Online quiz on modern HTML5, CSS layout specifications, and DOM traversal.",
+  },
+  {
+    id: "cal-sep-11",
+    year: 2026, month: 8, day: 11,
+    title: "ICT126 Tutorial: Python Model Training Lab",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Tutorial",
+    time: "1:00–3:00 PM",
+    room: "Room IT-304",
+    online: false,
+    color: "#7c3aed",
+    shortLabel: "ICT126 Tutorial",
+    description: "Hands-on Jupyter notebook training decision trees on benchmark classification data.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 26,
+    topic: "Python Scikit-Learn Workshop",
+    dateFormatted: "September 11, 2026",
+  },
+  {
+    id: "cal-sep-14",
+    year: 2026, month: 8, day: 14,
+    title: "ICT301 Lecture: Sprint 2 Demo & Retrospective",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Lecture",
+    time: "9:00–11:00 AM",
+    room: "Room IT-201",
+    online: false,
+    color: "#2563eb",
+    shortLabel: "ICT301 Demo",
+    description: "Team prototype demonstrations, velocity retrospectives, and sprint 3 milestone scoping.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 32,
+    topic: "Agile Retrospectives & Sprint Review",
+    dateFormatted: "September 14, 2026",
+  },
+  {
+    id: "cal-sep-15-lec",
+    year: 2026, month: 8, day: 15,
+    title: "ICT272 Online Lecture: Full-Stack Architecture",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Lecture",
+    time: "10:00 AM–12:00 PM",
+    room: "Zoom Meeting (ID: 842-119-301)",
+    online: true,
+    color: "#0e9f6e",
+    shortLabel: "ICT272 Lecture",
+    description: "Server-side integration, JWT authentication flows, and state synchronization.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 38,
+    topic: "Week 5: Full-Stack Integration",
+    dateFormatted: "September 15, 2026",
+  },
+  {
+    id: "cal-sep-15-ass",
+    year: 2026, month: 8, day: 15,
+    title: "Major Project Draft Checkpoint Due",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Draft Checkpoint",
+    submissions: "35/38 Submitted (92%) · 12 to Grade",
+    dateFormatted: "September 15, 2026",
+    description: "Formative milestone submission for the major full-stack web application assessment.",
+  },
+  {
+    id: "cal-sep-17",
+    year: 2026, month: 8, day: 17,
+    title: "ICT301 Lecture: QA & Automated Testing",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Lecture",
+    time: "8:00–10:00 AM",
+    room: "Room IT-201",
+    online: false,
+    color: "#2563eb",
+    shortLabel: "ICT301 Lecture",
+    description: "Automated regression testing, unit test fixtures, and GitHub Actions CI pipelines.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 32,
+    topic: "Week 5: Quality Assurance",
+    dateFormatted: "September 17, 2026",
+  },
+  {
+    id: "cal-sep-18",
+    year: 2026, month: 8, day: 18,
+    title: "Mid-Term Practical AI Assessment Due",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#7c3aed",
+    shortLabel: "AI Assessment Due",
+    submissions: "25/26 Submitted (96%) · 15 to Grade",
+    dateFormatted: "September 18, 2026",
+    description: "Weighted summative assessment (25%): Hands-on machine learning code and report.",
+  },
+  {
+    id: "cal-sep-19",
+    year: 2026, month: 8, day: 19,
+    title: "AI Case Study Research Paper Due",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Assignment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Case Study Due",
+    submissions: "26/26 Submitted (100%) · 20 to Grade",
+    dateFormatted: "September 19, 2026",
+    description: "Case study evaluating real-world ethical implications of generative AI tools.",
+  },
+  {
+    id: "cal-sep-21",
+    year: 2026, month: 8, day: 21,
+    days: [21, 22, 23, 24, 25],
+    title: "Mid-Semester School Break Commences",
+    course: "Academic Calendar",
+    type: "Break",
+    time: "All Day",
+    room: "Campus-Wide",
+    online: false,
+    color: "#059669",
+    shortLabel: "School Break",
+    info: "Duration: 5 Days (Mon–Fri) · Campus libraries open",
+    dateFormatted: "September 21–25, 2026",
+    description: "Mid-semester non-instructional study break for all schools. No classes scheduled.",
+  },
+  {
+    id: "cal-sep-22-ass",
+    year: 2026, month: 8, day: 22,
+    title: "Major Project Assessment Due: Web Application",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#0e9f6e",
+    shortLabel: "Major Project Due",
+    submissions: "37/38 Submitted (97%) · 25 to Grade",
+    dateFormatted: "September 22, 2026",
+    description: "Summative assessment (30% weight): Complete production-ready responsive web application.",
+  },
+  {
+    id: "cal-sep-25-ass",
+    year: 2026, month: 8, day: 25,
+    title: "Milestone 3 Due: Final System Implementation & Defense",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#2563eb",
+    shortLabel: "Milestone 3 Due",
+    submissions: "31/32 Submitted (97%) · 18 to Grade",
+    dateFormatted: "September 25, 2026",
+    description: "Summative assessment (35% weight): Functional software submission and panel defense.",
+  },
+  {
+    id: "cal-sep-28",
+    year: 2026, month: 8, day: 28,
+    title: "Public Holiday: Labour Day",
+    course: "Public Holiday",
+    type: "Holiday",
+    time: "All Day",
+    room: "University-Wide",
+    online: false,
+    color: "#ea580c",
+    shortLabel: "Labour Day",
+    info: "Official Public Holiday · Campus Closed",
+    dateFormatted: "September 28, 2026",
+    description: "Official public holiday — university campus closed, no lectures or tutorials scheduled.",
+  },
+  {
+    id: "cal-sep-29",
+    year: 2026, month: 8, day: 29,
+    title: "ICT272 Online Lecture: Cloud Deployment & DevOps",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Lecture",
+    time: "10:00 AM–12:00 PM",
+    room: "Zoom Meeting (ID: 842-119-301)",
+    online: true,
+    color: "#0e9f6e",
+    shortLabel: "ICT272 Lecture",
+    description: "Serverless deployments, environment variable security, and edge performance optimization.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 38,
+    topic: "Week 6: Deployment & Monitoring",
+    dateFormatted: "September 29, 2026",
+  },
+  {
+    id: "cal-sep-30",
+    year: 2026, month: 8, day: 30,
+    title: "ICT126 Final Exam Review Session",
+    course: "ICT126 — Artificial Intelligence",
+    courseCode: "ICT126",
+    type: "Exam",
+    time: "1:00–3:00 PM",
+    room: "Room IT-304",
+    online: false,
+    color: "#dc2626",
+    shortLabel: "AI Exam Review",
+    duration: "120 Mins · Comprehensive Review",
+    dateFormatted: "September 30, 2026",
+    description: "Comprehensive exam preparation, past paper review, and rubric scoring criteria.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 26,
+    topic: "Final Exam Preparation",
+  },
+
+  // ── OCTOBER 2026 (Month 9) ───────────────────────────────────────────────
+  {
+    id: "cal-oct-5",
+    year: 2026, month: 9, day: 5,
+    title: "Public Holiday: Spring Holiday",
+    course: "Public Holiday",
+    type: "Holiday",
+    time: "All Day",
+    room: "Campus-Wide",
+    online: false,
+    color: "#ea580c",
+    shortLabel: "Spring Holiday",
+    info: "Official Public Holiday · Campus Closed",
+    dateFormatted: "October 5, 2026",
+    description: "University spring holiday — all university offices and teaching spaces closed.",
+  },
+  {
+    id: "cal-oct-8",
+    year: 2026, month: 9, day: 8,
+    title: "ICT301 Capstone Prototype Demo & Review",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Lecture",
+    time: "8:00–11:00 AM",
+    room: "Room IT-201",
+    online: false,
+    color: "#2563eb",
+    shortLabel: "ICT301 Demos",
+    description: "Live prototype demonstration before faculty panel and industry client stakeholders.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 32,
+    topic: "Capstone Project Demonstrations",
+    dateFormatted: "October 8, 2026",
+  },
+  {
+    id: "cal-oct-15",
+    year: 2026, month: 9, day: 15,
+    title: "Midterm Assessment Marks Entry Deadline",
+    course: "Faculty Academic Administration",
+    type: "Assessment",
+    time: "5:00 PM Due",
+    room: "Instructor Portal",
+    online: true,
+    color: "#f59e0b",
+    shortLabel: "Marks Entry Due",
+    submissions: "Faculty Grade Entry Portal",
+    dateFormatted: "October 15, 2026",
+    description: "Faculty grade submission deadline for all semester mid-term assessments.",
+  },
+  {
+    id: "cal-oct-22",
+    year: 2026, month: 9, day: 22,
+    title: "ICT272 Student Project Showcase",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Tutorial",
+    time: "10:00 AM–1:00 PM",
+    room: "Room IT-202",
+    online: false,
+    color: "#0e9f6e",
+    shortLabel: "ICT272 Showcase",
+    description: "Peer demonstrations and exhibition of interactive web applications.",
+    instructor: "Prof. Sarita Koirala",
+    enrolledStudents: 38,
+    topic: "Interactive Showcase Exhibition",
+    dateFormatted: "October 22, 2026",
+  },
+  {
+    id: "cal-oct-28",
+    year: 2026, month: 9, day: 28,
+    title: "Final Examination Period Commences",
+    course: "Examinations Branch",
+    type: "Exam",
+    time: "All Day",
+    room: "Exam Halls 1–4",
+    online: false,
+    color: "#dc2626",
+    shortLabel: "Final Exams Start",
+    duration: "Formal Exam Session 1",
+    dateFormatted: "October 28, 2026",
+    description: "Formal written examination period commences.",
+  },
+
+  // ── NOVEMBER 2026 (Month 10) ─────────────────────────────────────────────
+  {
+    id: "cal-nov-2",
+    year: 2026, month: 10, day: 2,
+    title: "ICT301 Final Examination",
+    course: "ICT301 — Information Technology Project 1",
+    courseCode: "ICT301",
+    type: "Exam",
+    time: "9:00 AM–12:00 PM",
+    room: "Exam Hall 2",
+    online: false,
+    color: "#dc2626",
+    shortLabel: "ICT301 Exam",
+    duration: "180 Mins · 40% Weight",
+    dateFormatted: "November 2, 2026",
+    description: "Formal 3-hour examination covering software engineering design and project delivery.",
+  },
+  {
+    id: "cal-nov-6",
+    year: 2026, month: 10, day: 6,
+    title: "ICT272 Practical Coding Examination",
+    course: "ICT272 — Web Design and Development",
+    courseCode: "ICT272",
+    type: "Exam",
+    time: "1:00–4:00 PM",
+    room: "Lab IT-101",
+    online: false,
+    color: "#dc2626",
+    shortLabel: "ICT272 Exam",
+    duration: "180 Mins · 35% Weight",
+    dateFormatted: "November 6, 2026",
+    description: "Timed lab practical examination on responsive frontend development and React architecture.",
+  },
+  {
+    id: "cal-nov-12",
+    year: 2026, month: 10, day: 12,
+    title: "Semester 2 Ends / End-of-Year Break",
+    course: "Academic Calendar",
+    type: "Break",
+    time: "All Day",
+    room: "Campus-Wide",
+    online: false,
+    color: "#059669",
+    shortLabel: "Semester Concludes",
+    info: "Official Teaching Period End",
+    dateFormatted: "November 12, 2026",
+    description: "Official conclusion of semester 2 teaching and formal assessment periods.",
+  },
+];
+
+function CalendarPage({ setActive }: { setActive?: (id: string) => void }) {
+  const [monthOffset, setMonthOffset] = useState(0);
+  const [selectedDay, setSelectedDay] = useState<number | null>(3);
+  const [selectedClassInfo, setSelectedClassInfo] = useState<InstructorCalendarEvent | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const baseYear = 2026;
+  const baseMonth = 8; // September (0-indexed)
+  const date = new Date(baseYear, baseMonth + monthOffset, 1);
+  const currentYear = date.getFullYear();
+  const currentMonth = date.getMonth();
+  const monthName = date.toLocaleString("default", { month: "long", year: "numeric" });
+
+  const firstDay = (new Date(currentYear, currentMonth, 1).getDay() + 6) % 7; // Mon=0
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const today = monthOffset === 0 ? 3 : -1;
+
+  const cells: (number | null)[] = [];
+  for (let i = 0; i < firstDay; i++) cells.push(null);
+  for (let d = 1; d <= daysInMonth; d++) cells.push(d);
+  while (cells.length % 7 !== 0) cells.push(null);
+
+  // Events for current month
+  const monthEvents = INSTRUCTOR_CALENDAR_EVENTS.filter(
+    (e) => e.year === currentYear && e.month === currentMonth
+  );
+
+  const eventsForDay = (d: number) =>
+    monthEvents.filter((e) => (e.days ? e.days.includes(d) : e.day === d));
+
+  const displayedEvents = selectedDay ? eventsForDay(selectedDay) : monthEvents;
+  const selectedDateFormatted = selectedDay ? `${MONTH_NAMES[currentMonth]} ${selectedDay}, ${currentYear}` : "";
+
+  const handleStartClass = (e: InstructorCalendarEvent) => {
+    setToastMessage(`Connecting to Zoom meeting for "${e.title}"...`);
+    setTimeout(() => setToastMessage(null), 4000);
   };
 
-  const days = Array.from({ length: 30 }, (_, i) => i + 1);
-  const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const startOffset = 1;
+  const handleViewClass = (e: InstructorCalendarEvent) => {
+    setSelectedClassInfo(e);
+  };
 
   return (
-    <div className="p-6">
+    <div className="p-7">
+      {/* Breadcrumbs & Header with Month Navigation */}
       <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
-        <span>Instructor</span><span>/</span><span className="text-gray-600">Calendar</span>
+        <span>Instructor</span>
+        <span>/</span>
+        <span className="text-gray-600">Calendar</span>
       </div>
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-        <h1 className="text-2xl font-bold text-gray-900">Calendar</h1>
-        <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm text-sm font-semibold text-gray-700">
-          <IconCalendar /> September 2026
+
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-1">Calendar</h1>
+          <p className="text-sm text-gray-500">
+            Manage your teaching schedule, classes, assessment deadlines, and important academic dates
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2 self-start sm:self-auto">
+          <button
+            type="button"
+            onClick={() => {
+              setMonthOffset((o) => o - 1);
+              setSelectedDay(null);
+            }}
+            className="p-2 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 transition-colors shadow-sm cursor-pointer"
+            title="Previous Month"
+            aria-label="Previous Month"
+          >
+            <IconChevronLeft className="w-4 h-4" />
+          </button>
+          <span className="text-sm font-semibold text-gray-800 min-w-[140px] text-center select-none">
+            {monthName}
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              setMonthOffset((o) => o + 1);
+              setSelectedDay(null);
+            }}
+            className="p-2 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 transition-colors shadow-sm cursor-pointer"
+            title="Next Month"
+            aria-label="Next Month"
+          >
+            <IconChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-          <div className="grid grid-cols-7 mb-2">
-            {dayNames.map((d) => (
-              <div key={d} className="text-center text-[10px] font-bold text-gray-400 uppercase py-1">{d}</div>
-            ))}
+      {/* Legend bar for clear visual distinction */}
+      <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs font-medium text-gray-600 bg-white px-4 py-2.5 rounded-xl border border-gray-100 shadow-xs mb-4">
+        <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Legend:</span>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+          <span className="text-gray-700">Lectures</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+          <span className="text-gray-700">Tutorials</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+          <span className="text-gray-700">Assessments &amp; Assignments</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
+          <span className="text-gray-700">Quizzes</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+          <span className="text-gray-700">Exams</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-teal-500" />
+          <span className="text-gray-700">School Breaks</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-sky-500" />
+          <span className="text-gray-700">Holidays</span>
+        </div>
+      </div>
+
+      {/* Calendar Grid (Full Width Month Grid) */}
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+        {/* Day headers */}
+        <div className="grid grid-cols-7 border-b border-gray-100 bg-gray-50/50">
+          {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
+            <div key={d} className="py-3 text-center text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+              {d}
+            </div>
+          ))}
+        </div>
+
+        {/* Cells */}
+        <div className="grid grid-cols-7">
+          {cells.map((d, i) => {
+            const events = d ? eventsForDay(d) : [];
+            const isToday = d === today;
+            const isSelected = selectedDay === d;
+            return (
+              <div
+                key={i}
+                onClick={() => {
+                  if (d) {
+                    setSelectedDay((prev) => (prev === d ? null : d));
+                  }
+                }}
+                className={`min-h-[105px] p-2 border-b border-r border-gray-100 transition-all ${
+                  !d
+                    ? "bg-gray-50/40 cursor-default"
+                    : isSelected
+                    ? "bg-blue-50/30 ring-2 ring-inset ring-blue-500/40 cursor-pointer"
+                    : "bg-white hover:bg-gray-50/80 cursor-pointer"
+                } ${i % 7 === 6 ? "border-r-0" : ""}`}
+              >
+                {d && (
+                  <>
+                    <div className="flex items-center justify-between mb-1">
+                      <span
+                        className={`inline-flex w-7 h-7 items-center justify-center rounded-full text-sm font-semibold transition-all ${
+                          isToday
+                            ? "text-white shadow-xs"
+                            : isSelected
+                            ? "bg-blue-600 text-white shadow-xs"
+                            : "text-gray-700"
+                        }`}
+                        style={isToday ? { background: "#1a3a9e" } : {}}
+                      >
+                        {d}
+                      </span>
+                      {events.length > 0 && !isSelected && !isToday && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                      )}
+                    </div>
+                    <div className="space-y-1">
+                      {events.slice(0, 3).map((ev) => {
+                        const style = getEventTypeStyles(ev.type);
+                        return (
+                          <div
+                            key={ev.id}
+                            title={`${ev.title} (${ev.time || ev.type})`}
+                            className={`w-full text-left text-[10px] font-semibold px-1.5 py-0.5 rounded border truncate select-none transition-transform hover:scale-[1.02] ${style.color}`}
+                          >
+                            {ev.shortLabel || ev.courseCode || ev.title}
+                          </div>
+                        );
+                      })}
+                      {events.length > 3 && (
+                        <div className="text-[9px] font-bold text-gray-500 pl-1">
+                          +{events.length - 3} more
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Teaching Schedule & Events Details */}
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+          <div>
+            <h2 className="text-base font-bold text-gray-900">
+              {selectedDay
+                ? `Teaching Schedule & Events — ${selectedDateFormatted}`
+                : `All Academic Events — ${monthName}`}
+            </h2>
+            <p className="text-xs text-gray-500 mt-0.5">
+              {selectedDay
+                ? "Showing all scheduled classes, deadlines, and events for this date"
+                : `Important teaching schedule, deadlines, and academic dates for ${monthName}`}
+            </p>
           </div>
-          <div className="grid grid-cols-7 gap-1">
-            {Array.from({ length: startOffset }).map((_, i) => <div key={`empty-${i}`} />)}
-            {days.map((d) => {
-              const hasEvent = !!events[d];
-              const isSelected = selectedDay === d;
+          <div className="flex items-center gap-2">
+            {selectedDay && (
+              <button
+                type="button"
+                onClick={() => setSelectedDay(null)}
+                className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer shadow-xs"
+              >
+                View Full Month ({monthEvents.length})
+              </button>
+            )}
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+              {displayedEvents.length} event{displayedEvents.length === 1 ? "" : "s"} scheduled
+            </span>
+          </div>
+        </div>
+
+        {displayedEvents.length === 0 ? (
+          <div className="text-center py-10 text-gray-400">
+            <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mx-auto mb-2.5 text-gray-400">
+              <IconCalendar className="w-6 h-6 text-gray-400" />
+            </div>
+            <p className="text-sm font-semibold text-gray-700">
+              {selectedDay
+                ? `No events scheduled for ${selectedDateFormatted}`
+                : `No academic events scheduled for ${monthName}`}
+            </p>
+            <p className="text-xs text-gray-400 mt-1">
+              {selectedDay
+                ? "Select another date on the calendar, or view the full month schedule."
+                : "Use the month navigation controls to check upcoming months."}
+            </p>
+            {selectedDay && (
+              <button
+                type="button"
+                onClick={() => setSelectedDay(null)}
+                className="mt-3 text-xs font-semibold px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors cursor-pointer"
+              >
+                Show All {monthName} Events ({monthEvents.length})
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {displayedEvents.map((ev) => {
+              const style = getEventTypeStyles(ev.type);
+              const isClass = ev.type === "Lecture" || ev.type === "Tutorial";
+              const isAssessment = ev.type === "Assignment" || ev.type === "Assessment";
+              const isQuizOrExam = ev.type === "Quiz" || ev.type === "Exam";
+
               return (
-                <button
-                  key={d}
-                  onClick={() => setSelectedDay(d)}
-                  className={`aspect-square rounded-xl flex flex-col items-center justify-center text-sm font-semibold transition-all ${
-                    isSelected ? "text-white shadow-md" : hasEvent ? "bg-blue-50 text-blue-700 hover:bg-blue-100" : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                  style={isSelected ? { background: "#1a3a9e" } : {}}
+                <div
+                  key={ev.id}
+                  className="p-4 rounded-xl border border-gray-100 bg-gray-50/40 hover:bg-gray-50/80 transition-colors"
                 >
-                  {d}
-                  {hasEvent && !isSelected && <span className="w-1 h-1 rounded-full bg-blue-500 mt-0.5" />}
-                </button>
+                  {/* Header row: Dot, Title, Type Badge, and Date Badge */}
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${style.dot}`} />
+                      <h3 className="text-sm font-bold text-gray-900">{ev.title}</h3>
+                      <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border ${style.badgeColor}`}>
+                        {ev.type}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-700 bg-white px-2.5 py-1 rounded-lg border border-gray-200/70 self-start shadow-xs">
+                      <IconCalendar className="w-3.5 h-3.5 text-gray-400" />
+                      <span>{ev.dateFormatted || `${MONTH_NAMES[ev.month]} ${ev.day}, ${ev.year}`}</span>
+                    </div>
+                  </div>
+
+                  {/* Course code & name */}
+                  {ev.course && (
+                    <p className="text-xs font-semibold text-blue-900 mb-1.5">
+                      {ev.courseCode && ev.course !== ev.courseCode && !ev.course.startsWith(ev.courseCode)
+                        ? `${ev.courseCode} — ${ev.course}`
+                        : ev.course}
+                    </p>
+                  )}
+
+                  {/* Topic (For classes) */}
+                  {ev.topic && (
+                    <div className="flex items-center gap-1.5 text-xs text-gray-700 mb-2">
+                      <span className="font-semibold text-gray-900">Topic:</span>
+                      <span className="bg-blue-50 text-blue-800 px-2 py-0.5 rounded text-[11px] font-medium border border-blue-100">
+                        {ev.topic}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  {ev.description && (
+                    <p className="text-xs text-gray-600 mb-2.5 leading-relaxed">
+                      {ev.description}
+                    </p>
+                  )}
+
+                  {/* Meta details badges */}
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    {ev.time && (
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-600 bg-white px-2.5 py-1 rounded-md border border-gray-200/60 shadow-xs">
+                        <IconClock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+                        <span>{ev.time}</span>
+                      </div>
+                    )}
+
+                    {ev.room && (
+                      <div
+                        className={`inline-flex items-center gap-1.5 text-[11px] font-medium bg-white px-2.5 py-1 rounded-md border border-gray-200/60 shadow-xs ${
+                          ev.online ? "text-blue-700" : "text-gray-600"
+                        }`}
+                      >
+                        <span>{ev.online ? "🌐" : "📍"}</span>
+                        <span>{ev.room}</span>
+                      </div>
+                    )}
+
+                    {ev.submissions && (
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200/60 shadow-xs">
+                        <IconUsers className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                        <span>{ev.submissions}</span>
+                      </div>
+                    )}
+
+                    {ev.duration && (
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200/60 shadow-xs">
+                        <IconClock className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                        <span>{ev.duration}</span>
+                      </div>
+                    )}
+
+                    {ev.enrolledStudents && (
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-600 bg-white px-2.5 py-1 rounded-md border border-gray-200/60 shadow-xs">
+                        <IconUsers className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+                        <span>{ev.enrolledStudents} Students Enrolled</span>
+                      </div>
+                    )}
+
+                    {ev.info && (
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-600 bg-white px-2.5 py-1 rounded-md border border-gray-200/60 shadow-xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                        <span>{ev.info}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex items-center gap-2 pt-2 border-t border-gray-200/60">
+                    {isClass && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => handleViewClass(ev)}
+                          className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors cursor-pointer shadow-xs"
+                        >
+                          View Class
+                        </button>
+                        {ev.online && (
+                          <button
+                            type="button"
+                            onClick={() => handleStartClass(ev)}
+                            className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors cursor-pointer shadow-xs flex items-center gap-1.5"
+                          >
+                            <IconVideo className="w-3.5 h-3.5" />
+                            <span>Start Class</span>
+                          </button>
+                        )}
+                      </>
+                    )}
+
+                    {isAssessment && (
+                      <button
+                        type="button"
+                        onClick={() => setActive && setActive("assignments")}
+                        className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white transition-colors cursor-pointer shadow-xs"
+                      >
+                        View Details
+                      </button>
+                    )}
+
+                    {isQuizOrExam && (
+                      <button
+                        type="button"
+                        onClick={() => setActive && setActive("quizzes")}
+                        className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition-colors cursor-pointer shadow-xs"
+                      >
+                        View Details
+                      </button>
+                    )}
+                  </div>
+                </div>
               );
             })}
           </div>
-        </div>
-
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-          <h2 className="text-sm font-bold text-gray-800 mb-4">
-            {selectedDay ? `September ${selectedDay}, 2026` : "Select a day"}
-          </h2>
-          {selectedDay && events[selectedDay] ? (
-            <div className="space-y-3">
-              {events[selectedDay].map((e, i) => (
-                <div key={i} className="rounded-xl p-3 border-l-4" style={{ borderColor: e.color, background: `${e.color}10` }}>
-                  <p className="text-sm font-bold text-gray-800">{e.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">{e.time}</p>
-                  <p className={`text-xs font-medium mt-0.5 ${e.online ? "text-blue-600" : "text-gray-500"}`}>{e.room}</p>
-                  <button
-                    className="mt-2 text-xs font-semibold px-2.5 py-1 rounded-lg text-white transition-colors"
-                    style={{ background: e.color }}
-                  >
-                    {e.online ? "Start Class" : "View Class"}
-                  </button>
-                </div>
-              ))}
-            </div>
-          ) : selectedDay ? (
-            <div className="text-center py-8 text-gray-400">
-              <IconCalendar />
-              <p className="text-xs mt-2">No classes scheduled</p>
-            </div>
-          ) : null}
-        </div>
+        )}
       </div>
+
+      {/* ── View Class Details Modal ── */}
+      {selectedClassInfo && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                  {selectedClassInfo.courseCode || "Class Information"}
+                </span>
+                <h3 className="text-base font-bold text-gray-900 mt-1">
+                  {selectedClassInfo.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedClassInfo(null)}
+                className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-3 text-xs text-gray-600">
+              <div className="bg-gray-50 p-3 rounded-xl space-y-1.5 border border-gray-100">
+                <p><strong className="text-gray-800">Course:</strong> {selectedClassInfo.course}</p>
+                <p><strong className="text-gray-800">Format:</strong> {selectedClassInfo.type} ({selectedClassInfo.online ? "Online via Zoom" : "In-Person"})</p>
+                <p><strong className="text-gray-800">Schedule:</strong> {selectedClassInfo.time}</p>
+                <p><strong className="text-gray-800">Location:</strong> {selectedClassInfo.room}</p>
+                {selectedClassInfo.instructor && (
+                  <p><strong className="text-gray-800">Instructor:</strong> {selectedClassInfo.instructor}</p>
+                )}
+                {selectedClassInfo.enrolledStudents && (
+                  <p><strong className="text-gray-800">Enrollment:</strong> {selectedClassInfo.enrolledStudents} Students</p>
+                )}
+              </div>
+
+              {selectedClassInfo.topic && (
+                <div>
+                  <p className="font-bold text-gray-800 mb-1">Session Topic &amp; Focus</p>
+                  <p className="text-gray-600 leading-relaxed bg-blue-50/50 p-2.5 rounded-xl border border-blue-100/60">
+                    {selectedClassInfo.topic}
+                  </p>
+                </div>
+              )}
+
+              {selectedClassInfo.description && (
+                <div>
+                  <p className="font-bold text-gray-800 mb-1">Session Description</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {selectedClassInfo.description}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-4 mt-5 border-t border-gray-100">
+              <button
+                type="button"
+                onClick={() => setSelectedClassInfo(null)}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedClassInfo(null);
+                  if (setActive) setActive("courses");
+                }}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer hover:opacity-95 shadow-xs"
+                style={{ background: "#1a3a9e" }}
+              >
+                Go to Course Overview →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Class Launch Toast */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
+            <IconVideo className="w-3.5 h-3.5" />
+          </div>
+          <div>
+            <p className="font-semibold text-white">Virtual Classroom</p>
+            <p className="text-gray-300 text-[11px]">{toastMessage}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -2735,14 +5478,9 @@ function InstructorProfilePage({ userName }: { userName: string }) {
       <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
         <span>Instructor</span><span>/</span><span className="text-gray-600">Profile</span>
       </div>
-      <div className="flex items-start justify-between mb-6 flex-wrap gap-3">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">My Profile</h1>
-          <p className="text-sm text-gray-500 mt-0.5">View and manage your instructor information</p>
-        </div>
-        <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors" style={{ background: "#1a3a9e" }}>
-          <IconEdit /> Edit Profile
-        </button>
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-gray-900">My Profile</h1>
+        <p className="text-sm text-gray-500 mt-0.5">View your instructor information</p>
       </div>
 
       {/* Profile header card */}
@@ -2794,7 +5532,13 @@ function InstructorProfilePage({ userName }: { userName: string }) {
 }
 
 // ── Instructor Settings Page ───────────────────────────────────────────────────
-function InstructorSettingsPage() {
+function InstructorSettingsPage({
+  theme: controlledTheme,
+  onThemeChange,
+}: {
+  theme?: "Light" | "Dark";
+  onThemeChange?: (theme: "Light" | "Dark") => void;
+} = {}) {
   const [saved, setSaved] = useState(false);
   const [email, setEmail] = useState("sarita.koirala@university.edu.au");
   const [phone, setPhone] = useState("+61 2 9876 5432");
@@ -2808,12 +5552,38 @@ function InstructorSettingsPage() {
   const [twoFactor, setTwoFactor] = useState(false);
   const [language, setLanguage] = useState("English");
   const [timezone, setTimezone] = useState("Australia/Sydney (AEST, UTC+10)");
-  const [theme, setTheme] = useState("Light");
+  const [theme, setTheme] = useState<"Light" | "Dark">(controlledTheme || "Light");
+
+  useEffect(() => {
+    if (controlledTheme) {
+      setTheme(controlledTheme);
+    }
+  }, [controlledTheme]);
 
   const toggleNotif = (k: keyof typeof notifs) =>
     setNotifs((p) => ({ ...p, [k]: !p[k] }));
 
+  const handleSelectTheme = (t: "Light" | "Dark") => {
+    setTheme(t);
+    if (onThemeChange) {
+      onThemeChange(t);
+    }
+    try {
+      localStorage.setItem("eduflex_instructor_theme", t);
+    } catch {
+      // ignore
+    }
+  };
+
   const handleSave = () => {
+    if (onThemeChange) {
+      onThemeChange(theme);
+    }
+    try {
+      localStorage.setItem("eduflex_instructor_theme", theme);
+    } catch {
+      // ignore
+    }
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
@@ -2887,9 +5657,17 @@ function InstructorSettingsPage() {
             </Field>
             <Field label="Theme" sub="Portal appearance">
               <div className="flex gap-2">
-                {["Light", "Dark"].map((t) => (
-                  <button key={t} onClick={() => setTheme(t)}
-                    className={`text-sm font-medium px-4 py-2 rounded-xl border transition-colors ${theme === t ? "border-blue-600 text-blue-700 bg-blue-50" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
+                {(["Light", "Dark"] as const).map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => handleSelectTheme(t)}
+                    className={`text-sm font-medium px-4 py-2 rounded-xl border transition-colors cursor-pointer ${
+                      theme === t
+                        ? "border-blue-600 text-blue-700 bg-blue-50 font-semibold"
+                        : "border-gray-200 text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
                     {t}
                   </button>
                 ))}
@@ -2963,37 +5741,68 @@ export default function InstructorDashboard({ onLogout = () => {} }: { onLogout?
   const [active, setActive] = useState("dashboard");
   const [collapsed, setCollapsed] = useState(false);
   const [userName, setUserName] = useState("Prof. Sarita Koirala");
+  const [assignmentCourses, setAssignmentCourses] = useState<InstructorCourseAssignments[]>(INITIAL_ASSIGNMENT_COURSES);
+  const [theme, setTheme] = useState<"Light" | "Dark">("Light");
 
   useEffect(() => {
     const sessionUser = getSessionUser();
     if (sessionUser?.name) {
       setUserName(sessionUser.name);
     }
+    try {
+      const savedTheme = localStorage.getItem("eduflex_instructor_theme");
+      if (savedTheme === "Light" || savedTheme === "Dark") {
+        setTheme(savedTheme);
+      }
+    } catch {
+      // ignore
+    }
   }, []);
+
+  const handleThemeChange = (newTheme: "Light" | "Dark") => {
+    setTheme(newTheme);
+    try {
+      localStorage.setItem("eduflex_instructor_theme", newTheme);
+    } catch {
+      // ignore
+    }
+  };
 
   const userInitials = getInitials(userName);
 
   const sidebarPx = collapsed ? "64px" : "224px";
 
   return (
-    <div className="min-h-screen bg-gray-100" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <div className={`min-h-screen ${theme === "Dark" ? "dark bg-[#0b0f19] text-gray-100" : "bg-gray-100 text-gray-900"}`} style={{ fontFamily: "'Outfit', sans-serif" }}>
       <InstructorSidebar active={active} setActive={setActive} collapsed={collapsed} setCollapsed={setCollapsed} onLogout={onLogout} />
-      <InstructorHeader sidebarW={sidebarPx} userName={userName} userInitials={userInitials} />
+      <InstructorHeader
+        sidebarW={sidebarPx}
+        userName={userName}
+        userInitials={userInitials}
+        setActive={setActive}
+        assignmentCourses={assignmentCourses}
+      />
 
       <main className="pt-16 min-h-screen flex flex-col transition-all duration-300" style={{ marginLeft: sidebarPx }}>
         <div className="flex-1">
           {active === "dashboard"     && <DashboardHome setActive={setActive} userName={userName} />}
           {active === "courses"       && <MyCoursesPage setActive={setActive} />}
           {active === "students"      && <StudentsPage />}
-          {active === "assignments"   && <AssignmentsPage setActive={setActive} />}
+          {active === "assignments"   && (
+            <AssignmentsPage
+              setActive={setActive}
+              courses={assignmentCourses}
+              setCourses={setAssignmentCourses}
+            />
+          )}
           {active === "quizzes"       && <QuizzesPage setActive={setActive} />}
           {active === "materials"     && <LearningMaterialsPage />}
           {active === "grades"        && <GradesPage />}
           {active === "announcements" && <InstructorAnnouncementsPage />}
-          {active === "calendar"      && <CalendarPage />}
+          {active === "calendar"      && <CalendarPage setActive={setActive} />}
           {active === "messages"      && <InstructorMessagesPage userName={userName} />}
           {active === "profile"       && <InstructorProfilePage userName={userName} />}
-          {active === "settings"      && <InstructorSettingsPage />}
+          {active === "settings"      && <InstructorSettingsPage theme={theme} onThemeChange={handleThemeChange} />}
         </div>
         <Footer />
       </main>

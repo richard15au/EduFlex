@@ -1,11 +1,11 @@
 [
   {
     "route": "/student",
-    "firstLoadUncompressedJsBytes": 776957,
+    "firstLoadUncompressedJsBytes": 773911,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\3fntmmi971322.js",
       ".next\\static\\chunks\\2ql00hdopz1di.js",
-      ".next\\static\\chunks\\43s_xfl_cf-ga.js",
+      ".next\\static\\chunks\\1l_pvt_9tncsc.js",
       ".next\\static\\chunks\\310vm2bl3xxpt.js",
       ".next\\static\\chunks\\2mmpezlrfmbu5.js",
       ".next\\static\\chunks\\1mh6a-0e61pyc.js",
@@ -15,11 +15,11 @@
   },
   {
     "route": "/instructor",
-    "firstLoadUncompressedJsBytes": 577057,
+    "firstLoadUncompressedJsBytes": 653609,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\3fntmmi971322.js",
       ".next\\static\\chunks\\2ql00hdopz1di.js",
-      ".next\\static\\chunks\\2yicbvaqbkih-.js",
+      ".next\\static\\chunks\\29hjnq8eyxigu.js",
       ".next\\static\\chunks\\310vm2bl3xxpt.js",
       ".next\\static\\chunks\\2mmpezlrfmbu5.js",
       ".next\\static\\chunks\\1mh6a-0e61pyc.js",
@@ -29,11 +29,11 @@
   },
   {
     "route": "/admin",
-    "firstLoadUncompressedJsBytes": 555075,
+    "firstLoadUncompressedJsBytes": 634855,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\3fntmmi971322.js",
       ".next\\static\\chunks\\2ql00hdopz1di.js",
-      ".next\\static\\chunks\\3343145y3-ooc.js",
+      ".next\\static\\chunks\\17dbdo4qv8xwt.js",
       ".next\\static\\chunks\\310vm2bl3xxpt.js",
       ".next\\static\\chunks\\2mmpezlrfmbu5.js",
       ".next\\static\\chunks\\1mh6a-0e61pyc.js",

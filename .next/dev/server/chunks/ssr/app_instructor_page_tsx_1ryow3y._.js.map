@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Richard/Documents/Eduflex/EduFlex/app/instructor/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport InstructorDashboard from \"@/src/InstructorDashboard\";\r\nimport { clearSession } from \"@/src/auth\";\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nexport default function InstructorRoute() {\r\n  const router = useRouter();\r\n\r\n  const handleLogout = () => {\r\n    clearSession();\r\n    router.push(\"/\");\r\n  };\r\n\r\n  return <InstructorDashboard onLogout={handleLogout} />;\r\n}\r\n"],"names":["InstructorRoute","router","handleLogout","push","onLogout"],"mappings":";;;;;AAEA;AACA;AACA;AAJA;;;;;AAMe,SAASA;IACtB,MAAMC,SAAS,IAAA,+IAAS;IAExB,MAAMC,eAAe;QACnB,IAAA,2HAAY;QACZD,OAAOE,IAAI,CAAC;IACd;IAEA,qBAAO,8OAAC,sIAAmB;QAACC,UAAUF;;;;;;AACxC"}}]
+}

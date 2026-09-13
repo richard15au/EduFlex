@@ -1525,6 +1525,7 @@ export interface ActiveSessionItem {
 }
 
 export interface StudentSettingsData {
+  theme: "Light" | "Dark";
   notifAssignment: boolean;
   notifQuiz: boolean;
   notifAnnouncement: boolean;
@@ -1536,6 +1537,7 @@ export interface StudentSettingsData {
 }
 
 export const initialStudentSettings: StudentSettingsData = {
+  theme: "Light",
   notifAssignment: true,
   notifQuiz: true,
   notifAnnouncement: true,
@@ -1607,20 +1609,8 @@ export function useSharedStudentSettings(): [StudentSettingsData, (updates: Part
 // ─────────────────────────────────────────────────────────────────────────────
 // PROFILE PAGE
 // ─────────────────────────────────────────────────────────────────────────────
-export function ProfilePage({ userName, onNameChange }: { userName: string; onNameChange?: (name: string) => void }) {
-  const [profile, updateProfile] = useSharedStudentProfile();
-  const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState({
-    ...profile,
-    fullName: userName || profile.fullName,
-  });
-
-  useEffect(() => {
-    setDraft({
-      ...profile,
-      fullName: userName || profile.fullName,
-    });
-  }, [profile, userName]);
+export function ProfilePage({ userName, onNameChange: _onNameChange }: { userName: string; onNameChange?: (name: string) => void }) {
+  const [profile] = useSharedStudentProfile();
 
   const initials = (profile.fullName || userName || "Richard Vitug")
     .split(" ")
@@ -1628,20 +1618,6 @@ export function ProfilePage({ userName, onNameChange }: { userName: string; onNa
     .slice(0, 2)
     .map((w) => w[0].toUpperCase())
     .join("");
-
-  const openEdit = () => {
-    setDraft({
-      ...profile,
-      fullName: userName || profile.fullName,
-    });
-    setEditing(true);
-  };
-  const cancel = () => setEditing(false);
-  const save = () => {
-    updateProfile(draft);
-    setEditing(false);
-    onNameChange?.(draft.fullName);
-  };
 
   const academicInfo = [
     { label: "Program",           value: "Bachelor of Information Technology" },
@@ -1651,19 +1627,11 @@ export function ProfilePage({ userName, onNameChange }: { userName: string; onNa
     { label: "Credits Completed", value: "96 of 120" },
   ];
 
-  const inputCls = "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#1a3a9e] transition";
-  const readCls  = "w-full rounded-xl border border-gray-100 bg-gray-100 px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed";
-
   return (
     <div className="p-7">
       <PageHeader
         title="My Profile"
-        subtitle="View and manage your personal information"
-        right={
-          <button onClick={openEdit} className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all cursor-pointer" style={{ background: "#1a3a9e" }}>
-            <IconEdit /> Edit Profile
-          </button>
-        }
+        subtitle="View your student information"
       />
 
       {/* Profile header card */}
@@ -1717,59 +1685,6 @@ export function ProfilePage({ userName, onNameChange }: { userName: string; onNa
           </div>
         </div>
       </div>
-
-      {/* Edit Profile Modal */}
-      {editing && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={cancel}>
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 p-7" onClick={(e) => e.stopPropagation()}>
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Edit Profile</h2>
-            <p className="text-sm text-gray-400 mb-6">Update your personal information below.</p>
-
-            <div className="space-y-4">
-              {/* Editable fields */}
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">Full Name</label>
-                <input className={inputCls} value={draft.fullName} onChange={(e) => setDraft((d) => ({ ...d, fullName: e.target.value }))} />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">Email Address</label>
-                <input className={inputCls} type="email" value={draft.email} onChange={(e) => setDraft((d) => ({ ...d, email: e.target.value }))} />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">Phone Number</label>
-                <input className={inputCls} type="tel" value={draft.phone} onChange={(e) => setDraft((d) => ({ ...d, phone: e.target.value }))} />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">Address</label>
-                <input className={inputCls} value={draft.address} onChange={(e) => setDraft((d) => ({ ...d, address: e.target.value }))} />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">Date of Birth</label>
-                <input className={inputCls} value={draft.dateOfBirth} onChange={(e) => setDraft((d) => ({ ...d, dateOfBirth: e.target.value }))} />
-              </div>
-
-              {/* Read-only fields */}
-              <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1.5">Student ID <span className="font-normal">(read-only)</span></label>
-                <input className={readCls} value="S00123456" readOnly />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1.5">Program <span className="font-normal">(read-only)</span></label>
-                <input className={readCls} value="Bachelor of Information Technology" readOnly />
-              </div>
-            </div>
-
-            <div className="flex gap-3 mt-7">
-              <button onClick={save} className="flex-1 py-2.5 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-all cursor-pointer" style={{ background: "#1a3a9e" }}>
-                Save Changes
-              </button>
-              <button onClick={cancel} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all cursor-pointer">
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -1789,7 +1704,13 @@ const TIMEZONE_OPTIONS = [
   "America/New_York (EST, UTC-5)",
 ];
 
-export function SettingsPage() {
+export function SettingsPage({
+  theme: controlledTheme,
+  onThemeChange,
+}: {
+  theme?: "Light" | "Dark";
+  onThemeChange?: (theme: "Light" | "Dark") => void;
+} = {}) {
   const [profile, updateProfile] = useSharedStudentProfile();
   const [settings, updateSettings] = useSharedStudentSettings();
 
@@ -1805,8 +1726,15 @@ export function SettingsPage() {
   });
   const [language, setLanguage] = useState(settings.language);
   const [timezone, setTimezone] = useState(settings.timezone);
+  const [theme, setTheme] = useState<"Light" | "Dark">(controlledTheme || settings.theme || "Light");
   const [twoFactor, setTwoFactor] = useState(settings.twoFactor);
   const [activeSessions, setActiveSessions] = useState(settings.activeSessions);
+
+  useEffect(() => {
+    if (controlledTheme) {
+      setTheme(controlledTheme);
+    }
+  }, [controlledTheme]);
 
   // Sync when profile updates externally
   useEffect(() => {
@@ -1825,6 +1753,9 @@ export function SettingsPage() {
     });
     setLanguage(settings.language);
     setTimezone(settings.timezone);
+    if (settings.theme) {
+      setTheme(settings.theme);
+    }
     setTwoFactor(settings.twoFactor);
     setActiveSessions(settings.activeSessions);
   }, [settings]);
@@ -1890,6 +1821,19 @@ export function SettingsPage() {
     setTimezone(val);
     setTzDropdownOpen(false);
     updateSettings({ timezone: val });
+  };
+
+  const handleSelectTheme = (t: "Light" | "Dark") => {
+    setTheme(t);
+    updateSettings({ theme: t });
+    if (onThemeChange) {
+      onThemeChange(t);
+    }
+    try {
+      localStorage.setItem("eduflex_student_theme", t);
+    } catch {
+      // ignore
+    }
   };
 
   const handleToggle2FA = () => {
@@ -2007,11 +1951,20 @@ export function SettingsPage() {
     // Save changes to shared settings
     updateSettings({
       ...notifs,
+      theme,
       language,
       timezone,
       twoFactor,
       activeSessions,
     });
+    if (onThemeChange) {
+      onThemeChange(theme);
+    }
+    try {
+      localStorage.setItem("eduflex_student_theme", theme);
+    } catch {
+      // ignore
+    }
 
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
@@ -2195,12 +2148,20 @@ export function SettingsPage() {
             </Field>
             <Field label="Theme" sub="Portal appearance">
               <div className="flex gap-2">
-                <button
-                  type="button"
-                  className="text-sm font-semibold px-4 py-2 rounded-xl border border-blue-600 text-blue-700 bg-blue-50 cursor-default"
-                >
-                  Light
-                </button>
+                {(["Light", "Dark"] as const).map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => handleSelectTheme(t)}
+                    className={`text-sm font-medium px-4 py-2 rounded-xl border transition-colors cursor-pointer ${
+                      theme === t
+                        ? "border-blue-600 text-blue-700 bg-blue-50 font-semibold"
+                        : "border-gray-200 text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
               </div>
             </Field>
           </Section>

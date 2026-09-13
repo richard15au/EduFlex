@@ -167,9 +167,6 @@ const navItems = [
   { label: "Quizzes",           icon: <IconQuiz />,        id: "quizzes" },
   { label: "Learning Materials",icon: <IconFolder />,      id: "materials" },
   { label: "Grades",            icon: <IconGrades />,      id: "grades" },
-  { label: "Calendar",          icon: <IconCalendar />,    id: "calendar" },
-  { label: "Announcements",     icon: <IconAnnouncement />,id: "announcements" },
-  { label: "Messages",          icon: <IconMessage />,     id: "messages" },
   { label: "Profile",           icon: <IconProfile />,     id: "profile" },
   { label: "Settings",          icon: <IconSettings />,    id: "settings" },
 ];
@@ -308,6 +305,7 @@ function Header({
   userName,
   userRole,
   userInitials,
+  onCalendar,
   onMessages,
   onNotifications,
   onProfile,
@@ -321,6 +319,7 @@ function Header({
   userName: string;
   userRole: string;
   userInitials: string;
+  onCalendar?: () => void;
   onMessages?: () => void;
   onNotifications?: () => void;
   onProfile?: () => void;
@@ -480,12 +479,33 @@ function Header({
 
       {/* Right icons & profile — fixed on the far right */}
       <div className="flex items-center gap-3 shrink-0 ml-auto">
-        <button onClick={onMessages} className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer">
-          <IconMail />
+        <button
+          type="button"
+          onClick={onCalendar}
+          title="Calendar"
+          aria-label="Calendar"
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+        >
+          <IconCalendar />
         </button>
-        <button onClick={onNotifications} className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer">
-          <IconBell />
+        <button
+          type="button"
+          onClick={onNotifications}
+          title="Announcements"
+          aria-label="Announcements"
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+        >
+          <IconAnnouncement />
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white" />
+        </button>
+        <button
+          type="button"
+          onClick={onMessages}
+          title="Messages"
+          aria-label="Messages"
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+        >
+          <IconMail />
         </button>
         <button onClick={onProfile} className="flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer shrink-0">
           <div className="text-right">
@@ -7819,6 +7839,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
 
   const [userName, setUserName] = useState("Richard Maceda Vitug");
   const [userRole, setUserRole] = useState("Student");
+  const [theme, setTheme] = useState<"Light" | "Dark">("Light");
   const userInitials = getInitials(userName);
 
   useEffect(() => {
@@ -7829,7 +7850,24 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     if (sessionUser?.role) {
       setUserRole(sessionUser.role.charAt(0).toUpperCase() + sessionUser.role.slice(1));
     }
+    try {
+      const savedTheme = localStorage.getItem("eduflex_student_theme");
+      if (savedTheme === "Light" || savedTheme === "Dark") {
+        setTheme(savedTheme);
+      }
+    } catch {
+      // ignore
+    }
   }, []);
+
+  const handleThemeChange = (newTheme: "Light" | "Dark") => {
+    setTheme(newTheme);
+    try {
+      localStorage.setItem("eduflex_student_theme", newTheme);
+    } catch {
+      // ignore
+    }
+  };
 
   const sidebarPx = collapsed ? "64px" : "224px";
 
@@ -7859,7 +7897,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
   };
 
   return (
-    <div className="min-h-screen bg-gray-100" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <div className={`min-h-screen ${theme === "Dark" ? "dark bg-[#0b0f19] text-gray-100" : "bg-gray-100 text-gray-900"}`} style={{ fontFamily: "'Outfit', sans-serif" }}>
       <Sidebar
         active={activeNav === "course-detail" ? "courses" : activeNav}
         setActive={(nav) => {
@@ -7877,6 +7915,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
         userName={userName}
         userRole={userRole}
         userInitials={userInitials}
+        onCalendar={() => { setSelectedCourse(null); setActiveNav("calendar"); }}
         onMessages={() => { setSelectedCourse(null); setActiveNav("messages"); }}
         onNotifications={() => { setSelectedCourse(null); setActiveNav("announcements"); }}
         onProfile={() => { setSelectedCourse(null); setActiveNav("profile"); }}
@@ -7923,7 +7962,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
           {activeNav === "announcements" && <AnnouncementsPage />}
           {activeNav === "messages" && <MessagesPage />}
           {activeNav === "profile" && <ProfilePage userName={userName} onNameChange={setUserName} />}
-          {activeNav === "settings" && <SettingsPage />}
+          {activeNav === "settings" && <SettingsPage theme={theme} onThemeChange={handleThemeChange} />}
           {activeNav === "search" && (
             <SearchResultsPage
               query={executedSearchQuery || searchQuery}
