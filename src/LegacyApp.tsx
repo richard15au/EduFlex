@@ -8,6 +8,14 @@ import { useState, useRef, useEffect, useMemo } from "react";
 // import { HomePage, LoginPage, RegisterPage } from "./PublicPages";
 import { getSessionUser, clearSession, getInitials } from "./auth";
 import {
+  getSharedCourses,
+  getSharedSubmissions,
+  addStudentSubmission,
+  InstructorCourseAssignments,
+  InstructorAssignmentItem,
+  StudentSubmission,
+} from "./assignmentData";
+import {
   GradesPage,
   CalendarPage,
   AnnouncementsPage,
@@ -1001,6 +1009,9 @@ interface Assignment {
   score?: string;
   submissionDate?: string;
   feedback?: string;
+  type?: "Assignment" | "Assessment";
+  maxScore?: number;
+  weight?: number;
 }
 
 interface CourseGroup {
@@ -1009,6 +1020,7 @@ interface CourseGroup {
   term: string;
   iconColor: string;
   assignments: Assignment[];
+  assessments?: Assignment[];
 }
 
 const courseGroups: CourseGroup[] = [
@@ -1130,6 +1142,49 @@ function AssignmentRow({
   );
 }
 
+function AssessmentRow({
+  a,
+  course,
+  onSelect,
+}: {
+  a: Assignment;
+  course: CourseGroup;
+  onSelect: (a: Assignment, course: CourseGroup) => void;
+}) {
+  return (
+    <div
+      onClick={() => onSelect(a, course)}
+      className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 last:border-0 hover:bg-purple-50/40 transition-colors group cursor-pointer"
+      style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
+      title={`Click to view details for ${a.name}`}
+    >
+      <div>
+        <div className="flex items-center gap-2 flex-wrap">
+          <p className="text-sm font-semibold text-gray-800 group-hover:text-purple-700 transition-colors">
+            {a.name}
+          </p>
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 shrink-0">
+            Weight: {a.weight ?? 25}%
+          </span>
+        </div>
+      </div>
+      <div>
+        <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">{a.description}</p>
+      </div>
+      <div className="flex items-center gap-1.5 text-xs text-gray-500">
+        <IconClock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+        <span>{a.dueDate}</span>
+      </div>
+      <div>
+        <StatusBadge status={a.status} />
+      </div>
+      <div className="flex justify-end text-gray-300 group-hover:text-purple-600 transition-colors">
+        <IconChevronRight className="w-4 h-4" />
+      </div>
+    </div>
+  );
+}
+
 function CourseAccordion({
   group,
   defaultOpen = false,
@@ -1143,11 +1198,19 @@ function CourseAccordion({
 }) {
   const [open, setOpen] = useState(defaultOpen);
 
-  const visibleAssignments = filter === "all"
-    ? group.assignments
-    : group.assignments.filter((a) => a.status === filter);
+  const assignments = group.assignments || [];
+  const assessments = group.assessments || [];
 
-  if (filter !== "all" && visibleAssignments.length === 0) return null;
+  const visibleAssignments = filter === "all"
+    ? assignments
+    : assignments.filter((a) => a.status === filter);
+
+  const visibleAssessments = filter === "all"
+    ? assessments
+    : assessments.filter((a) => a.status === filter);
+
+  const totalVisible = visibleAssignments.length + visibleAssessments.length;
+  if (filter !== "all" && totalVisible === 0) return null;
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
@@ -1163,34 +1226,160 @@ function CourseAccordion({
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-sm font-bold text-gray-800">
-            {group.code} {group.title} {group.term}
+            {group.code} – {group.title} {group.term ? `(${group.term})` : ""}
           </p>
-          <p className="text-xs text-gray-400 mt-0.5">{visibleAssignments.length} assignment{visibleAssignments.length !== 1 ? "s" : ""}</p>
+          <p className="text-xs text-gray-500 mt-0.5">
+            {assignments.length} assignment{assignments.length !== 1 ? "s" : ""} · {assessments.length} assessment{assessments.length !== 1 ? "s" : ""}
+          </p>
         </div>
         <div className={`text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
           <IconChevronDown />
         </div>
       </button>
 
-      {open && visibleAssignments.length > 0 && (
+      {open && (
         <div className="border-t border-gray-100">
-          {/* Table header */}
-          <div
-            className="grid px-5 py-2.5 bg-gray-50 border-b border-gray-100 gap-4"
-            style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
-          >
-            {["Assignment", "Description", "Due Date", "Status", ""].map((h, idx) => (
-              <p key={idx} className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</p>
-            ))}
+          {/* ── ASSIGNMENTS SECTION ── */}
+          <div className="px-5 py-2.5 bg-gray-50/75 border-b border-gray-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-600">Assignments</span>
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">
+                {visibleAssignments.length}
+              </span>
+            </div>
+            <span className="text-[11px] text-gray-400">Regular coursework &amp; lab exercises</span>
           </div>
-          {visibleAssignments.map((a) => (
-            <AssignmentRow key={a.id} a={a} course={group} onSelect={onSelectAssignment} />
-          ))}
+
+          {visibleAssignments.length === 0 ? (
+            <div className="px-5 py-4 text-center text-xs text-gray-400">
+              {filter === "all" ? "No regular assignments in this course." : "No assignments match the selected filter."}
+            </div>
+          ) : (
+            <div>
+              {/* Table header */}
+              <div
+                className="grid px-5 py-2 bg-gray-50/50 border-b border-gray-100 gap-4"
+                style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
+              >
+                {["Assignment", "Description", "Due Date", "Status", ""].map((h, idx) => (
+                  <p key={idx} className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</p>
+                ))}
+              </div>
+              {visibleAssignments.map((a) => (
+                <AssignmentRow key={a.id} a={a} course={group} onSelect={onSelectAssignment} />
+              ))}
+            </div>
+          )}
+
+          {/* ── ASSESSMENTS SECTION ── */}
+          <div className="px-5 py-2.5 bg-purple-50/70 border-t border-b border-purple-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-purple-900">Assessments</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                {visibleAssessments.length}
+              </span>
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                Weighted
+              </span>
+            </div>
+            <span className="text-[11px] text-purple-700 font-medium">Major coursework, milestones &amp; summative tasks</span>
+          </div>
+
+          {visibleAssessments.length === 0 ? (
+            <div className="px-5 py-4 text-center text-xs text-gray-400">
+              {filter === "all" ? "No assessments published yet for this course." : "No assessments match the selected filter."}
+            </div>
+          ) : (
+            <div>
+              {/* Table header */}
+              <div
+                className="grid px-5 py-2 bg-purple-50/30 border-b border-purple-100 gap-4"
+                style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
+              >
+                {["Assessment", "Description", "Due Date", "Status", ""].map((h, idx) => (
+                  <p key={idx} className="text-[10px] font-bold text-purple-700 uppercase tracking-wider">{h}</p>
+                ))}
+              </div>
+              {visibleAssessments.map((a) => (
+                <AssessmentRow key={a.id} a={a} course={group} onSelect={onSelectAssignment} />
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 }
+
+function buildStudentCourseGroups(
+  instructorCourses: InstructorCourseAssignments[],
+  submissions: StudentSubmission[],
+  studentEmail: string = "2003988@eduflex.edu"
+): CourseGroup[] {
+  return instructorCourses.map((c) => {
+    const courseSubmissions = submissions.filter((s) => s.courseCode === c.code);
+
+    const mapItem = (item: InstructorAssignmentItem, itemType: "Assignment" | "Assessment"): Assignment => {
+      const sub = courseSubmissions.find(
+        (s) =>
+          (s.itemId === item.id || s.itemTitle.toLowerCase() === item.title.toLowerCase()) &&
+          (!studentEmail || s.studentEmail === studentEmail)
+      );
+
+      let status: AStatus = "notStarted";
+      if (sub) {
+        status = "submitted";
+      } else {
+        const dueTime = new Date(item.due).getTime();
+        const now = Date.now();
+        if (!isNaN(dueTime)) {
+          const diffDays = (dueTime - now) / (1000 * 60 * 60 * 24);
+          if (diffDays < 0) {
+            status = "overdue";
+          } else if (diffDays <= 14) {
+            status = "dueSoon";
+          }
+        }
+      }
+
+      return {
+        id: item.id || `${itemType.toLowerCase()}-${item.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
+        name: item.title,
+        description:
+          item.description ||
+          (itemType === "Assessment"
+            ? "Major assessment milestone and project deliverable."
+            : "Coursework and lab deliverable."),
+        dueDate: item.due,
+        status,
+        score: sub?.score !== undefined ? `${sub.score}` : undefined,
+        submissionDate: sub?.submittedAt,
+        feedback: sub?.feedback,
+        type: itemType,
+        maxScore: item.maxScore ?? 100,
+        weight: item.weight ?? (itemType === "Assessment" ? 25 : undefined),
+      };
+    };
+
+    const publishedAssignments = (c.assignments || [])
+      .filter((a) => a.status !== "Draft")
+      .map((a) => mapItem(a, "Assignment"));
+
+    const publishedAssessments = (c.assessments || [])
+      .filter((ass) => ass.status === "Published" || !ass.status)
+      .map((ass) => mapItem(ass, "Assessment"));
+
+    return {
+      code: c.code,
+      title: c.name,
+      term: c.term || "T226",
+      iconColor: c.color,
+      assignments: publishedAssignments,
+      assessments: publishedAssessments,
+    };
+  });
+}
+
 
 // ── Reusable Assignment Details View Icons & Data ──────────────────────────────
 const IconFileArchive = ({ className = "w-5 h-5" }: { className?: string }) => (
@@ -1396,30 +1585,54 @@ const assignmentCustomData: Record<string, AssignmentDetailMeta> = {
 };
 
 function getAssignmentDetails(a: Assignment, course: CourseGroup): AssignmentDetailMeta {
-  if (assignmentCustomData[a.id]) {
-    return assignmentCustomData[a.id];
+  const isAssessment = a.type === "Assessment";
+  const baseCustom = assignmentCustomData[a.id];
+
+  const weightStr = a.weight ? `${a.weight}% of unit mark` : isAssessment ? "30% of unit mark" : "20% of unit mark";
+  const maxPts = a.maxScore ?? (baseCustom?.totalMarks ?? 100);
+
+  const isSubmitted = a.status === "submitted";
+  const gradeInfo = isSubmitted
+    ? {
+        status: a.score || a.feedback ? "Graded & Released" : (baseCustom?.gradeInfo?.status ?? "Submitted & Under Review"),
+        score: a.score ? `${a.score} / ${maxPts}` : (baseCustom?.gradeInfo?.score),
+        grade:
+          a.score && Number(a.score) >= 85
+            ? "High Distinction (HD)"
+            : a.score && Number(a.score) >= 75
+            ? "Distinction (D)"
+            : a.score && Number(a.score) >= 65
+            ? "Credit (C)"
+            : (baseCustom?.gradeInfo?.grade),
+        feedback: a.feedback ?? baseCustom?.gradeInfo?.feedback ?? "Submission received on time. Marker evaluation currently in progress.",
+        submissionDate: a.submissionDate ?? baseCustom?.gradeInfo?.submissionDate ?? a.dueDate,
+        receipt: `#EDF-2026-${a.id.toUpperCase()}`,
+      }
+    : {
+        status: a.status === "dueSoon" ? "Submission Pending" : "Not Started",
+        feedback: "Evaluation criteria and awarded marks will appear here after grading.",
+      };
+
+  if (baseCustom) {
+    return {
+      ...baseCustom,
+      weight: weightStr,
+      totalMarks: maxPts,
+      gradeInfo,
+      instructions: {
+        ...baseCustom.instructions,
+        overview: a.description || baseCustom.instructions.overview,
+      },
+    };
   }
 
   // Reusable fallback for any other assignment in the portal
-  const isSubmitted = a.status === "submitted";
   return {
-    weight: "25% of unit mark",
-    totalMarks: 100,
-    gradeInfo: isSubmitted
-      ? {
-          status: "Submitted & Under Review",
-          score: a.score ?? "88 / 100",
-          grade: "Distinction (D)",
-          feedback: a.feedback ?? "Submission received on time. Marker evaluation currently in progress.",
-          submissionDate: a.submissionDate ?? a.dueDate,
-          receipt: `#EDF-2026-${a.id.toUpperCase()}01`,
-        }
-      : {
-          status: a.status === "dueSoon" ? "Submission Pending" : "Not Started",
-          feedback: "Evaluation criteria and awarded marks will appear here after grading.",
-        },
+    weight: weightStr,
+    totalMarks: maxPts,
+    gradeInfo,
     instructions: {
-      overview: `Complete the ${a.name} in accordance with ${course.code} unit learning outcomes and specifications. Demonstrate strong problem-solving methodology and adherence to industry best practices.`,
+      overview: a.description || `Complete the ${a.name} in accordance with ${course.code} unit learning outcomes and specifications. Demonstrate strong problem-solving methodology and adherence to industry best practices.`,
       tasks: [
         {
           title: "1. Scope Analysis & Preparation",
@@ -1445,9 +1658,9 @@ function getAssignmentDetails(a: Assignment, course: CourseGroup): AssignmentDet
       ],
     },
     rubric: [
-      { criterion: "Technical Execution & Completeness", maxPts: 40, desc: "Implementation meets all key technical requirements and objectives." },
-      { criterion: "Methodology & Architecture", maxPts: 30, desc: "Adherence to standards, structure, and optimal problem-solving." },
-      { criterion: "Documentation & Analysis", maxPts: 30, desc: "Clear reporting, evidence of testing, and thorough write-up." },
+      { criterion: "Technical Execution & Completeness", maxPts: Math.round(maxPts * 0.4), desc: "Implementation meets all key technical requirements and objectives." },
+      { criterion: "Methodology & Architecture", maxPts: Math.round(maxPts * 0.3), desc: "Adherence to standards, structure, and optimal problem-solving." },
+      { criterion: "Documentation & Analysis", maxPts: Math.round(maxPts * 0.3), desc: "Clear reporting, evidence of testing, and thorough write-up." },
     ],
     resources: [
       { name: `${course.code}_${a.name.replace(/[^a-zA-Z0-9]/g, "_")}_Brief.pdf`, size: "1.2 MB", type: "PDF Document", desc: "Official assessment brief and instructions." },
@@ -1455,6 +1668,7 @@ function getAssignmentDetails(a: Assignment, course: CourseGroup): AssignmentDet
     ],
   };
 }
+
 
 // ── Dedicated Reusable Assignment Details View ────────────────────────────────
 function AssignmentDetailsView({
@@ -1529,7 +1743,28 @@ function AssignmentDetailsView({
     setCurrentStatus("submitted");
     setIsResubmitting(false);
 
-    showToast(`Assignment "${assignment.name}" submitted successfully! Receipt: ${newReceipt}`);
+    // Save to shared submissions store
+    const sessionUser = getSessionUser();
+    const studentName = sessionUser?.name || "Richard Maceda Vitug";
+    const studentEmail = sessionUser?.email || "2003988@eduflex.edu";
+
+    addStudentSubmission({
+      itemId: assignment.id,
+      itemTitle: assignment.name,
+      itemType: assignment.type === "Assessment" ? "Assessment" : "Assignment",
+      courseCode: course.code,
+      studentName,
+      studentEmail,
+      fileName: uploadedFile.name,
+      fileSize: uploadedFile.size,
+      comments: comments.trim() || undefined,
+      receiptNumber: newReceipt,
+      maxScore: assignment.maxScore ?? details.totalMarks,
+    });
+
+    showToast(
+      `${assignment.type === "Assessment" ? "Assessment" : "Assignment"} "${assignment.name}" submitted successfully! Receipt: ${newReceipt}`
+    );
     onStatusChange(assignment.id, "submitted", {
       submissionDate: formattedDate,
     });
@@ -1588,8 +1823,18 @@ function AssignmentDetailsView({
             </span>
             <span className="text-xs text-gray-300 font-medium">·</span>
             <span className="text-xs font-semibold text-gray-700">
-              {course.title} ({course.term})
+              {course.title} {course.term ? `(${course.term})` : ""}
             </span>
+            <span className="text-xs text-gray-300 font-medium">·</span>
+            {assignment.type === "Assessment" ? (
+              <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-purple-100 text-purple-800">
+                Assessment · Weighted ({assignment.weight ?? 25}%)
+              </span>
+            ) : (
+              <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-blue-100 text-blue-800">
+                Assignment · Coursework
+              </span>
+            )}
             <span className="text-xs text-gray-300 font-medium">·</span>
             <StatusBadge status={currentStatus} />
           </div>
@@ -1613,10 +1858,13 @@ function AssignmentDetailsView({
             </div>
 
             <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
-              <span className="text-gray-400 font-medium block text-[11px] mb-0.5">Assessment Weight</span>
+              <span className="text-gray-400 font-medium block text-[11px] mb-0.5">
+                {assignment.type === "Assessment" ? "Assessment Weight" : "Coursework Weight"}
+              </span>
               <span className="font-bold text-gray-900 block">{details.weight}</span>
               <span className="text-[10px] text-gray-400 mt-0.5 block">{details.totalMarks} Points Total</span>
             </div>
+
 
             <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
               <span className="text-gray-400 font-medium block text-[11px] mb-0.5">Submission Mode</span>
@@ -2081,13 +2329,13 @@ function AssignmentDetailsView({
                   </div>
                 )}
 
-                {/* Submit Assignment Button */}
+                {/* Submit Assignment / Assessment Button */}
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] hover:bg-[#102d80] active:scale-[0.99] transition-all shadow-sm flex items-center justify-center gap-2"
+                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] hover:bg-[#102d80] active:scale-[0.99] transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <IconCheck className="w-4 h-4" />
-                  <span>Submit Assignment</span>
+                  <span>Submit {assignment.type === "Assessment" ? "Assessment" : "Assignment"}</span>
                 </button>
               </form>
             )}
@@ -2121,12 +2369,48 @@ function AssignmentsPage() {
   const [courseOpen, setCourseOpen] = useState(false);
   const [sortOpen, setSortOpen] = useState(false);
 
-  // Dynamic course groups so submitting an assignment updates the list
-  const [allCourseGroups, setAllCourseGroups] = useState<CourseGroup[]>(courseGroups);
+  // Dynamic course groups connected to shared store
+  const [allCourseGroups, setAllCourseGroups] = useState<CourseGroup[]>(() => {
+    const courses = getSharedCourses();
+    const subs = getSharedSubmissions();
+    const user = getSessionUser();
+    return buildStudentCourseGroups(courses, subs, user?.email || "2003988@eduflex.edu");
+  });
   const [selectedAssignment, setSelectedAssignment] = useState<{
     assignment: Assignment;
     course: CourseGroup;
   } | null>(null);
+
+  useEffect(() => {
+    const refreshData = () => {
+      const courses = getSharedCourses();
+      const subs = getSharedSubmissions();
+      const user = getSessionUser();
+      const studentEmail = user?.email || "2003988@eduflex.edu";
+      const updatedGroups = buildStudentCourseGroups(courses, subs, studentEmail);
+      setAllCourseGroups(updatedGroups);
+
+      // If viewing an assignment details, keep it in sync with updated grade/status
+      setSelectedAssignment((prev) => {
+        if (!prev) return null;
+        const matchingCourse = updatedGroups.find((g) => g.code === prev.course.code);
+        if (!matchingCourse) return prev;
+        const matchingItem = [
+          ...matchingCourse.assignments,
+          ...(matchingCourse.assessments || []),
+        ].find((item) => item.id === prev.assignment.id || item.name === prev.assignment.name);
+        if (!matchingItem) return prev;
+        return { assignment: matchingItem, course: matchingCourse };
+      });
+    };
+
+    window.addEventListener("eduflex_assignment_sync", refreshData);
+    window.addEventListener("storage", refreshData);
+    return () => {
+      window.removeEventListener("eduflex_assignment_sync", refreshData);
+      window.removeEventListener("storage", refreshData);
+    };
+  }, []);
 
   const filterTabs: { id: AssignmentFilter; label: string }[] = [
     { id: "all",       label: "All Assignments" },
@@ -2144,6 +2428,17 @@ function AssignmentsPage() {
       prev.map((g) => ({
         ...g,
         assignments: g.assignments.map((a) =>
+          a.id === assignmentId
+            ? {
+                ...a,
+                status: newStatus,
+                score: details?.score ?? a.score,
+                submissionDate: details?.submissionDate ?? a.submissionDate,
+                feedback: details?.feedback ?? a.feedback,
+              }
+            : a
+        ),
+        assessments: (g.assessments || []).map((a) =>
           a.id === assignmentId
             ? {
                 ...a,
@@ -2187,24 +2482,35 @@ function AssignmentsPage() {
     );
   }
 
-  const allAssignments = allCourseGroups.flatMap((g) => g.assignments);
-  const dueSoonCount = allAssignments.filter((a) => a.status === "dueSoon").length;
-  const submittedCount = allAssignments.filter((a) => a.status === "submitted").length;
-  const overdueCount = allAssignments.filter((a) => a.status === "overdue").length;
+  const allItems = allCourseGroups.flatMap((g) => [...g.assignments, ...(g.assessments || [])]);
+  const dueSoonCount = allItems.filter((a) => a.status === "dueSoon").length;
+  const submittedCount = allItems.filter((a) => a.status === "submitted").length;
+  const overdueCount = allItems.filter((a) => a.status === "overdue").length;
 
   const visibleGroups = allCourseGroups
     .filter((g) => courseFilter === "all" || g.code === courseFilter)
     .map((g) => {
-      const sorted = [...g.assignments].sort((a, b) => {
+      const sortFn = (a: Assignment, b: Assignment) => {
         if (sortBy === "newest") return new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime();
         if (sortBy === "oldest") return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
         if (sortBy === "status") return a.status.localeCompare(b.status);
         return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
-      });
-      return { ...g, assignments: sorted };
+      };
+      return {
+        ...g,
+        assignments: [...g.assignments].sort(sortFn),
+        assessments: [...(g.assessments || [])].sort(sortFn),
+      };
     });
 
-  const courseLabel = courseOptions.find((o) => o.value === courseFilter)?.label ?? "All Courses";
+  const currentCourseOptions = [
+    { value: "all", label: "All Courses" },
+    ...allCourseGroups.map((g) => ({
+      value: g.code,
+      label: `${g.code} – ${g.title}`,
+    })),
+  ];
+  const courseLabel = currentCourseOptions.find((o) => o.value === courseFilter)?.label ?? "All Courses";
   const sortLabel   = sortOptions.find((o) => o.value === sortBy)?.label ?? "Due Date";
 
   return (
@@ -2214,9 +2520,9 @@ function AssignmentsPage() {
         <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
           <span>Assignments</span>
           <span>/</span>
-          <span className="text-gray-600">View and manage your course assignments</span>
+          <span className="text-gray-600">View and manage your course assignments and assessments</span>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Assignments</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Assignments &amp; Assessments</h1>
       </div>
 
       {/* Stat banner cards */}
@@ -2227,8 +2533,8 @@ function AssignmentsPage() {
             <IconClipboardList className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Total Assignments</p>
-            <p className="text-2xl font-extrabold text-gray-900 leading-none">{allAssignments.length}</p>
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Total Coursework</p>
+            <p className="text-2xl font-extrabold text-gray-900 leading-none">{allItems.length}</p>
             <p className="text-xs text-gray-400 mt-1">Across all courses</p>
           </div>
         </button>
@@ -2241,7 +2547,7 @@ function AssignmentsPage() {
           <div>
             <p className="text-[10px] font-bold text-orange-400 uppercase tracking-wider mb-0.5">Due Soon</p>
             <p className="text-2xl font-extrabold text-orange-600 leading-none">{dueSoonCount}</p>
-            <p className="text-xs text-orange-400 mt-1">Due in the next 7 days</p>
+            <p className="text-xs text-orange-400 mt-1">Due in the next 14 days</p>
           </div>
         </button>
 
@@ -2253,7 +2559,7 @@ function AssignmentsPage() {
           <div>
             <p className="text-[10px] font-bold text-green-500 uppercase tracking-wider mb-0.5">Submitted</p>
             <p className="text-2xl font-extrabold text-green-700 leading-none">{submittedCount}</p>
-            <p className="text-xs text-green-500 mt-1">Assignments submitted</p>
+            <p className="text-xs text-green-500 mt-1">Items submitted</p>
           </div>
         </button>
 
@@ -2265,7 +2571,7 @@ function AssignmentsPage() {
           <div>
             <p className="text-[10px] font-bold text-red-400 uppercase tracking-wider mb-0.5">Overdue</p>
             <p className="text-2xl font-extrabold text-red-600 leading-none">{overdueCount}</p>
-            <p className="text-xs text-red-400 mt-1">Past due assignments</p>
+            <p className="text-xs text-red-400 mt-1">Past due items</p>
           </div>
         </button>
       </div>
@@ -2308,7 +2614,7 @@ function AssignmentsPage() {
                   </button>
                   {courseOpen && (
                     <div className="absolute right-0 top-full mt-1 z-30 bg-white border border-gray-200 rounded-xl shadow-lg py-1 min-w-[260px]">
-                      {courseOptions.map((opt) => (
+                      {currentCourseOptions.map((opt) => (
                         <button
                           key={opt.value}
                           onClick={() => { setCourseFilter(opt.value); setCourseOpen(false); }}

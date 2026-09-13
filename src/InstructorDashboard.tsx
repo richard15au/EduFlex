@@ -2,6 +2,21 @@
 
 import { useState, useEffect, useRef } from "react";
 import { getSessionUser, getInitials } from "./auth";
+import {
+  getSharedCourses,
+  saveSharedCourses,
+  getSharedSubmissions,
+  gradeStudentSubmission,
+  INITIAL_ASSIGNMENT_COURSES,
+  formatDueDate,
+} from "./assignmentData";
+import type {
+  InstructorAssignmentItem,
+  InstructorCourseAssignments,
+  StudentSubmission,
+} from "./assignmentData";
+export type { InstructorAssignmentItem, InstructorCourseAssignments, StudentSubmission };
+export { INITIAL_ASSIGNMENT_COURSES, formatDueDate };
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 const IconGraduationCap = ({ className = "w-6 h-6" }: { className?: string }) => (
@@ -284,83 +299,8 @@ function InstructorSidebar({
   );
 }
 
-// ── Shared Assignment Interfaces & Data ───────────────────────────────────────
-export interface InstructorAssignmentItem {
-  id?: string;
-  title: string;
-  due: string;
-  submissions: number;
-  total: number;
-  type: string;
-  graded: boolean;
-  maxScore?: number;
-  description?: string;
-  weight?: number;
-  status?: "Draft" | "Published";
-}
+// ── Shared Assignment Interfaces & Data re-exported from assignmentData ───────
 
-export interface InstructorCourseAssignments {
-  code: string;
-  name: string;
-  color: string;
-  assignments: InstructorAssignmentItem[];
-  assessments?: InstructorAssignmentItem[];
-}
-
-export const INITIAL_ASSIGNMENT_COURSES: InstructorCourseAssignments[] = [
-  {
-    code: "ICT301", name: "Information Technology Project 1", color: "#2563eb",
-    assignments: [
-      { id: "ict301-a1", title: "Milestone 1: Project Proposal", due: "Aug 25, 2026", submissions: 32, total: 32, type: "Assignment", graded: true, maxScore: 100, description: "Comprehensive project proposal detailing project scope, team roles, and Gantt chart schedule." },
-      { id: "ict301-a2", title: "Milestone 2: Preliminary Design", due: "Sep 5, 2026", submissions: 28, total: 32, type: "Assignment", graded: false, maxScore: 100, description: "Preliminary architecture design diagrams, class models, and UX wireframe deliverables." },
-      { id: "ict301-a3", title: "Weekly Journal Entry 1", due: "Aug 22, 2026", submissions: 30, total: 32, type: "Assignment", graded: true, maxScore: 50, description: "Reflective learning journal entry covering sprint planning and risk management notes." },
-    ],
-    assessments: [
-      { id: "ict301-ass1", title: "Milestone 3: Final System Implementation & Defense", due: "Sep 25, 2026", submissions: 20, total: 32, type: "Assessment", graded: false, maxScore: 100, weight: 35, description: "Final functional software submission and panel presentation defense demonstrating project deliverables.", status: "Published" },
-    ],
-  },
-  {
-    code: "ICT272", name: "Web Design and Development", color: "#0e9f6e",
-    assignments: [
-      { id: "ict272-a1", title: "Lab Exercise 1: HTML Basics", due: "Aug 20, 2026", submissions: 38, total: 38, type: "Assignment", graded: true, maxScore: 50, description: "Semantic markup exercise creating accessible multi-page structure." },
-      { id: "ict272-a2", title: "Lab Exercise 2: CSS Layouts", due: "Aug 27, 2026", submissions: 37, total: 38, type: "Assignment", graded: true, maxScore: 50, description: "Flexbox and Grid layout implementation matching design specifications." },
-      { id: "ict272-a3", title: "Lab Exercise 3: JavaScript DOM", due: "Sep 3, 2026", submissions: 36, total: 38, type: "Assignment", graded: false, maxScore: 50, description: "Interactive client-side web application handling DOM events and form validation." },
-      { id: "ict272-a4", title: "Lab Exercise 4: React Basics", due: "Sep 7, 2026", submissions: 12, total: 38, type: "Assignment", graded: false, maxScore: 50, description: "Component-based web application with React state and props." },
-    ],
-    assessments: [
-      { id: "ict272-ass1", title: "Major Project: Interactive Web Application", due: "Sep 22, 2026", submissions: 35, total: 38, type: "Assessment", graded: true, maxScore: 100, weight: 30, description: "Production-ready web application built with responsive design and modern frontend framework.", status: "Published" },
-    ],
-  },
-  {
-    code: "ICT126", name: "Artificial Intelligence", color: "#7c3aed",
-    assignments: [
-      { id: "ict126-a1", title: "AI Case Study Research Paper", due: "Sep 19, 2026", submissions: 10, total: 26, type: "Assignment", graded: false, maxScore: 100, description: "Research paper surveying contemporary applications of generative AI in education." },
-      { id: "ict126-a2", title: "Assignment 1: AI History Review", due: "Aug 28, 2026", submissions: 26, total: 26, type: "Assignment", graded: true, maxScore: 100, description: "Literature review of classical AI paradigms and symbolic reasoning systems." },
-      { id: "ict126-a3", title: "Assignment 2: ML Algorithm Analysis", due: "Sep 4, 2026", submissions: 24, total: 26, type: "Assignment", graded: false, maxScore: 100, description: "Empirical evaluation of decision trees versus random forests on benchmark classification data." },
-    ],
-    assessments: [
-      { id: "ict126-ass1", title: "Mid-Term Practical AI Assessment", due: "Sep 18, 2026", submissions: 22, total: 26, type: "Assessment", graded: false, maxScore: 100, weight: 25, description: "Hands-on machine learning implementation and empirical performance evaluation report.", status: "Published" },
-    ],
-  },
-];
-
-// Helper to format HTML date picker values (e.g. "2026-09-28" to "Sep 28, 2026")
-export function formatDueDate(dateStr: string): string {
-  if (!dateStr) return "";
-  try {
-    const parts = dateStr.split("-");
-    if (parts.length === 3) {
-      const year = parts[0];
-      const monthIndex = parseInt(parts[1], 10) - 1;
-      const day = parseInt(parts[2], 10);
-      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      if (months[monthIndex]) {
-        return `${months[monthIndex]} ${day}, ${year}`;
-      }
-    }
-  } catch {}
-  return dateStr;
-}
 
 // ── Search Pool Interface & Builder ───────────────────────────────────────────
 export interface SearchResultItem {
@@ -2258,7 +2198,7 @@ function AssignmentsPage({
   courses?: InstructorCourseAssignments[];
   setCourses?: React.Dispatch<React.SetStateAction<InstructorCourseAssignments[]>>;
 }) {
-  const [internalCourses, setInternalCourses] = useState<InstructorCourseAssignments[]>(INITIAL_ASSIGNMENT_COURSES);
+  const [internalCourses, setInternalCourses] = useState<InstructorCourseAssignments[]>(getSharedCourses);
   const courses = externalCourses ?? internalCourses;
   const setCourses = externalSetCourses ?? setInternalCourses;
 
@@ -2667,22 +2607,37 @@ function AssignmentsPage({
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
           <h3 className="text-sm font-bold text-gray-800 mb-4">Recent Submissions</h3>
           <div className="space-y-3">
-            {["Marco Reyes", "Sofia Tan", "Aisha Patel", "Ethan Cruz"].slice(0, viewItem.submissions >= 3 ? 3 : Math.max(1, viewItem.submissions)).map((name, i) => (
-              <div key={i} className="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#1a3a9e" }}>
-                    {name.split(" ").map((n) => n[0]).join("")}
+            {(() => {
+              const allSubmissions = getSharedSubmissions();
+              const itemSubs = allSubmissions.filter(
+                (s) => (viewItem.id && s.itemId === viewItem.id) || s.itemTitle === viewItem.title
+              );
+              const defaultNames = ["Marco Reyes", "Sofia Tan", "Aisha Patel", "Ethan Cruz"];
+              const list: { name: string; time: string }[] = [
+                ...itemSubs.map((s) => ({ name: s.studentName, time: s.submittedAt })),
+                ...defaultNames.map((name, i) => ({
+                  name,
+                  time: i === 0 ? "5 min ago" : i === 1 ? "1 hr ago" : "3 hrs ago",
+                })),
+              ].slice(0, Math.max(1, Math.min(itemSubs.length || 3, viewItem.submissions || 3)));
+
+              return list.map((item, i) => (
+                <div key={i} className="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#1a3a9e" }}>
+                      {item.name.split(" ").map((n) => n[0]).join("")}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-800">{item.name}</p>
+                      <p className="text-[10px] text-gray-400">Submitted {item.time}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">{name}</p>
-                    <p className="text-[10px] text-gray-400">Submitted {i === 0 ? "5 min ago" : i === 1 ? "1 hr ago" : "3 hrs ago"}</p>
-                  </div>
+                  <button onClick={() => setActive("grades")} className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer">
+                    Grade Now
+                  </button>
                 </div>
-                <button onClick={() => setActive("grades")} className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer">
-                  Grade Now
-                </button>
-              </div>
-            ))}
+              ));
+            })()}
           </div>
         </div>
       </div>
@@ -3711,6 +3666,18 @@ function GradesPage() {
   const [course, setCourse] = useState("ICT301");
   const [gradingItem, setGradingItem] = useState<null | { student: string; assignment: string }>(null);
   const [scores, setScores] = useState<Record<string, string>>({});
+  const [feedbackText, setFeedbackText] = useState("");
+  const [submissionsList, setSubmissionsList] = useState(getSharedSubmissions);
+
+  useEffect(() => {
+    const handleSync = () => setSubmissionsList(getSharedSubmissions());
+    window.addEventListener("eduflex_assignment_sync", handleSync);
+    window.addEventListener("storage", handleSync);
+    return () => {
+      window.removeEventListener("eduflex_assignment_sync", handleSync);
+      window.removeEventListener("storage", handleSync);
+    };
+  }, []);
 
   const courseGrades: Record<string, { student: string; assignments: (number | null)[]; quiz: number | null; total: string | null }[]> = {
     ICT301: [
@@ -3739,8 +3706,48 @@ function GradesPage() {
     ICT126: ["Assignment 1", "Assignment 2"],
   };
 
-  const data = courseGrades[course];
-  const cols = assignmentCols[course];
+  const baseData = courseGrades[course] || [];
+  const cols = assignmentCols[course] || [];
+
+  const vitugSubs = submissionsList.filter(
+    (s) => s.courseCode === course && (s.studentName.includes("Vitug") || s.studentName.includes("Richard"))
+  );
+
+  const vitugScores = cols.map((col) => {
+    const match = vitugSubs.find(
+      (s) =>
+        s.itemTitle.toLowerCase().includes(col.toLowerCase()) ||
+        col.toLowerCase().includes(s.itemTitle.toLowerCase()) ||
+        s.itemId.toLowerCase().includes(col.toLowerCase())
+    );
+    if (match && match.score !== undefined) {
+      return Number(match.score);
+    }
+    return match ? null : null;
+  });
+
+  const data = [...baseData];
+  if (!data.some((r) => r.student.includes("Vitug") || r.student.includes("Richard"))) {
+    data.unshift({
+      student: "Richard Maceda Vitug",
+      assignments: vitugScores,
+      quiz: 90,
+      total: vitugScores.some((s) => s !== null)
+        ? `${Math.round(
+            (vitugScores.filter((s): s is number => s !== null).reduce((a, b) => a + b, 0) + 90) /
+              ((vitugScores.filter((s) => s !== null).length || 0) + 1)
+          )}%`
+        : "Pending",
+    });
+  }
+
+  const handleSaveGrade = () => {
+    if (!gradingItem) return;
+    const scoreVal = scores[`${gradingItem.student}-${gradingItem.assignment}`] ?? "90";
+    gradeStudentSubmission(gradingItem.student, gradingItem.assignment, course, scoreVal, feedbackText);
+    setGradingItem(null);
+    setFeedbackText("");
+  };
 
   return (
     <div className="p-6">
@@ -3784,10 +3791,16 @@ function GradesPage() {
               placeholder="Enter score"
             />
             <label className="block text-xs font-semibold text-gray-700 mb-1">Feedback (optional)</label>
-            <textarea rows={3} className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 mb-4 resize-none" placeholder="Add feedback..." />
+            <textarea
+              rows={3}
+              value={feedbackText}
+              onChange={(e) => setFeedbackText(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 mb-4 resize-none"
+              placeholder="Add feedback..."
+            />
             <div className="flex gap-2">
               <button onClick={() => setGradingItem(null)} className="flex-1 py-2 rounded-xl text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">Cancel</button>
-              <button onClick={() => setGradingItem(null)} className="flex-1 py-2 rounded-xl text-sm font-semibold text-white transition-colors" style={{ background: "#1a3a9e" }}>Save Grade</button>
+              <button onClick={handleSaveGrade} className="flex-1 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer" style={{ background: "#1a3a9e" }}>Save Grade</button>
             </div>
           </div>
         </div>
@@ -5741,8 +5754,45 @@ export default function InstructorDashboard({ onLogout = () => {} }: { onLogout?
   const [active, setActive] = useState("dashboard");
   const [collapsed, setCollapsed] = useState(false);
   const [userName, setUserName] = useState("Prof. Sarita Koirala");
-  const [assignmentCourses, setAssignmentCourses] = useState<InstructorCourseAssignments[]>(INITIAL_ASSIGNMENT_COURSES);
   const [theme, setTheme] = useState<"Light" | "Dark">("Light");
+  const [assignmentCourses, setAssignmentCourses] = useState<InstructorCourseAssignments[]>(getSharedCourses);
+  const isInitialMount = useRef(true);
+  const lastSavedJsonRef = useRef<string>("");
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      lastSavedJsonRef.current = JSON.stringify(assignmentCourses);
+      return;
+    }
+    const currentJson = JSON.stringify(assignmentCourses);
+    if (currentJson !== lastSavedJsonRef.current) {
+      lastSavedJsonRef.current = currentJson;
+      saveSharedCourses(assignmentCourses);
+    }
+  }, [assignmentCourses]);
+
+  useEffect(() => {
+    const handleSync = () => {
+      const latestCourses = getSharedCourses();
+      const latestJson = JSON.stringify(latestCourses);
+      if (latestJson !== lastSavedJsonRef.current) {
+        lastSavedJsonRef.current = latestJson;
+        setAssignmentCourses((prev) => {
+          if (JSON.stringify(prev) === latestJson) {
+            return prev;
+          }
+          return latestCourses;
+        });
+      }
+    };
+    window.addEventListener("eduflex_assignment_sync", handleSync);
+    window.addEventListener("storage", handleSync);
+    return () => {
+      window.removeEventListener("eduflex_assignment_sync", handleSync);
+      window.removeEventListener("storage", handleSync);
+    };
+  }, []);
 
   useEffect(() => {
     const sessionUser = getSessionUser();
