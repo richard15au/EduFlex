@@ -2,6 +2,7 @@
 
 import InstructorDashboard from "@/src/InstructorDashboard";
 import { clearSession } from "@/src/auth";
+import ProtectedRoute from "@/src/ProtectedRoute";
 import { useRouter } from "next/navigation";
 
 export default function InstructorRoute() {
@@ -12,5 +13,9 @@ export default function InstructorRoute() {
     router.push("/");
   };
 
-  return <InstructorDashboard onLogout={handleLogout} />;
+  return (
+    <ProtectedRoute role="instructor">
+      <InstructorDashboard onLogout={handleLogout} />
+    </ProtectedRoute>
+  );
 }

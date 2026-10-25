@@ -193,111 +193,146 @@ const IconPlus = () => (
   </svg>
 );
 
+const IconMenu = ({ className = "w-5 h-5" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+);
+
 // ── Nav Items ─────────────────────────────────────────────────────────────────
 const adminNavItems = [
   { label: "Dashboard",         icon: <IconDashboard />,    id: "dashboard" },
   { label: "User Management",   icon: <IconUsers />,        id: "users" },
   { label: "Course Management", icon: <IconBook />,         id: "courses" },
   { label: "Enrollment",        icon: <IconEnrollment />,   id: "enrollment" },
+  { label: "Announcements",     icon: <IconAnnouncement />, id: "announcements" },
+  { label: "Messages",          icon: <IconMail />,         id: "messages" },
+  { label: "Calendar",          icon: <IconCalendar />,     id: "calendar" },
   { label: "Reports & Analytics",icon: <IconBarChart />,    id: "reports" },
   { label: "System Settings",   icon: <IconSettings />,     id: "settings" },
 ];
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 function AdminSidebar({
-  active, setActive, collapsed, setCollapsed, onLogout,
+  active, setActive, collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen,
 }: {
   active: string;
   setActive: (id: string) => void;
   collapsed: boolean;
   setCollapsed: (v: boolean) => void;
   onLogout: () => void;
+  mobileOpen?: boolean;
+  setMobileOpen?: (v: boolean) => void;
 }) {
   const w = collapsed ? "w-16" : "w-56";
   return (
-    <aside
-      className={`fixed top-0 left-0 h-full flex flex-col z-30 transition-all duration-300 ${w}`}
-      style={{ background: "#1a3a9e" }}
-    >
-      {/* Branding */}
-      <div className={`flex items-center pt-5 pb-4 border-b border-white/10 ${collapsed ? "justify-center px-0" : "px-4 gap-2"}`}>
-        {collapsed ? (
-          <button
-            onClick={() => setCollapsed(false)}
-            className="text-white hover:text-blue-200 transition-colors flex flex-col items-center gap-1 cursor-pointer"
-            title="Expand sidebar"
-          >
-            <IconGraduationCap className="w-7 h-7" />
-            <span className="text-[8px] font-bold tracking-wider text-blue-300">EF</span>
-          </button>
-        ) : (
-          <>
-            <IconGraduationCap className="w-6 h-6 text-white shrink-0" />
-            <div className="flex-1 overflow-hidden">
-              <p className="text-white font-bold text-base tracking-tight leading-none truncate">EduFlex</p>
-              <p className="text-blue-200 text-[10px] mt-0.5 truncate">Administration Portal</p>
-            </div>
+    <>
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-200"
+          onClick={() => setMobileOpen?.(false)}
+          aria-hidden="true"
+        />
+      )}
+      <aside
+        className={`fixed top-0 left-0 h-full flex flex-col z-50 md:z-30 transition-all duration-300 ${w} ${
+          mobileOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full md:translate-x-0"
+        }`}
+        style={{ background: "#1a3a9e" }}
+      >
+        {/* Branding */}
+        <div className={`flex items-center pt-5 pb-4 border-b border-white/10 ${collapsed ? "justify-center px-0" : "px-4 gap-2"}`}>
+          {collapsed ? (
             <button
-              onClick={() => setCollapsed(true)}
-              className="text-blue-200 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10 cursor-pointer"
-              title="Collapse sidebar"
+              onClick={() => setCollapsed(false)}
+              className="text-white hover:text-blue-200 transition-colors flex flex-col items-center gap-1 cursor-pointer"
+              title="Expand sidebar"
             >
-              <IconChevronsLeft />
+              <IconGraduationCap className="w-7 h-7" />
+              <span className="text-[8px] font-bold tracking-wider text-blue-300">EF</span>
             </button>
-          </>
+          ) : (
+            <>
+              <IconGraduationCap className="w-6 h-6 text-white shrink-0" />
+              <div className="flex-1 overflow-hidden">
+                <p className="text-white font-bold text-base tracking-tight leading-none truncate">EduFlex</p>
+                <p className="text-blue-200 text-[10px] mt-0.5 truncate">Administration Portal</p>
+              </div>
+              <button
+                onClick={() => setCollapsed(true)}
+                className="hidden md:inline-flex text-blue-200 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10 cursor-pointer"
+                title="Collapse sidebar"
+              >
+                <IconChevronsLeft />
+              </button>
+              <button
+                onClick={() => setMobileOpen?.(false)}
+                className="md:hidden text-white/70 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10 cursor-pointer"
+                title="Close menu"
+                aria-label="Close menu"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </>
+          )}
+        </div>
+
+        {/* Nav */}
+        <nav className="flex-1 px-2 py-3 overflow-y-auto space-y-0.5">
+          {adminNavItems.map((item) => {
+            const isActive = active === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setActive(item.id);
+                  setMobileOpen?.(false);
+                }}
+                title={collapsed ? item.label : undefined}
+                className={`w-full flex items-center rounded-lg transition-all duration-150 text-left cursor-pointer
+                  ${collapsed ? "justify-center px-0 py-3" : "gap-3 px-3 py-2.5"}
+                  ${isActive ? "bg-white/20 text-white font-semibold" : "text-blue-100 hover:bg-white/10 hover:text-white"}`}
+              >
+                {item.icon}
+                {!collapsed && <span className="text-sm truncate">{item.label}</span>}
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* Expand button when collapsed */}
+        {collapsed && (
+          <div className="px-2 py-3 border-t border-white/10 flex justify-center">
+            <button
+              onClick={() => setCollapsed(false)}
+              className="text-blue-200 hover:text-white transition-colors p-2 rounded hover:bg-white/10 cursor-pointer"
+              title="Expand"
+            >
+              <IconChevronsRight />
+            </button>
+          </div>
         )}
-      </div>
 
-      {/* Nav */}
-      <nav className="flex-1 px-2 py-3 overflow-y-auto space-y-0.5">
-        {adminNavItems.map((item) => {
-          const isActive = active === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActive(item.id)}
-              title={collapsed ? item.label : undefined}
-              className={`w-full flex items-center rounded-lg transition-all duration-150 text-left cursor-pointer
-                ${collapsed ? "justify-center px-0 py-3" : "gap-3 px-3 py-2.5"}
-                ${isActive ? "bg-white/20 text-white font-semibold" : "text-blue-100 hover:bg-white/10 hover:text-white"}`}
-            >
-              {item.icon}
-              {!collapsed && <span className="text-sm truncate">{item.label}</span>}
+        {/* Logout */}
+        {!collapsed && (
+          <div className="px-2 py-4 border-t border-white/10">
+            <button onClick={onLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-blue-100 hover:bg-white/10 hover:text-white transition-all duration-150 cursor-pointer">
+              <IconLogout />
+              <span>Logout</span>
             </button>
-          );
-        })}
-      </nav>
-
-      {/* Expand button when collapsed */}
-      {collapsed && (
-        <div className="px-2 py-3 border-t border-white/10 flex justify-center">
-          <button
-            onClick={() => setCollapsed(false)}
-            className="text-blue-200 hover:text-white transition-colors p-2 rounded hover:bg-white/10 cursor-pointer"
-            title="Expand"
-          >
-            <IconChevronsRight />
-          </button>
-        </div>
-      )}
-
-      {/* Logout */}
-      {!collapsed && (
-        <div className="px-2 py-4 border-t border-white/10">
-          <button onClick={onLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-blue-100 hover:bg-white/10 hover:text-white transition-all duration-150 cursor-pointer">
-            <IconLogout />
-            <span>Logout</span>
-          </button>
-        </div>
-      )}
-      {collapsed && (
-        <div className="px-2 py-4 border-t border-white/10 flex justify-center">
-          <button onClick={onLogout} className="text-blue-100 hover:text-white hover:bg-white/10 transition-all p-2 rounded-lg cursor-pointer" title="Logout">
-            <IconLogout />
-          </button>
-        </div>
-      )}
-    </aside>
+          </div>
+        )}
+        {collapsed && (
+          <div className="px-2 py-4 border-t border-white/10 flex justify-center">
+            <button onClick={onLogout} className="text-blue-100 hover:text-white hover:bg-white/10 transition-all p-2 rounded-lg cursor-pointer" title="Logout">
+              <IconLogout />
+            </button>
+          </div>
+        )}
+      </aside>
+    </>
   );
 }
 
@@ -319,6 +354,7 @@ function AdminHeader({
   setActive,
   searchPool,
   unreadMessagesCount,
+  onToggleMobileMenu,
 }: {
   sidebarW: string;
   userName: string;
@@ -326,6 +362,7 @@ function AdminHeader({
   setActive?: (id: string) => void;
   searchPool: AdminSearchItem[];
   unreadMessagesCount: number;
+  onToggleMobileMenu?: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -382,10 +419,20 @@ function AdminHeader({
 
   return (
     <header
-      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 gap-4 z-20 transition-all duration-300"
+      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-3 sm:px-6 gap-2 sm:gap-4 z-20 transition-all duration-300"
       style={{ left: sidebarW }}
     >
-      <div className="flex-1 relative max-w-2xl min-w-[240px]" ref={searchRef}>
+      {/* Mobile hamburger button */}
+      <button
+        type="button"
+        onClick={onToggleMobileMenu}
+        aria-label="Open navigation menu"
+        className="md:hidden p-1.5 -ml-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg shrink-0 cursor-pointer"
+      >
+        <IconMenu className="w-5 h-5" />
+      </button>
+
+      <div className="flex-1 relative max-w-2xl min-w-0" ref={searchRef}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -523,7 +570,7 @@ function AdminHeader({
           className="flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer text-left"
           title="System Settings & Profile"
         >
-          <div className="text-right">
+          <div className="hidden sm:block text-right">
             <p className="text-sm font-semibold text-gray-800 leading-tight">{userName}</p>
             <p className="text-xs text-gray-500">Administrator</p>
           </div>
@@ -598,6 +645,7 @@ function AdminDashboardHome({
   enrollments,
   announcements,
   onApprovePending,
+  onApproveAllPending,
   onRejectPending,
   onQuickAction,
 }: {
@@ -609,6 +657,7 @@ function AdminDashboardHome({
   enrollments: AdminEnrollmentRecord[];
   announcements: AdminAnnouncementItem[];
   onApprovePending: (id: string) => void;
+  onApproveAllPending?: () => void;
   onRejectPending: (id: string) => void;
   onQuickAction: (action: "addUser" | "createCourse" | "postAnnouncement" | "generateReport") => void;
 }) {
@@ -650,10 +699,18 @@ function AdminDashboardHome({
 
       {/* Announcement Banner */}
       <div
-        className="rounded-2xl flex items-center gap-4 px-5 py-4 mb-6 overflow-hidden cursor-pointer shadow-sm hover:opacity-95 transition-opacity"
+        className="marquee-container rounded-2xl flex items-center gap-4 px-5 py-4 mb-6 overflow-hidden cursor-pointer shadow-sm hover:opacity-95 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-400 group"
         style={{ background: "#1a3a9e" }}
         onClick={() => setActive("announcements")}
         role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setActive("announcements");
+          }
+        }}
+        aria-label="Admin announcements ticker"
       >
         <div className="shrink-0 w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-yellow-900">
           <IconAlertCircle className="w-5 h-5" />
@@ -756,12 +813,24 @@ function AdminDashboardHome({
               <p className="text-[10px] font-bold text-blue-700 uppercase tracking-widest">Pending Approvals</p>
               <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">{pending.length}</span>
             </div>
-            <button
-              onClick={() => setActive("users")}
-              className="text-xs text-blue-600 hover:underline font-medium cursor-pointer"
-            >
-              View All &gt;
-            </button>
+            <div className="flex items-center gap-3">
+              {pending.length > 0 && onApproveAllPending && (
+                <button
+                  onClick={onApproveAllPending}
+                  className="px-2.5 py-1 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-xs transition-colors flex items-center gap-1 cursor-pointer"
+                  title="Approve all pending requests as administrator"
+                >
+                  <IconCheck className="w-3.5 h-3.5" />
+                  Approve All ({pending.length})
+                </button>
+              )}
+              <button
+                onClick={() => setActive("users")}
+                className="text-xs text-blue-600 hover:underline font-medium cursor-pointer"
+              >
+                View All &gt;
+              </button>
+            </div>
           </div>
           {pending.length === 0 ? (
             <div className="p-8 text-center text-gray-500">
@@ -3875,8 +3944,21 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
     }
   }, []);
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile]     = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const userInitials = getInitials(userName);
   const sidebarW = collapsed ? "4rem" : "14rem";
+  const effectiveSidebarW = isMobile ? "0rem" : sidebarW;
 
   // Compute total unread messages count
   const unreadMessagesCount = conversations.reduce((acc, c) => acc + (c.unread || 0), 0);
@@ -4015,6 +4097,40 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
     showToast(`Approved registration for ${item.name}`);
   };
 
+  const handleApproveAllPending = () => {
+    if (pending.length === 0) return;
+    const count = pending.length;
+    setUsers((prev) => {
+      let next = [...prev];
+      pending.forEach((item) => {
+        if (item.action.toLowerCase().includes("registration")) {
+          const existingIdx = next.findIndex((u) => u.email.toLowerCase() === item.email.toLowerCase());
+          if (existingIdx >= 0) {
+            next[existingIdx] = { ...next[existingIdx], status: "Active" };
+          } else {
+            const newUser: AdminUser = {
+              id: item.role === "Instructor" ? `INS-202600${Math.floor(10 + Math.random() * 90)}` : `STU-202620${Math.floor(10 + Math.random() * 90)}`,
+              name: item.name,
+              email: item.email,
+              role: item.role,
+              status: "Active",
+              lastActive: "Just now",
+              joined: "Sep 2, 2026",
+              department: item.role === "Instructor" ? "School of IT" : undefined,
+              program: item.role === "Student" ? "BS Information Technology" : undefined,
+              courses: [],
+            };
+            next = [newUser, ...next];
+          }
+        }
+      });
+      return next;
+    });
+
+    setPending([]);
+    showToast(`Approved and accepted all ${count} pending request${count === 1 ? "" : "s"}`);
+  };
+
   const handleRejectPending = (id: string) => {
     const item = pending.find((p) => p.id === id);
     if (!item) return;
@@ -4051,6 +4167,7 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
             enrollments={enrollments}
             announcements={announcements}
             onApprovePending={handleApprovePending}
+            onApproveAllPending={handleApproveAllPending}
             onRejectPending={handleRejectPending}
             onQuickAction={handleQuickAction}
           />
@@ -4149,22 +4266,31 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
     <div className="min-h-screen bg-gray-50 text-gray-900" style={{ fontFamily: "'Outfit', sans-serif" }}>
       <AdminSidebar
         active={active}
-        setActive={setActive}
+        setActive={(nav) => {
+          setActive(nav);
+          setMobileOpen(false);
+        }}
         collapsed={collapsed}
         setCollapsed={setCollapsed}
         onLogout={onLogout}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
       />
       <AdminHeader
-        sidebarW={sidebarW}
+        sidebarW={effectiveSidebarW}
         userName={userName}
         userInitials={userInitials}
-        setActive={setActive}
+        setActive={(nav) => {
+          setActive(nav);
+          setMobileOpen(false);
+        }}
         searchPool={searchPool}
         unreadMessagesCount={unreadMessagesCount}
+        onToggleMobileMenu={() => setMobileOpen((prev) => !prev)}
       />
       <main
         className="pt-16 min-h-screen transition-all duration-300"
-        style={{ marginLeft: sidebarW }}
+        style={{ marginLeft: effectiveSidebarW }}
       >
         {renderPage()}
       </main>

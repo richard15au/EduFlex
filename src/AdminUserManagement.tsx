@@ -834,6 +834,27 @@ export default function AdminUserManagement({
     setModal(null);
   }
 
+  const handleApproveAllPending = () => {
+    const listToApprove = statusFilter === "Pending" ? filteredPending : pending;
+    if (listToApprove.length === 0) return;
+    const newUsers: User[] = listToApprove.map((item) => ({
+      id: `${item.role === "Instructor" ? "INS" : "STU"}-2026${Math.floor(1000 + Math.random() * 9000)}`,
+      name: item.name,
+      email: item.email,
+      role: item.role,
+      status: "Active",
+      lastActive: "Just now",
+      joined: "Sep 2, 2026",
+      department: item.role === "Instructor" ? "School of IT" : undefined,
+      program: item.role === "Student" ? "BS Information Technology" : undefined,
+      courses: [],
+    }));
+    setUsers((prev) => [...newUsers, ...prev]);
+    const approvedIds = new Set(listToApprove.map((p) => p.id));
+    setPending((prev) => prev.filter((p) => !approvedIds.has(p.id)));
+    showToast(`Approved all ${listToApprove.length} pending requests.`);
+  };
+
   const totalStudents = users.filter((u) => u.role === "Student").length;
   const totalInstructors = users.filter((u) => u.role === "Instructor").length;
 
@@ -1068,7 +1089,17 @@ export default function AdminUserManagement({
                 {statusFilter === "Pending" ? filteredPending.length : pending.length}
               </span>
             </div>
-            <p className="text-xs text-orange-500">These accounts require your review</p>
+            <div className="flex items-center gap-3">
+              <p className="text-xs text-orange-500 hidden sm:block">These accounts require your review</p>
+              <button
+                type="button"
+                onClick={handleApproveAllPending}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-xs font-bold transition-all shadow-sm cursor-pointer"
+              >
+                <IconCheck className="w-3.5 h-3.5" />
+                <span>Accept &amp; Approve All</span>
+              </button>
+            </div>
           </div>
 
           {/* Table header */}

@@ -179,104 +179,142 @@ const navItems = [
   { label: "Settings",          icon: <IconSettings />,    id: "settings" },
 ];
 
+const IconMenu = ({ className = "w-5 h-5" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+);
+
+const IconX = ({ className = "w-5 h-5" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={className}>
+    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 function Sidebar({
-  active, setActive, collapsed, setCollapsed, onLogout,
+  active, setActive, collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen,
 }: {
   active: string;
   setActive: (id: string) => void;
   collapsed: boolean;
   setCollapsed: (v: boolean) => void;
   onLogout: () => void;
+  mobileOpen?: boolean;
+  setMobileOpen?: (v: boolean) => void;
 }) {
   const w = collapsed ? "w-16" : "w-56";
   return (
-    <aside
-      className={`fixed top-0 left-0 h-full flex flex-col z-30 transition-all duration-300 ${w}`}
-      style={{ background: "#1a3a9e" }}
-    >
-      {/* Branding + toggle */}
-      <div className={`flex items-center pt-5 pb-4 border-b border-white/10 ${collapsed ? "justify-center px-0" : "px-4 gap-2"}`}>
-        {collapsed ? (
-          <button
-            onClick={() => setCollapsed(false)}
-            className="text-white hover:text-blue-200 transition-colors flex flex-col items-center gap-1"
-            title="Expand sidebar"
-          >
-            <IconGraduationCap className="w-7 h-7" />
-            <span className="text-[8px] font-bold tracking-wider text-blue-300">EF</span>
-          </button>
-        ) : (
-          <>
-            <IconGraduationCap className="w-6 h-6 text-white shrink-0" />
-            <div className="flex-1 overflow-hidden">
-              <p className="text-white font-bold text-base tracking-tight leading-none truncate">EduFlex</p>
-              <p className="text-blue-200 text-[10px] mt-0.5 truncate">Simple and Smart system</p>
-            </div>
+    <>
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-200"
+          onClick={() => setMobileOpen?.(false)}
+          aria-hidden="true"
+        />
+      )}
+      <aside
+        className={`fixed top-0 left-0 h-full flex flex-col z-50 md:z-30 transition-all duration-300 ${w} ${
+          mobileOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full md:translate-x-0"
+        }`}
+        style={{ background: "#1a3a9e" }}
+      >
+        {/* Branding + toggle */}
+        <div className={`flex items-center pt-5 pb-4 border-b border-white/10 ${collapsed ? "justify-center px-0" : "px-4 gap-2"}`}>
+          {collapsed ? (
             <button
-              onClick={() => setCollapsed(true)}
-              className="text-blue-200 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10"
-              title="Collapse sidebar"
+              onClick={() => setCollapsed(false)}
+              className="text-white hover:text-blue-200 transition-colors flex flex-col items-center gap-1"
+              title="Expand sidebar"
             >
-              <IconChevronsLeft />
+              <IconGraduationCap className="w-7 h-7" />
+              <span className="text-[8px] font-bold tracking-wider text-blue-300">EF</span>
             </button>
-          </>
+          ) : (
+            <>
+              <IconGraduationCap className="w-6 h-6 text-white shrink-0" />
+              <div className="flex-1 overflow-hidden">
+                <p className="text-white font-bold text-base tracking-tight leading-none truncate">EduFlex</p>
+                <p className="text-blue-200 text-[10px] mt-0.5 truncate">Simple and Smart system</p>
+              </div>
+              <button
+                onClick={() => setCollapsed(true)}
+                className="hidden md:inline-flex text-blue-200 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10"
+                title="Collapse sidebar"
+              >
+                <IconChevronsLeft />
+              </button>
+              <button
+                onClick={() => setMobileOpen?.(false)}
+                className="md:hidden text-white/70 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10"
+                title="Close menu"
+                aria-label="Close menu"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </>
+          )}
+        </div>
+
+        {/* Nav */}
+        <nav className="flex-1 px-2 py-3 overflow-y-auto space-y-0.5">
+          {navItems.map((item) => {
+            const isActive = active === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setActive(item.id);
+                  setMobileOpen?.(false);
+                }}
+                title={collapsed ? item.label : undefined}
+                className={`w-full flex items-center rounded-lg transition-all duration-150 text-left
+                  ${collapsed ? "justify-center px-0 py-3" : "gap-3 px-3 py-2.5"}
+                  ${isActive ? "bg-white/20 text-white" : "text-blue-100 hover:bg-white/10 hover:text-white"}`}
+              >
+                {item.icon}
+                {!collapsed && <span className="text-sm font-medium truncate">{item.label}</span>}
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* Expand button when collapsed (bottom) */}
+        {collapsed && (
+          <div className="px-2 py-3 border-t border-white/10 flex justify-center">
+            <button
+              onClick={() => setCollapsed(false)}
+              className="text-blue-200 hover:text-white transition-colors p-2 rounded hover:bg-white/10"
+              title="Expand"
+            >
+              <IconChevronsRight />
+            </button>
+          </div>
         )}
-      </div>
 
-      {/* Nav */}
-      <nav className="flex-1 px-2 py-3 overflow-y-auto space-y-0.5">
-        {navItems.map((item) => {
-          const isActive = active === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActive(item.id)}
-              title={collapsed ? item.label : undefined}
-              className={`w-full flex items-center rounded-lg transition-all duration-150 text-left
-                ${collapsed ? "justify-center px-0 py-3" : "gap-3 px-3 py-2.5"}
-                ${isActive ? "bg-white/20 text-white" : "text-blue-100 hover:bg-white/10 hover:text-white"}`}
-            >
-              {item.icon}
-              {!collapsed && <span className="text-sm font-medium truncate">{item.label}</span>}
+        {/* Logout */}
+        {!collapsed && (
+          <div className="px-2 py-4 border-t border-white/10">
+            <button onClick={onLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-blue-100 hover:bg-white/10 hover:text-white transition-all duration-150">
+              <IconLogout />
+              <span>Logout</span>
             </button>
-          );
-        })}
-      </nav>
-
-      {/* Expand button when collapsed (bottom) */}
-      {collapsed && (
-        <div className="px-2 py-3 border-t border-white/10 flex justify-center">
-          <button
-            onClick={() => setCollapsed(false)}
-            className="text-blue-200 hover:text-white transition-colors p-2 rounded hover:bg-white/10"
-            title="Expand"
-          >
-            <IconChevronsRight />
-          </button>
-        </div>
-      )}
-
-      {/* Logout */}
-      {!collapsed && (
-        <div className="px-2 py-4 border-t border-white/10">
-          <button onClick={onLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-blue-100 hover:bg-white/10 hover:text-white transition-all duration-150">
-            <IconLogout />
-            <span>Logout</span>
-          </button>
-        </div>
-      )}
-      {collapsed && (
-        <div className="px-2 py-4 border-t border-white/10 flex justify-center">
-          <button onClick={onLogout}
-            className="text-blue-100 hover:text-white hover:bg-white/10 transition-all p-2 rounded-lg"
-            title="Logout"
-          >
-            <IconLogout />
-          </button>
-        </div>
-      )}
-    </aside>
+          </div>
+        )}
+        {collapsed && (
+          <div className="px-2 py-4 border-t border-white/10 flex justify-center">
+            <button onClick={onLogout}
+              className="text-blue-100 hover:text-white hover:bg-white/10 transition-all p-2 rounded-lg"
+              title="Logout"
+            >
+              <IconLogout />
+            </button>
+          </div>
+        )}
+      </aside>
+    </>
   );
 }
 
@@ -322,6 +360,7 @@ function Header({
   onSearch,
   searchResults,
   onNavigateResult,
+  onToggleMobileMenu,
 }: {
   sidebarW: string;
   userName: string;
@@ -336,6 +375,7 @@ function Header({
   onSearch: (q: string) => void;
   searchResults: StudentSearchItem[];
   onNavigateResult: (nav: string, course?: ActiveCourse) => void;
+  onToggleMobileMenu?: () => void;
 }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -368,11 +408,21 @@ function Header({
 
   return (
     <header
-      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 gap-4 z-20 transition-all duration-300"
+      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-3 sm:px-6 gap-2 sm:gap-4 z-20 transition-all duration-300"
       style={{ left: sidebarW }}
     >
+      {/* Mobile hamburger button */}
+      <button
+        type="button"
+        onClick={onToggleMobileMenu}
+        aria-label="Open navigation menu"
+        className="md:hidden p-1.5 -ml-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg shrink-0 cursor-pointer"
+      >
+        <IconMenu className="w-5 h-5" />
+      </button>
+
       {/* Search — left/center */}
-      <div ref={containerRef} className="flex-1 relative max-w-2xl min-w-[240px]">
+      <div ref={containerRef} className="flex-1 relative max-w-2xl min-w-0">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -516,7 +566,7 @@ function Header({
           <IconMail />
         </button>
         <button onClick={onProfile} className="flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer shrink-0">
-          <div className="text-right">
+          <div className="hidden sm:block text-right">
             <p className="text-sm font-semibold text-gray-800 leading-tight whitespace-nowrap">{userName}</p>
             <p className="text-xs text-gray-500 whitespace-nowrap">{userRole}</p>
           </div>
@@ -561,10 +611,18 @@ function StatCard({
 function AnnouncementBanner({ onClick }: { onClick?: () => void }) {
   return (
     <div
-      className="rounded-2xl flex items-center gap-4 px-5 py-4 overflow-hidden"
+      className="marquee-container rounded-2xl flex items-center gap-4 px-5 py-4 overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-400 group"
       style={{ background: "#1a3a9e", cursor: onClick ? "pointer" : "default" }}
       onClick={onClick}
       role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (onClick && (e.key === "Enter" || e.key === " ")) {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      aria-label="Student announcements ticker"
     >
       <div className="shrink-0 w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center text-white">
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -1704,7 +1762,7 @@ function AssignmentDetailsView({
   );
 
   const [comments, setComments] = useState("");
-  const [integrityAccepted, setIntegrityAccepted] = useState(isInitiallySubmitted);
+  const [integrityAccepted, setIntegrityAccepted] = useState(false);
   const [validationError, setValidationError] = useState<string | null>(null);
   const [receiptNumber, setReceiptNumber] = useState(details.gradeInfo?.receipt ?? "#EDF-2026-9418");
   const [submissionTimestamp, setSubmissionTimestamp] = useState(
@@ -1720,15 +1778,15 @@ function AssignmentDetailsView({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!uploadedFile) {
-      setValidationError("Please select or attach your submission file before submitting.");
+      setValidationError("Please upload or attach your submission file before submitting.");
       return;
     }
     if (!integrityAccepted) {
-      setValidationError("Please confirm the academic integrity declaration checkbox.");
+      setValidationError("Please accept the Academic Integrity Declaration to proceed.");
       return;
     }
-
     setValidationError(null);
+
     const newReceipt = `#EDF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     const now = new Date();
     const formattedDate =
@@ -1763,7 +1821,7 @@ function AssignmentDetailsView({
     });
 
     showToast(
-      `${assignment.type === "Assessment" ? "Assessment" : "Assignment"} "${assignment.name}" submitted successfully! Receipt: ${newReceipt}`
+      `${assignment.type === "Assessment" ? "Assessment" : "Assignment"} "${assignment.name}" submitted & verified! Receipt: ${newReceipt}`
     );
     onStatusChange(assignment.id, "submitted", {
       submissionDate: formattedDate,
@@ -3554,7 +3612,7 @@ function QuizAttemptView({
             </div>
           </div>
 
-          {/* Live Countdown Timer */}
+          {/* Live Countdown Timer & Actions */}
           <div className="flex items-center gap-3">
             <div
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-colors ${
@@ -4718,6 +4776,14 @@ function matchesMaterialSearch(searchWords: string[], targetText: string): boole
 function LearningMaterialsPage() {
   const [activeFilter, setActiveFilter] = useState<MaterialFilter>("all");
   const [search, setSearch] = useState("");
+  const [activeVideo, setActiveVideo] = useState<{ title: string; course: string; date?: string; duration?: string } | null>(null);
+  const [activeMaterial, setActiveMaterial] = useState<{ name: string; course: string; size?: string; date?: string; type?: string } | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   const searchWords = useMemo(
     () => search.trim().toLowerCase().split(/\s+/).filter(Boolean),
@@ -4962,7 +5028,10 @@ function LearningMaterialsPage() {
                                 <p className="text-xs text-gray-400">{f.course} · {f.size} · {f.date}</p>
                               </div>
                             </div>
-                            <button className="ml-3 shrink-0 flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-100 transition-colors">
+                            <button
+                              onClick={() => setActiveMaterial({ name: f.name, course: f.course, size: f.size, date: f.date, type: f.type })}
+                              className="ml-3 shrink-0 flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-100 transition-colors cursor-pointer"
+                            >
                               <IconDownload className="w-3.5 h-3.5" /> Open
                             </button>
                           </div>
@@ -5048,7 +5117,8 @@ function LearningMaterialsPage() {
                               </div>
                             </div>
                             <button
-                              className="ml-3 shrink-0 flex items-center gap-1.5 text-xs font-semibold text-white px-3 py-1.5 rounded-lg transition-colors hover:opacity-90"
+                              onClick={() => setActiveVideo(r)}
+                              className="ml-3 shrink-0 flex items-center gap-1.5 text-xs font-semibold text-white px-3 py-1.5 rounded-lg transition-colors hover:opacity-90 cursor-pointer"
                               style={{ background: "#2563eb" }}
                             >
                               <IconPlay className="w-3 h-3" /> Watch
@@ -5157,7 +5227,16 @@ function LearningMaterialsPage() {
                               <IconExternalLink className="w-3 h-3" /> {m.action}
                             </a>
                           ) : (
-                            <button className="ml-auto md:ml-0 flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg border transition-colors text-blue-700 bg-blue-50 hover:bg-blue-100 border-blue-100">
+                            <button
+                              onClick={() => {
+                                if (m.action === "Watch") {
+                                  setActiveVideo({ title: m.name, course: m.course, date: m.date, duration: "45 mins" });
+                                } else {
+                                  setActiveMaterial({ name: m.name, course: m.course, date: m.date, type: m.typeLabel });
+                                }
+                              }}
+                              className="ml-auto md:ml-0 flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg border transition-colors text-blue-700 bg-blue-50 hover:bg-blue-100 border-blue-100 cursor-pointer"
+                            >
                               {m.action === "Watch" ? <IconPlay className="w-3 h-3" /> : <IconDownload className="w-3 h-3" />}
                               {m.action}
                             </button>
@@ -5172,6 +5251,153 @@ function LearningMaterialsPage() {
           )}
 
         </div>{/* end main content */}
+
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium animate-fade-in">
+          <IconCheck className="w-4 h-4 text-emerald-400" />
+          <span>{toastMessage}</span>
+        </div>
+      )}
+
+      {/* Video Lecture Player Modal */}
+      {activeVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onClick={() => setActiveVideo(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-scale-in" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50/50">
+              <div className="flex items-center gap-2.5">
+                <span className="p-2 rounded-xl bg-blue-50 text-blue-600"><IconVideo className="w-5 h-5" /></span>
+                <div>
+                  <h3 className="text-sm font-bold text-gray-900">{activeVideo.title}</h3>
+                  <p className="text-xs text-gray-500">{activeVideo.course} · {activeVideo.duration ?? "Lecture Recording"}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveVideo(null)}
+                className="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Video Canvas Simulation */}
+            <div className="relative bg-black aspect-video flex flex-col items-center justify-center text-white p-6">
+              <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-transform cursor-pointer shadow-lg mb-3">
+                <IconPlay className="w-7 h-7 text-white ml-1" />
+              </div>
+              <p className="text-xs font-semibold text-gray-300">Recorded Lecture Stream · {activeVideo.course}</p>
+              <span className="text-[11px] text-gray-400 mt-1">High-Definition 1080p · Auto Captions Active</span>
+
+              {/* Player Scrubber & Controls */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col gap-2">
+                <div className="w-full bg-white/30 h-1.5 rounded-full overflow-hidden cursor-pointer">
+                  <div className="bg-blue-500 h-full w-2/5 rounded-full" />
+                </div>
+                <div className="flex items-center justify-between text-xs text-gray-300">
+                  <div className="flex items-center gap-3">
+                    <span className="font-semibold text-white">18:24 / 45:00</span>
+                    <span className="px-2 py-0.5 rounded bg-white/20 text-[10px]">1.0x</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => showToast("Captions toggled")} className="hover:text-white text-[11px] cursor-pointer">CC</button>
+                    <button onClick={() => showToast("Switched quality to 1080p HD")} className="hover:text-white text-[11px] cursor-pointer">1080p</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 flex items-center justify-between bg-white text-xs">
+              <div className="text-gray-500">
+                <span>Recorded on {activeVideo.date ?? "Semester T226"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => showToast(`Transcript downloaded for ${activeVideo.title}`)}
+                  className="px-3 py-1.5 rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 font-semibold cursor-pointer"
+                >
+                  Download Transcript
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveVideo(null)}
+                  className="px-4 py-1.5 rounded-xl text-white font-bold cursor-pointer"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Material Preview / Download Modal */}
+      {activeMaterial && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4" onClick={() => setActiveMaterial(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 space-y-4 animate-scale-in" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <IconFilePdf className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-gray-900 truncate max-w-xs">{activeMaterial.name}</h3>
+                  <p className="text-xs text-gray-400">{activeMaterial.course} · {activeMaterial.size ?? "1.8 MB"}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveMaterial(null)}
+                className="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3 text-xs text-gray-600">
+              <div className="flex justify-between border-b border-gray-200/60 pb-2">
+                <span className="text-gray-500">Document Type:</span>
+                <span className="font-semibold text-gray-800">{activeMaterial.type ?? "Course Slide Handout"}</span>
+              </div>
+              <div className="flex justify-between border-b border-gray-200/60 pb-2">
+                <span className="text-gray-500">Course Unit:</span>
+                <span className="font-semibold text-blue-700">{activeMaterial.course}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Publication Date:</span>
+                <span className="font-semibold text-gray-800">{activeMaterial.date ?? "Aug 2026"}</span>
+              </div>
+              <p className="text-gray-500 leading-relaxed pt-1">
+                Official learning resource verified by the School of Information Technology. Fully compliant with unit learning requirements.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setActiveMaterial(null)}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  showToast(`Downloaded ${activeMaterial.name}!`);
+                  setActiveMaterial(null);
+                }}
+                className="px-4 py-2 rounded-xl text-xs font-bold text-white shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer"
+                style={{ background: "#1a3a9e" }}
+              >
+                <IconDownload className="w-3.5 h-3.5" />
+                <span>Download Document</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -7956,8 +8182,8 @@ function CourseOverviewPage({
             </div>
 
             <div className="flex items-center gap-2 pt-2">
-              <input type="checkbox" id="integrity" required className="rounded border-gray-300 text-blue-600" />
-              <label htmlFor="integrity" className="text-xs text-gray-600">
+              <input type="checkbox" id="integrity" required className="rounded border-gray-300 text-blue-600 cursor-pointer" />
+              <label htmlFor="integrity" className="text-xs text-gray-600 cursor-pointer">
                 I declare this work is entirely my own original submission.
               </label>
             </div>
@@ -8175,7 +8401,20 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     }
   };
 
+  const [mobileOpen, setMobileOpen]       = useState(false);
+  const [isMobile, setIsMobile]           = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const sidebarPx = collapsed ? "64px" : "224px";
+  const effectiveSidebarW = isMobile ? "0px" : sidebarPx;
 
   const allSearchItems = useMemo(() => buildStudentSearchCatalog(), []);
 
@@ -8193,6 +8432,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     setSearchQuery(q);
     setExecutedSearchQuery(q);
     setActiveNav("search");
+    setMobileOpen(false);
   };
 
   const handleNavigateResult = (nav: string, course?: ActiveCourse) => {
@@ -8200,6 +8440,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     if (course) {
       setOpenCourse(course);
     }
+    setMobileOpen(false);
   };
 
   return (
@@ -8211,30 +8452,34 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
             setSelectedCourse(null);
           }
           setActiveNav(nav);
+          setMobileOpen(false);
         }}
         collapsed={collapsed}
         setCollapsed={setCollapsed}
         onLogout={onLogout}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
       />
       <Header
-        sidebarW={sidebarPx}
+        sidebarW={effectiveSidebarW}
         userName={userName}
         userRole={userRole}
         userInitials={userInitials}
-        onCalendar={() => { setSelectedCourse(null); setActiveNav("calendar"); }}
-        onMessages={() => { setSelectedCourse(null); setActiveNav("messages"); }}
-        onNotifications={() => { setSelectedCourse(null); setActiveNav("announcements"); }}
-        onProfile={() => { setSelectedCourse(null); setActiveNav("profile"); }}
+        onCalendar={() => { setSelectedCourse(null); setActiveNav("calendar"); setMobileOpen(false); }}
+        onMessages={() => { setSelectedCourse(null); setActiveNav("messages"); setMobileOpen(false); }}
+        onNotifications={() => { setSelectedCourse(null); setActiveNav("announcements"); setMobileOpen(false); }}
+        onProfile={() => { setSelectedCourse(null); setActiveNav("profile"); setMobileOpen(false); }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         onSearch={handleSearchExecute}
         searchResults={searchResults}
         onNavigateResult={handleNavigateResult}
+        onToggleMobileMenu={() => setMobileOpen((prev) => !prev)}
       />
 
       <main
         className="pt-16 min-h-screen flex flex-col transition-all duration-300"
-        style={{ marginLeft: sidebarPx }}
+        style={{ marginLeft: effectiveSidebarW }}
       >
         <div className="flex-1">
           {activeNav === "dashboard" && (

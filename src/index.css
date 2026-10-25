@@ -8,6 +8,8 @@ body,
 #root {
   height: 100%;
   font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 * {
@@ -29,9 +31,33 @@ body,
   100% { transform: translateX(-100%); }
 }
 
+.marquee-container {
+  position: relative;
+}
+
 .marquee-text {
-  animation: marquee 18s linear infinite;
+  display: inline-block;
   white-space: nowrap;
+  animation: marquee 52s linear infinite;
+  will-change: transform;
+}
+
+/* Pause moving notifications on hover or keyboard focus */
+.marquee-container:hover .marquee-text,
+.marquee-container:focus-within .marquee-text,
+.marquee-text:hover,
+.marquee-text:focus {
+  animation-play-state: paused;
+}
+
+/* Respect user's reduced-motion accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-text {
+    animation: none !important;
+    transform: none !important;
+    white-space: normal !important;
+    display: block !important;
+  }
 }
 
 @keyframes fade-in-up {

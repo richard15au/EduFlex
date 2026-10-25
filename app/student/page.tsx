@@ -2,6 +2,7 @@
 
 import { StudentDashboard } from "@/src/LegacyApp";
 import { clearSession } from "@/src/auth";
+import ProtectedRoute from "@/src/ProtectedRoute";
 import { useRouter } from "next/navigation";
 
 export default function StudentRoute() {
@@ -12,5 +13,9 @@ export default function StudentRoute() {
     router.push("/");
   };
 
-  return <StudentDashboard onLogout={handleLogout} />;
+  return (
+    <ProtectedRoute role="student">
+      <StudentDashboard onLogout={handleLogout} />
+    </ProtectedRoute>
+  );
 }

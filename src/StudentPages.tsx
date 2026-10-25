@@ -600,6 +600,7 @@ export const calEvents: CalEvent[] = [
 
 export function CalendarPage() {
   const [monthOffset, setMonthOffset] = useState(0);
+  const [selectedEvent, setSelectedEvent] = useState<CalEvent | null>(null);
 
   const baseYear = 2026;
   const baseMonth = 8; // September (0-indexed)
@@ -674,7 +675,7 @@ export function CalendarPage() {
         </div>
       </div>
 
-      {/* Calendar grid (View-Only) */}
+      {/* Calendar grid */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
         {/* Day headers */}
         <div className="grid grid-cols-7 border-b border-gray-100 bg-gray-50/50">
@@ -705,12 +706,14 @@ export function CalendarPage() {
                     </span>
                     <div className="space-y-1">
                       {events.map((ev, ei) => (
-                        <div
+                        <button
                           key={ei}
-                          className={`w-full text-left text-[10px] font-semibold px-1.5 py-0.5 rounded border truncate select-none ${ev.color}`}
+                          type="button"
+                          onClick={() => setSelectedEvent(ev)}
+                          className={`w-full text-left text-[10px] font-semibold px-1.5 py-0.5 rounded border truncate cursor-pointer hover:opacity-85 transition-opacity ${ev.color}`}
                         >
                           {ev.label}
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </>
@@ -721,7 +724,7 @@ export function CalendarPage() {
         </div>
       </div>
 
-      {/* Upcoming Academic Events (View-Only Details) */}
+      {/* Upcoming Academic Events */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
         <div className="flex items-center justify-between mb-5">
           <div>
@@ -742,7 +745,8 @@ export function CalendarPage() {
             {upcomingEvents.map((ev) => (
               <div
                 key={ev.id}
-                className="p-4 rounded-xl border border-gray-100 bg-gray-50/40"
+                onClick={() => setSelectedEvent(ev)}
+                className="p-4 rounded-xl border border-gray-100 bg-gray-50/40 hover:bg-blue-50/20 hover:border-blue-100 cursor-pointer transition-all"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2.5 flex-wrap">
@@ -783,6 +787,72 @@ export function CalendarPage() {
           </div>
         )}
       </div>
+
+      {/* Event Details Modal */}
+      {selectedEvent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4" onClick={() => setSelectedEvent(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 space-y-4" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+              <div className="flex items-center gap-2">
+                <span className={`w-3 h-3 rounded-full ${selectedEvent.dot}`} />
+                <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${selectedEvent.badgeColor}`}>
+                  {selectedEvent.eventType}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedEvent(null)}
+                className="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-gray-900">{selectedEvent.label}</h3>
+              {selectedEvent.courseCode && (
+                <p className="text-xs font-semibold text-blue-700 mt-0.5">
+                  {selectedEvent.courseCode} — {selectedEvent.courseName || selectedEvent.fullTitle}
+                </p>
+              )}
+            </div>
+
+            <div className="p-3 bg-gray-50 rounded-xl border border-gray-100 space-y-2 text-xs text-gray-600">
+              <div className="flex items-center gap-2 text-gray-800 font-medium">
+                <IconCalendar className="w-4 h-4 text-blue-600" />
+                <span>{selectedEvent.dateFormatted}</span>
+              </div>
+              <p className="leading-relaxed text-gray-700">{selectedEvent.description}</p>
+              {selectedEvent.info && (
+                <div className="pt-2 border-t border-gray-200/60 text-[11px] text-gray-500 font-medium">
+                  {selectedEvent.info}
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setSelectedEvent(null)}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:bg-gray-100 transition-colors"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  alert(`Event "${selectedEvent.label}" marked for calendar reminder.`);
+                  setSelectedEvent(null);
+                }}
+                className="px-4 py-2 rounded-xl text-xs font-bold text-white shadow-sm hover:opacity-90 transition-all"
+                style={{ background: "#1a3a9e" }}
+              >
+                Add Reminder
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -1354,8 +1424,54 @@ export const conversations: Message[] = [
 export function MessagesPage() {
   const [activeId, setActiveId] = useState("c1");
   const [input, setInput] = useState("");
+  const [messageSearch, setMessageSearch] = useState("");
+  const [attachedFile, setAttachedFile] = useState<{ name: string; size: string } | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const active = conversations.find((c) => c.id === activeId)!;
+  const [threads, setThreads] = useState(() =>
+    conversations.map((conversation) => ({ ...conversation, messages: [...conversation.messages] }))
+  );
+
+  const active = threads.find((c) => c.id === activeId) ?? threads[0];
+
+  const handleSend = (customText?: string) => {
+    const textToSend = customText ?? input.trim();
+    if (!textToSend && !attachedFile) return;
+
+    const fullMessageText = attachedFile
+      ? `${textToSend ? textToSend + " " : ""}[Attached: ${attachedFile.name} (${attachedFile.size})]`
+      : textToSend;
+
+    setThreads((previous) => previous.map((conversation) =>
+      conversation.id === activeId
+        ? {
+            ...conversation,
+            lastMsg: fullMessageText,
+            time: "Just now",
+            messages: [...conversation.messages, { from: "me", text: fullMessageText, time: "Just now" }],
+          }
+        : conversation
+    ));
+    setInput("");
+    setAttachedFile(null);
+  };
+
+  const filteredThreads = threads.filter((t) => {
+    if (!messageSearch.trim()) return true;
+    const q = messageSearch.toLowerCase();
+    return (
+      t.sender.toLowerCase().includes(q) ||
+      t.role.toLowerCase().includes(q) ||
+      t.lastMsg.toLowerCase().includes(q)
+    );
+  });
+
+  const quickReplies = [
+    "Thank you, Professor!",
+    "I have submitted the assignment.",
+    "Could you please review my draft?",
+    "Understood, thank you for clarifying.",
+  ];
 
   return (
     <div className="p-7 h-[calc(100vh-64px)] flex flex-col">
@@ -1369,17 +1485,23 @@ export function MessagesPage() {
           <div className="p-3 border-b border-gray-100">
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><IconSearch /></span>
-              <input type="text" placeholder="Search messages..." className="w-full pl-9 pr-3 py-2 bg-gray-50 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 border border-gray-200 transition" />
+              <input
+                type="text"
+                value={messageSearch}
+                onChange={(e) => setMessageSearch(e.target.value)}
+                placeholder="Search messages..."
+                className="w-full pl-9 pr-3 py-2 bg-gray-50 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 border border-gray-200 transition"
+              />
             </div>
           </div>
 
           {/* List */}
           <div className="flex-1 overflow-y-auto divide-y divide-gray-100">
-            {conversations.map((c) => (
+            {filteredThreads.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setActiveId(c.id)}
-                className={`w-full flex items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50 ${activeId === c.id ? "bg-blue-50/60 border-r-2 border-blue-600" : ""}`}
+                className={`w-full flex items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50 cursor-pointer ${activeId === c.id ? "bg-blue-50/60 border-r-2 border-blue-600" : ""}`}
               >
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style={{ background: c.initialsColor }}>
                   {c.initials}
@@ -1399,6 +1521,11 @@ export function MessagesPage() {
                 )}
               </button>
             ))}
+            {filteredThreads.length === 0 && (
+              <div className="text-center py-8 text-xs text-gray-400">
+                No matching conversations.
+              </div>
+            )}
           </div>
         </div>
 
@@ -1422,7 +1549,7 @@ export function MessagesPage() {
                 <div className={`max-w-[68%] ${m.from === "me" ? "items-end" : "items-start"} flex flex-col gap-1`}>
                   <div className={`px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                     m.from === "me"
-                      ? "text-white rounded-br-sm"
+                      ? "text-white rounded-br-sm shadow-xs"
                       : "bg-gray-100 text-gray-800 rounded-bl-sm"
                   }`} style={m.from === "me" ? { background: "#1a3a9e" } : {}}>
                     {m.text}
@@ -1433,10 +1560,61 @@ export function MessagesPage() {
             ))}
           </div>
 
-          {/* Input */}
+          {/* Quick Replies */}
+          <div className="px-6 py-2 bg-gray-50/70 border-t border-gray-100 flex items-center gap-2 overflow-x-auto scrollbar-none">
+            <span className="text-[11px] font-semibold text-gray-400 shrink-0">Quick reply:</span>
+            {quickReplies.map((qr) => (
+              <button
+                key={qr}
+                type="button"
+                onClick={() => handleSend(qr)}
+                className="text-xs bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-700 border border-gray-200 px-2.5 py-1 rounded-full whitespace-nowrap transition-colors cursor-pointer shrink-0 shadow-2xs"
+              >
+                {qr}
+              </button>
+            ))}
+          </div>
+
+          {/* Input & Attachments */}
           <div className="px-6 py-4 border-t border-gray-100">
+            {attachedFile && (
+              <div className="mb-2 flex items-center justify-between bg-blue-50 border border-blue-200 text-blue-800 px-3 py-1.5 rounded-xl text-xs">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <IconPaperclip /> {attachedFile.name} ({attachedFile.size})
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setAttachedFile(null)}
+                  className="text-blue-500 hover:text-blue-700 font-bold ml-2"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
             <div className="flex items-center gap-3">
-              <button className="text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-xl hover:bg-gray-100">
+              <input
+                ref={fileInputRef}
+                type="file"
+                className="hidden"
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) {
+                    setAttachedFile({ name: f.name, size: `${(f.size / (1024 * 1024)).toFixed(1)} MB` });
+                  }
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  if (fileInputRef.current) {
+                    fileInputRef.current.click();
+                  } else {
+                    setAttachedFile({ name: "Document_Attachment.pdf", size: "1.4 MB" });
+                  }
+                }}
+                className="text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-xl hover:bg-gray-100 cursor-pointer"
+                title="Attach file"
+              >
                 <IconPaperclip />
               </button>
               <input
@@ -1445,11 +1623,17 @@ export function MessagesPage() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type a message..."
                 className="flex-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
-                onKeyDown={(e) => e.key === "Enter" && setInput("")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
               />
               <button
-                onClick={() => setInput("")}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all"
+                onClick={() => handleSend()}
+                disabled={!input.trim() && !attachedFile}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ background: "#1a3a9e" }}
               >
                 <IconSend /> Send

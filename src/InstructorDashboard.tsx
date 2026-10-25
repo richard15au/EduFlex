@@ -137,6 +137,11 @@ const IconCheck = ({ className = "w-4 h-4" }: { className?: string }) => (
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
+const IconCheckCircle = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" />
+  </svg>
+);
 const IconClock = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
     <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
@@ -207,6 +212,14 @@ const IconDownload = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
+const IconMenu = ({ className = "w-5 h-5" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+);
+
 // ── Nav Config ────────────────────────────────────────────────────────────────
 const navItems = [
   { label: "Dashboard",          icon: <IconDashboard />,    id: "dashboard" },
@@ -216,62 +229,87 @@ const navItems = [
   { label: "Quizzes",            icon: <IconQuiz />,         id: "quizzes" },
   { label: "Learning Materials", icon: <IconFolder />,       id: "materials" },
   { label: "Grades",             icon: <IconGrades />,       id: "grades" },
+  { label: "Announcements",      icon: <IconAnnouncement />, id: "announcements" },
+  { label: "Messages",           icon: <IconMessage />,      id: "messages" },
+  { label: "Calendar",           icon: <IconCalendar />,     id: "calendar" },
   { label: "Profile",            icon: <IconProfile />,      id: "profile" },
   { label: "Settings",           icon: <IconSettings />,     id: "settings" },
 ];
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 function InstructorSidebar({
-  active, setActive, collapsed, setCollapsed, onLogout,
+  active, setActive, collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen,
 }: {
   active: string; setActive: (id: string) => void;
   collapsed: boolean; setCollapsed: (v: boolean) => void;
   onLogout: () => void;
+  mobileOpen?: boolean; setMobileOpen?: (v: boolean) => void;
 }) {
   const w = collapsed ? "w-16" : "w-56";
   return (
-    <aside
-      className={`fixed top-0 left-0 h-full flex flex-col z-30 transition-all duration-300 ${w}`}
-      style={{ background: "#1a3a9e" }}
-    >
-      <div className={`flex items-center pt-5 pb-4 border-b border-white/10 ${collapsed ? "justify-center px-0" : "px-4 gap-2"}`}>
-        {collapsed ? (
-          <button onClick={() => setCollapsed(false)} className="text-white hover:text-blue-200 transition-colors flex flex-col items-center gap-1" title="Expand sidebar">
-            <IconGraduationCap className="w-7 h-7" />
-            <span className="text-[8px] font-bold tracking-wider text-blue-300">EF</span>
-          </button>
-        ) : (
-          <>
-            <IconGraduationCap className="w-6 h-6 text-white shrink-0" />
-            <div className="flex-1 overflow-hidden">
-              <p className="text-white font-bold text-base tracking-tight leading-none truncate">EduFlex</p>
-              <p className="text-blue-200 text-[10px] mt-0.5 truncate">Instructor Portal</p>
-            </div>
-            <button onClick={() => setCollapsed(true)} className="text-blue-200 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10" title="Collapse sidebar">
-              <IconChevronsLeft />
+    <>
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-200"
+          onClick={() => setMobileOpen?.(false)}
+          aria-hidden="true"
+        />
+      )}
+      <aside
+        className={`fixed top-0 left-0 h-full flex flex-col z-50 md:z-30 transition-all duration-300 ${w} ${
+          mobileOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full md:translate-x-0"
+        }`}
+        style={{ background: "#1a3a9e" }}
+      >
+        <div className={`flex items-center pt-5 pb-4 border-b border-white/10 ${collapsed ? "justify-center px-0" : "px-4 gap-2"}`}>
+          {collapsed ? (
+            <button onClick={() => setCollapsed(false)} className="text-white hover:text-blue-200 transition-colors flex flex-col items-center gap-1" title="Expand sidebar">
+              <IconGraduationCap className="w-7 h-7" />
+              <span className="text-[8px] font-bold tracking-wider text-blue-300">EF</span>
             </button>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <IconGraduationCap className="w-6 h-6 text-white shrink-0" />
+              <div className="flex-1 overflow-hidden">
+                <p className="text-white font-bold text-base tracking-tight leading-none truncate">EduFlex</p>
+                <p className="text-blue-200 text-[10px] mt-0.5 truncate">Instructor Portal</p>
+              </div>
+              <button onClick={() => setCollapsed(true)} className="hidden md:inline-flex text-blue-200 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10" title="Collapse sidebar">
+                <IconChevronsLeft />
+              </button>
+              <button
+                onClick={() => setMobileOpen?.(false)}
+                className="md:hidden text-white/70 hover:text-white transition-colors ml-1 p-1 rounded hover:bg-white/10"
+                title="Close menu"
+                aria-label="Close menu"
+              >
+                <IconX className="w-5 h-5" />
+              </button>
+            </>
+          )}
+        </div>
 
-      <nav className="flex-1 px-2 py-3 overflow-y-auto space-y-0.5">
-        {navItems.map((item) => {
-          const isActive = active === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActive(item.id)}
-              title={collapsed ? item.label : undefined}
-              className={`w-full flex items-center rounded-lg transition-all duration-150 text-left
-                ${collapsed ? "justify-center px-0 py-3" : "gap-3 px-3 py-2.5"}
-                ${isActive ? "bg-white/20 text-white" : "text-blue-100 hover:bg-white/10 hover:text-white"}`}
-            >
-              {item.icon}
-              {!collapsed && <span className="text-sm font-medium truncate">{item.label}</span>}
-            </button>
-          );
-        })}
-      </nav>
+        <nav className="flex-1 px-2 py-3 overflow-y-auto space-y-0.5">
+          {navItems.map((item) => {
+            const isActive = active === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setActive(item.id);
+                  setMobileOpen?.(false);
+                }}
+                title={collapsed ? item.label : undefined}
+                className={`w-full flex items-center rounded-lg transition-all duration-150 text-left
+                  ${collapsed ? "justify-center px-0 py-3" : "gap-3 px-3 py-2.5"}
+                  ${isActive ? "bg-white/20 text-white" : "text-blue-100 hover:bg-white/10 hover:text-white"}`}
+              >
+                {item.icon}
+                {!collapsed && <span className="text-sm font-medium truncate">{item.label}</span>}
+              </button>
+            );
+          })}
+        </nav>
 
       {collapsed && (
         <div className="px-2 py-3 border-t border-white/10 flex justify-center">
@@ -296,6 +334,7 @@ function InstructorSidebar({
         </div>
       )}
     </aside>
+    </>
   );
 }
 
@@ -523,12 +562,14 @@ function InstructorHeader({
   userInitials,
   setActive,
   assignmentCourses = INITIAL_ASSIGNMENT_COURSES,
+  onToggleMobileMenu,
 }: {
   sidebarW: string;
   userName: string;
   userInitials: string;
   setActive?: (id: string) => void;
   assignmentCourses?: InstructorCourseAssignments[];
+  onToggleMobileMenu?: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -578,10 +619,20 @@ function InstructorHeader({
 
   return (
     <header
-      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 gap-4 z-20 transition-all duration-300"
+      className="fixed top-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-3 sm:px-6 gap-2 sm:gap-4 z-20 transition-all duration-300"
       style={{ left: sidebarW }}
     >
-      <div className="flex-1 relative max-w-2xl min-w-[240px]" ref={searchRef}>
+      {/* Mobile hamburger button */}
+      <button
+        type="button"
+        onClick={onToggleMobileMenu}
+        aria-label="Open navigation menu"
+        className="md:hidden p-1.5 -ml-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg shrink-0 cursor-pointer"
+      >
+        <IconMenu className="w-5 h-5" />
+      </button>
+
+      <div className="flex-1 relative max-w-2xl min-w-0" ref={searchRef}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -713,7 +764,7 @@ function InstructorHeader({
           onClick={() => setActive && setActive("profile")}
           className="flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer text-left"
         >
-          <div className="text-right">
+          <div className="hidden sm:block text-right">
             <p className="text-sm font-semibold text-gray-800 leading-tight">{userName}</p>
             <p className="text-xs text-gray-500">Instructor</p>
           </div>
@@ -850,6 +901,37 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
             <p className="text-[10px] text-gray-400">Term 1 · Sep 2026 – Jan 2027</p>
           </div>
         </div>
+      </div>
+
+      {/* Announcement / Notification Banner */}
+      <div
+        className="marquee-container rounded-2xl flex items-center gap-4 px-5 py-4 mb-6 overflow-hidden cursor-pointer shadow-sm hover:opacity-95 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-400 group"
+        style={{ background: "#1a3a9e" }}
+        onClick={() => setActive("announcements")}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setActive("announcements");
+          }
+        }}
+        aria-label="Instructor announcements ticker"
+      >
+        <div className="shrink-0 w-10 h-10 bg-amber-400 rounded-xl flex items-center justify-center text-amber-950">
+          <IconAnnouncement />
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <p className="text-white font-semibold text-sm mb-0.5">Instructor Notice</p>
+          <div className="overflow-hidden">
+            <p className="marquee-text text-blue-200 text-sm">
+              Teaching Term 1 underway. &nbsp;&nbsp; ICT301 Milestone 2 submissions due September 5. &nbsp;&nbsp; 12 submissions awaiting evaluation. &nbsp;&nbsp; Faculty meeting scheduled for September 10 in Room IT-301.
+            </p>
+          </div>
+        </div>
+        <span className="shrink-0 text-blue-200">
+          <IconChevronRight />
+        </span>
       </div>
 
       {/* Summary cards */}
@@ -3446,18 +3528,39 @@ function AssignmentsPage({
   );
 }
 
+interface InstructorQuizItem {
+  id: string;
+  title: string;
+  course: string;
+  date: string;
+  submissions: number;
+  total: number;
+  status: "Active" | "Upcoming" | "Completed";
+  avgScore?: number | null;
+}
+
 // ── Quizzes Page ──────────────────────────────────────────────────────────────
 function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
-  const [viewQuiz, setViewQuiz] = useState<null | { title: string; course: string; date: string; submissions: number; total: number; status: string; avgScore?: number | null }>(null);
+  const [quizzes, setQuizzes] = useState<InstructorQuizItem[]>([
+    { id: "q-1", title: "Weekly Quiz 1", course: "ICT301", date: "Aug 19, 2026", submissions: 32, total: 32, status: "Completed", avgScore: 82 },
+    { id: "q-2", title: "Weekly Quiz 2", course: "ICT272", date: "Aug 26, 2026", submissions: 37, total: 38, status: "Completed", avgScore: 78 },
+    { id: "q-3", title: "Weekly Quiz 3", course: "ICT126", date: "Sep 2, 2026",  submissions: 24, total: 26, status: "Active",    avgScore: null },
+    { id: "q-4", title: "Midterm Quiz",  course: "ICT126", date: "Sep 8, 2026",  submissions: 0,  total: 26, status: "Upcoming",  avgScore: null },
+    { id: "q-5", title: "Lab Quiz 1",    course: "ICT272", date: "Sep 10, 2026", submissions: 0,  total: 38, status: "Upcoming",  avgScore: null },
+    { id: "q-6", title: "Weekly Quiz 3", course: "ICT301", date: "Sep 3, 2026",  submissions: 18, total: 32, status: "Active",    avgScore: null },
+  ]);
 
-  const quizzes = [
-    { title: "Weekly Quiz 1", course: "ICT301", date: "Aug 19, 2026", submissions: 32, total: 32, status: "Completed", avgScore: 82 },
-    { title: "Weekly Quiz 2", course: "ICT272", date: "Aug 26, 2026", submissions: 37, total: 38, status: "Completed", avgScore: 78 },
-    { title: "Weekly Quiz 3", course: "ICT126", date: "Sep 2, 2026",  submissions: 24, total: 26, status: "Active",    avgScore: null },
-    { title: "Midterm Quiz",  course: "ICT126", date: "Sep 8, 2026",  submissions: 0,  total: 26, status: "Upcoming",  avgScore: null },
-    { title: "Lab Quiz 1",    course: "ICT272", date: "Sep 10, 2026", submissions: 0,  total: 38, status: "Upcoming",  avgScore: null },
-    { title: "Weekly Quiz 3", course: "ICT301", date: "Sep 3, 2026",  submissions: 18, total: 32, status: "Active",    avgScore: null },
-  ];
+  const [viewQuiz, setViewQuiz] = useState<InstructorQuizItem | null>(null);
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Form states
+  const [formTitle, setFormTitle] = useState("");
+  const [formCourse, setFormCourse] = useState("ICT301");
+  const [formDate, setFormDate] = useState("Sep 15, 2026");
+  const [formStatus, setFormStatus] = useState<"Active" | "Upcoming" | "Completed">("Upcoming");
+  const [formTotal, setFormTotal] = useState("30");
 
   const statusColor = (s: string) => {
     if (s === "Completed") return "bg-green-100 text-green-700";
@@ -3465,10 +3568,57 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
     return "bg-gray-100 text-gray-500";
   };
 
+  const handleCreateQuiz = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formTitle.trim()) return;
+    const newQ: InstructorQuizItem = {
+      id: `q-${Date.now()}`,
+      title: formTitle.trim(),
+      course: formCourse,
+      date: formDate,
+      submissions: formStatus === "Completed" ? parseInt(formTotal, 10) || 30 : 0,
+      total: parseInt(formTotal, 10) || 30,
+      status: formStatus,
+      avgScore: formStatus === "Completed" ? 85 : null,
+    };
+    setQuizzes((prev) => [newQ, ...prev]);
+    setIsCreateOpen(false);
+    setFormTitle("");
+    setToastMessage(`Quiz "${newQ.title}" created successfully!`);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const handleUpdateQuiz = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!viewQuiz || !formTitle.trim()) return;
+    const updated: InstructorQuizItem = {
+      ...viewQuiz,
+      title: formTitle.trim(),
+      course: formCourse,
+      date: formDate,
+      status: formStatus,
+    };
+    setQuizzes((prev) => prev.map((q) => (q.id === viewQuiz.id ? updated : q)));
+    setViewQuiz(updated);
+    setIsEditOpen(false);
+    setToastMessage(`Quiz "${updated.title}" updated successfully!`);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const openEditModal = (q: typeof viewQuiz) => {
+    if (!q) return;
+    setFormTitle(q.title);
+    setFormCourse(q.course);
+    setFormDate(q.date);
+    setFormStatus(q.status as "Active" | "Upcoming" | "Completed");
+    setFormTotal(String(q.total));
+    setIsEditOpen(true);
+  };
+
   if (viewQuiz) {
     return (
       <div className="p-6">
-        <button onClick={() => setViewQuiz(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium">
+        <button onClick={() => setViewQuiz(null)} className="mb-4 flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium cursor-pointer">
           ← Back to Quizzes
         </button>
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6">
@@ -3479,12 +3629,15 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
               <p className="text-sm text-gray-500 mt-1">Scheduled: {viewQuiz.date}</p>
             </div>
             <div className="flex gap-2">
-              {viewQuiz.status === "Upcoming" && (
-                <button className="px-4 py-2 rounded-xl text-sm font-semibold text-white" style={{ background: "#1a3a9e" }}>Edit Quiz</button>
-              )}
-              {viewQuiz.status !== "Upcoming" && (
-                <button onClick={() => setActive("grades")} className="px-4 py-2 rounded-xl text-sm font-semibold text-white" style={{ background: "#1a3a9e" }}>View Submissions</button>
-              )}
+              <button
+                onClick={() => openEditModal(viewQuiz)}
+                className="px-4 py-2 rounded-xl text-sm font-semibold text-white bg-blue-700 hover:bg-blue-800 transition-colors cursor-pointer"
+              >
+                Edit Quiz
+              </button>
+              <button onClick={() => setActive("grades")} className="px-4 py-2 rounded-xl text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer">
+                View Submissions
+              </button>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-4 mt-5">
@@ -3502,6 +3655,82 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
             </div>
           </div>
         </div>
+
+        {isEditOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
+            <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+              <div className="flex items-center justify-between mb-4 border-b pb-3 border-gray-100">
+                <h3 className="text-lg font-bold text-gray-900">Edit Quiz</h3>
+                <button onClick={() => setIsEditOpen(false)} className="text-gray-400 hover:text-gray-600">
+                  <IconX className="w-5 h-5" />
+                </button>
+              </div>
+              <form onSubmit={handleUpdateQuiz} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Quiz Title</label>
+                  <input
+                    type="text"
+                    value={formTitle}
+                    onChange={(e) => setFormTitle(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-600 mb-1">Course</label>
+                    <select
+                      value={formCourse}
+                      onChange={(e) => setFormCourse(e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="ICT301">ICT301</option>
+                      <option value="ICT272">ICT272</option>
+                      <option value="ICT126">ICT126</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-600 mb-1">Status</label>
+                    <select
+                      value={formStatus}
+                      onChange={(e) => setFormStatus(e.target.value as "Active" | "Upcoming" | "Completed")}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="Upcoming">Upcoming</option>
+                      <option value="Active">Active</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Date</label>
+                  <input
+                    type="text"
+                    value={formDate}
+                    onChange={(e) => setFormDate(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsEditOpen(false)}
+                    className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-xl"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-2 text-sm font-semibold text-white rounded-xl"
+                    style={{ background: "#1a3a9e" }}
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -3513,10 +3742,28 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
       </div>
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <h1 className="text-2xl font-bold text-gray-900">Quizzes &amp; Assessments</h1>
-        <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white" style={{ background: "#1a3a9e" }}>
+        <button
+          onClick={() => {
+            setFormTitle("");
+            setFormCourse("ICT301");
+            setFormDate("Sep 15, 2026");
+            setFormStatus("Upcoming");
+            setFormTotal("30");
+            setIsCreateOpen(true);
+          }}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white cursor-pointer hover:opacity-95 transition-opacity"
+          style={{ background: "#1a3a9e" }}
+        >
           <IconPlus /><span>New Quiz</span>
         </button>
       </div>
+
+      {toastMessage && (
+        <div className="mb-4 p-3 bg-green-50 border border-green-200 text-green-800 rounded-xl text-xs font-medium flex items-center gap-2">
+          <IconCheckCircle className="w-4 h-4 text-green-600" />
+          {toastMessage}
+        </div>
+      )}
 
       {(["Active", "Upcoming", "Completed"] as const).map((section) => {
         const items = quizzes.filter((q) => q.status === section);
@@ -3540,7 +3787,7 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
                     <span className="text-gray-500">{q.submissions}/{q.total} submitted</span>
                     {q.avgScore && <span className="font-bold text-green-700">Avg: {q.avgScore}%</span>}
                   </div>
-                  <button onClick={() => setViewQuiz(q)} className="w-full text-xs font-semibold py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+                  <button onClick={() => setViewQuiz(q)} className="w-full text-xs font-semibold py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors cursor-pointer">
                     View Details
                   </button>
                 </div>
@@ -3549,15 +3796,112 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
           </div>
         );
       })}
+
+      {isCreateOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+            <div className="flex items-center justify-between mb-4 border-b pb-3 border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">Create New Quiz</h3>
+              <button onClick={() => setIsCreateOpen(false)} className="text-gray-400 hover:text-gray-600">
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handleCreateQuiz} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Quiz Title</label>
+                <input
+                  type="text"
+                  placeholder="e.g. Chapter 4 Knowledge Check"
+                  value={formTitle}
+                  onChange={(e) => setFormTitle(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Course</label>
+                  <select
+                    value={formCourse}
+                    onChange={(e) => setFormCourse(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="ICT301">ICT301</option>
+                    <option value="ICT272">ICT272</option>
+                    <option value="ICT126">ICT126</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Status</label>
+                  <select
+                    value={formStatus}
+                    onChange={(e) => setFormStatus(e.target.value as "Active" | "Upcoming" | "Completed")}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Active">Active</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Date</label>
+                  <input
+                    type="text"
+                    value={formDate}
+                    onChange={(e) => setFormDate(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Total Enrolled</label>
+                  <input
+                    type="number"
+                    value={formTotal}
+                    onChange={(e) => setFormTotal(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setIsCreateOpen(false)}
+                  className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-sm font-semibold text-white rounded-xl cursor-pointer"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Create Quiz
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 // ── Learning Materials Page ───────────────────────────────────────────────────
 function LearningMaterialsPage() {
+  const [materials, setMaterials] = useState<LearningMaterialItem[]>(INSTRUCTOR_LEARNING_MATERIALS);
   const [filter, setFilter] = useState("all");
   const [previewMaterial, setPreviewMaterial] = useState<LearningMaterialItem | null>(null);
   const [downloadToast, setDownloadToast] = useState<string | null>(null);
+  const [isUploadOpen, setIsUploadOpen] = useState(false);
+
+  // Upload Form State
+  const [uploadTitle, setUploadTitle] = useState("");
+  const [uploadCourse, setUploadCourse] = useState("ICT301");
+  const [uploadType, setUploadType] = useState<"Slides" | "Document" | "Video">("Slides");
+  const [uploadWeek, setUploadWeek] = useState("1");
+  const [uploadDesc, setUploadDesc] = useState("");
 
   const courseColors: Record<string, string> = {
     ICT301: "bg-blue-100 text-blue-700",
@@ -3572,9 +3916,47 @@ function LearningMaterialsPage() {
     }, 3500);
   };
 
+  const handleUploadSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!uploadTitle.trim()) return;
+
+    const courseNameMap: Record<string, string> = {
+      ICT301: "Information Technology Project 1",
+      ICT272: "Web & Mobile Application Development",
+      ICT126: "Database Systems & Architecture",
+    };
+
+    const iconMap: Record<string, string> = {
+      Slides: "📊",
+      Document: "📄",
+      Video: "🎥",
+    };
+
+    const newMat: LearningMaterialItem = {
+      id: `mat-${Date.now()}`,
+      title: uploadTitle.trim(),
+      course: uploadCourse,
+      courseName: courseNameMap[uploadCourse] || uploadCourse,
+      type: uploadType,
+      category: uploadType === "Video" ? "Lecture" : "Tutorial",
+      week: parseInt(uploadWeek, 10) || 1,
+      size: "2.5 MB",
+      date: "Sep 2, 2026",
+      icon: iconMap[uploadType] || "📄",
+      description: uploadDesc.trim() || `Course resource for ${uploadCourse}.`,
+    };
+
+    setMaterials((prev) => [newMat, ...prev]);
+    setIsUploadOpen(false);
+    setUploadTitle("");
+    setUploadDesc("");
+    setDownloadToast(`Uploaded "${newMat.title}" successfully!`);
+    setTimeout(() => setDownloadToast(null), 3500);
+  };
+
   const filtered = filter === "all"
-    ? INSTRUCTOR_LEARNING_MATERIALS
-    : INSTRUCTOR_LEARNING_MATERIALS.filter((m) => m.course === filter || m.type.toLowerCase() === filter.toLowerCase());
+    ? materials
+    : materials.filter((m) => m.course === filter || m.type.toLowerCase() === filter.toLowerCase());
 
   return (
     <div className="p-6">
@@ -3583,7 +3965,11 @@ function LearningMaterialsPage() {
       </div>
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <h1 className="text-2xl font-bold text-gray-900">Learning Materials</h1>
-        <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white" style={{ background: "#1a3a9e" }}>
+        <button
+          onClick={() => setIsUploadOpen(true)}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white cursor-pointer hover:opacity-90 transition-opacity"
+          style={{ background: "#1a3a9e" }}
+        >
           <IconUpload /><span>Upload Material</span>
         </button>
       </div>
@@ -3638,6 +4024,95 @@ function LearningMaterialsPage() {
         ))}
       </div>
 
+      {isUploadOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+            <div className="flex items-center justify-between mb-4 border-b pb-3 border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">Upload Learning Material</h3>
+              <button onClick={() => setIsUploadOpen(false)} className="text-gray-400 hover:text-gray-600">
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handleUploadSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Material Title</label>
+                <input
+                  type="text"
+                  placeholder="e.g. Week 5: Advanced Relational Queries"
+                  value={uploadTitle}
+                  onChange={(e) => setUploadTitle(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Course</label>
+                  <select
+                    value={uploadCourse}
+                    onChange={(e) => setUploadCourse(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="ICT301">ICT301</option>
+                    <option value="ICT272">ICT272</option>
+                    <option value="ICT126">ICT126</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Type</label>
+                  <select
+                    value={uploadType}
+                    onChange={(e) => setUploadType(e.target.value as "Slides" | "Document" | "Video")}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Slides">Slides</option>
+                    <option value="Document">Document</option>
+                    <option value="Video">Video</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Teaching Week</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="12"
+                  value={uploadWeek}
+                  onChange={(e) => setUploadWeek(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Description / Overview</label>
+                <textarea
+                  rows={3}
+                  placeholder="Brief summary of topics covered..."
+                  value={uploadDesc}
+                  onChange={(e) => setUploadDesc(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                />
+              </div>
+              <div className="flex justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setIsUploadOpen(false)}
+                  className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-sm font-semibold text-white rounded-xl cursor-pointer"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Upload
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       {previewMaterial && (
         <MaterialPreviewModal
           material={previewMaterial}
@@ -3652,7 +4127,7 @@ function LearningMaterialsPage() {
             <IconDownload className="w-3.5 h-3.5" />
           </div>
           <div>
-            <p className="font-semibold text-white">Downloading file</p>
+            <p className="font-semibold text-white">Learning Material Notification</p>
             <p className="text-gray-300 text-[11px]">{downloadToast}</p>
           </div>
         </div>
@@ -5208,9 +5683,71 @@ const announcementStatusColors: Record<string, string> = {
 };
 
 function InstructorAnnouncementsPage() {
+  const [announcements, setAnnouncements] = useState<IAnnouncement[]>(iAnnouncements);
   const [filter, setFilter] = useState<"All" | "Published" | "Draft" | "Scheduled">("All");
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [editTarget, setEditTarget] = useState<IAnnouncement | null>(null);
+  const [viewTarget, setViewTarget] = useState<IAnnouncement | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const filtered = filter === "All" ? iAnnouncements : iAnnouncements.filter((a) => a.status === filter);
+  // Form states
+  const [formTitle, setFormTitle] = useState("");
+  const [formDescription, setFormDescription] = useState("");
+  const [formAudience, setFormAudience] = useState("ICT301");
+  const [formStatus, setFormStatus] = useState<"Published" | "Draft" | "Scheduled">("Published");
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const handleCreate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formTitle.trim()) return;
+    const newA: IAnnouncement = {
+      id: Date.now(),
+      title: formTitle.trim(),
+      description: formDescription.trim(),
+      audience: formAudience,
+      date: "Sep 2, 2026",
+      status: formStatus,
+    };
+    setAnnouncements((prev) => [newA, ...prev]);
+    setIsCreateOpen(false);
+    setFormTitle("");
+    setFormDescription("");
+    showToast(`Announcement "${newA.title}" published!`);
+  };
+
+  const handleUpdate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editTarget || !formTitle.trim()) return;
+    const updated: IAnnouncement = {
+      ...editTarget,
+      title: formTitle.trim(),
+      description: formDescription.trim(),
+      audience: formAudience,
+      status: formStatus,
+    };
+    setAnnouncements((prev) => prev.map((a) => (a.id === editTarget.id ? updated : a)));
+    setEditTarget(null);
+    showToast(`Announcement "${updated.title}" updated!`);
+  };
+
+  const handleDelete = (id: number) => {
+    setAnnouncements((prev) => prev.filter((a) => a.id !== id));
+    showToast("Announcement deleted successfully!");
+  };
+
+  const openEdit = (a: IAnnouncement) => {
+    setEditTarget(a);
+    setFormTitle(a.title);
+    setFormDescription(a.description);
+    setFormAudience(a.audience);
+    setFormStatus(a.status);
+  };
+
+  const filtered = filter === "All" ? announcements : announcements.filter((a) => a.status === filter);
 
   return (
     <div className="p-6">
@@ -5222,10 +5759,27 @@ function InstructorAnnouncementsPage() {
           <h1 className="text-2xl font-bold text-gray-900">Announcements</h1>
           <p className="text-sm text-gray-500 mt-0.5">Create and manage announcements for your students</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors" style={{ background: "#1a3a9e" }}>
+        <button
+          onClick={() => {
+            setFormTitle("");
+            setFormDescription("");
+            setFormAudience("ICT301");
+            setFormStatus("Published");
+            setIsCreateOpen(true);
+          }}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer"
+          style={{ background: "#1a3a9e" }}
+        >
           <IconPlus /><span>New Announcement</span>
         </button>
       </div>
+
+      {toastMessage && (
+        <div className="mb-4 mt-2 p-3 bg-green-50 border border-green-200 text-green-800 rounded-xl text-xs font-medium flex items-center gap-2">
+          <IconCheckCircle className="w-4 h-4 text-green-600" />
+          {toastMessage}
+        </div>
+      )}
 
       {/* Filter tabs */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-4 mb-6 mt-5">
@@ -5234,7 +5788,7 @@ function InstructorAnnouncementsPage() {
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`relative px-4 py-3.5 text-sm font-medium whitespace-nowrap transition-colors ${filter === f ? "text-blue-700" : "text-gray-500 hover:text-gray-800"}`}
+              className={`relative px-4 py-3.5 text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${filter === f ? "text-blue-700" : "text-gray-500 hover:text-gray-800"}`}
             >
               {f === "All" ? "All Announcements" : f}
               {filter === f && <span className="absolute bottom-0 left-0 right-0 h-0.5 rounded-t-full bg-blue-600" />}
@@ -5265,13 +5819,22 @@ function InstructorAnnouncementsPage() {
                 </div>
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                <button className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-lg transition-colors">
+                <button
+                  onClick={() => setViewTarget(a)}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                >
                   <IconEye className="w-3.5 h-3.5" /> View
                 </button>
-                <button className="flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-100 px-3 py-1.5 rounded-lg transition-colors">
+                <button
+                  onClick={() => openEdit(a)}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-100 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                >
                   <IconEdit className="w-3.5 h-3.5" /> Edit
                 </button>
-                <button className="flex items-center gap-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 border border-red-100 px-3 py-1.5 rounded-lg transition-colors">
+                <button
+                  onClick={() => handleDelete(a.id)}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 border border-red-100 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                >
                   <IconX className="w-3.5 h-3.5" /> Delete
                 </button>
               </div>
@@ -5279,6 +5842,197 @@ function InstructorAnnouncementsPage() {
           </div>
         ))}
       </div>
+
+      {/* Create Modal */}
+      {isCreateOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6">
+            <div className="flex items-center justify-between mb-4 border-b pb-3 border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">New Announcement</h3>
+              <button onClick={() => setIsCreateOpen(false)} className="text-gray-400 hover:text-gray-600 cursor-pointer">
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handleCreate} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Title</label>
+                <input
+                  type="text"
+                  placeholder="e.g. Guest Speaker Session Next Week"
+                  value={formTitle}
+                  onChange={(e) => setFormTitle(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Audience / Course</label>
+                  <select
+                    value={formAudience}
+                    onChange={(e) => setFormAudience(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="All Courses">All Courses</option>
+                    <option value="ICT301">ICT301</option>
+                    <option value="ICT272">ICT272</option>
+                    <option value="ICT126">ICT126</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Status</label>
+                  <select
+                    value={formStatus}
+                    onChange={(e) => setFormStatus(e.target.value as "Published" | "Draft" | "Scheduled")}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Published">Published</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Scheduled">Scheduled</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Message Content</label>
+                <textarea
+                  rows={4}
+                  placeholder="Details of the announcement..."
+                  value={formDescription}
+                  onChange={(e) => setFormDescription(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                />
+              </div>
+              <div className="flex justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setIsCreateOpen(false)}
+                  className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-sm font-semibold text-white rounded-xl cursor-pointer"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Publish Announcement
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Modal */}
+      {editTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6">
+            <div className="flex items-center justify-between mb-4 border-b pb-3 border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">Edit Announcement</h3>
+              <button onClick={() => setEditTarget(null)} className="text-gray-400 hover:text-gray-600 cursor-pointer">
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handleUpdate} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Title</label>
+                <input
+                  type="text"
+                  value={formTitle}
+                  onChange={(e) => setFormTitle(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Audience</label>
+                  <select
+                    value={formAudience}
+                    onChange={(e) => setFormAudience(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="All Courses">All Courses</option>
+                    <option value="ICT301">ICT301</option>
+                    <option value="ICT272">ICT272</option>
+                    <option value="ICT126">ICT126</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Status</label>
+                  <select
+                    value={formStatus}
+                    onChange={(e) => setFormStatus(e.target.value as "Published" | "Draft" | "Scheduled")}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Published">Published</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Scheduled">Scheduled</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-1">Message Content</label>
+                <textarea
+                  rows={4}
+                  value={formDescription}
+                  onChange={(e) => setFormDescription(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                />
+              </div>
+              <div className="flex justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setEditTarget(null)}
+                  className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-sm font-semibold text-white rounded-xl cursor-pointer"
+                  style={{ background: "#1a3a9e" }}
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* View Modal */}
+      {viewTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6">
+            <div className="flex items-start justify-between mb-4 border-b pb-3 border-gray-100">
+              <div>
+                <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full border mb-1.5 inline-block ${announcementStatusColors[viewTarget.status]}`}>
+                  {viewTarget.status}
+                </span>
+                <h3 className="text-lg font-bold text-gray-900">{viewTarget.title}</h3>
+                <p className="text-xs text-gray-400 mt-0.5">{viewTarget.audience} · {viewTarget.date}</p>
+              </div>
+              <button onClick={() => setViewTarget(null)} className="text-gray-400 hover:text-gray-600 cursor-pointer">
+                <IconX className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-4 text-sm text-gray-700 leading-relaxed mb-4 whitespace-pre-wrap">
+              {viewTarget.description}
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => setViewTarget(null)}
+                className="px-4 py-2 text-sm font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -5357,9 +6111,58 @@ const iConversations: IConversation[] = [
 ];
 
 function InstructorMessagesPage({ userName }: { userName: string }) {
+  const [conversations, setConversations] = useState<IConversation[]>(iConversations);
   const [activeId, setActiveId] = useState("c1");
   const [input, setInput] = useState("");
-  const active = iConversations.find((c) => c.id === activeId)!;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [attachment, setAttachment] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const active = conversations.find((c) => c.id === activeId) || conversations[0];
+
+  const filteredConversations = conversations.filter(
+    (c) =>
+      c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.context.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.lastMsg.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSendMessage = (textToSend?: string) => {
+    const rawText = (textToSend || input).trim();
+    if (!rawText && !attachment) return;
+    const fullText = attachment ? `${rawText ? rawText + " " : ""}[File: ${attachment}]` : rawText;
+    const newMsg = { from: "me" as const, text: fullText, time: "Just now" };
+
+    setConversations((prev) =>
+      prev.map((c) =>
+        c.id === active.id
+          ? {
+              ...c,
+              lastMsg: fullText,
+              time: "Just now",
+              unread: 0,
+              messages: [...c.messages, newMsg],
+            }
+          : c
+      )
+    );
+    setInput("");
+    setAttachment(null);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setAttachment(file.name);
+    }
+  };
+
+  const quickReplies = [
+    "Thank you for the update. Received.",
+    "Please consult during tomorrow's office hours.",
+    "The assignment submission has been noted.",
+    "The revised guidelines are available in Learning Materials.",
+  ];
 
   return (
     <div className="p-6 flex flex-col" style={{ height: "calc(100vh - 64px)" }}>
@@ -5377,15 +6180,21 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
           <div className="p-3 border-b border-gray-100">
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><IconSearch /></span>
-              <input type="text" placeholder="Search messages..." className="w-full pl-9 pr-3 py-2 bg-gray-50 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 border border-gray-200 transition" />
+              <input
+                type="text"
+                placeholder="Search messages..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-3 py-2 bg-gray-50 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 border border-gray-200 transition"
+              />
             </div>
           </div>
           <div className="flex-1 overflow-y-auto divide-y divide-gray-100">
-            {iConversations.map((c) => (
+            {filteredConversations.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setActiveId(c.id)}
-                className={`w-full flex items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50 ${activeId === c.id ? "bg-blue-50/60 border-r-2 border-blue-600" : ""}`}
+                className={`w-full flex items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50 cursor-pointer ${activeId === c.id ? "bg-blue-50/60 border-r-2 border-blue-600" : ""}`}
               >
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style={{ background: c.color }}>
                   {c.initials}
@@ -5405,6 +6214,11 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
                 )}
               </button>
             ))}
+            {filteredConversations.length === 0 && (
+              <div className="p-6 text-center text-xs text-gray-400">
+                No conversations matching &quot;{searchQuery}&quot;
+              </div>
+            )}
           </div>
         </div>
 
@@ -5432,9 +6246,40 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
               </div>
             ))}
           </div>
+
+          {/* Quick reply suggestions */}
+          <div className="px-6 py-2 border-t border-gray-50 flex items-center gap-2 overflow-x-auto bg-gray-50/50">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider shrink-0">Quick reply:</span>
+            {quickReplies.map((q, i) => (
+              <button
+                key={i}
+                onClick={() => handleSendMessage(q)}
+                className="px-2.5 py-1 text-xs bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-700 rounded-lg border border-gray-200 shrink-0 transition-colors cursor-pointer"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
+
           <div className="px-6 py-4 border-t border-gray-100">
+            {attachment && (
+              <div className="mb-2 flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-3 py-1.5 rounded-lg text-xs w-fit">
+                <span>📎 {attachment}</span>
+                <button onClick={() => setAttachment(null)} className="text-blue-600 hover:text-blue-900 cursor-pointer font-bold">×</button>
+              </div>
+            )}
             <div className="flex items-center gap-3">
-              <button className="text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-xl hover:bg-gray-100">
+              <input
+                ref={fileInputRef}
+                type="file"
+                className="hidden"
+                onChange={handleFileChange}
+              />
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                className="text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-xl hover:bg-gray-100 cursor-pointer"
+                title="Attach file"
+              >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                   <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
                 </svg>
@@ -5445,11 +6290,16 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type a message..."
                 className="flex-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
-                onKeyDown={(e) => e.key === "Enter" && setInput("")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSendMessage();
+                  }
+                }}
               />
               <button
-                onClick={() => setInput("")}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-all"
+                onClick={() => handleSendMessage()}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-all cursor-pointer"
                 style={{ background: "#1a3a9e" }}
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -5467,13 +6317,19 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
 
 // ── Instructor Profile Page ────────────────────────────────────────────────────
 function InstructorProfilePage({ userName }: { userName: string }) {
+  const sessionUser = getSessionUser();
+  const effectiveEmail =
+    sessionUser?.email ||
+    (userName.toLowerCase().includes("anita")
+      ? "anita.humagain@eduflex.edu"
+      : "sarita.koirala@university.edu.au");
   const parts = userName.replace(/^Prof\.\s*/i, "").split(" ");
   const initials = parts.map((p) => p[0]).join("").slice(0, 2).toUpperCase();
   const displayName = userName.startsWith("Prof.") ? userName : `Prof. ${userName}`;
 
   const personalInfo = [
     { label: "Full Name",        value: displayName },
-    { label: "Email Address",    value: "sarita.koirala@university.edu.au" },
+    { label: "Email Address",    value: effectiveEmail },
     { label: "Phone Number",     value: "+61 2 9876 5432" },
     { label: "Office Location",  value: "Room IT-210, Building C" },
   ];
@@ -5508,7 +6364,7 @@ function InstructorProfilePage({ userName }: { userName: string }) {
             <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full">Full-time</span>
             <span className="text-xs text-gray-500">STF-00845</span>
             <span className="text-xs text-gray-400">·</span>
-            <span className="text-xs text-gray-500">sarita.koirala@university.edu.au</span>
+            <span className="text-xs text-gray-500">{effectiveEmail}</span>
           </div>
         </div>
       </div>
@@ -5818,22 +6674,50 @@ export default function InstructorDashboard({ onLogout = () => {} }: { onLogout?
     }
   };
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile]     = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const userInitials = getInitials(userName);
 
   const sidebarPx = collapsed ? "64px" : "224px";
+  const effectiveSidebarW = isMobile ? "0px" : sidebarPx;
 
   return (
     <div className={`min-h-screen ${theme === "Dark" ? "dark bg-[#0b0f19] text-gray-100" : "bg-gray-100 text-gray-900"}`} style={{ fontFamily: "'Outfit', sans-serif" }}>
-      <InstructorSidebar active={active} setActive={setActive} collapsed={collapsed} setCollapsed={setCollapsed} onLogout={onLogout} />
+      <InstructorSidebar
+        active={active}
+        setActive={(nav) => {
+          setActive(nav);
+          setMobileOpen(false);
+        }}
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        onLogout={onLogout}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+      />
       <InstructorHeader
-        sidebarW={sidebarPx}
+        sidebarW={effectiveSidebarW}
         userName={userName}
         userInitials={userInitials}
-        setActive={setActive}
+        setActive={(nav) => {
+          setActive(nav);
+          setMobileOpen(false);
+        }}
         assignmentCourses={assignmentCourses}
+        onToggleMobileMenu={() => setMobileOpen((prev) => !prev)}
       />
 
-      <main className="pt-16 min-h-screen flex flex-col transition-all duration-300" style={{ marginLeft: sidebarPx }}>
+      <main className="pt-16 min-h-screen flex flex-col transition-all duration-300" style={{ marginLeft: effectiveSidebarW }}>
         <div className="flex-1">
           {active === "dashboard"     && <DashboardHome setActive={setActive} userName={userName} />}
           {active === "courses"       && <MyCoursesPage setActive={setActive} />}

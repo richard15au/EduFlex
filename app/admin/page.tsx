@@ -2,6 +2,7 @@
 
 import AdminDashboard from "@/src/AdminDashboard";
 import { clearSession } from "@/src/auth";
+import ProtectedRoute from "@/src/ProtectedRoute";
 import { useRouter } from "next/navigation";
 
 export default function AdminRoute() {
@@ -12,5 +13,9 @@ export default function AdminRoute() {
     router.push("/");
   };
 
-  return <AdminDashboard onLogout={handleLogout} />;
+  return (
+    <ProtectedRoute role="admin">
+      <AdminDashboard onLogout={handleLogout} />
+    </ProtectedRoute>
+  );
 }
