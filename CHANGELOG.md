@@ -2,6 +2,15 @@
 
 All notable changes to the EduFlex codebase are documented in this file.
 
+## [0.5.0] - 2026-10-25
+
+### Added
+- **Phase 4B: Idempotent Development Seed Script & Password Hash Utility ([`prisma/seed.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/prisma/seed.ts), [`lib/password.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/lib/password.ts), [`package.json`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/package.json), [`.env.example`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/.env.example))**:
+  - Created standard-library `node:crypto` `scrypt` password hashing and constant-time (`timingSafeEqual`) verification module in [`lib/password.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/lib/password.ts) producing self-describing `scrypt$16384$8$1$<saltHex>$<derivedKeyHex>` digests.
+  - Implemented [`prisma/seed.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/prisma/seed.ts) using deterministic `upsert` operations ordered across 6 dependency tiers covering all 19 seeded application tables (`SystemSetting`, `User`, `Course`, `ApprovalRequest`, `Enrollment`, `Assignment`, `Quiz`, `LearningMaterial`, `Announcement`, `CalendarEvent`, `QuizQuestion`, `AssignmentSubmission`, `QuizAttempt`, `AnnouncementRead`, `QuizAttemptAnswer`, `GradeRecord`, `Conversation`, `ConversationParticipant`, `Message`).
+  - Enforced a pre-connection development safety guard (`assertSafeDevelopmentSeedEnvironment`) that refuses execution unless `NODE_ENV !== "production"`, `EDUFLEX_ALLOW_DEV_SEED === "true"`, and `DATABASE_URL` matches the confirmed EduFlex Neon development endpoint and `/EduFlex` database.
+  - Added `db:seed` script in [`package.json`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/package.json) using Node 24 native TypeScript stripping (`node --env-file-if-exists=.env.local --experimental-strip-types prisma/seed.ts`).
+
 ## [0.4.1] - 2026-10-24
 
 ### Changed

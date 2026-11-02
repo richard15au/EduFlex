@@ -13,6 +13,7 @@
     "prisma:format": "node --env-file-if-exists=.env.local ./node_modules/prisma/build/index.js format",
     "db:migrate:dev": "node --env-file-if-exists=.env.local ./node_modules/prisma/build/index.js migrate dev",
     "db:migrate:deploy": "node --env-file-if-exists=.env.local ./node_modules/prisma/build/index.js migrate deploy",
+    "db:seed": "node --env-file-if-exists=.env.local --experimental-strip-types prisma/seed.ts",
     "db:studio": "node --env-file-if-exists=.env.local ./node_modules/prisma/build/index.js studio"
   },
   "dependencies": {
