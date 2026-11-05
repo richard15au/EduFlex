@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { forwardRef, FormEvent, useRef, useState, ReactNode } from "react";
-import { registerUser, loginUser } from "./auth";
+import { registerUser, loginUser, setSessionUser } from "./auth";
+import { loginAction, registerAction } from "@/src/actions/auth";
 
 const Arrow = () => <span aria-hidden="true" className="text-lg leading-none">→</span>;
 
@@ -57,48 +58,119 @@ function Brand({ light = false }: { light?: boolean }) {
 }
 
 export function HomePage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "What are the best course management tools for higher education?",
+      a: "EduFlex provides modern, lightning-fast, lightweight course management with automated grading, rubric assessments, and role-based access for students, instructors, and university administrators."
+    },
+    {
+      q: "How does EduFlex compare to traditional LMS platforms like Canvas or Moodle?",
+      a: "Unlike legacy platforms with heavy bloat, EduFlex is lightning-fast and lightweight, delivering sub-second page loads, automated quiz scoring, and cryptographic homework submission receipts (#EDF-2026)."
+    },
+    {
+      q: "Can university administrators manage course enrollments and user permissions?",
+      a: "Yes. EduFlex provides institutional role-based access control (RBAC) with strict email conventions, automated registration approval queues, course catalog administration, and real-time academic grade tracking."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#f8f9fe] text-[#193e9f]">
       <header className="mx-auto flex h-20 max-w-[1080px] items-center justify-between px-7">
         <Brand />
         <nav className="hidden items-center gap-10 text-sm font-medium text-slate-500 md:flex">
-          <a href="#" className="hover:text-[#173b9f]">Learning</a>
-          <a href="#" className="hover:text-[#173b9f]">About EduFlex</a>
+          <a href="#features" className="hover:text-[#173b9f] transition-colors">Features</a>
+          <a href="#faq" className="hover:text-[#173b9f] transition-colors">FAQ</a>
+          <a href="#about" className="hover:text-[#173b9f] transition-colors">About EduFlex</a>
         </nav>
         <div className="flex items-center gap-4 text-sm font-semibold">
-          <Link href="/login" className="text-slate-600 hover:text-[#173b9f]">Log in</Link>
-          <Link href="/register" className="rounded-xl bg-[#203f9f] px-5 py-2.5 text-white shadow-md shadow-blue-900/20 hover:bg-[#102d80]">Register</Link>
+          <Link href="/login" className="rounded-xl bg-[#203f9f] px-5 py-2.5 text-white shadow-md shadow-blue-900/20 hover:bg-[#102d80] transition-colors">Log in to Portal</Link>
         </div>
       </header>
 
-      <main className="mx-auto flex max-w-[780px] flex-col items-center px-7 pt-28 pb-32 text-center">
-        <p className="flex items-center gap-2 text-[11px] font-bold tracking-[.16em] text-[#5771bd]">
+      <main className="mx-auto flex max-w-[1080px] flex-col items-center px-7 pt-20 pb-32 text-center">
+
+        <p className="flex items-center gap-2 text-[11px] font-bold tracking-[.16em] text-[#5771bd] uppercase">
           <span className="h-px w-6 bg-[#5771bd]" />
-          EDUCATION, MADE FLEXIBLE
+          MODERN HIGHER EDUCATION LMS
           <span className="h-px w-6 bg-[#5771bd]" />
         </p>
-        <h1 className="mt-6 text-[clamp(3rem,6vw,4.2rem)] font-bold leading-[1.02] tracking-[-.055em] text-[#102b78]">
-          Your learning,<br /><span className="text-[#3675ea]">in one place.</span>
+
+        <h1 className="mt-6 text-[clamp(2.5rem,5vw,3.8rem)] font-bold leading-[1.08] tracking-[-.04em] text-[#102b78] max-w-[840px]">
+          The best course management tools, <br className="hidden sm:inline" />
+          <span className="text-[#3675ea]">built for modern universities.</span>
         </h1>
-        <p className="mt-6 max-w-[420px] text-base leading-7 text-slate-500">
-          A simple and smart platform for students, instructors, and administrators.
+
+        <p className="mt-6 max-w-[580px] text-base leading-7 text-slate-600">
+          A lightning-fast, lightweight learning management platform for students, instructors, and administrators. Zero-latency course authoring, automated grading, and cryptographic submission integrity.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/login" className="rounded-xl bg-[#203f9f] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/20 hover:bg-[#102d80]">Log in</Link>
-          <Link href="/register" className="rounded-xl border border-blue-200 bg-white px-7 py-3.5 text-sm font-bold text-[#203f9f] hover:border-blue-300 hover:bg-blue-50">Create an account</Link>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link href="/login" className="rounded-xl bg-[#203f9f] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/20 hover:bg-[#102d80] transition-all">Access University Portal &rarr;</Link>
         </div>
 
-        {/* Decorative element */}
-        <div className="mt-24 flex items-center justify-center gap-5 opacity-30">
-          <span className="h-px w-16 bg-[#3675ea]" />
-          <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7 text-[#3675ea]"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" /></svg>
-          <span className="h-px w-16 bg-[#3675ea]" />
-        </div>
+        {/* Feature Grid */}
+        <section id="features" className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 text-left w-full">
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#173b9f] flex items-center justify-center font-bold mb-4">🎓</div>
+            <h2 className="text-lg font-bold text-[#102b78]">For Students</h2>
+            <p className="mt-2 text-sm text-slate-500 leading-relaxed">
+              Personalized dashboard, question palette navigation on timed quizzes, and instant receipt verification (#EDF-2026) on all assessments.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#173b9f] flex items-center justify-center font-bold mb-4">📚</div>
+            <h2 className="text-lg font-bold text-[#102b78]">For Instructors</h2>
+            <p className="mt-2 text-sm text-slate-500 leading-relaxed">
+              Interactive rubric grading, weekly module syllabus authoring, learning material PDF uploads, and real-time student submission tracking.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#173b9f] flex items-center justify-center font-bold mb-4">🏛️</div>
+            <h2 className="text-lg font-bold text-[#102b78]">For Administrators</h2>
+            <p className="mt-2 text-sm text-slate-500 leading-relaxed">
+              Role-based user management with institutional email enforcement, registration approval queues, course catalog controls, and audit logs.
+            </p>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="mt-24 max-w-[720px] w-full text-left">
+          <h2 className="text-2xl font-bold text-[#102b78] text-center mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div key={idx} className="bg-white rounded-xl border border-slate-100 overflow-hidden shadow-sm">
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full px-5 py-4 text-left font-semibold text-sm text-[#102b78] flex items-center justify-between hover:bg-slate-50 transition"
+                  >
+                    <span>{faq.q}</span>
+                    <span className="text-slate-400 font-bold ml-2">{isOpen ? "−" : "+"}</span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-4 text-xs leading-relaxed text-slate-500 border-t border-slate-50 pt-3">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
       </main>
+
+      <footer id="about" className="border-t border-slate-200/80 bg-white py-10 text-center text-xs text-slate-500">
+        <p className="font-semibold text-slate-700">EduFlex Learning Management System</p>
+        <p className="mt-1">Engineered for high-performance higher education course administration.</p>
+      </footer>
     </div>
   );
 }
-
 
 export function LoginPage() {
   const router = useRouter();
@@ -107,20 +179,31 @@ export function LoginPage() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const submit = (event: FormEvent) => {
+  const submit = async (event: FormEvent) => {
     event.preventDefault();
     const email = emailRef.current?.value ?? "";
     const password = passwordRef.current?.value ?? "";
+    const res = await loginAction({ email, password });
+    if (res.success && res.role && res.user) {
+      setSessionUser({
+        name: res.user.name,
+        email: res.user.email,
+        password: "",
+        role: res.role,
+      });
+      router.push(`/${res.role}`);
+      return;
+    }
     const account = loginUser(email, password);
     if (account) {
       router.push(`/${account.role}`);
     } else {
-      setError("Invalid email or password.");
+      setError(res.error || "Invalid email or password.");
     }
   };
 
   return (
-    <AuthLayout eyebrow="Welcome back" title="Pick up where you left off." note="New to EduFlex?" link="Create an account" to="/register">
+    <AuthLayout eyebrow="Welcome back" title="Pick up where you left off." note="Accounts are provisioned by University Administration." link="" to="">
       <form onSubmit={submit} className="mt-8 space-y-4">
         <FieldRef label="Email address" type="email" placeholder="you@eduflex.edu" ref={emailRef} />
         <FieldRef
@@ -160,7 +243,7 @@ export function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
 
-  const submit = (event: FormEvent) => {
+  const submit = async (event: FormEvent) => {
     event.preventDefault();
     const password = passwordRef.current?.value ?? "";
     const confirmPassword = confirmPasswordRef.current?.value ?? "";
@@ -171,6 +254,11 @@ export function RegisterPage() {
     setPasswordError("");
     const name = nameRef.current?.value ?? "";
     const email = emailRef.current?.value ?? "";
+    const res = await registerAction({ name, email, password });
+    if (res.success) {
+      router.push("/login");
+      return;
+    }
     registerUser({ name, email, password, role: "student" });
     router.push("/login");
   };
@@ -264,7 +352,7 @@ function AuthLayout({ eyebrow, title, note, link, to, children }: { eyebrow: str
           <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-[-.045em] text-[#102b78]">{title}</h2>
           {children}
           <p className="mt-7 text-center text-sm text-slate-500">
-            {note} <Link href={to} className="font-bold text-[#173b9f] hover:underline">{link}</Link>
+            {note} {link ? <Link href={to} className="font-bold text-[#173b9f] hover:underline">{link}</Link> : null}
           </p>
           <Link href="/" className="mt-8 block text-center text-sm font-semibold text-slate-500 hover:text-[#173b9f]">← Back to EduFlex</Link>
         </div>

@@ -2400,176 +2400,183 @@ async function main(): Promise<void> {
       },
     ];
 
-    for (const sub of submissionSpecs) {
-      const assignment = assignmentBySlug.get(sub.assignmentSlug)!;
-      await prisma.assignmentSubmission.upsert({
-        where: { receiptNumber: sub.receiptNumber },
-        update: {
-          assignmentId: assignment.id,
-          studentId: sub.studentId,
-          attemptNumber: 1,
-          isLatest: true,
-          fileName: sub.fileName,
-          fileSizeLabel: sub.fileSizeLabel,
-          fileSizeBytes: sub.fileSizeBytes,
-          mimeType: sub.mimeType,
-          comments: sub.comments,
-          integrityAccepted: true,
-          integrityAcceptedAt: sub.integrityAcceptedAt,
-          status: sub.status,
-          score: sub.score,
-          maxScore: sub.maxScore,
-          gradeLabel: sub.gradeLabel,
-          feedback: sub.feedback,
-          submittedAt: sub.submittedAt,
-          gradedAt: sub.gradedAt,
-          gradedById: sub.gradedById,
-        },
-        create: {
-          assignmentId: assignment.id,
-          studentId: sub.studentId,
-          attemptNumber: 1,
-          isLatest: true,
-          receiptNumber: sub.receiptNumber,
-          fileName: sub.fileName,
-          fileSizeLabel: sub.fileSizeLabel,
-          fileSizeBytes: sub.fileSizeBytes,
-          mimeType: sub.mimeType,
-          comments: sub.comments,
-          integrityAccepted: true,
-          integrityAcceptedAt: sub.integrityAcceptedAt,
-          status: sub.status,
-          score: sub.score,
-          maxScore: sub.maxScore,
-          gradeLabel: sub.gradeLabel,
-          feedback: sub.feedback,
-          submittedAt: sub.submittedAt,
-          gradedAt: sub.gradedAt,
-          gradedById: sub.gradedById,
-        },
-      });
+    for (const studentTarget of [richardInst, richardLegacy]) {
+      for (const sub of submissionSpecs) {
+        const assignment = assignmentBySlug.get(sub.assignmentSlug)!;
+        const receipt = studentTarget === richardLegacy ? `${sub.receiptNumber}-LEG` : sub.receiptNumber;
+        await prisma.assignmentSubmission.upsert({
+          where: { receiptNumber: receipt },
+          update: {
+            assignmentId: assignment.id,
+            studentId: studentTarget.id,
+            attemptNumber: 1,
+            isLatest: true,
+            fileName: sub.fileName,
+            fileSizeLabel: sub.fileSizeLabel,
+            fileSizeBytes: sub.fileSizeBytes,
+            mimeType: sub.mimeType,
+            comments: sub.comments,
+            integrityAccepted: true,
+            integrityAcceptedAt: sub.integrityAcceptedAt,
+            status: sub.status,
+            score: sub.score,
+            maxScore: sub.maxScore,
+            gradeLabel: sub.gradeLabel,
+            feedback: sub.feedback,
+            submittedAt: sub.submittedAt,
+            gradedAt: sub.gradedAt,
+            gradedById: sub.gradedById,
+          },
+          create: {
+            assignmentId: assignment.id,
+            studentId: studentTarget.id,
+            attemptNumber: 1,
+            isLatest: true,
+            receiptNumber: receipt,
+            fileName: sub.fileName,
+            fileSizeLabel: sub.fileSizeLabel,
+            fileSizeBytes: sub.fileSizeBytes,
+            mimeType: sub.mimeType,
+            comments: sub.comments,
+            integrityAccepted: true,
+            integrityAcceptedAt: sub.integrityAcceptedAt,
+            status: sub.status,
+            score: sub.score,
+            maxScore: sub.maxScore,
+            gradeLabel: sub.gradeLabel,
+            feedback: sub.feedback,
+            submittedAt: sub.submittedAt,
+            gradedAt: sub.gradedAt,
+            gradedById: sub.gradedById,
+          },
+        });
+      }
     }
 
     // ── Tier 4C: Quiz Attempts (q2 & q4 completed attempts for Richard Vitug) ──
-    const q2Attempt = await prisma.quizAttempt.upsert({
-      where: {
-        quizId_studentId_attemptNumber: {
-          quizId: q2Quiz.id,
-          studentId: richardInst.id,
-          attemptNumber: 1,
-        },
-      },
-      update: {
-        status: QuizAttemptStatus.SUBMITTED,
-        score: 13,
-        maxScore: 15,
-        percentage: 86.7,
-        feedback:
-          "Outstanding work on CSS Flexbox container properties, alignment, and flex-wrap responsiveness. Review flex-basis auto vs 0 edge cases.",
-        startedAt: new Date("2026-08-15T09:00:00.000Z"),
-        submittedAt: new Date("2026-08-15T09:22:00.000Z"),
-        timeSpentSecs: 1320,
-      },
-      create: {
-        quizId: q2Quiz.id,
-        studentId: richardInst.id,
-        attemptNumber: 1,
-        status: QuizAttemptStatus.SUBMITTED,
-        score: 13,
-        maxScore: 15,
-        percentage: 86.7,
-        feedback:
-          "Outstanding work on CSS Flexbox container properties, alignment, and flex-wrap responsiveness. Review flex-basis auto vs 0 edge cases.",
-        startedAt: new Date("2026-08-15T09:00:00.000Z"),
-        submittedAt: new Date("2026-08-15T09:22:00.000Z"),
-        timeSpentSecs: 1320,
-      },
-    });
-
     const q4Quiz = quizBySlug.get("q4")!;
-    await prisma.quizAttempt.upsert({
-      where: {
-        quizId_studentId_attemptNumber: {
-          quizId: q4Quiz.id,
-          studentId: richardInst.id,
-          attemptNumber: 1,
-        },
-      },
-      update: {
-        status: QuizAttemptStatus.SUBMITTED,
-        score: 32,
-        maxScore: 35,
-        percentage: 91.4,
-        feedback:
-          "Excellent understanding of software development life cycles (SDLC), Agile ceremonies, and stakeholder risk matrices.",
-        startedAt: new Date("2026-08-02T10:00:00.000Z"),
-        submittedAt: new Date("2026-08-02T10:38:00.000Z"),
-        timeSpentSecs: 2280,
-      },
-      create: {
-        quizId: q4Quiz.id,
-        studentId: richardInst.id,
-        attemptNumber: 1,
-        status: QuizAttemptStatus.SUBMITTED,
-        score: 32,
-        maxScore: 35,
-        percentage: 91.4,
-        feedback:
-          "Excellent understanding of software development life cycles (SDLC), Agile ceremonies, and stakeholder risk matrices.",
-        startedAt: new Date("2026-08-02T10:00:00.000Z"),
-        submittedAt: new Date("2026-08-02T10:38:00.000Z"),
-        timeSpentSecs: 2280,
-      },
-    });
-
-    // ── Tier 4D: AnnouncementRead receipts ─────────────────────────────────────
-    for (const annCode of ["ANN-001", "ANN-004"]) {
-      const ann = announcementByCode.get(annCode)!;
-      await prisma.announcementRead.upsert({
+    for (const studentTarget of [richardInst, richardLegacy]) {
+      const q2Att = await prisma.quizAttempt.upsert({
         where: {
-          announcementId_userId: {
-            announcementId: ann.id,
-            userId: richardInst.id,
+          quizId_studentId_attemptNumber: {
+            quizId: q2Quiz.id,
+            studentId: studentTarget.id,
+            attemptNumber: 1,
           },
         },
         update: {
-          readAt: new Date("2026-09-02T09:00:00.000Z"),
+          status: QuizAttemptStatus.SUBMITTED,
+          score: 13,
+          maxScore: 15,
+          percentage: 86.7,
+          feedback:
+            "Outstanding work on CSS Flexbox container properties, alignment, and flex-wrap responsiveness. Review flex-basis auto vs 0 edge cases.",
+          startedAt: new Date("2026-08-15T09:00:00.000Z"),
+          submittedAt: new Date("2026-08-15T09:22:00.000Z"),
+          timeSpentSecs: 1320,
         },
         create: {
-          announcementId: ann.id,
-          userId: richardInst.id,
-          readAt: new Date("2026-09-02T09:00:00.000Z"),
+          quizId: q2Quiz.id,
+          studentId: studentTarget.id,
+          attemptNumber: 1,
+          status: QuizAttemptStatus.SUBMITTED,
+          score: 13,
+          maxScore: 15,
+          percentage: 86.7,
+          feedback:
+            "Outstanding work on CSS Flexbox container properties, alignment, and flex-wrap responsiveness. Review flex-basis auto vs 0 edge cases.",
+          startedAt: new Date("2026-08-15T09:00:00.000Z"),
+          submittedAt: new Date("2026-08-15T09:22:00.000Z"),
+          timeSpentSecs: 1320,
         },
       });
+
+      await prisma.quizAttempt.upsert({
+        where: {
+          quizId_studentId_attemptNumber: {
+            quizId: q4Quiz.id,
+            studentId: studentTarget.id,
+            attemptNumber: 1,
+          },
+        },
+        update: {
+          status: QuizAttemptStatus.SUBMITTED,
+          score: 32,
+          maxScore: 35,
+          percentage: 91.4,
+          feedback:
+            "Excellent understanding of software development life cycles (SDLC), Agile ceremonies, and stakeholder risk matrices.",
+          startedAt: new Date("2026-08-02T10:00:00.000Z"),
+          submittedAt: new Date("2026-08-02T10:38:00.000Z"),
+          timeSpentSecs: 2280,
+        },
+        create: {
+          quizId: q4Quiz.id,
+          studentId: studentTarget.id,
+          attemptNumber: 1,
+          status: QuizAttemptStatus.SUBMITTED,
+          score: 32,
+          maxScore: 35,
+          percentage: 91.4,
+          feedback:
+            "Excellent understanding of software development life cycles (SDLC), Agile ceremonies, and stakeholder risk matrices.",
+          startedAt: new Date("2026-08-02T10:00:00.000Z"),
+          submittedAt: new Date("2026-08-02T10:38:00.000Z"),
+          timeSpentSecs: 2280,
+        },
+      });
+
+      // ── Tier 5A: QuizAttemptAnswer (15 answers for q2Attempt) ──────────────────
+      for (let qNum = 1; qNum <= 15; qNum++) {
+        const qRecord = q2QuestionByNumber.get(qNum)!;
+        const selectedIndex = QUIZ_2_STUDENT_ANSWERS[qNum];
+        const isCorrect = selectedIndex === qRecord.correctIndex;
+        const pointsAwarded = isCorrect ? 1 : 0;
+
+        await prisma.quizAttemptAnswer.upsert({
+          where: {
+            attemptId_questionId: {
+              attemptId: q2Att.id,
+              questionId: qRecord.id,
+            },
+          },
+          update: {
+            selectedIndex,
+            isCorrect,
+            pointsAwarded,
+          },
+          create: {
+            attemptId: q2Att.id,
+            questionId: qRecord.id,
+            selectedIndex,
+            isCorrect,
+            pointsAwarded,
+          },
+        });
+      }
     }
 
-    // ── Tier 5A: QuizAttemptAnswer (15 answers for q2Attempt) ──────────────────
-    for (let qNum = 1; qNum <= 15; qNum++) {
-      const qRecord = q2QuestionByNumber.get(qNum)!;
-      const selectedIndex = QUIZ_2_STUDENT_ANSWERS[qNum];
-      const isCorrect = selectedIndex === qRecord.correctIndex;
-      const pointsAwarded = isCorrect ? 1 : 0;
-
-      await prisma.quizAttemptAnswer.upsert({
-        where: {
-          attemptId_questionId: {
-            attemptId: q2Attempt.id,
-            questionId: qRecord.id,
+    // ── Tier 4D: AnnouncementRead receipts ─────────────────────────────────────
+    for (const studentTarget of [richardInst, richardLegacy]) {
+      for (const annCode of ["ANN-001", "ANN-004"]) {
+        const ann = announcementByCode.get(annCode)!;
+        await prisma.announcementRead.upsert({
+          where: {
+            announcementId_userId: {
+              announcementId: ann.id,
+              userId: studentTarget.id,
+            },
           },
-        },
-        update: {
-          selectedIndex,
-          isCorrect,
-          pointsAwarded,
-        },
-        create: {
-          attemptId: q2Attempt.id,
-          questionId: qRecord.id,
-          selectedIndex,
-          isCorrect,
-          pointsAwarded,
-        },
-      });
+          update: {
+            readAt: new Date("2026-09-02T09:00:00.000Z"),
+          },
+          create: {
+            announcementId: ann.id,
+            userId: studentTarget.id,
+            readAt: new Date("2026-09-02T09:00:00.000Z"),
+          },
+        });
+      }
     }
 
     // ── Tier 5B: GradeRecords (Released assignment & quiz grades) ──────────────
@@ -2615,47 +2622,49 @@ async function main(): Promise<void> {
       },
     ];
 
-    for (const g of assignmentGradeSpecs) {
-      const assignment = assignmentBySlug.get(g.assignmentSlug)!;
-      const course = courseByCode.get(g.courseCode)!;
-      await prisma.gradeRecord.upsert({
-        where: {
-          studentId_assignmentId: {
-            studentId: richardInst.id,
-            assignmentId: assignment.id,
+    for (const studentTarget of [richardInst, richardLegacy]) {
+      for (const g of assignmentGradeSpecs) {
+        const assignment = assignmentBySlug.get(g.assignmentSlug)!;
+        const course = courseByCode.get(g.courseCode)!;
+        await prisma.gradeRecord.upsert({
+          where: {
+            studentId_assignmentId: {
+              studentId: studentTarget.id,
+              assignmentId: assignment.id,
+            },
           },
-        },
-        update: {
-          courseId: course.id,
-          awardedById: saritaUser.id,
-          itemTitle: g.itemTitle,
-          category: g.category,
-          score: g.score,
-          maxScore: g.maxScore,
-          percentage: g.percentage,
-          weightPct: g.weightPct,
-          gradeLabel: g.gradeLabel,
-          feedback: g.feedback,
-          isReleased: true,
-          releasedAt: g.releasedAt,
-        },
-        create: {
-          studentId: richardInst.id,
-          courseId: course.id,
-          assignmentId: assignment.id,
-          awardedById: saritaUser.id,
-          itemTitle: g.itemTitle,
-          category: g.category,
-          score: g.score,
-          maxScore: g.maxScore,
-          percentage: g.percentage,
-          weightPct: g.weightPct,
-          gradeLabel: g.gradeLabel,
-          feedback: g.feedback,
-          isReleased: true,
-          releasedAt: g.releasedAt,
-        },
-      });
+          update: {
+            courseId: course.id,
+            awardedById: saritaUser.id,
+            itemTitle: g.itemTitle,
+            category: g.category,
+            score: g.score,
+            maxScore: g.maxScore,
+            percentage: g.percentage,
+            weightPct: g.weightPct,
+            gradeLabel: g.gradeLabel,
+            feedback: g.feedback,
+            isReleased: true,
+            releasedAt: g.releasedAt,
+          },
+          create: {
+            studentId: studentTarget.id,
+            courseId: course.id,
+            assignmentId: assignment.id,
+            awardedById: saritaUser.id,
+            itemTitle: g.itemTitle,
+            category: g.category,
+            score: g.score,
+            maxScore: g.maxScore,
+            percentage: g.percentage,
+            weightPct: g.weightPct,
+            gradeLabel: g.gradeLabel,
+            feedback: g.feedback,
+            isReleased: true,
+            releasedAt: g.releasedAt,
+          },
+        });
+      }
     }
 
     const quizGradeSpecs = [
@@ -2689,47 +2698,49 @@ async function main(): Promise<void> {
       },
     ];
 
-    for (const g of quizGradeSpecs) {
-      const quiz = quizBySlug.get(g.quizSlug)!;
-      const course = courseByCode.get(g.courseCode)!;
-      await prisma.gradeRecord.upsert({
-        where: {
-          studentId_quizId: {
-            studentId: richardInst.id,
-            quizId: quiz.id,
+    for (const studentTarget of [richardInst, richardLegacy]) {
+      for (const g of quizGradeSpecs) {
+        const quiz = quizBySlug.get(g.quizSlug)!;
+        const course = courseByCode.get(g.courseCode)!;
+        await prisma.gradeRecord.upsert({
+          where: {
+            studentId_quizId: {
+              studentId: studentTarget.id,
+              quizId: quiz.id,
+            },
           },
-        },
-        update: {
-          courseId: course.id,
-          awardedById: saritaUser.id,
-          itemTitle: g.itemTitle,
-          category: g.category,
-          score: g.score,
-          maxScore: g.maxScore,
-          percentage: g.percentage,
-          weightPct: g.weightPct,
-          gradeLabel: g.gradeLabel,
-          feedback: g.feedback,
-          isReleased: true,
-          releasedAt: g.releasedAt,
-        },
-        create: {
-          studentId: richardInst.id,
-          courseId: course.id,
-          quizId: quiz.id,
-          awardedById: saritaUser.id,
-          itemTitle: g.itemTitle,
-          category: g.category,
-          score: g.score,
-          maxScore: g.maxScore,
-          percentage: g.percentage,
-          weightPct: g.weightPct,
-          gradeLabel: g.gradeLabel,
-          feedback: g.feedback,
-          isReleased: true,
-          releasedAt: g.releasedAt,
-        },
-      });
+          update: {
+            courseId: course.id,
+            awardedById: saritaUser.id,
+            itemTitle: g.itemTitle,
+            category: g.category,
+            score: g.score,
+            maxScore: g.maxScore,
+            percentage: g.percentage,
+            weightPct: g.weightPct,
+            gradeLabel: g.gradeLabel,
+            feedback: g.feedback,
+            isReleased: true,
+            releasedAt: g.releasedAt,
+          },
+          create: {
+            studentId: studentTarget.id,
+            courseId: course.id,
+            quizId: quiz.id,
+            awardedById: saritaUser.id,
+            itemTitle: g.itemTitle,
+            category: g.category,
+            score: g.score,
+            maxScore: g.maxScore,
+            percentage: g.percentage,
+            weightPct: g.weightPct,
+            gradeLabel: g.gradeLabel,
+            feedback: g.feedback,
+            isReleased: true,
+            releasedAt: g.releasedAt,
+          },
+        });
+      }
     }
 
     // ── Tier 5C & Tier 6: Conversations, Participants & Messages ───────────────

@@ -36,7 +36,11 @@ test('Student navigation opens each implemented dashboard section', async ({ pag
   await page.getByRole('button', { name: 'Profile', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'My Profile', exact: true })).toBeVisible();
 
-  await page.getByRole('button', { name: 'Settings', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Student Portal', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Institution Student Portal', exact: true })).toBeVisible();
+
+  const themeBtn = page.getByRole('button', { name: 'Toggle Theme' });
+  await expect(themeBtn).toBeVisible();
+  await themeBtn.click();
   expect(pageErrors).toEqual([]);
 });

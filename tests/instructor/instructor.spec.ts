@@ -54,9 +54,10 @@ test.describe('Instructor Portal Comprehensive Workflows', () => {
     await page.getByRole('navigation').getByRole('button', { name: 'Profile' }).click();
     await expect(page.getByRole('heading', { name: 'My Profile', exact: true })).toBeVisible();
 
-    // Settings
-    await page.getByRole('navigation').getByRole('button', { name: 'Settings' }).click();
-    await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toBeVisible();
+    // Header Theme Toggle
+    const themeBtn = page.getByRole('button', { name: 'Toggle Theme' });
+    await expect(themeBtn).toBeVisible();
+    await themeBtn.click();
 
     expect(pageErrors).toEqual([]);
   });

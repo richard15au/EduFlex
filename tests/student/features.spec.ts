@@ -107,14 +107,12 @@ test.describe('Student Portal Feature Workflows', () => {
     }
   });
 
-  test('Student profile and settings preferences', async ({ page }) => {
-    await page.getByRole('button', { name: 'Settings', exact: true }).click();
-    await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toBeVisible();
+  test('Student profile and header theme preferences', async ({ page }) => {
+    await page.getByRole('button', { name: 'Profile', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'My Profile', exact: true })).toBeVisible();
 
-    const saveBtn = page.getByRole('button', { name: /Save Changes|Save Preferences/i });
-    if (await saveBtn.isVisible()) {
-      await saveBtn.click();
-      await expect(page.getByText(/Saved|Preferences saved|Settings saved/i).first()).toBeVisible();
-    }
+    const themeBtn = page.getByRole('button', { name: 'Toggle Theme' });
+    await expect(themeBtn).toBeVisible();
+    await themeBtn.click();
   });
 });

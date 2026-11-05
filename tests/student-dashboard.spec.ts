@@ -9,6 +9,10 @@ test('seeded Student can access the Student dashboard', async ({ page }) => {
   await expect(page).toHaveURL(/\/student$/);
   await expect(page.getByRole('heading', { name: 'Welcome to EduFlex, Richard!' })).toBeVisible();
   await expect(page.getByText('Richard Maceda Vitug', { exact: true })).toBeVisible();
+  // Verify student number displayed below name in header
+  await expect(page.locator('header').getByText('2003988')).toBeVisible();
+  // Verify theme toggle button is visible in header
+  await expect(page.getByRole('button', { name: 'Toggle Theme' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Enrolled Courses' })).toBeVisible();
   await expect(page.getByText('Information Technology Project 1', { exact: true })).toBeVisible();
   await expect(page.getByText('Bachelor of Information Technology — Semester T226', { exact: true })).toBeVisible();

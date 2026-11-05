@@ -1,0 +1,16 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "npx playwright": true,
+    "npm test": true,
+    "npm run test:e2e": true,
+    "npm run typecheck": true,
+    "npm run build": true,
+    "npm run dev": true,
+    "npm run start": true,
+    "npx tsc": true,
+    "git status": true,
+    "git diff": true,
+    "git log": true,
+    "git branch": true
+  }
+}

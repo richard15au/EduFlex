@@ -27,8 +27,42 @@ import {
   announcements,
   conversations,
 } from "./StudentPages";
+import {
+  getStudentDashboardData,
+  type StudentDashboardResponse,
+  type StudentDashboardStats,
+  type StudentDeadlineItem,
+} from "./actions/student";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
+const IconSun = ({ className = "" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-5 h-5 shrink-0 ${className}`}>
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+);
+
+const IconMoon = ({ className = "" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`w-5 h-5 shrink-0 ${className}`}>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
+
+const IconExternalPortal = ({ className = "w-5 h-5 shrink-0" }: { className?: string } = {}) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+);
+
 const IconGraduationCap = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
@@ -176,7 +210,7 @@ const navItems = [
   { label: "Learning Materials",icon: <IconFolder />,      id: "materials" },
   { label: "Grades",            icon: <IconGrades />,      id: "grades" },
   { label: "Profile",           icon: <IconProfile />,     id: "profile" },
-  { label: "Settings",          icon: <IconSettings />,    id: "settings" },
+  { label: "Student Portal",    icon: <IconExternalPortal />, id: "provider-portal" },
 ];
 
 const IconMenu = ({ className = "w-5 h-5" }: { className?: string } = {}) => (
@@ -296,15 +330,15 @@ function Sidebar({
 
         {/* Logout */}
         {!collapsed && (
-          <div className="px-2 py-4 border-t border-white/10">
+          <div className="px-2 pt-4 pb-12 md:pb-8 border-t border-white/10">
             <button onClick={onLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-blue-100 hover:bg-white/10 hover:text-white transition-all duration-150">
               <IconLogout />
-              <span>Logout</span>
+              <span className="truncate">Logout</span>
             </button>
           </div>
         )}
         {collapsed && (
-          <div className="px-2 py-4 border-t border-white/10 flex justify-center">
+          <div className="px-2 pt-4 pb-12 md:pb-8 border-t border-white/10 flex justify-center">
             <button onClick={onLogout}
               className="text-blue-100 hover:text-white hover:bg-white/10 transition-all p-2 rounded-lg"
               title="Logout"
@@ -351,6 +385,9 @@ function Header({
   userName,
   userRole,
   userInitials,
+  studentNumber,
+  theme,
+  onToggleTheme,
   onCalendar,
   onMessages,
   onNotifications,
@@ -366,6 +403,9 @@ function Header({
   userName: string;
   userRole: string;
   userInitials: string;
+  studentNumber?: string;
+  theme?: "Light" | "Dark";
+  onToggleTheme?: () => void;
   onCalendar?: () => void;
   onMessages?: () => void;
   onNotifications?: () => void;
@@ -539,6 +579,15 @@ function Header({
       <div className="flex items-center gap-3 shrink-0 ml-auto">
         <button
           type="button"
+          onClick={onToggleTheme}
+          title={theme === "Dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          aria-label="Toggle Theme"
+          className="relative text-gray-500 hover:text-blue-700 dark:text-gray-300 dark:hover:text-amber-300 transition-colors p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer flex items-center justify-center w-8 h-8 shrink-0"
+        >
+          {theme === "Dark" ? <IconSun className="text-amber-400" /> : <IconMoon className="text-gray-600 dark:text-gray-200" />}
+        </button>
+        <button
+          type="button"
           onClick={onCalendar}
           title="Calendar"
           aria-label="Calendar"
@@ -567,8 +616,8 @@ function Header({
         </button>
         <button onClick={onProfile} className="flex items-center gap-2 pl-3 border-l border-gray-200 hover:opacity-80 transition-opacity cursor-pointer shrink-0">
           <div className="hidden sm:block text-right">
-            <p className="text-sm font-semibold text-gray-800 leading-tight whitespace-nowrap">{userName}</p>
-            <p className="text-xs text-gray-500 whitespace-nowrap">{userRole}</p>
+            <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 leading-tight whitespace-nowrap">{userName}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap" title={`Student Number: ${studentNumber || "2003988"}`}>{studentNumber || "2003988"}</p>
           </div>
           <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
             {userInitials}
@@ -587,18 +636,18 @@ function StatCard({
   rows: { color: string; label: string; value: string | number }[];
 }) {
   return (
-    <div className="bg-white rounded-2xl p-4 flex gap-3 border border-gray-100 shadow-sm hover:shadow-md transition-shadow h-full">
-      <div className="shrink-0 mt-0.5 text-blue-500">{icon}</div>
+    <div className="bg-white dark:bg-[#131b2e] rounded-2xl p-4 flex gap-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow h-full">
+      <div className="shrink-0 mt-0.5 text-blue-500 dark:text-blue-400">{icon}</div>
       <div>
-        <p className="text-[10px] font-semibold text-gray-500 uppercase tracking-wide mb-1">{title}</p>
-        <p className="text-xl font-bold text-gray-800 leading-none">
-          {bigNum}<span className="text-xs font-medium text-gray-500 ml-1">{bigLabel}</span>
+        <p className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{title}</p>
+        <p className="text-xl font-bold text-gray-800 dark:text-white leading-none">
+          {bigNum}<span className="text-xs font-medium text-gray-500 dark:text-gray-400 ml-1">{bigLabel}</span>
         </p>
         <div className="mt-2 space-y-0.5">
           {rows.map((r) => (
             <p key={r.label} className="text-xs">
               <span className={`font-bold ${r.color} mr-1`}>{r.value}</span>
-              <span className="text-gray-500">{r.label}</span>
+              <span className="text-gray-500 dark:text-gray-400">{r.label}</span>
             </p>
           ))}
         </div>
@@ -647,7 +696,7 @@ function AnnouncementBanner({ onClick }: { onClick?: () => void }) {
 // ── Progress Bar ──────────────────────────────────────────────────────────────
 function ProgressBar({ pct, color }: { pct: number; color: string }) {
   return (
-    <div className="w-full h-2 rounded-full bg-gray-200 overflow-hidden">
+    <div className="w-full h-2 rounded-full bg-gray-200 dark:bg-gray-700/60 overflow-hidden">
       <div className="h-full rounded-full transition-all duration-700" style={{ width: `${pct}%`, background: color }} />
     </div>
   );
@@ -655,30 +704,31 @@ function ProgressBar({ pct, color }: { pct: number; color: string }) {
 
 // ── Active Course Row ─────────────────────────────────────────────────────────
 function ActiveCourseCard({
-  code, title, term, school, pct, bgColor, accentColor, svgIcon, onOpen,
-}: ActiveCourse & { onOpen: () => void }) {
+  code, title, term, school, pct, bgColor, accentColor, svgIcon, onOpen, theme,
+}: ActiveCourse & { onOpen: () => void; theme?: "Light" | "Dark" }) {
+  const isDark = theme === "Dark";
   return (
     <div
-      className="rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col cursor-pointer"
-      style={{ background: bgColor }}
+      className="active-course-card rounded-2xl border border-gray-100 dark:border-gray-800/80 shadow-sm hover:shadow-md transition-shadow flex flex-col cursor-pointer dark:bg-[#131b2e] dark:hover:border-gray-700"
+      style={isDark ? undefined : { background: bgColor }}
       onClick={onOpen}
     >
       <div className="flex justify-center items-center py-5">
-        <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
+        <div className="w-14 h-14 bg-white dark:bg-[#1e293b] rounded-xl flex items-center justify-center shadow-sm dark:shadow-none border border-transparent dark:border-gray-700/60">
           {svgIcon(accentColor)}
         </div>
       </div>
       <div className="px-4 pb-1">
-        <p className="text-[10px] font-semibold text-gray-400 mb-0.5">{code}</p>
-        <p className="text-sm font-bold text-gray-800 leading-snug">{title} {term}</p>
+        <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-400 mb-0.5 tracking-wider uppercase">{code}</p>
+        <p className="text-sm font-bold text-gray-800 dark:text-white leading-snug">{title} {term}</p>
       </div>
       <div className="px-4 py-3">
-        <p className="text-xs text-gray-500 mb-1.5">{pct}% complete</p>
+        <p className="text-xs text-gray-500 dark:text-gray-300 mb-1.5">{pct}% complete</p>
         <ProgressBar pct={pct} color={accentColor} />
       </div>
       <button
         onClick={(e) => { e.stopPropagation(); onOpen(); }}
-        className="mt-auto mx-4 mb-4 py-1.5 rounded-xl text-xs font-semibold text-blue-700 bg-white hover:bg-blue-50 border border-blue-100 transition-colors truncate px-2"
+        className="mt-auto mx-4 mb-4 py-1.5 rounded-xl text-xs font-semibold text-blue-700 dark:text-blue-300 bg-white dark:bg-[#1e293b] hover:bg-blue-50 dark:hover:bg-blue-900/30 border border-blue-100 dark:border-gray-700/80 transition-colors truncate px-2"
       >
         {school}
       </button>
@@ -705,19 +755,19 @@ function CompletedCourseRow({
           onOpen();
         }
       }}
-      className="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-gray-100 shadow-sm hover:shadow-md hover:border-green-200 transition-all cursor-pointer group"
+      className="flex items-center justify-between bg-white dark:bg-[#131b2e] rounded-xl px-4 py-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-green-200 dark:hover:border-green-800/60 transition-all cursor-pointer group"
     >
       <div className="flex items-center gap-3 min-w-0">
-        <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 shrink-0 group-hover:bg-green-100 transition-colors">
+        <div className="w-8 h-8 rounded-lg bg-green-50 dark:bg-green-950/40 flex items-center justify-center text-green-600 dark:text-green-400 shrink-0 group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors">
           <IconCheck />
         </div>
         <div className="min-w-0">
           <p className="text-xs text-gray-400 font-medium">{course.code} · {course.year ?? "2025"}</p>
-          <p className="text-sm font-semibold text-gray-800 truncate group-hover:text-blue-700 transition-colors">{course.title}</p>
+          <p className="text-sm font-semibold text-gray-800 dark:text-white truncate group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">{course.title}</p>
         </div>
       </div>
       <div className="flex items-center gap-2.5 shrink-0 ml-3">
-        <span className="text-[10px] font-bold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full border border-green-200">
+        <span className="text-[10px] font-bold text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-950/60 px-2.5 py-0.5 rounded-full border border-green-200 dark:border-green-800/60">
           Completed
         </span>
         <span className="text-xs text-gray-400 font-medium">{course.term}</span>
@@ -1174,26 +1224,26 @@ function AssignmentRow({
   return (
     <div
       onClick={() => onSelect(a, course)}
-      className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 last:border-0 hover:bg-blue-50/40 transition-colors group cursor-pointer"
+      className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 dark:border-gray-800/80 last:border-0 hover:bg-blue-50/40 dark:hover:bg-blue-950/20 transition-colors group cursor-pointer"
       style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
       title={`Click to view details for ${a.name}`}
     >
       <div>
-        <p className="text-sm font-semibold text-gray-800 group-hover:text-blue-700 transition-colors flex items-center gap-2">
+        <p className="text-sm font-semibold text-gray-800 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2">
           {a.name}
         </p>
       </div>
       <div>
-        <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">{a.description}</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-1">{a.description}</p>
       </div>
-      <div className="flex items-center gap-1.5 text-xs text-gray-500">
-        <IconClock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+      <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+        <IconClock className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0" />
         <span>{a.dueDate}</span>
       </div>
       <div>
         <StatusBadge status={a.status} />
       </div>
-      <div className="flex justify-end text-gray-300 group-hover:text-blue-600 transition-colors">
+      <div className="flex justify-end text-gray-300 dark:text-gray-600 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
         <IconChevronRight className="w-4 h-4" />
       </div>
     </div>
@@ -1212,31 +1262,31 @@ function AssessmentRow({
   return (
     <div
       onClick={() => onSelect(a, course)}
-      className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 last:border-0 hover:bg-purple-50/40 transition-colors group cursor-pointer"
+      className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 dark:border-gray-800/80 last:border-0 hover:bg-purple-50/40 dark:hover:bg-purple-950/20 transition-colors group cursor-pointer"
       style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
       title={`Click to view details for ${a.name}`}
     >
       <div>
         <div className="flex items-center gap-2 flex-wrap">
-          <p className="text-sm font-semibold text-gray-800 group-hover:text-purple-700 transition-colors">
+          <p className="text-sm font-semibold text-gray-800 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
             {a.name}
           </p>
-          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 shrink-0">
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 border border-transparent dark:border-purple-800/50 shrink-0">
             Weight: {a.weight ?? 25}%
           </span>
         </div>
       </div>
       <div>
-        <p className="text-xs text-gray-500 leading-relaxed line-clamp-1">{a.description}</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-1">{a.description}</p>
       </div>
-      <div className="flex items-center gap-1.5 text-xs text-gray-500">
-        <IconClock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+      <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+        <IconClock className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0" />
         <span>{a.dueDate}</span>
       </div>
       <div>
         <StatusBadge status={a.status} />
       </div>
-      <div className="flex justify-end text-gray-300 group-hover:text-purple-600 transition-colors">
+      <div className="flex justify-end text-gray-300 dark:text-gray-600 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
         <IconChevronRight className="w-4 h-4" />
       </div>
     </div>
@@ -1298,14 +1348,14 @@ function CourseAccordion({
       {open && (
         <div className="border-t border-gray-100">
           {/* ── ASSIGNMENTS SECTION ── */}
-          <div className="px-5 py-2.5 bg-gray-50/75 border-b border-gray-100 flex items-center justify-between">
+          <div className="px-5 py-2.5 bg-gray-50/75 dark:bg-[#0f172a] border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-600">Assignments</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Assignments</span>
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-transparent dark:border-gray-700/60">
                 {visibleAssignments.length}
               </span>
             </div>
-            <span className="text-[11px] text-gray-400">Regular coursework &amp; lab exercises</span>
+            <span className="text-[11px] text-gray-400 dark:text-gray-400">Regular coursework &amp; lab exercises</span>
           </div>
 
           {visibleAssignments.length === 0 ? (
@@ -1316,11 +1366,11 @@ function CourseAccordion({
             <div>
               {/* Table header */}
               <div
-                className="grid px-5 py-2 bg-gray-50/50 border-b border-gray-100 gap-4"
+                className="grid px-5 py-2 bg-gray-50/50 dark:bg-[#0b0f19]/70 border-b border-gray-100 dark:border-gray-800/80 gap-4"
                 style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
               >
                 {["Assignment", "Description", "Due Date", "Status", ""].map((h, idx) => (
-                  <p key={idx} className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</p>
+                  <p key={idx} className="text-[10px] font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider">{h}</p>
                 ))}
               </div>
               {visibleAssignments.map((a) => (
@@ -1330,17 +1380,17 @@ function CourseAccordion({
           )}
 
           {/* ── ASSESSMENTS SECTION ── */}
-          <div className="px-5 py-2.5 bg-purple-50/70 border-t border-b border-purple-100 flex items-center justify-between">
+          <div className="px-5 py-2.5 bg-purple-50/70 dark:bg-purple-950/40 border-t border-b border-purple-100 dark:border-purple-900/40 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-purple-900">Assessments</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
+              <span className="text-xs font-bold uppercase tracking-wider text-purple-900 dark:text-purple-200">Assessments</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 border border-transparent dark:border-purple-800/60">
                 {visibleAssessments.length}
               </span>
-              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 border border-transparent dark:border-blue-800/60">
                 Weighted
               </span>
             </div>
-            <span className="text-[11px] text-purple-700 font-medium">Major coursework, milestones &amp; summative tasks</span>
+            <span className="text-[11px] text-purple-700 dark:text-purple-300 font-medium">Major coursework, milestones &amp; summative tasks</span>
           </div>
 
           {visibleAssessments.length === 0 ? (
@@ -1351,11 +1401,11 @@ function CourseAccordion({
             <div>
               {/* Table header */}
               <div
-                className="grid px-5 py-2 bg-purple-50/30 border-b border-purple-100 gap-4"
+                className="grid px-5 py-2 bg-purple-50/30 dark:bg-purple-950/20 border-b border-purple-100 dark:border-purple-900/40 gap-4"
                 style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
               >
                 {["Assessment", "Description", "Due Date", "Status", ""].map((h, idx) => (
-                  <p key={idx} className="text-[10px] font-bold text-purple-700 uppercase tracking-wider">{h}</p>
+                  <p key={idx} className="text-[10px] font-bold text-purple-700 dark:text-purple-300/90 uppercase tracking-wider">{h}</p>
                 ))}
               </div>
               {visibleAssessments.map((a) => (
@@ -5406,31 +5456,38 @@ function LearningMaterialsPage() {
 function MyCoursesPage({
   setOpenCourse,
   setActiveNav,
+  courses,
+  stats,
+  theme,
 }: {
   setOpenCourse: (c: ActiveCourse) => void;
   setActiveNav: (id: string) => void;
+  courses?: ActiveCourse[];
+  stats?: StudentDashboardStats;
+  theme?: "Light" | "Dark";
 }) {
+  const displayCourses = courses && courses.length > 0 ? courses : activeCourses;
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold text-gray-900 mb-5">My Courses</h1>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">My Courses</h1>
 
       {/* Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
         <button className="text-left h-full" onClick={() => setActiveNav("courses")}>
           <StatCard title="My Courses" icon={<IconBook />} bigNum="3" bigLabel="My Courses"
-            rows={[{ color: "text-blue-600", label: "Active", value: 3 }, { color: "text-green-600", label: "Completed", value: 2 }]} />
+            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Active", value: 3 }, { color: "text-green-600 dark:text-green-400", label: "Completed", value: 2 }]} />
         </button>
         <button className="text-left h-full" onClick={() => setActiveNav("assignments")}>
           <StatCard title="Assignments" icon={<IconAssignment />} bigNum="2" bigLabel="Assignments"
-            rows={[{ color: "text-orange-500", label: "Due", value: 2 }, { color: "text-green-600", label: "Submitted", value: 0 }]} />
+            rows={[{ color: "text-orange-500 dark:text-orange-400", label: "Due", value: 2 }, { color: "text-green-600 dark:text-green-400", label: "Submitted", value: 0 }]} />
         </button>
         <button className="text-left h-full" onClick={() => setActiveNav("quizzes")}>
           <StatCard title="Quizzes" icon={<IconQuiz />} bigNum="1" bigLabel="Quizzes"
-            rows={[{ color: "text-blue-600", label: "Upcoming", value: 1 }, { color: "text-green-600", label: "Finished", value: 2 }]} />
+            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Upcoming", value: 1 }, { color: "text-green-600 dark:text-green-400", label: "Finished", value: 2 }]} />
         </button>
         <button className="text-left h-full" onClick={() => setActiveNav("materials")}>
           <StatCard title="Learning Materials" icon={<IconFolder />} bigNum="12" bigLabel="Resources"
-            rows={[{ color: "text-blue-600", label: "Resources", value: 12 }, { color: "text-gray-400", label: "New", value: 0 }]} />
+            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Resources", value: 12 }, { color: "text-gray-400 dark:text-gray-400", label: "New", value: 0 }]} />
         </button>
       </div>
 
@@ -5439,21 +5496,21 @@ function MyCoursesPage({
 
       {/* Courses */}
       <div>
-          <h2 className="text-base font-bold text-gray-800 mb-4">My Enrolled Courses (3/5)</h2>
-          <div className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden" style={{ maxHeight: "70vh" }}>
+          <h2 className="text-base font-bold text-gray-800 dark:text-white mb-4">My Enrolled Courses (3/5)</h2>
+          <div className="bg-gray-50 dark:bg-[#0f172a] rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden" style={{ maxHeight: "70vh" }}>
             <div className="overflow-y-auto h-full" style={{ maxHeight: "70vh" }}>
-              <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-sm px-4 py-2.5 border-b border-gray-200 flex items-center gap-2">
+              <div className="sticky top-0 z-10 bg-white/90 dark:bg-[#162038]/95 backdrop-blur-sm px-4 py-2.5 border-b border-gray-200 dark:border-gray-800 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-500 inline-block" />
-                <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">Active Courses (3)</span>
+                <span className="text-xs font-bold text-gray-600 dark:text-gray-200 uppercase tracking-wider">Active Courses (3)</span>
               </div>
-              <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 border-b border-gray-200">
-                {activeCourses.map((c) => (
-                  <ActiveCourseCard key={c.code} {...c} onOpen={() => setOpenCourse(c)} />
+              <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 border-b border-gray-200 dark:border-gray-800">
+                {displayCourses.map((c) => (
+                  <ActiveCourseCard key={c.code} {...c} theme={theme} onOpen={() => setOpenCourse(c)} />
                 ))}
               </div>
-              <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-sm px-4 py-2.5 border-b border-gray-200 flex items-center gap-2">
+              <div className="sticky top-0 z-10 bg-white/90 dark:bg-[#162038]/95 backdrop-blur-sm px-4 py-2.5 border-b border-gray-200 dark:border-gray-800 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-                <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">Completed Courses (2)</span>
+                <span className="text-xs font-bold text-gray-600 dark:text-gray-200 uppercase tracking-wider">Completed Courses (2)</span>
               </div>
               <div className="p-4 space-y-2">
                 {completedCourses.map((c) => (
@@ -5751,25 +5808,45 @@ function DashboardPage({
   setActiveNav,
   setOpenCourse,
   userName,
+  courses,
+  stats,
+  deadlines: customDeadlines,
+  theme,
 }: {
   setActiveNav: (id: string) => void;
   setOpenCourse: (c: ActiveCourse) => void;
   userName: string;
+  courses?: ActiveCourse[];
+  stats?: StudentDashboardStats;
+  deadlines?: StudentDeadlineItem[];
+  theme?: "Light" | "Dark";
 }) {
   const firstName = userName.split(" ")[0];
 
   const quickNav = [
-    { id: "courses",     label: "My Courses",        icon: <IconBook />,       note: "3 active this semester" },
-    { id: "assignments", label: "Assignments",        icon: <IconAssignment />, note: "2 due soon" },
-    { id: "quizzes",     label: "Quizzes",            icon: <IconQuiz />,       note: "1 upcoming" },
-    { id: "materials",   label: "Learning Materials", icon: <IconFolder />,     note: "12 resources available" },
+    { id: "courses",     label: "My Courses",        icon: <IconBook />,       note: stats ? `${stats.enrolledCoursesCount} active this semester` : "3 active this semester" },
+    { id: "assignments", label: "Assignments",        icon: <IconAssignment />, note: stats ? `${stats.assignmentsDueCount} due soon` : "2 due soon" },
+    { id: "quizzes",     label: "Quizzes",            icon: <IconQuiz />,       note: stats ? `${stats.quizzesUpcomingCount} upcoming` : "1 upcoming" },
+    { id: "materials",   label: "Learning Materials", icon: <IconFolder />,     note: stats ? `${stats.learningMaterialsCount} resources available` : "12 resources available" },
   ];
 
-  const deadlines = [
+  const defaultDeadlines = [
     { name: "Assessment 2", course: "ICT301", fullCourse: "Information Technology Project 1", due: "Due 3 Sep 2026", urgent: true },
     { name: "Assessment 2", course: "ICT272", fullCourse: "Web Design and Development",       due: "Due 7 Aug 2026", urgent: true },
     { name: "Lab Report 1", course: "ICT126", fullCourse: "Artificial Intelligence",          due: "Due 15 Sep 2026", urgent: false },
   ];
+
+  const deadlines = customDeadlines && customDeadlines.length > 0
+    ? customDeadlines.map((d) => ({
+        name: d.title,
+        course: d.courseCode,
+        fullCourse: d.courseTitle,
+        due: d.dueDate,
+        urgent: d.isUrgent,
+      }))
+    : defaultDeadlines;
+
+  const displayCourses = courses && courses.length > 0 ? courses : activeCourses;
 
   return (
     <div className="p-7">
@@ -5777,8 +5854,8 @@ function DashboardPage({
       {/* ── Row 1: Welcome + semester info ── */}
       <div className="flex items-end justify-between mb-7">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-1">Welcome to EduFlex, {firstName}!</h1>
-          <p className="text-sm text-gray-500">Bachelor of Information Technology — Semester T226</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Welcome to EduFlex, {firstName}!</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400">Bachelor of Information Technology — Semester T226</p>
         </div>
         <p className="text-xs text-gray-400 pb-0.5">Monday, 7 September 2026</p>
       </div>
@@ -5789,10 +5866,10 @@ function DashboardPage({
           <button
             key={item.id}
             onClick={() => setActiveNav(item.id)}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all p-5 text-left group"
+            className="bg-white dark:bg-[#131b2e] rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700/60 transition-all p-5 text-left group"
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center text-blue-600 bg-blue-50 group-hover:bg-blue-100 transition-colors shrink-0">
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors shrink-0">
                 {item.icon}
               </div>
               <p className="text-sm font-semibold text-gray-800">{item.label}</p>
@@ -5808,13 +5885,13 @@ function DashboardPage({
       </div>
 
       {/* ── Row 4: Enrolled courses, full width ── */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <div className="bg-white dark:bg-[#131b2e] rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6">
         <div className="flex items-center justify-between mb-5">
           <button onClick={() => setActiveNav("courses")} className="text-base font-bold text-gray-800 hover:text-blue-700 transition-colors">Enrolled Courses</button>
           <button onClick={() => setActiveNav("courses")} className="text-xs font-medium text-blue-600 hover:underline">View All</button>
         </div>
         <div className="divide-y divide-gray-100">
-          {activeCourses.map((c) => (
+          {displayCourses.map((c) => (
             <button
               key={c.code}
               onClick={() => { setOpenCourse(c); setActiveNav("courses"); }}
@@ -8344,6 +8421,35 @@ function CourseOverviewPage({
   );
 }
 
+function ProviderPortalPage() {
+  return (
+    <div className="p-7">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Institution Student Portal</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Connected Education Provider & University Services Hub</p>
+      </div>
+
+      <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 p-12 text-center shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </div>
+        <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2">Education Provider Integration Pending</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
+          This portal connects to your higher education institution's student information system (SIS), library, and external provider services. External provider SSO configuration is pending administrator connection.
+        </p>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 text-xs font-semibold text-amber-800 dark:text-amber-300">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          Status: Ready for Education Provider Linking
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Student portal ────────────────────────────────────────────────────────────
 export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => void }) {
   const [activeNav, setActiveNav]         = useState("dashboard");
@@ -8371,8 +8477,12 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
 
   const [userName, setUserName] = useState("Richard Maceda Vitug");
   const [userRole, setUserRole] = useState("Student");
+  const [studentNumber, setStudentNumber] = useState("2003988");
   const [theme, setTheme] = useState<"Light" | "Dark">("Light");
   const userInitials = getInitials(userName);
+
+  const [dashboardData, setDashboardData] = useState<StudentDashboardResponse | null>(null);
+  const [liveCourses, setLiveCourses] = useState<ActiveCourse[]>(activeCourses);
 
   useEffect(() => {
     const sessionUser = getSessionUser();
@@ -8382,6 +8492,12 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     if (sessionUser?.role) {
       setUserRole(sessionUser.role.charAt(0).toUpperCase() + sessionUser.role.slice(1));
     }
+    if (sessionUser?.email) {
+      const idPart = sessionUser.email.split("@")[0];
+      if (idPart && /^\d+$/.test(idPart)) {
+        setStudentNumber(idPart);
+      }
+    }
     try {
       const savedTheme = localStorage.getItem("eduflex_student_theme");
       if (savedTheme === "Light" || savedTheme === "Dark") {
@@ -8390,6 +8506,65 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     } catch {
       // ignore
     }
+
+    let isMounted = true;
+    getStudentDashboardData()
+      .then((res) => {
+        if (!isMounted || !res.success) return;
+        setDashboardData(res);
+        if (res.student?.name) {
+          setUserName(res.student.name);
+        }
+        if (res.student?.externalId) {
+          const cleanId = res.student.externalId.replace("-LEGACY", "");
+          setStudentNumber(cleanId);
+        } else if (res.student?.email) {
+          const idPart = res.student.email.split("@")[0];
+          if (idPart && /^\d+$/.test(idPart)) {
+            setStudentNumber(idPart);
+          }
+        }
+        if (res.courses && res.courses.length > 0) {
+          const mapped: ActiveCourse[] = res.courses.map((c) => {
+            const fallback = activeCourses.find(
+              (ac) => ac.code.toUpperCase() === c.code.toUpperCase()
+            );
+            return {
+              code: c.code,
+              title: c.title,
+              term: c.term,
+              school: c.faculty,
+              pct: c.progressPct,
+              bgColor: c.bgColor || fallback?.bgColor || "#eff6ff",
+              accentColor: c.iconColor || fallback?.accentColor || "#2563eb",
+              instructor: c.instructorName,
+              status: "Active",
+              svgIcon:
+                fallback?.svgIcon ||
+                ((col) => (
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={col}
+                    strokeWidth="1.8"
+                    className="w-7 h-7"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M8 12h8M12 8v8" />
+                  </svg>
+                )),
+            };
+          });
+          setLiveCourses(mapped);
+        }
+      })
+      .catch((err) => {
+        console.warn("[StudentDashboard] Using cached student portal state:", err);
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleThemeChange = (newTheme: "Light" | "Dark") => {
@@ -8465,6 +8640,9 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
         userName={userName}
         userRole={userRole}
         userInitials={userInitials}
+        studentNumber={studentNumber}
+        theme={theme}
+        onToggleTheme={() => handleThemeChange(theme === "Light" ? "Dark" : "Light")}
         onCalendar={() => { setSelectedCourse(null); setActiveNav("calendar"); setMobileOpen(false); }}
         onMessages={() => { setSelectedCourse(null); setActiveNav("messages"); setMobileOpen(false); }}
         onNotifications={() => { setSelectedCourse(null); setActiveNav("announcements"); setMobileOpen(false); }}
@@ -8487,12 +8665,19 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
               setActiveNav={setActiveNav}
               setOpenCourse={setOpenCourse}
               userName={userName}
+              courses={liveCourses}
+              stats={dashboardData?.stats}
+              deadlines={dashboardData?.deadlines}
+              theme={theme}
             />
           )}
           {activeNav === "courses" && (
             <MyCoursesPage
               setOpenCourse={setOpenCourse}
               setActiveNav={setActiveNav}
+              courses={liveCourses}
+              stats={dashboardData?.stats}
+              theme={theme}
             />
           )}
           {activeNav === "course-detail" && selectedCourse && (
@@ -8513,7 +8698,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
           {activeNav === "announcements" && <AnnouncementsPage />}
           {activeNav === "messages" && <MessagesPage />}
           {activeNav === "profile" && <ProfilePage userName={userName} onNameChange={setUserName} />}
-          {activeNav === "settings" && <SettingsPage theme={theme} onThemeChange={handleThemeChange} />}
+          {activeNav === "provider-portal" && <ProviderPortalPage />}
           {activeNav === "search" && (
             <SearchResultsPage
               query={executedSearchQuery || searchQuery}

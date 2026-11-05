@@ -143,8 +143,8 @@ function PageHeader({ title, subtitle, right }: { title: string; subtitle: strin
   return (
     <div className="flex items-end justify-between mb-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">{title}</h1>
-        <p className="text-sm text-gray-500">{subtitle}</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{title}</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{subtitle}</p>
       </div>
       {right}
     </div>
