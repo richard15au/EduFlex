@@ -94,6 +94,17 @@ const IconSearch = () => (
     <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
   </svg>
 );
+const IconSun = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+  </svg>
+);
+const IconMoon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+  </svg>
+);
 const IconChevronsLeft = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
     <polyline points="11 17 6 12 11 7" /><polyline points="18 17 13 12 18 7" />
@@ -355,6 +366,8 @@ function AdminHeader({
   searchPool,
   unreadMessagesCount,
   onToggleMobileMenu,
+  theme,
+  onToggleTheme,
 }: {
   sidebarW: string;
   userName: string;
@@ -363,6 +376,8 @@ function AdminHeader({
   searchPool: AdminSearchItem[];
   unreadMessagesCount: number;
   onToggleMobileMenu?: () => void;
+  theme: "Light" | "Dark";
+  onToggleTheme: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -531,6 +546,20 @@ function AdminHeader({
       </div>
 
       <div className="flex items-center gap-3 shrink-0">
+        <button
+          type="button"
+          onClick={onToggleTheme}
+          title={theme === "Dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          aria-label="Toggle Theme"
+          aria-pressed={theme === "Dark"}
+          className="relative text-gray-500 hover:text-blue-700 dark:text-gray-300 dark:hover:text-amber-300 transition-colors p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer flex items-center justify-center w-8 h-8 shrink-0"
+        >
+          {theme === "Dark" ? (
+            <IconSun className="w-5 h-5 text-amber-400" />
+          ) : (
+            <IconMoon className="w-5 h-5 text-gray-600" />
+          )}
+        </button>
         <button
           type="button"
           onClick={() => setActive && setActive("calendar")}
@@ -3911,6 +3940,7 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
   const [active, setActive] = useState("dashboard");
   const [collapsed, setCollapsed] = useState(false);
   const [userName, setUserName] = useState("Rojit Munankarmi");
+  const [theme, setTheme] = useState<"Light" | "Dark">("Light");
 
   // Shared Admin State
   const [users, setUsers] = useState<AdminUser[]>(INITIAL_ADMIN_USERS);
@@ -3939,7 +3969,24 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
     if (sessionUser?.name) {
       setUserName(sessionUser.name);
     }
+    try {
+      const savedTheme = localStorage.getItem("eduflex_admin_theme");
+      if (savedTheme === "Light" || savedTheme === "Dark") {
+        setTheme(savedTheme);
+      }
+    } catch {
+      // ignore
+    }
   }, []);
+
+  const handleThemeChange = (newTheme: "Light" | "Dark") => {
+    setTheme(newTheme);
+    try {
+      localStorage.setItem("eduflex_admin_theme", newTheme);
+    } catch {
+      // ignore
+    }
+  };
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMobile, setIsMobile]     = useState(false);
@@ -4260,7 +4307,7 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <div className={`min-h-screen ${theme === "Dark" ? "dark bg-[#0b0f19] text-gray-100" : "bg-gray-50 text-gray-900"}`} style={{ fontFamily: "'Outfit', sans-serif" }}>
       <AdminSidebar
         active={active}
         setActive={(nav) => {
@@ -4277,6 +4324,8 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
         sidebarW={effectiveSidebarW}
         userName={userName}
         userInitials={userInitials}
+        theme={theme}
+        onToggleTheme={() => handleThemeChange(theme === "Light" ? "Dark" : "Light")}
         setActive={(nav) => {
           setActive(nav);
           setMobileOpen(false);
