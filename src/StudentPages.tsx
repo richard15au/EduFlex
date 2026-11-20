@@ -179,19 +179,24 @@ interface GradeRow {
 }
 
 export const gradeRows: GradeRow[] = [
-  { course: "Information Technology Project 1", code: "ICT301", assessment: "Assessment 1",    score: 8,  max: 10, grade: "A",  status: "Released" },
-  { course: "Information Technology Project 1", code: "ICT301", assessment: "Assessment 2",    score: 0,  max: 30, grade: "—",  status: "Pending" },
-  { course: "Information Technology Project 1", code: "ICT301", assessment: "Project Report",  score: 0,  max: 60, grade: "—",  status: "Not Submitted" },
-  { course: "Web Design and Development",       code: "ICT272", assessment: "Quiz 1",           score: 32, max: 35, grade: "A+", status: "Released" },
-  { course: "Web Design and Development",       code: "ICT272", assessment: "Quiz 2",           score: 28, max: 35, grade: "B+", status: "Released" },
-  { course: "Web Design and Development",       code: "ICT272", assessment: "Assessment 2",    score: 0,  max: 30, grade: "—",  status: "Pending" },
-  { course: "Artificial Intelligence",          code: "ICT126", assessment: "Lab Report 1",    score: 18, max: 20, grade: "A",  status: "Released" },
-  { course: "Artificial Intelligence",          code: "ICT126", assessment: "Mid-Semester Test",score: 0, max: 40, grade: "—",  status: "Not Submitted" },
+  // ICT301 (Completed Subject)
+  { course: "Information Technology Project 1", code: "ICT301", assessment: "Milestone 1: Project Proposal & Scope Charter", score: 95, max: 100, grade: "HD", status: "Released" },
+  { course: "Information Technology Project 1", code: "ICT301", assessment: "Milestone 2: System Architecture & Requirements", score: 90, max: 100, grade: "HD", status: "Released" },
+  { course: "Information Technology Project 1", code: "ICT301", assessment: "Milestone 3: Project 1 Final Defense & Report", score: 92, max: 100, grade: "HD", status: "Released" },
+  // ICT302 (Active Capstone Subject — KOI Subject Outline)
+  { course: "Information Technology Project 2", code: "ICT302", assessment: "Assessment 1: Weekly Progress Report (Weeks 2–11)", score: 18, max: 20, grade: "DI", status: "Released" },
+  { course: "Information Technology Project 2", code: "ICT302", assessment: "Assessment 2: Final Report and Group Activity Log", score: 0, max: 50, grade: "—", status: "Pending" },
+  { course: "Information Technology Project 2", code: "ICT302", assessment: "Assessment 3: Presentation and Demonstration", score: 0, max: 30, grade: "—", status: "Not Submitted" },
 ];
 
 const gradeColors: Record<string, string> = {
-  "HD": "text-emerald-700 bg-emerald-50 border-emerald-200",
-  "D":  "text-blue-700 bg-blue-50 border-blue-200",
+  // Official KOI BIT Grading Scale: HD (85-100%), DI (75-84%), CR (65-74%), P (50-64%), F (0-49%)
+  "HD": "text-emerald-700 bg-emerald-50 border-emerald-300",
+  "DI": "text-blue-700 bg-blue-50 border-blue-300",
+  "CR": "text-indigo-700 bg-indigo-50 border-indigo-300",
+  "P":  "text-amber-700 bg-amber-50 border-amber-300",
+  "F":  "text-red-700 bg-red-50 border-red-300",
+  "D":  "text-blue-700 bg-blue-50 border-blue-300",
   "A+": "text-emerald-700 bg-emerald-50 border-emerald-200",
   "A":  "text-blue-700 bg-blue-50 border-blue-200",
   "B+": "text-indigo-700 bg-indigo-50 border-indigo-200",
@@ -224,73 +229,56 @@ interface SemesterGradeData {
 }
 
 const semesterGradeMap: Record<string, SemesterGradeData> = {
-  "Semester T226": {
-    id: "Semester T226",
-    name: "Semester T226",
+  "Trimester T326": {
+    id: "Trimester T326",
+    name: "Trimester T326",
     summary: {
-      gpa: "3.72",
-      gpaSub: "This Semester",
-      average: "81.4%",
-      avgSub: "Across assessments",
-      completed: "20",
-      compSub: "All time",
-      credits: "96",
-      creditsSub: "of 120 required",
-    },
-    rows: gradeRows,
-  },
-  "Semester T225": {
-    id: "Semester T225",
-    name: "Semester T225",
-    summary: {
-      gpa: "3.85",
-      gpaSub: "Semester T225",
-      average: "84.5%",
-      avgSub: "Across assessments",
-      completed: "20",
-      compSub: "All time",
-      credits: "84",
-      creditsSub: "of 120 required",
+      gpa: "3.75",
+      gpaSub: "This Trimester",
+      average: "90.0%",
+      avgSub: "Assessment 1 (DI)",
+      completed: "1",
+      compSub: "Completed Subject (ICT301)",
+      credits: "6",
+      creditsSub: "of 12 Capstone Credits",
     },
     rows: [
-      { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Assignment 1: Algorithms & Structured Programming", score: 92, max: 100, grade: "A+", status: "Released" },
-      { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Assignment 2: Python Data Analytics & Automation", score: 86, max: 100, grade: "A", status: "Released" },
-      { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Formative Quizzes & Code Exercises", score: 37, max: 40, grade: "A+", status: "Released" },
-      { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Final Examination", score: 88, max: 100, grade: "A", status: "Released" },
-      { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Problem Set 1: Propositional Logic & Truth Tables", score: 84, max: 100, grade: "A", status: "Released" },
-      { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Problem Set 2: Graph Theory & Combinatorics", score: 80, max: 100, grade: "B+", status: "Released" },
-      { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Mid-Term Test", score: 33, max: 40, grade: "A", status: "Released" },
-      { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Final Examination", score: 81, max: 100, grade: "A", status: "Released" },
+      { course: "Information Technology Project 2", code: "ICT302", assessment: "Assessment 1: Weekly Progress Report (Weeks 2–11)", score: 18, max: 20, grade: "DI", status: "Released" },
+      { course: "Information Technology Project 2", code: "ICT302", assessment: "Assessment 2: Final Report and Group Activity Log", score: 0, max: 50, grade: "—", status: "Pending" },
+      { course: "Information Technology Project 2", code: "ICT302", assessment: "Assessment 3: Presentation and Demonstration", score: 0, max: 30, grade: "—", status: "Not Submitted" },
     ],
   },
-  "Semester T224": {
-    id: "Semester T224",
-    name: "Semester T224",
+  "Trimester T226": {
+    id: "Trimester T226",
+    name: "Trimester T226",
     summary: {
-      gpa: "—",
-      gpaSub: "No grades recorded",
-      average: "—",
-      avgSub: "No assessments",
-      completed: "16",
-      compSub: "Prior credits",
-      credits: "72",
-      creditsSub: "of 120 required",
+      gpa: "4.00",
+      gpaSub: "Trimester T226",
+      average: "92.3%",
+      avgSub: "High Distinction (HD)",
+      completed: "1",
+      compSub: "ICT301 Completed",
+      credits: "6",
+      creditsSub: "of 12 Capstone Credits",
     },
-    rows: [],
+    rows: [
+      { course: "Information Technology Project 1", code: "ICT301", assessment: "Milestone 1: Project Proposal & Scope Charter", score: 95, max: 100, grade: "HD", status: "Released" },
+      { course: "Information Technology Project 1", code: "ICT301", assessment: "Milestone 2: System Architecture & Requirements", score: 90, max: 100, grade: "HD", status: "Released" },
+      { course: "Information Technology Project 1", code: "ICT301", assessment: "Milestone 3: Project 1 Final Defense & Report", score: 92, max: 100, grade: "HD", status: "Released" },
+    ],
   },
 };
 
 const semesterOptions = [
-  { id: "Semester T226", label: "Semester T226" },
-  { id: "Semester T225", label: "Semester T225" },
-  { id: "Semester T224", label: "Semester T224" },
+  { id: "Trimester T326", label: "Trimester T326 (Current)" },
+  { id: "Trimester T226", label: "Trimester T226 (Completed)" },
 ];
 
 export function GradesPage() {
-  const [selectedSemester, setSelectedSemester] = useState("Semester T226");
+  const [selectedSemester, setSelectedSemester] = useState("Trimester T326");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const currentData = semesterGradeMap[selectedSemester] ?? semesterGradeMap["Semester T226"];
+  const currentData = semesterGradeMap[selectedSemester] ?? semesterGradeMap["Trimester T326"];
 
   const summary = [
     { label: "GPA",               value: currentData.summary.gpa,       sub: currentData.summary.gpaSub },
@@ -300,11 +288,8 @@ export function GradesPage() {
   ];
 
   const courseColors: Record<string, string> = {
+    ICT302: "#0e9f6e",
     ICT301: "#2563eb",
-    ICT272: "#16a34a",
-    ICT126: "#db2777",
-    ICT101: "#0d9488",
-    ICT102: "#7c3aed",
   };
 
   const grouped = currentData.rows.reduce<Record<string, GradeRow[]>>((acc, r) => {
@@ -395,9 +380,9 @@ export function GradesPage() {
               <line x1="9" y1="15" x2="15" y2="15" />
             </svg>
           </div>
-          <h3 className="text-base font-bold text-gray-900 mb-1">No grade data available for this semester</h3>
+          <h3 className="text-base font-bold text-gray-900 mb-1">No grade data available for this trimester</h3>
           <p className="text-xs text-gray-400 max-w-md">
-            There are no recorded grades or assessment results available for {selectedSemester}. Please select another semester to view published academic records.
+            There are no recorded grades or assessment results available for {selectedSemester}. Please select another trimester to view published academic records.
           </p>
         </div>
       ) : (
@@ -467,6 +452,61 @@ export function GradesPage() {
           })}
         </div>
       )}
+
+      {/* Official KOI Academic Grading System Scale Card (Section 2.8 of Subject Outline) */}
+      <div className="mt-8 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4 pb-3 border-b border-gray-100">
+          <div>
+            <h3 className="text-sm font-bold text-gray-900">Official KOI BIT Academic Grading System</h3>
+            <p className="text-xs text-gray-500 mt-0.5">Section 2.8 (Grading System) — Bachelor of Information Technology</p>
+          </div>
+          <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 self-start sm:self-auto">
+            Minimum Passing Mark: 50%
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/50">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-emerald-800">HD</span>
+              <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">85% – 100%</span>
+            </div>
+            <p className="text-xs font-semibold text-emerald-900 mt-1">High Distinction</p>
+            <p className="text-[11px] text-emerald-700/90 mt-1">Outstanding performance; comprehensive understanding of subject matter.</p>
+          </div>
+          <div className="p-3.5 rounded-xl border border-blue-200 bg-blue-50/50">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-blue-800">DI</span>
+              <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">75% – 84%</span>
+            </div>
+            <p className="text-xs font-semibold text-blue-900 mt-1">Distinction</p>
+            <p className="text-[11px] text-blue-700/90 mt-1">Excellent performance; substantial understanding and analytical ability.</p>
+          </div>
+          <div className="p-3.5 rounded-xl border border-indigo-200 bg-indigo-50/50">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-indigo-800">CR</span>
+              <span className="text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-full">65% – 74%</span>
+            </div>
+            <p className="text-xs font-semibold text-indigo-900 mt-1">Credit</p>
+            <p className="text-[11px] text-indigo-700/90 mt-1">Very good performance; clear understanding of core concepts.</p>
+          </div>
+          <div className="p-3.5 rounded-xl border border-amber-200 bg-amber-50/50">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-amber-800">P</span>
+              <span className="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">50% – 64%</span>
+            </div>
+            <p className="text-xs font-semibold text-amber-900 mt-1">Pass</p>
+            <p className="text-[11px] text-amber-700/90 mt-1">Satisfactory performance; meets minimum learning outcomes.</p>
+          </div>
+          <div className="p-3.5 rounded-xl border border-red-200 bg-red-50/50">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-red-800">F</span>
+              <span className="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">0% – 49%</span>
+            </div>
+            <p className="text-xs font-semibold text-red-900 mt-1">Fail</p>
+            <p className="text-[11px] text-red-700/90 mt-1">Unsatisfactory performance; fails to demonstrate minimum learning outcomes.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -479,7 +519,7 @@ export interface CalEvent {
   day: number;
   days?: number[];
   label: string;
-  eventType: "Assessment" | "Quiz" | "Exam" | "School Break" | "Holiday";
+  eventType: "Assessment" | "Quiz" | "Exam" | "School Break" | "Holiday" | "Academic Date";
   category?: "assignment" | "quiz";
   courseCode?: string;
   courseName?: string;
@@ -507,29 +547,29 @@ export interface CalEvent {
 export const calEvents: CalEvent[] = [
   {
     id: "cal-event-1",
-    day: 3,
-    label: "Assessment 2 Due",
+    day: 8,
+    label: "WPR Week 2 Due (Verified)",
     eventType: "Assessment",
     category: "assignment",
-    courseCode: "ICT301",
-    courseName: "Information Technology Project 1",
-    fullTitle: "ICT301 — Project Deliverables & Architecture Specification",
-    dateFormatted: "September 3, 2026",
-    description: "Submit comprehensive project deliverables including system architecture diagrams, database models, implementation source code, and milestone progress report.",
-    info: "Due by 11:59 PM AEST · 30% weighting",
-    color: "bg-amber-50 text-amber-800 border-amber-200",
-    dot: "bg-amber-500",
-    badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
+    courseCode: "ICT302",
+    courseName: "Information Technology Project 2",
+    fullTitle: "ICT302 — Assessment 1: WPR Week 2 (Project Initiation & Team Charter)",
+    dateFormatted: "November 8, 2026",
+    description: "Weekly Progress Report 1: Team charter, role allocations, GitHub repository setup, and 12-week Gantt chart schedule.",
+    info: "Submitted & Verified · 9.5/10 (HD) · 1/10 Submissions Completed",
+    color: "bg-emerald-50 text-emerald-800 border-emerald-200",
+    dot: "bg-emerald-500",
+    badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
   },
   {
     id: "cal-event-2",
-    day: 7,
-    label: "Holiday",
+    day: 11,
+    label: "Remembrance Day",
     eventType: "Holiday",
-    fullTitle: "Public Holiday — Labour Day Observance",
-    dateFormatted: "September 7, 2026",
-    description: "Public holiday observance. University closed, all lectures, tutorials, and academic services suspended.",
-    info: "Public Holiday · No classes scheduled · University closed",
+    fullTitle: "Remembrance Day 2026 — Minute of Silence (11:00 AM)",
+    dateFormatted: "November 11, 2026",
+    description: "National Remembrance Day service and reflection. KOI campus observance at 11:00 AM.",
+    info: "KOI Academic Calendar Event · 11:00 AM AEST",
     color: "bg-sky-50 text-sky-800 border-sky-200",
     dot: "bg-sky-500",
     badgeColor: "bg-sky-100 text-sky-800 border-sky-200",
@@ -537,44 +577,46 @@ export const calEvents: CalEvent[] = [
   {
     id: "cal-event-3",
     day: 15,
-    label: "Lab Report 1 Due",
+    label: "WPR Week 3 Due",
     eventType: "Assessment",
     category: "assignment",
-    courseCode: "ICT126",
-    courseName: "Artificial Intelligence",
-    fullTitle: "ICT126 — Lab Report 1: Perceptrons & Single-Layer Networks",
-    dateFormatted: "September 15, 2026",
-    description: "Implement single-layer perceptron models in Python, evaluate linear classification boundaries, and submit convergence logs and analysis.",
-    info: "Due by 11:59 PM AEST · 20% weighting",
-    color: "bg-rose-50 text-rose-800 border-rose-200",
-    dot: "bg-rose-500",
-    badgeColor: "bg-rose-100 text-rose-800 border-rose-200",
+    courseCode: "ICT302",
+    courseName: "Information Technology Project 2",
+    fullTitle: "ICT302 — Assessment 1: WPR Week 3 (Architecture & DB Schema)",
+    dateFormatted: "November 15, 2026",
+    description: "Neon PostgreSQL schema ERD, Next.js Server Actions design, and connection pooler benchmarks.",
+    info: "Due by 11:59 PM AEST · Continuous assessment deliverable",
+    color: "bg-orange-50 text-orange-800 border-orange-200",
+    dot: "bg-orange-500",
+    badgeColor: "bg-orange-100 text-orange-800 border-orange-200",
   },
   {
     id: "cal-event-4",
     day: 18,
-    label: "Mid-Semester Exam",
-    eventType: "Exam",
-    courseCode: "ICT126",
-    courseName: "Artificial Intelligence",
-    fullTitle: "ICT126 — Mid-Semester Examination: Core AI & Search Heuristics",
-    dateFormatted: "September 18, 2026",
-    description: "Proctored mid-semester examination covering Units 1–5: Search algorithms, heuristics, knowledge representation, and neural network foundations.",
-    info: "10:00 AM – 12:00 PM AEST (2 Hours) · Proctored Online / Examination Hall B",
-    color: "bg-red-50 text-red-800 border-red-200",
-    dot: "bg-red-500",
-    badgeColor: "bg-red-100 text-red-800 border-red-200",
+    label: "Sprint 3 Consultation",
+    eventType: "Academic Date",
+    courseCode: "ICT302",
+    courseName: "Information Technology Project 2",
+    fullTitle: "ICT302 — Sprint 3 Technical Architecture Consultation",
+    dateFormatted: "November 18, 2026",
+    description: "Technical consultation session with Subject Coordinator Anita Humagain covering database models and verification.",
+    info: "10:00 AM – 12:00 PM AEST · Lab IT-304 / Zoom",
+    color: "bg-blue-50 text-blue-800 border-blue-200",
+    dot: "bg-blue-500",
+    badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
   },
   {
     id: "cal-event-5",
-    day: 21,
-    days: [21, 22, 23, 24, 25],
-    label: "School Break",
-    eventType: "School Break",
-    fullTitle: "Mid-Semester Recess & Study Break",
-    dateFormatted: "September 21 – September 25, 2026",
-    description: "No classes scheduled. Mid-semester academic recess and independent study week.",
-    info: "Duration: 5 days (Monday – Friday) · Campus libraries and study spaces open",
+    day: 22,
+    label: "WPR Week 4 Due",
+    eventType: "Assessment",
+    category: "assignment",
+    courseCode: "ICT302",
+    courseName: "Information Technology Project 2",
+    fullTitle: "ICT302 — Assessment 1: WPR Week 4 (Core Implementation)",
+    dateFormatted: "November 22, 2026",
+    description: "Role-based access control, session management, and Playwright automated test suite verification.",
+    info: "Due by 11:59 PM AEST · Continuous assessment deliverable",
     color: "bg-emerald-50 text-emerald-800 border-emerald-200",
     dot: "bg-emerald-500",
     badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
@@ -582,15 +624,15 @@ export const calEvents: CalEvent[] = [
   {
     id: "cal-event-6",
     day: 29,
-    label: "Quiz 2 – ICT272",
-    eventType: "Quiz",
-    category: "quiz",
-    courseCode: "ICT272",
-    courseName: "Web Design and Development",
-    fullTitle: "ICT272 — Web Design and Development",
-    dateFormatted: "September 29, 2026",
-    description: "Online quiz assessment covering DOM manipulation, Fetch API, asynchronous JavaScript, and React component state lifecycles.",
-    info: "Available until 11:59 PM AEST · 30 Mins time limit · 5% weighting",
+    label: "WPR Week 5 Due",
+    eventType: "Assessment",
+    category: "assignment",
+    courseCode: "ICT302",
+    courseName: "Information Technology Project 2",
+    fullTitle: "ICT302 — Assessment 1: WPR Week 5 (Automated Testing & WCAG)",
+    dateFormatted: "November 29, 2026",
+    description: "End-to-end testing coverage, WCAG 2.1 AA accessibility audit, and performance optimization deliverable.",
+    info: "Due by 11:59 PM AEST · Continuous assessment deliverable",
     color: "bg-indigo-50 text-indigo-800 border-indigo-200",
     dot: "bg-indigo-500",
     badgeColor: "bg-indigo-100 text-indigo-800 border-indigo-200",
@@ -603,7 +645,7 @@ export function CalendarPage() {
   const [selectedEvent, setSelectedEvent] = useState<CalEvent | null>(null);
 
   const baseYear = 2026;
-  const baseMonth = 8; // September (0-indexed)
+  const baseMonth = 10; // November (0-indexed: 10 = November)
   const date = new Date(baseYear, baseMonth + monthOffset, 1);
   const year = date.getFullYear();
   const month = date.getMonth();
@@ -611,7 +653,7 @@ export function CalendarPage() {
 
   const firstDay = (new Date(year, month, 1).getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const today = monthOffset === 0 ? 7 : -1;
+  const today = monthOffset === 0 ? 9 : -1; // Today is Monday, November 9, 2026 (Week 3)
 
   const cells: (number | null)[] = [];
   for (let i = 0; i < firstDay; i++) cells.push(null);
@@ -885,83 +927,82 @@ export interface Announcement {
 export const announcements: Announcement[] = [
   {
     id: 1,
-    title: "Assessment 2 Submission Reminder",
-    description: "This is a reminder that Assessment 2 for ICT301 Information Technology Project 1 is due on 3 September 2026 at 11:59 PM. Please ensure your submission meets all requirements outlined in the brief.",
+    title: "ICT302 Assessment 2 Submission Reminder",
+    description: "Reminder: Assessment 2 (Final Report and Group Activity Log) for ICT302 Information Technology Project 2 is due Week 11. Please ensure your submission meets all specifications.",
     date: "Aug 30, 2026",
     category: "Assessment",
-    course: "ICT301",
-    courseName: "Information Technology Project 1",
+    course: "ICT302",
+    courseName: "Information Technology Project 2",
     important: true,
     unread: true,
-    relevantDate: "Thursday, 3 September 2026 at 11:59 PM AEST",
+    relevantDate: "Monday, 19 October 2026 at 11:59 PM AEST",
     author: {
-      name: "Dr. Marcus Vance",
-      role: "Unit Coordinator & Senior Lecturer",
+      name: "Anita Humagain",
+      role: "Unit Coordinator & Lecturer",
     },
     fullContent: [
-      "This is a formal reminder that Assessment 2 for ICT301 Information Technology Project 1 is due on Thursday, 3 September 2026 at 11:59 PM AEST.",
-      "Please ensure your final submission meets all requirements specified in the unit project brief. Submissions must include full system architecture diagrams, database entity-relationship models, documented backend API endpoints, and the Sprint 2 progress retrospective report.",
-      "Late submissions without an approved academic extension will incur a penalty of 5% per calendar day. The submission portal is active on the Assignments page. Ensure your team lead has completed the digital academic integrity declaration prior to uploading final materials.",
+      "This is a formal reminder that Assessment 2 (Final Report and Group Activity Log) for ICT302 Information Technology Project 2 is due in Week 11 (Monday, 19 October 2026 at 11:59 PM AEST).",
+      "Please ensure your final deliverable meets all requirements specified in the Subject Outline: Final Report (40% — 25 to 30 pages) and Group Activity Log (10% — 12 meeting minutes appendix).",
+      "Note: ICT301 Information Technology Project 1 was concluded in Trimester T226 with High Distinction (HD). Ensure all Sprint 2 implementation deliverables and test plans are integrated into your submission.",
     ],
     attachments: [
-      { name: "ICT301_Assessment2_Guidelines.pdf", size: "1.2 MB" },
+      { name: "ICT302_Assessment2_Guidelines.pdf", size: "1.2 MB" },
       { name: "Submission_Checklist_Template.pdf", size: "380 KB" },
     ],
   },
   {
     id: 2,
-    title: "Semester T226 Important Dates",
-    description: "Key academic dates for Semester T226 have been published. Enrollment for Semester T326 opens 1 October 2026. Final exam period runs 15–26 November 2026. Please plan accordingly.",
+    title: "Trimester T326 Important Dates",
+    description: "Key academic dates for Trimester T326 have been published. Trimester 3 teaching is underway and ICT302 project deliverables are active. Census date is 18 September 2026. Please plan accordingly.",
     date: "Aug 28, 2026",
     category: "Academic",
     important: true,
     unread: true,
-    relevantDate: "Key Milestones: Oct 1, 2026 (Enrollment) & Nov 15–26, 2026 (Final Exams)",
+    relevantDate: "Key Milestones: Census Sep 18 · Mid-Trimester Break Oct 5–9 · Final Defense Week 12",
     author: {
       name: "Academic Registrar Office",
       role: "Division of Student Administration",
     },
     fullContent: [
-      "The Academic Board has published key operational and examination dates for the remainder of Semester T226 and the upcoming academic calendar.",
+      "The Academic Board has published key operational and presentation dates for Trimester T326.",
       "Important dates to note in your calendar:",
-      "• Census Date: Friday, 4 September 2026 (Last day to withdraw without academic or financial penalty)",
-      "• Mid-Semester Break: Monday, 21 September – Friday, 25 September 2026 (No scheduled classes)",
-      "• Re-enrollment for Semester T326 opens: Thursday, 1 October 2026 at 9:00 AM",
-      "• Final Teaching Week concludes: Friday, 6 November 2026",
-      "• Examination Study Period (Swotvac): Monday, 9 November – Friday, 13 November 2026",
-      "• Formal Examination Period: Sunday, 15 November – Thursday, 26 November 2026",
+      "• Census Date: Friday, 18 September 2026 (Last day to withdraw without academic or financial penalty)",
+      "• Mid-Trimester Break: Monday, 5 October – Friday, 9 October 2026 (No scheduled classes)",
+      "• ICT302 Assessment 2 (Final Report & Activity Log) Due: Week 11",
+      "• ICT302 Assessment 3 (Presentation & Demonstration Defense): Week 12",
+      "• Trimester 3 Concludes: Friday, 27 November 2026",
       "Students are strongly advised to check their personal timetable and contact their faculty advisor if they have questions regarding course progression.",
     ],
     attachments: [
-      { name: "Academic_Calendar_T226_T326.pdf", size: "840 KB" },
+      { name: "Academic_Calendar_T326.pdf", size: "840 KB" },
     ],
   },
   {
     id: 3,
-    title: "Learning Materials Updated — ICT272",
-    description: "New learning materials for Week 9 have been uploaded to the ICT272 Web Design and Development course page. This includes lecture slides, the lab exercise file, and supplementary reading links.",
+    title: "Learning Materials Updated — ICT302",
+    description: "New learning materials for Sprint 2 have been uploaded to the ICT302 Information Technology Project 2 course page. This includes full-stack Next.js SSR guides, Neon database pooling documentation, and milestone rubrics.",
     date: "Aug 27, 2026",
     category: "Materials",
-    course: "ICT272",
-    courseName: "Web Design and Development",
+    course: "ICT302",
+    courseName: "Information Technology Project 2",
     important: false,
     unread: true,
-    relevantDate: "Week 9 Release · Published August 27, 2026",
+    relevantDate: "Sprint 2 Architecture Guide · Published August 27, 2026",
     author: {
-      name: "Prof. David Chen",
-      role: "Senior Lecturer",
+      name: "Anita Humagain",
+      role: "Unit Coordinator & Lecturer",
     },
     fullContent: [
-      "New learning resources and hands-on lab materials for Week 9 have been uploaded to the ICT272 Web Design and Development course section.",
-      "This week focuses on Modern CSS Layouts, Flexbox, CSS Grid systems, and Responsive Design Patterns. The uploaded bundle contains:",
-      "1. Lecture slides and presentation notes (PDF)",
-      "2. Week 9 hands-on lab exercise sheet and starter HTML/CSS files",
-      "3. Supplementary reference links for MDN Web Docs and modern CSS container queries",
-      "Please download the starter files and complete Exercise 1 prior to attending your scheduled computer lab tutorial session.",
+      "New learning resources and sprint architectural specifications have been uploaded to the ICT302 course page.",
+      "This week focuses on Next.js Server Components, Server Actions data mutation, Neon PostgreSQL pooling, and automated testing.",
+      "1. Next.js SSR Architecture Blueprint & Best Practices (PDF)",
+      "2. Serverless Connection Pooling & Query Performance Guide",
+      "3. Assessment 1 & 2 Deliverables Specification and Marking Rubrics",
+      "Please review the specifications and integrate the Playwright test harness into your repository.",
     ],
     attachments: [
-      { name: "Week9_Responsive_Layouts.pdf", size: "2.8 MB" },
-      { name: "lab09_starter_pack.zip", size: "4.5 MB" },
+      { name: "ICT302_Sprint2_Architecture_Guide.pdf", size: "2.8 MB" },
+      { name: "ICT302_Milestone_Rubrics.pdf", size: "1.5 MB" },
     ],
   },
   {
@@ -988,30 +1029,28 @@ export const announcements: Announcement[] = [
   },
   {
     id: 5,
-    title: "ICT126 Midterm Test Information",
-    description: "The ICT126 Artificial Intelligence midterm test is scheduled for Week 10. It will be held during your regular tutorial time slot. The test covers Weeks 1–8 content. No aids are permitted.",
+    title: "ICT302 Assessment 2 Brief & Rubric Released",
+    description: "The specification brief and marking rubric for Assessment 2 (Final Report and Group Activity Log) are now published. Worth 50% of the course mark, due Week 11.",
     date: "Aug 24, 2026",
     category: "Assessment",
-    course: "ICT126",
-    courseName: "Artificial Intelligence",
+    course: "ICT302",
+    courseName: "Information Technology Project 2",
     important: false,
     unread: false,
-    relevantDate: "Week 10 Scheduled Tutorial Slot",
+    relevantDate: "Due Week 11 · 50% Weighting",
     author: {
-      name: "Dr. Elena Rostova",
-      role: "Course Coordinator & Lead Researcher",
+      name: "Anita Humagain",
+      role: "Unit Coordinator & Lecturer",
     },
     fullContent: [
-      "The mid-semester test for ICT126 Artificial Intelligence is scheduled to take place during your enrolled tutorial session in Week 10.",
-      "Key examination parameters:",
-      "• Duration: 50 minutes",
-      "• Format: 25 multiple-choice questions and 2 short analytical problem-solving questions",
-      "• Scope: Units 1 through 8 (Breadth-First Search, A* Heuristics, Adversarial Search, and Perceptron foundations)",
-      "• Conditions: Closed book examination. Calculators and electronic smart devices are strictly prohibited.",
-      "A practice quiz with specimen questions and solutions is available in the Quizzes & Exams portal section to assist with your revision.",
+      "The official KOI subject assessment brief for Assessment 2 has been released for all ICT302 project teams.",
+      "Key assessment breakdown according to the official Subject Outline:",
+      "• Final Report (40%): 25 to 30 pages covering Project Scope & Structure (4 marks), System Architecture & Implementation (15 marks), Test Plan with 8+ test cases (5 marks), Evaluation Plan (5 marks), Results (8 marks), and Recommendations (3 marks).",
+      "• Group Activity Log (10%): Complete meeting minutes appendix documenting 12 team meetings (4 marks), Quality of Interaction (3 marks), and Team Roles & Task Allocations (3 marks).",
+      "• Total weighting: 50%. Submission deadline is Week 11.",
     ],
     attachments: [
-      { name: "ICT126_Midterm_Formula_Sheet.pdf", size: "420 KB" },
+      { name: "ICT302_Assessment2_FinalReport_Brief.pdf", size: "1.2 MB" },
     ],
   },
   {
@@ -1028,7 +1067,7 @@ export const announcements: Announcement[] = [
       role: "Campus Facilities & Student Services",
     },
     fullContent: [
-      "In preparation for the upcoming mid-semester assessments and final examination period, the main campus university library is expanding its opening hours to support student learning.",
+      "In preparation for the upcoming mid-trimester assessments and final capstone evaluation period, the main campus university library is expanding its opening hours to support student learning.",
       "Commencing Tuesday, 15 September 2026, library operating hours will be:",
       "• Monday to Friday: 7:00 AM – Midnight",
       "• Saturday & Sunday: 9:00 AM – 9:00 PM",
@@ -1374,16 +1413,16 @@ interface Message {
 export const conversations: Message[] = [
   {
     id: "c1",
-    sender: "Dr. Sarah Mitchell",
-    role: "ICT301 Lecturer",
-    initials: "SM",
+    sender: "Anita Humagain",
+    role: "Unit Coordinator & Lecturer",
+    initials: "AH",
     initialsColor: "#1a3a9e",
     lastMsg: "Please ensure your project proposal follows the template provided.",
     time: "10:24 AM",
     unread: 2,
     messages: [
       { from: "them", text: "Hi Richard, I wanted to check in on your Assessment 2 progress.", time: "Mon 9:12 AM" },
-      { from: "me",   text: "Hi Dr. Mitchell, I'm about 60% through the report. I should be able to submit by the deadline.", time: "Mon 9:45 AM" },
+      { from: "me",   text: "Hi Anita, I'm about 60% through the report. I should be able to submit by the deadline.", time: "Mon 9:45 AM" },
       { from: "them", text: "Great to hear. Please ensure your project proposal follows the template provided on the course page.", time: "Today 10:24 AM" },
       { from: "them", text: "Also make sure you cite all references in APA format.", time: "Today 10:24 AM" },
     ],
@@ -1659,7 +1698,7 @@ export interface StudentProfileData {
 
 export const initialStudentProfile: StudentProfileData = {
   fullName: "Richard Vitug",
-  email: "richard.vitug@student.edu.au",
+  email: "20030988@eduflex.en-rich.me",
   phone: "+61 412 345 678",
   address: "Sydney, NSW, Australia",
   dateOfBirth: "14 March 2003",
@@ -1806,7 +1845,7 @@ export function ProfilePage({ userName, onNameChange: _onNameChange }: { userNam
   const academicInfo = [
     { label: "Program",           value: "Bachelor of Information Technology" },
     { label: "Faculty / School",  value: "School of Information Technology" },
-    { label: "Current Semester",  value: "Semester T226 (2026)" },
+    { label: "Current Trimester", value: "Trimester T326 (2026)" },
     { label: "Enrollment Status", value: "Enrolled" },
     { label: "Credits Completed", value: "96 of 120" },
   ];
@@ -1828,9 +1867,9 @@ export function ProfilePage({ userName, onNameChange: _onNameChange }: { userNam
           <p className="text-sm text-gray-500 mb-3">Student · Bachelor of Information Technology</p>
           <div className="flex items-center gap-3 flex-wrap">
             <span className="text-xs font-semibold text-green-700 bg-green-50 border border-green-100 px-3 py-1 rounded-full">Enrolled</span>
-            <span className="text-xs text-gray-500">Semester T226</span>
+            <span className="text-xs text-gray-500">Trimester T326</span>
             <span className="text-xs text-gray-400">·</span>
-            <span className="text-xs text-gray-500">S00123456</span>
+            <span className="text-xs text-gray-500">{profile.email?.split("@")[0] || "20030988"}</span>
           </div>
         </div>
       </div>
@@ -1842,7 +1881,7 @@ export function ProfilePage({ userName, onNameChange: _onNameChange }: { userNam
           <div className="space-y-4">
             {[
               { label: "Full Name",     value: profile.fullName || userName },
-              { label: "Student ID",    value: "S00123456" },
+              { label: "Student ID",    value: profile.email?.split("@")[0] || "20030988" },
               { label: "Email Address", value: profile.email },
               { label: "Phone Number",  value: profile.phone },
               { label: "Address",       value: profile.address },

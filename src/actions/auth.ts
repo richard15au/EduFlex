@@ -63,11 +63,33 @@ function normalizeRole(role: PrismaUserRole): AuthRole {
 export async function loginAction(
   credentials: { email: string; password: string }
 ): Promise<AuthResponse> {
-  const email = credentials.email?.trim().toLowerCase();
+  let email = credentials.email?.trim().toLowerCase();
   const password = credentials.password;
 
   if (!email || !password) {
     return { success: false, error: "Please enter your email and password." };
+  }
+
+  // Domain & ID alias normalization to seamlessly route to authoritative eduflex.en-rich.me accounts
+  if (email.endsWith("@eduflex.edu") || email.endsWith("@richacademy.en-rich.me")) {
+    const userPart = email.split("@")[0];
+    if (userPart === "2003988" || userPart === "20030988" || userPart === "richard") {
+      email = "20030988@eduflex.en-rich.me";
+    } else {
+      email = `${userPart}@eduflex.en-rich.me`;
+    }
+  }
+  // Short name aliases on authoritative domain
+  if (email === "richard@eduflex.en-rich.me" || email === "2003988@eduflex.en-rich.me") {
+    email = "20030988@eduflex.en-rich.me";
+  } else if (email === "yusuf@eduflex.en-rich.me") {
+    email = "20027782@eduflex.en-rich.me";
+  } else if (email === "sadia@eduflex.en-rich.me") {
+    email = "20035294@eduflex.en-rich.me";
+  } else if (email === "anita@eduflex.en-rich.me") {
+    email = "anita.humagain@eduflex.en-rich.me";
+  } else if (email === "rojit@eduflex.en-rich.me" || email === "rojit.munankarmi@eduflex.en-rich.me") {
+    email = "a.rojit.munankarmi@eduflex.en-rich.me";
   }
 
   try {

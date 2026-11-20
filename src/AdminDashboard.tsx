@@ -692,7 +692,7 @@ function AdminDashboardHome({
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-500 bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm">
             <IconClock className="w-4 h-4 text-gray-400" />
-            <span>Sep 2, 2026 — Trimester 2, 2026</span>
+            <span>Sep 2, 2026 — Trimester 3, 2026</span>
           </div>
         </div>
       </div>
@@ -719,7 +719,7 @@ function AdminDashboardHome({
           <p className="text-white font-semibold text-sm mb-0.5">Admin Notice</p>
           <div className="overflow-hidden">
             <p className="marquee-text text-blue-200 text-sm">
-              {latestAnnouncement?.title ? `${latestAnnouncement.title}: ${latestAnnouncement.desc}` : "Semester enrollment is now open — 47 new enrollment requests pending review."} &nbsp;&nbsp; {pending.length} pending approvals requiring review. &nbsp;&nbsp; LMS platform operational.
+              {latestAnnouncement?.title ? `${latestAnnouncement.title}: ${latestAnnouncement.desc}` : "Trimester 3 enrollment is now open."} &nbsp;&nbsp; {pending.length} pending approvals requiring review. &nbsp;&nbsp; LMS platform operational.
             </p>
           </div>
         </div>
@@ -1011,7 +1011,7 @@ function AdminCourseManagement({
   const [formInstructor, setFormInstructor] = useState("");
   const [formCapacity, setFormCapacity] = useState(120);
   const [formSemester, setFormSemester] = useState("T2 2026");
-  const [formStatus, setFormStatus] = useState<"Active" | "Draft" | "Archived">("Active");
+  const [formStatus, setFormStatus] = useState<"Active" | "Draft" | "Archived" | "Completed">("Active");
   const [formDesc, setFormDesc] = useState("");
   const [formError, setFormError] = useState("");
 
@@ -1026,7 +1026,7 @@ function AdminCourseManagement({
     setFormCode("");
     setFormName("");
     setFormFaculty("School of ICT");
-    setFormInstructor(instructors[0]?.name || "Prof. Sarita Koirala");
+    setFormInstructor(instructors[0]?.name || "Anita Humagain");
     setFormCapacity(120);
     setFormSemester("T2 2026");
     setFormStatus("Active");
@@ -1511,7 +1511,7 @@ function AdminCourseManagement({
                 </span>
               </div>
               <div className="flex justify-between py-1 border-b border-gray-100">
-                <span className="text-gray-400">Semester Offering</span>
+                <span className="text-gray-400">Trimester Offering</span>
                 <span className="font-medium text-gray-800">{modalState.course.semester}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-gray-100">
@@ -1594,7 +1594,7 @@ function AdminEnrollment({
 }) {
   const [search, setSearch] = useState("");
   const [courseFilter, setCourseFilter] = useState("All Courses");
-  const [semesterFilter, setSemesterFilter] = useState("All Semesters");
+  const [semesterFilter, setSemesterFilter] = useState("All Trimesters");
   const [statusFilter, setStatusFilter] = useState("All Status");
   const [page, setPage] = useState(1);
 
@@ -1605,7 +1605,7 @@ function AdminEnrollment({
   // Enrollment modal workflow states
   const [selectedStudentId, setSelectedStudentId] = useState("");
   const [selectedCourseCode, setSelectedCourseCode] = useState("");
-  const [selectedSemester, setSelectedSemester] = useState("T2 2026");
+  const [selectedSemester, setSelectedSemester] = useState("T3 2026");
   const [eligibilityResult, setEligibilityResult] = useState<{
     checked: boolean;
     eligible: boolean;
@@ -1615,7 +1615,7 @@ function AdminEnrollment({
   const resetEnrollWorkflow = () => {
     setSelectedStudentId("");
     setSelectedCourseCode("");
-    setSelectedSemester("T2 2026");
+    setSelectedSemester("T3 2026");
     setEligibilityResult(null);
   };
 
@@ -1736,7 +1736,7 @@ function AdminEnrollment({
         r.courseName.toLowerCase().includes(q) ||
         r.courseCode.toLowerCase().includes(q);
       const matchCourse = courseFilter === "All Courses" || r.courseCode === courseFilter;
-      const matchSemester = semesterFilter === "All Semesters" || r.semester === semesterFilter;
+      const matchSemester = semesterFilter === "All Trimesters" || r.semester === semesterFilter;
       const matchStatus = statusFilter === "All Status" || r.status === statusFilter;
       return matchSearch && matchCourse && matchSemester && matchStatus;
     });
@@ -1754,7 +1754,7 @@ function AdminEnrollment({
   const handleTotalStudentsClick = () => {
     setSearch("");
     setCourseFilter("All Courses");
-    setSemesterFilter("All Semesters");
+    setSemesterFilter("All Trimesters");
     setStatusFilter("All Status");
     setPage(1);
   };
@@ -1781,8 +1781,8 @@ function AdminEnrollment({
     }, 50);
   };
 
-  const handleCurrentSemesterClick = () => {
-    setSemesterFilter("T2 2026");
+  const handleCurrentTrimesterClick = () => {
+    setSemesterFilter("T3 2026");
     setPage(1);
   };
 
@@ -1815,7 +1815,7 @@ function AdminEnrollment({
             icon: <IconUsers />,
             bg: "bg-blue-50 text-blue-600",
             onClick: handleTotalStudentsClick,
-            active: courseFilter === "All Courses" && semesterFilter === "All Semesters" && statusFilter === "All Status" && !search,
+            active: courseFilter === "All Courses" && semesterFilter === "All Trimesters" && statusFilter === "All Status" && !search,
           },
           {
             label: "Active Enrollments",
@@ -1834,12 +1834,12 @@ function AdminEnrollment({
             active: courseFilter !== "All Courses",
           },
           {
-            label: "Current Semester",
-            value: "T2 2026",
+            label: "Current Trimester",
+            value: "T3 2026",
             icon: <IconCalendar />,
             bg: "bg-orange-50 text-orange-500",
-            onClick: handleCurrentSemesterClick,
-            active: semesterFilter === "T2 2026",
+            onClick: handleCurrentTrimesterClick,
+            active: semesterFilter === "T3 2026",
           },
         ].map((s) => (
           <div
@@ -1900,10 +1900,9 @@ function AdminEnrollment({
               onChange={(e) => { setSemesterFilter(e.target.value); setPage(1); }}
               className="px-3 py-2 bg-gray-100 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300 border-none cursor-pointer"
             >
-              <option>All Semesters</option>
-              <option>T2 2026</option>
+              <option>All Trimesters</option>
+              <option>T3 2026</option>
               <option>T1 2026</option>
-              <option>T3 2025</option>
             </select>
             <select
               value={statusFilter}
@@ -1925,7 +1924,7 @@ function AdminEnrollment({
               <Th>Student ID</Th>
               <Th>Course</Th>
               <Th>Course Code</Th>
-              <Th>Semester</Th>
+              <Th>Trimester</Th>
               <Th>Enrollment Date</Th>
               <Th>Status</Th>
               <Th>Actions</Th>
@@ -2102,15 +2101,14 @@ function AdminEnrollment({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-600 mb-1.5">Semester</label>
+                <label className="block text-xs font-semibold text-gray-600 mb-1.5">Trimester</label>
                 <select
                   value={selectedSemester}
                   onChange={(e) => setSelectedSemester(e.target.value)}
                   className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition cursor-pointer"
                 >
-                  <option>Trimester 2, 2026</option>
-                  <option>Trimester 1, 2026</option>
-                  <option>Trimester 3, 2025</option>
+                  <option>T3 2026</option>
+                  <option>T1 2026</option>
                 </select>
               </div>
 
@@ -3721,15 +3719,14 @@ function AdminSystemSettings({
           <p className="text-[10px] font-bold text-blue-700 uppercase tracking-widest mb-4">Academic Settings</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-600 mb-1.5">Current Semester</label>
+              <label className="block text-xs font-semibold text-gray-600 mb-1.5">Current Trimester</label>
               <select
                 value={settings.currentSemester}
                 onChange={(e) => updateSetting("currentSemester", e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition cursor-pointer"
               >
-                <option>Trimester 2, 2026</option>
+                <option>Trimester 3, 2026</option>
                 <option>Trimester 1, 2026</option>
-                <option>Trimester 3, 2025</option>
               </select>
             </div>
             <div>
@@ -3742,7 +3739,7 @@ function AdminSystemSettings({
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-600 mb-1.5">Semester Start Date</label>
+              <label className="block text-xs font-semibold text-gray-600 mb-1.5">Trimester Start Date</label>
               <input
                 type="date"
                 value={settings.semesterStartDate}
@@ -3751,7 +3748,7 @@ function AdminSystemSettings({
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-600 mb-1.5">Semester End Date</label>
+              <label className="block text-xs font-semibold text-gray-600 mb-1.5">Trimester End Date</label>
               <input
                 type="date"
                 value={settings.semesterEndDate}
@@ -4046,7 +4043,7 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
       id: "set-1",
       category: "Settings",
       title: "Institution & Academic Settings",
-      subtitle: "System configuration, semester terms, and contact info",
+      subtitle: "System configuration, trimester terms, and contact info",
       badgeColor: "bg-gray-100 text-gray-700",
       targetPage: "settings",
     });

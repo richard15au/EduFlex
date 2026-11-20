@@ -95,7 +95,7 @@ test.describe('Student Portal Feature Workflows', () => {
     await expect(page.getByRole('heading', { name: 'Calendar', exact: true })).toBeVisible();
 
     // Upcoming event items should be clickable
-    const eventItem = page.locator('div[role="button"], button').filter({ hasText: /ICT301|ICT272|ICT126|Sprint|Lecture/i }).first();
+    const eventItem = page.locator('div[role="button"], button').filter({ hasText: /ICT301|ICT302|Sprint|Lecture/i }).first();
     if (await eventItem.isVisible()) {
       await eventItem.click();
       // Event modal opens

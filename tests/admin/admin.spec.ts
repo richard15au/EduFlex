@@ -56,14 +56,14 @@ test.describe('Admin Portal Comprehensive Workflows', () => {
     // Filter by role using dropdown
     const roleSelect = page.locator('select').first();
     await roleSelect.selectOption('Instructor');
-    await expect(page.getByText('Anna Cruz')).toBeVisible();
+    await expect(page.getByText('Anita Humagain')).toBeVisible();
 
     // Reset filter
     await roleSelect.selectOption('All Roles');
 
     // Search for user
-    await page.getByPlaceholder('Search users...', { exact: true }).fill('Santos');
-    await expect(page.getByText('Maria Santos')).toBeVisible();
+    await page.getByPlaceholder('Search users...', { exact: true }).fill('Vitug');
+    await expect(page.getByText('Richard Vitug')).toBeVisible();
 
     // Clear search
     await page.getByPlaceholder('Search users...', { exact: true }).fill('');
@@ -73,7 +73,7 @@ test.describe('Admin Portal Comprehensive Workflows', () => {
     await expect(page.getByRole('heading', { name: 'Add New User' })).toBeVisible();
 
     const newUserName = `Test Student ${Date.now()}`;
-    const newUserEmail = `test.student.${Date.now()}@eduflex.edu`;
+    const newUserEmail = `test.student.${Date.now()}@eduflex.en-rich.me`;
     await page.getByPlaceholder('e.g. Maria Santos').fill(newUserName);
     await page.getByPlaceholder('user@eduflex.edu.ph').fill(newUserEmail);
     await page.getByRole('button', { name: 'Create User' }).click();

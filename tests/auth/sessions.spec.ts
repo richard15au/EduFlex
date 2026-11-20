@@ -8,13 +8,13 @@ for (const role of Object.keys(seededAccounts) as SeededRole[]) {
     await loginAs(page, role);
 
     await expect(page).toHaveURL(new RegExp(`/${role}$`));
-    await expect(page.getByText(account.name, { exact: true })).toBeVisible();
+    await expect(page.getByText(account.name, { exact: true }).first()).toBeVisible();
     await expect.poll(() => page.evaluate(() => localStorage.getItem('eduflex_current_user')))
       .toContain(account.email);
 
     await page.reload();
     await expect(page).toHaveURL(new RegExp(`/${role}$`));
-    await expect(page.getByText(account.name, { exact: true })).toBeVisible();
+    await expect(page.getByText(account.name, { exact: true }).first()).toBeVisible();
 
     await page.getByRole('button', { name: 'Logout' }).click();
     await expect(page).toHaveURL('/');
@@ -33,7 +33,7 @@ for (const role of Object.keys(institutionalAccounts) as SeededRole[]) {
     await page.getByRole('button', { name: 'Log in' }).click();
 
     await expect(page).toHaveURL(new RegExp(`/${role}$`));
-    await expect(page.getByText(account.name, { exact: true })).toBeVisible();
+    await expect(page.getByText(account.name, { exact: true }).first()).toBeVisible();
 
     await page.reload();
     await expect(page).toHaveURL(new RegExp(`/${role}$`));
@@ -94,7 +94,7 @@ test('self-registration cannot overwrite or downgrade seeded instructor/admin ro
 
   // Admin retains trusted "admin" role and lands on /admin
   await expect(page).toHaveURL(/\/admin$/);
-  await expect(page.getByText(institutionalAccounts.admin.name, { exact: true })).toBeVisible();
+  await expect(page.getByText(institutionalAccounts.admin.name, { exact: true }).first()).toBeVisible();
 });
 
 test('invalid login shows an error and remains on the login page', async ({ page }) => {

@@ -10,6 +10,13 @@ import {
   INITIAL_ASSIGNMENT_COURSES,
   formatDueDate,
 } from "./assignmentData";
+import {
+  getInstructorGradingQueueAction,
+  gradeSubmissionAction,
+  deleteSubmissionAction,
+  type InstructorGradeRecordSummary,
+  type InstructorGradingQueueItem,
+} from "./actions/instructor";
 import type {
   InstructorAssignmentItem,
   InstructorCourseAssignments,
@@ -43,6 +50,14 @@ const IconUsers = ({ className = "w-5 h-5 shrink-0" }: { className?: string }) =
 const IconAssignment = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 shrink-0">
     <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="9" y1="7" x2="15" y2="7" /><line x1="9" y1="11" x2="15" y2="11" /><line x1="9" y1="15" x2="12" y2="15" />
+  </svg>
+);
+const IconFile = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="16" y1="13" x2="8" y2="13" />
+    <line x1="16" y1="17" x2="8" y2="17" />
   </svg>
 );
 const IconQuiz = () => (
@@ -387,42 +402,25 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
       id: "course-ict301",
       category: "Course",
       title: "ICT301 — Information Technology Project 1",
-      subtitle: "3 Credits · Mon/Wed 8:00–10:00 AM · Room IT-201 · 32 Students Enrolled",
+      subtitle: "3 Credits · Trimester 1 · 3 Students Enrolled · Completed",
       badgeColor: "bg-blue-100 text-blue-700",
       targetPage: "courses",
     },
     {
-      id: "course-ict272",
+      id: "course-ict302",
       category: "Course",
-      title: "ICT272 — Web Design and Development",
-      subtitle: "3 Credits · Tue/Thu 10:00 AM–12:00 PM · Online Zoom · 38 Students Enrolled",
-      badgeColor: "bg-blue-100 text-blue-700",
-      targetPage: "courses",
-    },
-    {
-      id: "course-ict126",
-      category: "Course",
-      title: "ICT126 — Artificial Intelligence",
-      subtitle: "3 Credits · Fri 1:00–3:00 PM · Room IT-304 · 26 Students Enrolled",
-      badgeColor: "bg-blue-100 text-blue-700",
+      title: "ICT302 — Information Technology Project 2",
+      subtitle: "3 Credits · Trimester 3 · 3 Students Enrolled · Active",
+      badgeColor: "bg-green-100 text-green-700",
       targetPage: "courses",
     }
   );
 
   // 2. Students
   const sampleStudents = [
-    { name: "Marco Reyes", id: "STU-0231", course: "ICT301", email: "m.reyes@student.edu", grade: "B+", status: "Active" },
-    { name: "Sofia Tan", id: "STU-0198", course: "ICT272", email: "s.tan@student.edu", grade: "A", status: "Active" },
-    { name: "Liam Garcia", id: "STU-0274", course: "ICT301", email: "l.garcia@student.edu", grade: "B", status: "Active" },
-    { name: "Aisha Patel", id: "STU-0312", course: "ICT272", email: "a.patel@student.edu", grade: "A-", status: "Active" },
-    { name: "Ethan Cruz", id: "STU-0299", course: "ICT272", email: "e.cruz@student.edu", grade: "B+", status: "Active" },
-    { name: "Maya Lopez", id: "STU-0344", course: "ICT272", email: "m.lopez@student.edu", grade: "A", status: "Active" },
-    { name: "Noah Kim", id: "STU-0401", course: "ICT126", email: "n.kim@student.edu", grade: "A+", status: "Active" },
-    { name: "Priya Nair", id: "STU-0388", course: "ICT126", email: "p.nair@student.edu", grade: "B", status: "Active" },
-    { name: "Carlos Vega", id: "STU-0411", course: "ICT126", email: "c.vega@student.edu", grade: "B+", status: "Active" },
-    { name: "Luna Santos", id: "STU-0422", course: "ICT301", email: "l.santos@student.edu", grade: "C+", status: "At Risk" },
-    { name: "Raj Sharma", id: "STU-0433", course: "ICT272", email: "r.sharma@student.edu", grade: "B", status: "Active" },
-    { name: "Zoe Andrade", id: "STU-0444", course: "ICT126", email: "z.andrade@student.edu", grade: "A-", status: "Active" },
+    { name: "Yusuf Rana Magar", id: "20027782", course: "ICT302", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Active" },
+    { name: "Richard Vitug", id: "20030988", course: "ICT302", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Active" },
+    { name: "Sadia Binte Mahmud", id: "20035294", course: "ICT302", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Active" },
   ];
   sampleStudents.forEach((s) => {
     pool.push({
@@ -463,12 +461,10 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
 
   // 4. Quizzes
   const sampleQuizzes = [
-    { title: "Weekly Quiz 1", course: "ICT301", date: "Aug 19, 2026", status: "Completed", avg: "Avg Score: 82%" },
-    { title: "Weekly Quiz 2", course: "ICT272", date: "Aug 26, 2026", status: "Completed", avg: "Avg Score: 78%" },
-    { title: "Weekly Quiz 3", course: "ICT126", date: "Sep 2, 2026", status: "Active", avg: "24/26 submissions" },
-    { title: "Midterm Quiz", course: "ICT126", date: "Sep 8, 2026", status: "Upcoming", avg: "Lab Quiz · 25 Questions" },
-    { title: "Lab Quiz 1", course: "ICT272", date: "Sep 10, 2026", status: "Upcoming", avg: "Online Quiz · 20 Questions" },
-    { title: "Weekly Quiz 3", course: "ICT301", date: "Sep 3, 2026", status: "Active", avg: "18/32 submissions" },
+    { title: "Sprint 1 Knowledge Check", course: "ICT302", date: "Sep 22, 2026", status: "Active", avg: "3/3 submissions" },
+    { title: "Architecture & Verification Quiz", course: "ICT302", date: "Aug 28, 2026", status: "Completed", avg: "Avg Score: 95%" },
+    { title: "Project 1 Milestone 2 Review", course: "ICT301", date: "May 10, 2026", status: "Completed", avg: "Avg Score: 91%" },
+    { title: "Project 1 Scope & Method Review", course: "ICT301", date: "Mar 18, 2026", status: "Completed", avg: "Avg Score: 97%" },
   ];
   sampleQuizzes.forEach((q, idx) => {
     pool.push({
@@ -498,26 +494,18 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
   // 6. Grades
   pool.push(
     {
+      id: "grade-ict302",
+      category: "Grade",
+      title: "ICT302 Student Grades",
+      subtitle: "Information Technology Project 2 · Grade roster and submission tracking",
+      badgeColor: "bg-emerald-100 text-emerald-700",
+      targetPage: "grades",
+    },
+    {
       id: "grade-ict301",
       category: "Grade",
       title: "ICT301 Student Grades",
-      subtitle: "Information Technology Project 1 · Grade roster and submission tracking",
-      badgeColor: "bg-indigo-100 text-indigo-700",
-      targetPage: "grades",
-    },
-    {
-      id: "grade-ict272",
-      category: "Grade",
-      title: "ICT272 Student Grades",
-      subtitle: "Web Design and Development · Grade roster and submission tracking",
-      badgeColor: "bg-indigo-100 text-indigo-700",
-      targetPage: "grades",
-    },
-    {
-      id: "grade-ict126",
-      category: "Grade",
-      title: "ICT126 Student Grades",
-      subtitle: "Artificial Intelligence · Grade roster and submission tracking",
+      subtitle: "Information Technology Project 1 · Grade roster and completed milestones",
       badgeColor: "bg-indigo-100 text-indigo-700",
       targetPage: "grades",
     }
@@ -525,11 +513,10 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
 
   // 7. Announcements
   const sampleAnnouncements = [
-    { title: "Milestone 2 Submission Reminder", course: "ICT301", status: "Published", date: "Sep 1, 2026" },
-    { title: "Updated Learning Materials — Week 8", course: "All Courses", status: "Published", date: "Aug 28, 2026" },
-    { title: "Guest Lecture: AI in Healthcare Industry", course: "ICT126", status: "Published", date: "Aug 20, 2026" },
-    { title: "Final Project Report Guidelines & Submission Portal", course: "ICT301", status: "Draft", date: "Aug 15, 2026" },
-    { title: "Mid-Semester Course Feedback Survey", course: "All Courses", status: "Scheduled", date: "Sep 10, 2026" },
+    { title: "ICT302 Assessment 2 Brief & Rubric Released", course: "ICT302", status: "Published", date: "Aug 24, 2026" },
+    { title: "Learning Materials Updated — ICT302", course: "ICT302", status: "Published", date: "Aug 27, 2026" },
+    { title: "ICT301 Completed Grade Records Released", course: "ICT301", status: "Published", date: "Jun 25, 2026" },
+    { title: "Official Domain Migration to eduflex.en-rich.me", course: "All Courses", status: "Published", date: "Sep 02, 2026" },
   ];
   sampleAnnouncements.forEach((a, idx) => {
     pool.push({
@@ -544,10 +531,10 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
 
   // 8. Messages
   const sampleMessages = [
-    { name: "Marco Reyes", detail: "Question about Milestone 2 rubric and submission deadline", course: "ICT301" },
-    { name: "Sofia Tan", detail: "Thank you for the feedback on the lab exercise", course: "ICT272" },
-    { name: "Prof. Eduardo Lim", detail: "Faculty meeting scheduled for tomorrow at 2 PM in Room IT-301", course: "Faculty" },
-    { name: "Liam Garcia", detail: "Request for office hours consult regarding project architecture", course: "ICT301" },
+    { name: "Richard Vitug", detail: "Question about Assessment 2 test plan requirements", course: "ICT302" },
+    { name: "Yusuf Rana Magar", detail: "Connection pooling benchmark results confirmed", course: "ICT302" },
+    { name: "Sadia Binte Mahmud", detail: "WCAG 2.1 AA audit artifacts uploaded to GitHub", course: "ICT302" },
+    { name: "Rojit Munankarmi", detail: "Database seeding and enrollment sync complete", course: "Admin" },
   ];
   sampleMessages.forEach((msg, idx) => {
     pool.push({
@@ -562,11 +549,10 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
 
   // 9. Calendar
   const sampleCalendar = [
-    { title: "ICT301 Lecture", detail: "Mon/Wed 8:00–10:00 AM · Room IT-201" },
-    { title: "ICT272 Online Lecture", detail: "Tue/Thu 10:00 AM–12:00 PM · Online Zoom" },
-    { title: "ICT126 Lab", detail: "Fri 1:00–3:00 PM · Room IT-304" },
-    { title: "ICT126 Midterm Quiz", detail: "Sep 8, 2026 · 1:00–2:00 PM · Room IT-304" },
-    { title: "Faculty Meeting", detail: "Sep 10, 2026 · 2:00–3:00 PM · Room IT-301" },
+    { title: "ICT302 Capstone Lecture", detail: "Tue 10:00 AM–12:00 PM · Online Zoom" },
+    { title: "ICT302 Laboratory & Defense", detail: "Thu 2:00–4:00 PM · Room IT-304" },
+    { title: "Assessment 1 Progress Review", detail: "Sep 15, 2026 · 11:59 PM AEST" },
+    { title: "Faculty Board Meeting", detail: "Sep 10, 2026 · 2:00–3:00 PM · Room IT-301" },
   ];
   sampleCalendar.forEach((cal, idx) => {
     pool.push({
@@ -861,7 +847,7 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
     {
       type: "info", icon: "🎓",
       title: "New Student Enrollment",
-      detail: "3 new students enrolled in ICT272 – Web Design and Development this week",
+      detail: "All 3 group members actively enrolled in ICT302 – Information Technology Project 2",
       time: "3 hrs ago", color: "border-l-blue-400 bg-blue-50",
     },
     {
@@ -873,7 +859,7 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
     {
       type: "exam", icon: "📝",
       title: "Upcoming Assessment",
-      detail: "ICT126 – AI: Midterm Quiz scheduled for September 8, 2026. Please prepare the quiz module.",
+      detail: "ICT302 Assessment 2: Final Report and Group Activity Log scheduled for Week 11.",
       time: "2 days ago", color: "border-l-green-400 bg-green-50",
     },
   ];
@@ -881,45 +867,36 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
   const courses = [
     {
       code: "ICT301", name: "Information Technology Project 1",
-      students: 32, upcoming: "Milestone 2 submission due Sep 5",
+      students: 3, upcoming: "Trimester 1 Capstone Completed",
       color: "#2563eb", bg: "bg-blue-50", badge: "bg-blue-100 text-blue-700",
-      progress: 55,
+      progress: 100,
     },
     {
-      code: "ICT272", name: "Web Design and Development",
-      students: 38, upcoming: "Lab Exercise 4 due Sep 7",
+      code: "ICT302", name: "Information Technology Project 2",
+      students: 3, upcoming: "Sprint 1 submission due Sep 15",
       color: "#0e9f6e", bg: "bg-emerald-50", badge: "bg-emerald-100 text-emerald-700",
-      progress: 40,
-    },
-    {
-      code: "ICT126", name: "Artificial Intelligence",
-      students: 26, upcoming: "Midterm Quiz on Sep 8",
-      color: "#7c3aed", bg: "bg-purple-50", badge: "bg-purple-100 text-purple-700",
-      progress: 48,
+      progress: 45,
     },
   ];
 
   const upcomingClasses = [
-    { course: "ICT301", date: "Sep 3, 2026", time: "8:00 – 10:00 AM", room: "Room IT-201", online: false },
-    { course: "ICT272", date: "Sep 4, 2026", time: "10:00 AM – 12:00 PM", room: "Online – Zoom", online: true },
-    { course: "ICT126", date: "Sep 5, 2026", time: "1:00 – 3:00 PM", room: "Room IT-304", online: false },
-    { course: "ICT301", date: "Sep 6, 2026", time: "8:00 – 10:00 AM", room: "Room IT-201", online: false },
+    { course: "ICT302", date: "Sep 4, 2026", time: "10:00 AM – 12:00 PM", room: "Online – Zoom", online: true },
+    { course: "ICT302", date: "Sep 6, 2026", time: "2:00 – 4:00 PM", room: "Room IT-304", online: false },
+    { course: "ICT301", date: "Sep 7, 2026", time: "9:00 – 11:00 AM", room: "Room IT-201", online: false },
   ];
 
   const pendingGrading = [
-    { name: "Milestone 2 Draft Report", course: "ICT301", submissions: 28, type: "Assignment" },
-    { name: "Lab Exercise 3", course: "ICT272", submissions: 36, type: "Assignment" },
-    { name: "Weekly Quiz 3", course: "ICT126", submissions: 24, type: "Quiz" },
+    { name: "Assessment 2: Final Report", course: "ICT302", submissions: 1, type: "Assessment" },
+    { name: "Weekly Progress Report 4", course: "ICT302", submissions: 2, type: "Assignment" },
+    { name: "Sprint 1 Knowledge Check", course: "ICT302", submissions: 3, type: "Quiz" },
   ];
 
   const recentActivity = [
-    { dot: "bg-blue-500", text: "Marco Reyes submitted Milestone 2 – ICT301", time: "5 min ago" },
-    { dot: "bg-green-500", text: "New quiz submission received for ICT126 Quiz 3", time: "22 min ago" },
-    { dot: "bg-purple-500", text: "Course material uploaded: ICT272 Week 5 Lecture Slides", time: "1 hr ago" },
-    { dot: "bg-orange-400", text: "Sofia Tan enrolled in ICT272 – Web Design and Development", time: "2 hrs ago" },
-    { dot: "bg-red-400",    text: "Liam Garcia submitted late: ICT126 Assignment 2", time: "3 hrs ago" },
-    { dot: "bg-teal-500",   text: "Announcement posted: ICT301 Milestone 2 Rubric Update", time: "4 hrs ago" },
-    { dot: "bg-blue-400",   text: "Aisha Patel requested grade review for ICT272 Lab 2", time: "5 hrs ago" },
+    { dot: "bg-blue-500", text: "Richard Vitug submitted Assessment 2: Final Report – ICT302", time: "5 min ago" },
+    { dot: "bg-green-500", text: "Yusuf Rana Magar completed Sprint 1 Knowledge Check – ICT302", time: "22 min ago" },
+    { dot: "bg-purple-500", text: "Course material uploaded: ICT302 Sprint 2 Architecture Guide", time: "1 hr ago" },
+    { dot: "bg-emerald-400", text: "Sadia Binte Mahmud uploaded WCAG audit artifact – ICT302", time: "2 hrs ago" },
+    { dot: "bg-teal-500", text: "Announcement posted: Assessment 2 Marking Rubric Released", time: "4 hrs ago" },
   ];
 
   return (
@@ -937,8 +914,8 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
         <div className="flex items-center gap-2 text-sm text-gray-500 bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm">
           <IconCalendar />
           <div>
-            <p className="text-xs font-semibold text-gray-700">Semester 1 — 2026</p>
-            <p className="text-[10px] text-gray-400">Term 1 · Sep 2026 – Jan 2027</p>
+            <p className="text-xs font-semibold text-gray-700">Trimester 3 — 2026</p>
+            <p className="text-[10px] text-gray-400">Term 3 · Sep 2026 – Dec 2026</p>
           </div>
         </div>
       </div>
@@ -977,25 +954,25 @@ function DashboardHome({ setActive, userName }: { setActive: (id: string) => voi
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <SummaryCard
-          title="My Courses" value="3" subtitle="Active Courses"
+          title="My Courses" value="2" subtitle="ICT301 & ICT302"
           icon={<IconBook />} bg="bg-blue-50 border-blue-100"
           iconBg="bg-blue-600" textColor="text-blue-800"
           onClick={() => setActive("courses")}
         />
         <SummaryCard
-          title="Total Students" value="96" subtitle="Students Enrolled"
+          title="Total Students" value="3" subtitle="Enrolled Members"
           icon={<IconUsers />} bg="bg-emerald-50 border-emerald-100"
           iconBg="bg-emerald-600" textColor="text-emerald-800"
           onClick={() => setActive("students")}
         />
         <SummaryCard
-          title="Pending Grading" value="12" subtitle="Submissions"
+          title="Pending Grading" value="2" subtitle="Submissions"
           icon={<IconAssignment />} bg="bg-amber-50 border-amber-100"
           iconBg="bg-amber-500" textColor="text-amber-800"
           onClick={() => setActive("grades")}
         />
         <SummaryCard
-          title="Upcoming Classes" value="4" subtitle="This Week"
+          title="Upcoming Classes" value="3" subtitle="This Week"
           icon={<IconCalendar />} bg="bg-purple-50 border-purple-100"
           iconBg="bg-purple-600" textColor="text-purple-800"
           onClick={() => setActive("calendar")}
@@ -1221,74 +1198,63 @@ export const INSTRUCTOR_LEARNING_MATERIALS: LearningMaterialItem[] = [
     description: "Comprehensive guide to Agile workflows, Scrum ceremonies, sprint planning, daily standups, and retrospective practices.",
   },
   {
-    id: "mat-ict272-w5-lec",
-    title: "Week 5 Lecture Slides",
-    course: "ICT272",
-    courseName: "Web Design and Development",
-    type: "Slides",
+    id: "mat-ict302-w2-arch",
+    title: "ICT302 Sprint 2 Architecture Specification",
+    course: "ICT302",
+    courseName: "Information Technology Project 2",
+    type: "Document",
     category: "Lecture",
-    week: 5,
-    size: "3.2 MB",
+    week: 2,
+    size: "3.5 MB",
     date: "Sep 2, 2026",
-    icon: "📊",
-    description: "Lecture slides focusing on React hooks (useState, useEffect), component lifecycle, and state lifting techniques.",
+    icon: "📄",
+    description: "Architectural blueprint detailing Next.js Server Components, Server Actions data mutations, and connection pooling.",
   },
   {
-    id: "mat-ict272-w5-vid",
-    title: "React Tutorial – Week 5",
-    course: "ICT272",
-    courseName: "Web Design and Development",
+    id: "mat-ict302-w3-vid",
+    title: "ICT302 Neon Connection Pooling & Playwright Testing",
+    course: "ICT302",
+    courseName: "Information Technology Project 2",
     type: "Video",
     category: "Tutorial",
-    week: 5,
-    size: "480 MB",
+    week: 3,
+    size: "520 MB",
     date: "Aug 29, 2026",
     icon: "🎬",
-    description: "Guided code-along screen recording building interactive React components and managing state across child views.",
+    description: "Guided technical demonstration of Neon PostgreSQL connection pooler and automated Playwright test execution.",
   },
   {
-    id: "mat-ict272-grid",
-    title: "CSS Grid & Flexbox Cheatsheet",
-    course: "ICT272",
-    courseName: "Web Design and Development",
+    id: "mat-ict302-rubric",
+    title: "ICT302 Assessment 2 Final Report Brief & Rubric",
+    course: "ICT302",
+    courseName: "Information Technology Project 2",
     type: "Document",
-    size: "0.8 MB",
+    size: "1.2 MB",
     date: "Aug 26, 2026",
     icon: "📄",
-    description: "Visual cheat sheet and quick syntax reference for 2D CSS Grid layouts and 1D Flexbox alignment rules.",
+    description: "Official KOI BIT marking criteria matrix for the 25-30 page Final Report (40%) and 12-meeting-minute Group Activity Log (10%).",
   },
   {
-    id: "mat-ict126-ethics",
-    title: "AI Ethics Reading Guide",
-    course: "ICT126",
-    courseName: "Artificial Intelligence",
-    type: "Document",
-    size: "1.1 MB",
-    date: "Sep 1, 2026",
-    icon: "📄",
-    description: "Annotated readings on ethical challenges in autonomous AI, bias detection, fairness constraints, and alignment standards.",
-  },
-  {
-    id: "mat-ict126-nn-vid",
-    title: "Neural Networks Intro Video",
-    course: "ICT126",
-    courseName: "Artificial Intelligence",
-    type: "Video",
-    size: "620 MB",
-    date: "Aug 28, 2026",
-    icon: "🎬",
-    description: "Animated overview explaining biological vs artificial neurons, activation functions, loss gradients, and backpropagation.",
-  },
-  {
-    id: "mat-ict126-ml-chart",
-    title: "ML Algorithm Comparison Chart",
-    course: "ICT126",
-    courseName: "Artificial Intelligence",
+    id: "mat-ict301-m3-defense",
+    title: "ICT301 Milestone 3 Final Defense Presentation Archive",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
     type: "Slides",
-    size: "4.5 MB",
-    date: "Aug 25, 2026",
+    size: "5.8 MB",
+    date: "Jun 20, 2026",
     icon: "📊",
-    description: "Comparative matrix analyzing supervised, unsupervised, and reinforcement learning algorithms and decision boundaries.",
+    description: "Completed Capstone Stage 1 presentation deck and technical defense summary for all team members.",
+  },
+  {
+    id: "mat-ict301-charter",
+    title: "ICT301 Project Charter & Scope Baseline",
+    course: "ICT301",
+    courseName: "Information Technology Project 1",
+    type: "Document",
+    size: "1.4 MB",
+    date: "Mar 25, 2026",
+    icon: "📄",
+    description: "Approved project charter detailing team roles, project scope boundaries, and risk mitigation strategies.",
   },
 ];
 
@@ -1384,8 +1350,8 @@ function MaterialPreviewModal({
               </div>
 
               <div className="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-400 flex-wrap gap-2">
-                <span>Instructor: Prof. Sarita Koirala</span>
-                <span>Term 2, Academic Year 2026</span>
+                <span>Instructor: Anita Humagain</span>
+                <span>Trimester 3, Academic Year 2026</span>
               </div>
             </div>
           </div>
@@ -1450,8 +1416,8 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
   const courses = [
     {
       code: "ICT301", name: "Information Technology Project 1", credits: 3,
-      students: 32, schedule: "Mon/Wed 8:00–10:00 AM", room: "IT-201",
-      progress: 55, color: "#2563eb", bg: "from-blue-50 to-white",
+      students: 3, schedule: "Completed Trimester 1", room: "IT-201",
+      progress: 100, color: "#2563eb", bg: "from-blue-50 to-white",
       badge: "bg-blue-100 text-blue-700", borderColor: "border-blue-200",
       topics: ["System Analysis & Design", "Project Planning", "Agile Methodology", "Documentation Standards"],
       allTopics: [
@@ -1459,113 +1425,54 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
         { title: "Project Planning & Estimation", desc: "Gantt charting, milestone breakdown structures, and resource allocation." },
       ],
       upcoming: [
-        { label: "Milestone 2 Due", date: "Sep 5, 2026", type: "Assignment" },
-        { label: "Sprint Review", date: "Sep 10, 2026", type: "Class" },
+        { label: "Course Completed", date: "Jun 20, 2026", type: "Class" },
       ],
       allUpcoming: [
-        { label: "Milestone 2 Due", date: "Sep 5, 2026", type: "Assignment", detail: "ICT301 Preliminary Design & Architecture Submission" },
-        { label: "ICT301 Lecture: CI/CD Pipelines", date: "Sep 6, 2026", type: "Class", detail: "Room IT-201 · 8:00–10:00 AM" },
-        { label: "Sprint Review & Milestone Check", date: "Sep 10, 2026", type: "Class", detail: "Room IT-201 · 8:00–10:00 AM" },
-        { label: "Weekly Quiz 3: Project Management", date: "Sep 12, 2026", type: "Quiz", detail: "Online Quiz · 15 Multiple Choice Questions" },
-        { label: "Milestone 3 Draft Submissions", date: "Sep 18, 2026", type: "Assignment", detail: "Working software prototype demonstration" },
-        { label: "Final Project Defense & Showcase", date: "Sep 25, 2026", type: "Class", detail: "Auditorium A · 9:00 AM–1:00 PM" },
+        { label: "Milestone 1: Project Scope", date: "Mar 15, 2026", type: "Assignment", detail: "ICT301 Project Charter and Scope Documentation" },
+        { label: "Milestone 2: System Architecture", date: "Apr 20, 2026", type: "Assignment", detail: "ICT301 Preliminary Design & Architecture Submission" },
+        { label: "Final Project Report", date: "Jun 15, 2026", type: "Assignment", detail: "Comprehensive Capstone Part 1 Report (Graded HD)" },
       ],
       students_list: [
-        { name: "Marco Reyes", id: "STU-0231", grade: "B+" },
-        { name: "Sofia Tan", id: "STU-0198", grade: "A" },
-        { name: "Liam Garcia", id: "STU-0274", grade: "B" },
+        { name: "Richard Vitug", id: "20030988", grade: "HD" },
+        { name: "Yusuf Rana Magar", id: "20027782", grade: "HD" },
+        { name: "Sadia Binte Mahmud", id: "20035294", grade: "HD" },
       ],
       allStudents: [
-        { name: "Marco Reyes", id: "STU-0231", email: "m.reyes@student.edu", grade: "B+", status: "Active", submitted: 8, total: 10 },
-        { name: "Liam Garcia", id: "STU-0274", email: "l.garcia@student.edu", grade: "B", status: "Active", submitted: 7, total: 10 },
-        { name: "Luna Santos", id: "STU-0422", email: "l.santos@student.edu", grade: "C+", status: "At Risk", submitted: 5, total: 10 },
-        { name: "Chloe Taylor", id: "STU-0455", email: "c.taylor@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
-        { name: "Daniel Lee", id: "STU-0466", email: "d.lee@student.edu", grade: "B+", status: "Active", submitted: 9, total: 10 },
-        { name: "Emily Watson", id: "STU-0477", email: "e.watson@student.edu", grade: "A-", status: "Active", submitted: 9, total: 10 },
+        { name: "Richard Vitug", id: "20030988", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Completed", submitted: 3, total: 3 },
+        { name: "Yusuf Rana Magar", id: "20027782", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Completed", submitted: 3, total: 3 },
+        { name: "Sadia Binte Mahmud", id: "20035294", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Completed", submitted: 3, total: 3 },
       ],
     },
     {
-      code: "ICT272", name: "Web Design and Development", credits: 3,
-      students: 38, schedule: "Tue/Thu 10:00 AM–12:00 PM", room: "Online – Zoom",
-      progress: 40, color: "#0e9f6e", bg: "from-emerald-50 to-white",
+      code: "ICT302", name: "Information Technology Project 2", credits: 3,
+      students: 3, schedule: "Mon/Wed 10:00 AM–12:00 PM", room: "IT-302",
+      progress: 45, color: "#0e9f6e", bg: "from-emerald-50 to-white",
       badge: "bg-emerald-100 text-emerald-700", borderColor: "border-emerald-200",
-      topics: ["HTML5 & CSS3", "JavaScript Fundamentals", "React.js Basics", "Responsive Design"],
+      topics: ["Agile Sprint Execution", "Full-Stack Implementation", "CI/CD & Testing", "Final Product Showcase"],
       allTopics: [
-        { title: "HTML5 & CSS3 Semantics", desc: "Semantic markup, modern layout techniques, and modern styling rules." },
-        { title: "JavaScript Fundamentals & ES6+", desc: "Arrow functions, destructuring, promises, and async/await." },
-        { title: "DOM Manipulation & Events", desc: "Browser events, element selectors, and event delegation patterns." },
-        { title: "Responsive Design & Flexbox/Grid", desc: "Mobile-first layouts, breakpoints, container queries, and fluid typography." },
-        { title: "React.js Basics & Component Architecture", desc: "JSX, props, unidirectional data flow, and composable UI design." },
-        { title: "React State Management & Hooks", desc: "useState, useEffect, custom hooks, and shared application state." },
-        { title: "Web Accessibility (WCAG 2.1)", desc: "ARIA landmarks, screen reader optimization, and color contrast compliance." },
-        { title: "REST APIs & Client Integration", desc: "Fetching remote datasets, JSON parsing, error boundaries, and loading states." },
+        { title: "Sprint Execution & Scrum Workflow", desc: "Two-week sprints, backlog grooming, and burndown tracking." },
+        { title: "Next.js & Neon PostgreSQL Integration", desc: "Pure SSR data flow, Server Actions, and relational schema migrations." },
+        { title: "Automated Testing & QA Verification", desc: "Playwright end-to-end tests, unit validation, and regression suites." },
+        { title: "Production Deployment & Showcase Defense", desc: "Production hosting, live user acceptance testing, and final defense presentation." },
       ],
       upcoming: [
-        { label: "Lab Exercise 4 Due", date: "Sep 7, 2026", type: "Assignment" },
-        { label: "Online Lecture Week 5", date: "Sep 9, 2026", type: "Class" },
+        { label: "Sprint 1 Deliverable Due", date: "Sep 15, 2026", type: "Assignment" },
+        { label: "Sprint 2 Architecture Check", date: "Sep 29, 2026", type: "Class" },
       ],
       allUpcoming: [
-        { label: "Lab Exercise 3: DOM Manipulation", date: "Sep 3, 2026", type: "Assignment", detail: "Interactive JavaScript task submission" },
-        { label: "ICT272 Online Lecture: React Hooks", date: "Sep 4, 2026", type: "Class", detail: "Online – Zoom · 10:00 AM–12:00 PM" },
-        { label: "Lab Exercise 4 Due", date: "Sep 7, 2026", type: "Assignment", detail: "React component building exercise" },
-        { label: "Online Lecture Week 5: Styling Systems", date: "Sep 9, 2026", type: "Class", detail: "Online – Zoom · 10:00 AM–12:00 PM" },
-        { label: "Lab Quiz 1: JavaScript & Web Concepts", date: "Sep 10, 2026", type: "Quiz", detail: "Timed online quiz · 20 Questions" },
-        { label: "Midterm Interactive Prototype Project", date: "Sep 20, 2026", type: "Assignment", detail: "Full responsive Single Page Application" },
+        { label: "Sprint 1 Deliverable: Core Auth & Portals", date: "Sep 15, 2026", type: "Assignment", detail: "Authentication and portal navigation deliverable" },
+        { label: "Sprint 2: Course Materials & Quizzes", date: "Sep 29, 2026", type: "Assignment", detail: "Interactive quiz engine and learning materials modules" },
+        { label: "Capstone Final Showcase & Presentation", date: "Oct 25, 2026", type: "Class", detail: "Live capstone demo in Main Auditorium" },
       ],
       students_list: [
-        { name: "Aisha Patel", id: "STU-0312", grade: "A-" },
-        { name: "Ethan Cruz", id: "STU-0299", grade: "B+" },
-        { name: "Maya Lopez", id: "STU-0344", grade: "A" },
+        { name: "Richard Vitug", id: "20030988", grade: "HD" },
+        { name: "Yusuf Rana Magar", id: "20027782", grade: "HD" },
+        { name: "Sadia Binte Mahmud", id: "20035294", grade: "HD" },
       ],
       allStudents: [
-        { name: "Sofia Tan", id: "STU-0198", email: "s.tan@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
-        { name: "Aisha Patel", id: "STU-0312", email: "a.patel@student.edu", grade: "A-", status: "Active", submitted: 9, total: 10 },
-        { name: "Ethan Cruz", id: "STU-0299", email: "e.cruz@student.edu", grade: "B+", status: "Active", submitted: 9, total: 10 },
-        { name: "Maya Lopez", id: "STU-0344", email: "m.lopez@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
-        { name: "Raj Sharma", id: "STU-0433", email: "r.sharma@student.edu", grade: "B", status: "Active", submitted: 8, total: 10 },
-        { name: "Ben Miller", id: "STU-0488", email: "b.miller@student.edu", grade: "B+", status: "Active", submitted: 8, total: 10 },
-      ],
-    },
-    {
-      code: "ICT126", name: "Artificial Intelligence", credits: 3,
-      students: 26, schedule: "Fri 1:00–3:00 PM", room: "IT-304",
-      progress: 48, color: "#7c3aed", bg: "from-purple-50 to-white",
-      badge: "bg-purple-100 text-purple-700", borderColor: "border-purple-200",
-      topics: ["Introduction to AI", "Machine Learning Basics", "Neural Networks", "Ethical AI"],
-      allTopics: [
-        { title: "Introduction to AI & Intelligent Agents", desc: "Agent environments, rationality, Turing test, and foundational paradigms." },
-        { title: "Problem Solving & Search Algorithms", desc: "Uninformed search (BFS, DFS) and informed heuristic search (A* Search)." },
-        { title: "Machine Learning Basics & Supervised Learning", desc: "Linear regression, logistic regression, and decision tree classifiers." },
-        { title: "Unsupervised Learning & Clustering", desc: "K-means, dimensionality reduction via PCA, and clustering evaluation." },
-        { title: "Neural Networks & Deep Learning", desc: "Perceptrons, backpropagation, activation functions, and convolutional layers." },
-        { title: "Natural Language Processing (NLP)", desc: "Tokenization, bag-of-words, TF-IDF, transformers, and sentiment analysis." },
-        { title: "Ethical AI, Bias & Fairness", desc: "Algorithmic bias, safety alignment, transparency, and regulation standards." },
-        { title: "Reinforcement Learning & Future Trends", desc: "Markov decision processes, Q-learning, and autonomous systems outlook." },
-      ],
-      upcoming: [
-        { label: "Midterm Quiz", date: "Sep 8, 2026", type: "Quiz" },
-        { label: "AI Case Study Presentation", date: "Sep 19, 2026", type: "Assignment" },
-      ],
-      allUpcoming: [
-        { label: "Assignment 2: ML Algorithm Analysis", date: "Sep 4, 2026", type: "Assignment", detail: "Classifier benchmark comparison report" },
-        { label: "ICT126 Lab: Neural Network Training", date: "Sep 5, 2026", type: "Class", detail: "Room IT-304 · 1:00–3:00 PM" },
-        { label: "Midterm Quiz: Core AI Foundations", date: "Sep 8, 2026", type: "Quiz", detail: "Lab Quiz · 25 Multiple Choice & Short Answer" },
-        { label: "AI Ethics Reading Reflection", date: "Sep 14, 2026", type: "Assignment", detail: "Short paper on algorithmic transparency" },
-        { label: "AI Case Study Presentation", date: "Sep 19, 2026", type: "Assignment", detail: "Group presentation and slide deck submission" },
-        { label: "Term Project: Deep Learning Pipeline", date: "Sep 28, 2026", type: "Assignment", detail: "Computer vision classification model submission" },
-      ],
-      students_list: [
-        { name: "Noah Kim", id: "STU-0401", grade: "A+" },
-        { name: "Priya Nair", id: "STU-0388", grade: "B" },
-        { name: "Carlos Vega", id: "STU-0411", grade: "B+" },
-      ],
-      allStudents: [
-        { name: "Noah Kim", id: "STU-0401", email: "n.kim@student.edu", grade: "A+", status: "Active", submitted: 10, total: 10 },
-        { name: "Priya Nair", id: "STU-0388", email: "p.nair@student.edu", grade: "B", status: "Active", submitted: 7, total: 10 },
-        { name: "Carlos Vega", id: "STU-0411", email: "c.vega@student.edu", grade: "B+", status: "Active", submitted: 8, total: 10 },
-        { name: "Zoe Andrade", id: "STU-0444", email: "z.andrade@student.edu", grade: "A-", status: "Active", submitted: 9, total: 10 },
-        { name: "Lucas Scott", id: "STU-0499", email: "l.scott@student.edu", grade: "B", status: "Active", submitted: 7, total: 10 },
-        { name: "Hana Tanaka", id: "STU-0501", email: "h.tanaka@student.edu", grade: "A", status: "Active", submitted: 10, total: 10 },
+        { name: "Richard Vitug", id: "20030988", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Active", submitted: 2, total: 3 },
+        { name: "Yusuf Rana Magar", id: "20027782", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Active", submitted: 2, total: 3 },
+        { name: "Sadia Binte Mahmud", id: "20035294", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Active", submitted: 2, total: 3 },
       ],
     },
   ];
@@ -2113,18 +2020,9 @@ function StudentsPage() {
   const [viewStudent, setViewStudent] = useState<null | typeof students[0]>(null);
 
   const students = [
-    { name: "Marco Reyes",   id: "STU-0231", course: "ICT301", email: "m.reyes@student.edu", grade: "B+", status: "Active",   submitted: 8, total: 10 },
-    { name: "Sofia Tan",     id: "STU-0198", course: "ICT272", email: "s.tan@student.edu",   grade: "A",  status: "Active",   submitted: 10, total: 10 },
-    { name: "Liam Garcia",   id: "STU-0274", course: "ICT301", email: "l.garcia@student.edu",grade: "B",  status: "Active",   submitted: 7, total: 10 },
-    { name: "Aisha Patel",   id: "STU-0312", course: "ICT272", email: "a.patel@student.edu", grade: "A-", status: "Active",   submitted: 9, total: 10 },
-    { name: "Ethan Cruz",    id: "STU-0299", course: "ICT272", email: "e.cruz@student.edu",  grade: "B+", status: "Active",   submitted: 9, total: 10 },
-    { name: "Maya Lopez",    id: "STU-0344", course: "ICT272", email: "m.lopez@student.edu", grade: "A",  status: "Active",   submitted: 10, total: 10 },
-    { name: "Noah Kim",      id: "STU-0401", course: "ICT126", email: "n.kim@student.edu",   grade: "A+", status: "Active",   submitted: 10, total: 10 },
-    { name: "Priya Nair",    id: "STU-0388", course: "ICT126", email: "p.nair@student.edu",  grade: "B",  status: "Active",   submitted: 7, total: 10 },
-    { name: "Carlos Vega",   id: "STU-0411", course: "ICT126", email: "c.vega@student.edu",  grade: "B+", status: "Active",   submitted: 8, total: 10 },
-    { name: "Luna Santos",   id: "STU-0422", course: "ICT301", email: "l.santos@student.edu",grade: "C+", status: "At Risk", submitted: 5, total: 10 },
-    { name: "Raj Sharma",    id: "STU-0433", course: "ICT272", email: "r.sharma@student.edu",grade: "B",  status: "Active",   submitted: 8, total: 10 },
-    { name: "Zoe Andrade",   id: "STU-0444", course: "ICT126", email: "z.andrade@student.edu",grade: "A-", status: "Active",  submitted: 9, total: 10 },
+    { name: "Yusuf Rana Magar",   id: "20027782", course: "ICT302", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Active",   submitted: 10, total: 10 },
+    { name: "Richard Vitug",       id: "20030988", course: "ICT302", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Active",   submitted: 10, total: 10 },
+    { name: "Sadia Binte Mahmud", id: "20035294", course: "ICT302", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Active",   submitted: 10, total: 10 },
   ];
 
   const filtered = students.filter((s) => {
@@ -2214,9 +2112,8 @@ function StudentsPage() {
             className="px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
             <option value="all">All Courses</option>
-            <option value="ICT301">ICT301</option>
-            <option value="ICT272">ICT272</option>
-            <option value="ICT126">ICT126</option>
+            <option value="ICT301">ICT301 (Completed)</option>
+            <option value="ICT302">ICT302 (Active)</option>
             <option value="At Risk">At Risk</option>
           </select>
         </div>
@@ -2328,6 +2225,98 @@ function AssignmentsPage({
   const [searchQuery, setSearchQuery] = useState("");
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  const [neonSubmissions, setNeonSubmissions] = useState<InstructorGradingQueueItem[]>([]);
+  const [loadingSubmissions, setLoadingSubmissions] = useState(true);
+  const [submissionsError, setSubmissionsError] = useState<string | null>(null);
+  const [gradingTarget, setGradingTarget] = useState<InstructorGradingQueueItem | null>(null);
+  const [gradeScore, setGradeScore] = useState("");
+  const [gradeFeedback, setGradeFeedback] = useState("");
+  const [releaseImmediately, setReleaseImmediately] = useState(true);
+  const [gradingSaving, setGradingSaving] = useState(false);
+
+  const reloadSubmissions = async () => {
+    setLoadingSubmissions(true);
+    try {
+      const res = await getInstructorGradingQueueAction();
+      if (res.success && res.submissions) {
+        setNeonSubmissions(res.submissions);
+        setSubmissionsError(null);
+      } else if (!res.success) {
+        setSubmissionsError(res.error ?? "Failed to load student submissions.");
+      }
+    } finally {
+      setLoadingSubmissions(false);
+    }
+  };
+
+  useEffect(() => {
+    void reloadSubmissions();
+  }, []);
+
+  const openGradeModal = (sub: InstructorGradingQueueItem) => {
+    setGradingTarget(sub);
+    setGradeScore(sub.score != null ? String(sub.score) : "");
+    setGradeFeedback(sub.feedback ?? "");
+    setReleaseImmediately(true);
+  };
+
+  const handleDeleteSubmission = async (sub: InstructorGradingQueueItem) => {
+    const res = await deleteSubmissionAction(sub.id);
+    if (res.success) {
+      setNeonSubmissions((prev) => prev.filter((item) => item.id !== sub.id));
+      setToastMessage(`Removed submission ${sub.receiptNumber} (${sub.fileName}).`);
+    } else {
+      setToastMessage(res.error ?? "Failed to remove submission.");
+    }
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const getLiveGradeBand = (scoreStr: string, maxScore: number) => {
+    const val = Number(scoreStr);
+    if (!scoreStr.trim() || !Number.isFinite(val) || val < 0 || val > maxScore) return null;
+    const pct = Math.round((val / (maxScore > 0 ? maxScore : 100)) * 1000) / 10;
+    if (pct >= 85) return { pct, code: "HD", label: "High Distinction (HD)", cls: "bg-emerald-50 text-emerald-700 border-emerald-200" };
+    if (pct >= 75) return { pct, code: "DI", label: "Distinction (DI)", cls: "bg-blue-50 text-blue-700 border-blue-200" };
+    if (pct >= 65) return { pct, code: "CR", label: "Credit (CR)", cls: "bg-indigo-50 text-indigo-700 border-indigo-200" };
+    if (pct >= 50) return { pct, code: "P", label: "Pass (P)", cls: "bg-amber-50 text-amber-700 border-amber-200" };
+    return { pct, code: "F", label: "Fail (F)", cls: "bg-red-50 text-red-700 border-red-200" };
+  };
+
+  const handleSaveGrade = async () => {
+    if (!gradingTarget) return;
+    const numericScore = Number(gradeScore);
+    if (!Number.isFinite(numericScore) || numericScore < 0 || numericScore > gradingTarget.maxScore) {
+      setToastMessage(`Enter a valid score between 0 and ${gradingTarget.maxScore}.`);
+      setTimeout(() => setToastMessage(null), 3000);
+      return;
+    }
+    setGradingSaving(true);
+    try {
+      const res = await gradeSubmissionAction({
+        studentName: gradingTarget.studentName,
+        studentEmail: gradingTarget.studentEmail,
+        courseCode: gradingTarget.courseCode,
+        assignmentTitle: gradingTarget.assignmentTitle,
+        score: numericScore,
+        maxScore: gradingTarget.maxScore,
+        feedback: gradeFeedback.trim() || undefined,
+        releaseImmediately,
+      });
+      if (res.success) {
+        setToastMessage(
+          `Graded ${gradingTarget.studentName}: ${numericScore}/${gradingTarget.maxScore} (${res.gradeLabel ?? "Saved"}).`
+        );
+        setGradingTarget(null);
+        await reloadSubmissions();
+      } else {
+        setToastMessage(res.error ?? "Failed to save grade.");
+      }
+    } finally {
+      setGradingSaving(false);
+      setTimeout(() => setToastMessage(null), 3500);
+    }
+  };
+
   // Detail View State
   const [viewItem, setViewItem] = useState<null | {
     id?: string;
@@ -2399,9 +2388,8 @@ function AssignmentsPage({
   }>(null);
 
   const courseTotals: Record<string, number> = {
-    ICT301: 32,
-    ICT272: 38,
-    ICT126: 26,
+    ICT302: 3,
+    ICT301: 3,
   };
 
   // ── Handlers ──
@@ -2727,38 +2715,64 @@ function AssignmentsPage({
         )}
 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-          <h3 className="text-sm font-bold text-gray-800 mb-4">Recent Submissions</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-4">Student Submissions</h3>
           <div className="space-y-3">
             {(() => {
-              const allSubmissions = getSharedSubmissions();
-              const itemSubs = allSubmissions.filter(
-                (s) => (viewItem.id && s.itemId === viewItem.id) || s.itemTitle === viewItem.title
+              const itemSubs = neonSubmissions.filter(
+                (s) =>
+                  s.courseCode === viewItem.course &&
+                  (s.assignmentTitle === viewItem.title ||
+                    s.assignmentTitle.toLowerCase().includes(viewItem.title.toLowerCase()) ||
+                    viewItem.title.toLowerCase().includes("assessment 1"))
               );
-              const defaultNames = ["Marco Reyes", "Sofia Tan", "Aisha Patel", "Ethan Cruz"];
-              const list: { name: string; time: string }[] = [
-                ...itemSubs.map((s) => ({ name: s.studentName, time: s.submittedAt })),
-                ...defaultNames.map((name, i) => ({
-                  name,
-                  time: i === 0 ? "5 min ago" : i === 1 ? "1 hr ago" : "3 hrs ago",
-                })),
-              ].slice(0, Math.max(1, Math.min(itemSubs.length || 3, viewItem.submissions || 3)));
-
-              return list.map((item, i) => (
-                <div key={i} className="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#1a3a9e" }}>
-                      {item.name.split(" ").map((n) => n[0]).join("")}
+              if (loadingSubmissions) {
+                return <p className="text-xs text-gray-400">Loading submissions...</p>;
+              }
+              if (itemSubs.length === 0) {
+                return <p className="text-xs text-gray-400">No student submissions yet for this item.</p>;
+              }
+              return itemSubs.map((sub) => {
+                const isGraded = sub.score !== null;
+                return (
+                  <div key={sub.id} className="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0 gap-4">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
+                        style={{ background: "#1a3a9e" }}
+                      >
+                        {getInitials(sub.studentName)}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-gray-800">{sub.studentName}</p>
+                        <p className="text-[11px] text-gray-500 truncate">
+                          File: <span className="font-medium text-gray-700">{sub.fileName}</span> · Receipt:{" "}
+                          <span className="font-mono">{sub.receiptNumber}</span> ·{" "}
+                          {new Date(sub.submittedAt).toLocaleString()}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-gray-800">{item.name}</p>
-                      <p className="text-[10px] text-gray-400">Submitted {item.time}</p>
+                    <div className="flex items-center gap-2.5 shrink-0">
+                      {isGraded ? (
+                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-green-50 text-green-700 border border-green-200">
+                          {sub.score}/{sub.maxScore}
+                        </span>
+                      ) : (
+                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                          Needs Grading
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => openGradeModal(sub)}
+                        className="text-xs font-semibold px-3 py-1.5 rounded-lg text-white transition-colors cursor-pointer"
+                        style={{ background: isGraded ? "#374151" : "#1a3a9e" }}
+                      >
+                        {isGraded ? "Update Grade" : "Grade Now"}
+                      </button>
                     </div>
                   </div>
-                  <button onClick={() => setActive("grades")} className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer">
-                    Grade Now
-                  </button>
-                </div>
-              ));
+                );
+              });
             })()}
           </div>
         </div>
@@ -2891,24 +2905,156 @@ function AssignmentsPage({
 
               {open === c.code && (
                 <div className="border-t border-gray-100">
-                  {/* ── ASSIGNMENTS SECTION ── */}
-                  <div className="px-5 py-2.5 bg-gray-50/75 border-b border-gray-100 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-600">Assignments</span>
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">
-                        {courseAssignments.length}
-                      </span>
-                    </div>
-                    <span className="text-[11px] text-gray-400">Regular coursework &amp; lab exercises</span>
-                  </div>
+                  {/* ── STUDENT SUBMISSIONS (MOODLE-STYLE GRADING TABLE) ── */}
+                  {(() => {
+                    const hiddenLegacyReceipts = new Set(["#EDF-2026-4439", "#EDF-2026-3021-2003988"]);
+                    const courseSubmissions = neonSubmissions.filter(
+                      (s) =>
+                        s.courseCode === c.code &&
+                        !hiddenLegacyReceipts.has(s.receiptNumber) &&
+                        (!q ||
+                          s.studentName.toLowerCase().includes(q) ||
+                          s.assignmentTitle.toLowerCase().includes(q) ||
+                          s.fileName.toLowerCase().includes(q))
+                    );
+                    return (
+                      <div>
+                        <div className="px-5 py-2.5 bg-blue-50/60 border-b border-blue-100 flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold uppercase tracking-wider text-[#1a3a9e]">
+                              Student Submissions
+                            </span>
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-[#1a3a9e]">
+                              {courseSubmissions.length}
+                            </span>
+                          </div>
+                          <span className="text-[11px] text-gray-500">
+                            Submitted files &amp; Moodle-style grading
+                          </span>
+                        </div>
 
-                  {courseAssignments.length === 0 ? (
-                    <div className="px-5 py-4 text-center text-xs text-gray-400">
-                      {q ? "No assignments match your search." : "No assignments in this course."}
-                    </div>
-                  ) : (
-                    <div className="divide-y divide-gray-50">
-                      {courseAssignments.map((a, i) => (
+                        {submissionsError ? (
+                          <div className="px-5 py-3 bg-red-50 border-b border-red-100 text-xs text-red-700">
+                            {submissionsError}
+                          </div>
+                        ) : loadingSubmissions ? (
+                          <div className="px-5 py-4 text-xs text-gray-400">Loading student submissions...</div>
+                        ) : courseSubmissions.length === 0 ? (
+                          <div className="px-5 py-4 text-center text-xs text-gray-400">
+                            {q
+                              ? "No student submissions match your search."
+                              : "No student submissions yet for this course."}
+                          </div>
+                        ) : (
+                          <div className="overflow-x-auto border-b border-gray-100">
+                            <table className="w-full text-left border-collapse">
+                              <thead>
+                                <tr className="bg-gray-50/80 border-b border-gray-100 text-[11px] font-semibold uppercase tracking-wider text-gray-500">
+                                  <th className="py-2.5 px-5">Student</th>
+                                  <th className="py-2.5 px-4">Assessment / Deliverable</th>
+                                  <th className="py-2.5 px-4">Submitted File</th>
+                                  <th className="py-2.5 px-4">Submitted</th>
+                                  <th className="py-2.5 px-4">Status / Grade</th>
+                                  <th className="py-2.5 px-5 text-right">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-gray-100 text-xs">
+                                {courseSubmissions.map((sub) => {
+                                  const isGraded = sub.score !== null;
+                                  return (
+                                    <tr key={sub.id} className="hover:bg-blue-50/20 transition-colors">
+                                      <td className="py-3 px-5">
+                                        <div className="flex items-center gap-2.5">
+                                          <div
+                                            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0"
+                                            style={{ background: "#1a3a9e" }}
+                                          >
+                                            {getInitials(sub.studentName)}
+                                          </div>
+                                          <div>
+                                            <p className="font-semibold text-gray-900">{sub.studentName}</p>
+                                            <p className="text-[11px] text-gray-400">{sub.studentEmail}</p>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td className="py-3 px-4">
+                                        <p className="font-medium text-gray-800">{sub.assignmentTitle}</p>
+                                        <p className="text-[11px] text-gray-400 font-mono">{sub.receiptNumber}</p>
+                                      </td>
+                                      <td className="py-3 px-4">
+                                        <button
+                                          type="button"
+                                          onClick={() => openGradeModal(sub)}
+                                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#1a3a9e] font-medium transition-colors cursor-pointer"
+                                          title="View submitted file & grade"
+                                        >
+                                          <IconFile className="w-3.5 h-3.5 text-[#1a3a9e]" />
+                                          <span>{sub.fileName}</span>
+                                          {sub.fileSizeLabel && (
+                                            <span className="text-[10px] text-gray-500">({sub.fileSizeLabel})</span>
+                                          )}
+                                        </button>
+                                      </td>
+                                      <td className="py-3 px-4 text-gray-500">
+                                        {new Date(sub.submittedAt).toLocaleString()}
+                                      </td>
+                                      <td className="py-3 px-4">
+                                        {isGraded ? (
+                                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-700 font-semibold border border-green-200">
+                                            {sub.score}/{sub.maxScore}
+                                            {sub.gradeLabel ? ` (${sub.gradeLabel})` : ""}
+                                          </span>
+                                        ) : (
+                                          <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 font-semibold border border-amber-200">
+                                            Needs Grading
+                                          </span>
+                                        )}
+                                      </td>
+                                      <td className="py-3 px-5 text-right">
+                                        <div className="inline-flex items-center gap-1.5">
+                                          <button
+                                            type="button"
+                                            onClick={() => openGradeModal(sub)}
+                                            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-colors cursor-pointer"
+                                            style={{ background: isGraded ? "#374151" : "#1a3a9e" }}
+                                          >
+                                            {isGraded ? "Update Grade" : "Grade"}
+                                          </button>
+                                          <button
+                                            type="button"
+                                            onClick={() => void handleDeleteSubmission(sub)}
+                                            className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                                            title="Remove submission"
+                                          >
+                                            <IconTrash className="w-4 h-4" />
+                                          </button>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
+
+                  {/* ── ASSIGNMENTS SECTION (only shown when non-empty) ── */}
+                  {courseAssignments.length > 0 && (
+                    <>
+                      <div className="px-5 py-2.5 bg-gray-50/75 border-b border-gray-100 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold uppercase tracking-wider text-gray-600">Assignments</span>
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">
+                            {courseAssignments.length}
+                          </span>
+                        </div>
+                        <span className="text-[11px] text-gray-400">Regular coursework &amp; lab exercises</span>
+                      </div>
+                      <div className="divide-y divide-gray-50">
+                        {courseAssignments.map((a, i) => (
                         <div key={a.id || i} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50/60 transition-colors gap-3 flex-wrap sm:flex-nowrap">
                           <div className="flex items-center gap-3">
                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${a.graded ? "bg-green-50 text-green-600" : "bg-amber-50 text-amber-500"}`}>
@@ -2954,6 +3100,7 @@ function AssignmentsPage({
                         </div>
                       ))}
                     </div>
+                    </>
                   )}
 
                   {/* ── ASSESSMENTS SECTION ── */}
@@ -3035,6 +3182,197 @@ function AssignmentsPage({
         })}
       </div>
 
+      {/* ── Moodle-Style Split-Screen File Viewer & Grading Modal ── */}
+      {gradingTarget && (() => {
+        const lowerName = gradingTarget.fileName.toLowerCase();
+        const isInlinePreviewable =
+          !gradingTarget.hasStoredFile ||
+          lowerName.endsWith(".pdf") ||
+          lowerName.endsWith(".txt") ||
+          lowerName.endsWith(".md") ||
+          lowerName.endsWith(".png") ||
+          lowerName.endsWith(".jpg") ||
+          lowerName.endsWith(".jpeg");
+        const liveBand = getLiveGradeBand(gradeScore, gradingTarget.maxScore);
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden">
+              {/* Modal Header */}
+              <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between gap-4 bg-gray-50/70">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-[#1a3a9e]">
+                      {gradingTarget.courseCode}
+                    </span>
+                    <span className="text-[11px] font-mono text-gray-500">{gradingTarget.receiptNumber}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900 mt-1">
+                    {gradingTarget.studentName} — {gradingTarget.assignmentTitle}
+                  </h3>
+                  <p className="text-xs text-gray-500">
+                    {gradingTarget.studentEmail} · Submitted {new Date(gradingTarget.submittedAt).toLocaleString()}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setGradingTarget(null)}
+                  className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 text-sm font-bold cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Split Body: Left = File Preview + Notes | Right = Moodle Grading Panel */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 flex-1 min-h-0 overflow-y-auto">
+                {/* Left Pane: Submitted File & Student Notes */}
+                <div className="lg:col-span-7 p-5 border-b lg:border-b-0 lg:border-r border-gray-100 flex flex-col gap-4 bg-gray-50/40">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <IconFile className="w-4 h-4 text-[#1a3a9e]" />
+                      <span className="text-xs font-bold text-gray-800 truncate">{gradingTarget.fileName}</span>
+                      <span className="text-[11px] text-gray-400">({gradingTarget.fileSizeLabel})</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={gradingTarget.fileViewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors"
+                      >
+                        Open in New Tab
+                      </a>
+                      <a
+                        href={`${gradingTarget.fileViewUrl}?download=1`}
+                        download={gradingTarget.fileName}
+                        className="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-white transition-colors"
+                        style={{ background: "#1a3a9e" }}
+                      >
+                        Download File
+                      </a>
+                    </div>
+                  </div>
+
+                  {isInlinePreviewable ? (
+                    <iframe
+                      src={gradingTarget.fileViewUrl}
+                      title={gradingTarget.fileName}
+                      className="w-full flex-1 min-h-[340px] rounded-xl border border-gray-200 bg-white"
+                    />
+                  ) : (
+                    <div className="flex-1 min-h-[260px] rounded-xl border border-dashed border-gray-300 bg-white flex flex-col items-center justify-center p-6 text-center gap-3">
+                      <IconFile className="w-10 h-10 text-[#1a3a9e]" />
+                      <div>
+                        <p className="text-sm font-bold text-gray-800">{gradingTarget.fileName}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          Word/ZIP deliverables open via download. Click below to inspect the file before grading.
+                        </p>
+                      </div>
+                      <a
+                        href={`${gradingTarget.fileViewUrl}?download=1`}
+                        download={gradingTarget.fileName}
+                        className="px-4 py-2 rounded-xl text-xs font-semibold text-white"
+                        style={{ background: "#1a3a9e" }}
+                      >
+                        Download {gradingTarget.fileName}
+                      </a>
+                    </div>
+                  )}
+
+                  {gradingTarget.comments && (
+                    <div className="rounded-xl bg-white border border-gray-200 p-3.5">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+                        Student Notes / Self-Reflection
+                      </p>
+                      <p className="text-xs text-gray-700 whitespace-pre-wrap leading-relaxed max-h-40 overflow-y-auto">
+                        {gradingTarget.comments}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Right Pane: Grading & KOI Grade Band */}
+                <div className="lg:col-span-5 p-5 flex flex-col justify-between gap-4">
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <label className="text-xs font-semibold text-gray-700">
+                          Mark (out of {gradingTarget.maxScore})
+                        </label>
+                        {liveBand && (
+                          <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${liveBand.cls}`}>
+                            {liveBand.pct}% · {liveBand.label}
+                          </span>
+                        )}
+                      </div>
+                      <input
+                        type="number"
+                        min={0}
+                        max={gradingTarget.maxScore}
+                        step="0.5"
+                        value={gradeScore}
+                        onChange={(e) => setGradeScore(e.target.value)}
+                        placeholder={`0 - ${gradingTarget.maxScore}`}
+                        className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a3a9e]"
+                      />
+                      <p className="text-[11px] text-gray-400 mt-1.5">
+                        KOI Scale: HD (85–100%) · DI (75–84%) · CR (65–74%) · P (50–64%) · F (&lt;50%)
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                        Instructor Feedback
+                      </label>
+                      <textarea
+                        rows={6}
+                        value={gradeFeedback}
+                        onChange={(e) => setGradeFeedback(e.target.value)}
+                        placeholder="Enter rubric feedback and comments for the student..."
+                        className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a3a9e]"
+                      />
+                    </div>
+
+                    <label className="flex items-center gap-2.5 text-xs text-gray-700 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={releaseImmediately}
+                        onChange={(e) => setReleaseImmediately(e.target.checked)}
+                        className="rounded border-gray-300 text-[#1a3a9e] focus:ring-[#1a3a9e]"
+                      />
+                      <span>Release marks &amp; feedback so student can view them immediately</span>
+                    </label>
+                  </div>
+
+                  <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-gray-100">
+                    <button
+                      type="button"
+                      onClick={() => setGradingTarget(null)}
+                      className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      disabled={gradingSaving}
+                      onClick={() => void handleSaveGrade()}
+                      className="px-4 py-2 rounded-xl text-xs font-semibold text-white transition-colors cursor-pointer disabled:opacity-60"
+                      style={{ background: "#1a3a9e" }}
+                    >
+                      {gradingSaving
+                        ? "Saving..."
+                        : releaseImmediately
+                          ? "Save & Release Grade"
+                          : "Save Grade (Draft)"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* ── New Assignment Modal ── */}
       {isAssignmentModalOpen && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
@@ -3064,9 +3402,8 @@ function AssignmentsPage({
                   onChange={(e) => setCreateAssignmentCourse(e.target.value)}
                   className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition"
                 >
+                  <option value="ICT302">ICT302 — Information Technology Project 2</option>
                   <option value="ICT301">ICT301 — Information Technology Project 1</option>
-                  <option value="ICT272">ICT272 — Web Design and Development</option>
-                  <option value="ICT126">ICT126 — Artificial Intelligence</option>
                 </select>
               </div>
 
@@ -3224,9 +3561,8 @@ function AssignmentsPage({
                   onChange={(e) => setCreateAssessmentCourse(e.target.value)}
                   className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:bg-white transition"
                 >
+                  <option value="ICT302">ICT302 — Information Technology Project 2</option>
                   <option value="ICT301">ICT301 — Information Technology Project 1</option>
-                  <option value="ICT272">ICT272 — Web Design and Development</option>
-                  <option value="ICT126">ICT126 — Artificial Intelligence</option>
                 </select>
               </div>
 
@@ -3582,12 +3918,10 @@ interface InstructorQuizItem {
 // ── Quizzes Page ──────────────────────────────────────────────────────────────
 function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
   const [quizzes, setQuizzes] = useState<InstructorQuizItem[]>([
-    { id: "q-1", title: "Weekly Quiz 1", course: "ICT301", date: "Aug 19, 2026", submissions: 32, total: 32, status: "Completed", avgScore: 82 },
-    { id: "q-2", title: "Weekly Quiz 2", course: "ICT272", date: "Aug 26, 2026", submissions: 37, total: 38, status: "Completed", avgScore: 78 },
-    { id: "q-3", title: "Weekly Quiz 3", course: "ICT126", date: "Sep 2, 2026",  submissions: 24, total: 26, status: "Active",    avgScore: null },
-    { id: "q-4", title: "Midterm Quiz",  course: "ICT126", date: "Sep 8, 2026",  submissions: 0,  total: 26, status: "Upcoming",  avgScore: null },
-    { id: "q-5", title: "Lab Quiz 1",    course: "ICT272", date: "Sep 10, 2026", submissions: 0,  total: 38, status: "Upcoming",  avgScore: null },
-    { id: "q-6", title: "Weekly Quiz 3", course: "ICT301", date: "Sep 3, 2026",  submissions: 18, total: 32, status: "Active",    avgScore: null },
+    { id: "q-1", title: "Sprint 1 Knowledge Check: Serverless Architecture & Next.js SSR", course: "ICT302", date: "Sep 22, 2026", submissions: 3, total: 3, status: "Active", avgScore: null },
+    { id: "q-2", title: "Continuous Progress Review 1: ERD & Connection Pooling", course: "ICT302", date: "Aug 28, 2026", submissions: 3, total: 3, status: "Completed", avgScore: 95 },
+    { id: "q-3", title: "Milestone 2 Architecture Knowledge Check", course: "ICT301", date: "May 10, 2026", submissions: 3, total: 3, status: "Completed", avgScore: 91 },
+    { id: "q-4", title: "Project Lifecycle & Scope Charter Review", course: "ICT301", date: "Mar 18, 2026", submissions: 3, total: 3, status: "Completed", avgScore: 97 },
   ]);
 
   const [viewQuiz, setViewQuiz] = useState<InstructorQuizItem | null>(null);
@@ -3724,9 +4058,8 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
                       onChange={(e) => setFormCourse(e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
+                      <option value="ICT302">ICT302</option>
                       <option value="ICT301">ICT301</option>
-                      <option value="ICT272">ICT272</option>
-                      <option value="ICT126">ICT126</option>
                     </select>
                   </div>
                   <div>
@@ -3866,9 +4199,8 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
                     onChange={(e) => setFormCourse(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
+                    <option value="ICT302">ICT302</option>
                     <option value="ICT301">ICT301</option>
-                    <option value="ICT272">ICT272</option>
-                    <option value="ICT126">ICT126</option>
                   </select>
                 </div>
                 <div>
@@ -3944,9 +4276,8 @@ function LearningMaterialsPage() {
   const [uploadDesc, setUploadDesc] = useState("");
 
   const courseColors: Record<string, string> = {
+    ICT302: "bg-emerald-100 text-emerald-700",
     ICT301: "bg-blue-100 text-blue-700",
-    ICT272: "bg-emerald-100 text-emerald-700",
-    ICT126: "bg-purple-100 text-purple-700",
   };
 
   const handleDownload = (m: LearningMaterialItem) => {
@@ -3961,9 +4292,8 @@ function LearningMaterialsPage() {
     if (!uploadTitle.trim()) return;
 
     const courseNameMap: Record<string, string> = {
+      ICT302: "Information Technology Project 2",
       ICT301: "Information Technology Project 1",
-      ICT272: "Web & Mobile Application Development",
-      ICT126: "Database Systems & Architecture",
     };
 
     const iconMap: Record<string, string> = {
@@ -4015,7 +4345,7 @@ function LearningMaterialsPage() {
       </div>
 
       <div className="flex items-center gap-2 mb-5 flex-wrap">
-        {["all", "ICT301", "ICT272", "ICT126", "Document", "Slides", "Video"].map((f) => (
+        {["all", "ICT302", "ICT301", "Document", "Slides", "Video"].map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
@@ -4093,9 +4423,8 @@ function LearningMaterialsPage() {
                     onChange={(e) => setUploadCourse(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
+                    <option value="ICT302">ICT302</option>
                     <option value="ICT301">ICT301</option>
-                    <option value="ICT272">ICT272</option>
-                    <option value="ICT126">ICT126</option>
                   </select>
                 </div>
                 <div>
@@ -4181,8 +4510,12 @@ function GradesPage() {
   const [course, setCourse] = useState("ICT301");
   const [gradingItem, setGradingItem] = useState<null | { student: string; assignment: string }>(null);
   const [scores, setScores] = useState<Record<string, string>>({});
+  const [rubric, setRubric] = useState({ technicalExecution: 36, methodology: 27, documentation: 27 });
   const [feedbackText, setFeedbackText] = useState("");
   const [submissionsList, setSubmissionsList] = useState(getSharedSubmissions);
+  const [dbGradeRecords, setDbGradeRecords] = useState<InstructorGradeRecordSummary[]>([]);
+  const [isSavingGrade, setIsSavingGrade] = useState(false);
+  const [gradeToast, setGradeToast] = useState<string | null>(null);
 
   useEffect(() => {
     const handleSync = () => setSubmissionsList(getSharedSubmissions());
@@ -4194,34 +4527,60 @@ function GradesPage() {
     };
   }, []);
 
+  useEffect(() => {
+    let active = true;
+    getInstructorGradingQueueAction(course).then((res) => {
+      if (active && res.success && res.gradeRecords) {
+        setDbGradeRecords(res.gradeRecords);
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, [course]);
+
+  const getRubricBand = (pts: number) => {
+    if (pts >= 85) return { code: "HD", label: "High Distinction (HD)", cls: "bg-emerald-100 text-emerald-800 border-emerald-200" };
+    if (pts >= 75) return { code: "DI", label: "Distinction (DI)", cls: "bg-blue-100 text-blue-800 border-blue-200" };
+    if (pts >= 65) return { code: "CR", label: "Credit (CR)", cls: "bg-indigo-100 text-indigo-800 border-indigo-200" };
+    if (pts >= 50) return { code: "P", label: "Pass (P)", cls: "bg-amber-100 text-amber-800 border-amber-200" };
+    return { code: "F", label: "Fail (F)", cls: "bg-red-100 text-red-800 border-red-200" };
+  };
+
   const courseGrades: Record<string, { student: string; assignments: (number | null)[]; quiz: number | null; total: string | null }[]> = {
     ICT301: [
-      { student: "Marco Reyes",   assignments: [92, 88, null], quiz: 85, total: null },
-      { student: "Sofia Tan",     assignments: [95, 92, null], quiz: 91, total: null },
-      { student: "Liam Garcia",   assignments: [80, 75, null], quiz: 78, total: null },
-      { student: "Luna Santos",   assignments: [65, 60, null], quiz: 70, total: null },
+      { student: "Richard Vitug",     assignments: [92, 88, 90], quiz: 85, total: "88% (HD)" },
+      { student: "Yusuf Rana Magar",  assignments: [88, 86, 90], quiz: 87, total: "88% (HD)" },
+      { student: "Sadia Binte Mahmud",assignments: [90, 87, 88], quiz: 86, total: "88% (HD)" },
     ],
-    ICT272: [
-      { student: "Aisha Patel",   assignments: [90, 88, 85], quiz: 87, total: "88%" },
-      { student: "Ethan Cruz",    assignments: [85, 82, 80], quiz: 83, total: "83%" },
-      { student: "Maya Lopez",    assignments: [95, 93, 91], quiz: 94, total: "93%" },
-      { student: "Raj Sharma",    assignments: [80, 78, 76], quiz: 79, total: "78%" },
-    ],
-    ICT126: [
-      { student: "Noah Kim",      assignments: [98, 95], quiz: null, total: null },
-      { student: "Priya Nair",    assignments: [80, 78], quiz: null, total: null },
-      { student: "Carlos Vega",   assignments: [85, 82], quiz: null, total: null },
-      { student: "Zoe Andrade",   assignments: [90, 88], quiz: null, total: null },
+    ICT302: [
+      { student: "Richard Vitug",     assignments: [90, 92, null], quiz: 95, total: "45% (In Progress)" },
+      { student: "Yusuf Rana Magar",  assignments: [85, 90, null], quiz: 88, total: "45% (In Progress)" },
+      { student: "Sadia Binte Mahmud",assignments: [88, 89, null], quiz: 90, total: "45% (In Progress)" },
     ],
   };
 
   const assignmentCols: Record<string, string[]> = {
-    ICT301: ["Milestone 1", "Milestone 2", "Journal 1"],
-    ICT272: ["Lab Ex 1", "Lab Ex 2", "Lab Ex 3"],
-    ICT126: ["Assignment 1", "Assignment 2"],
+    ICT301: ["Milestone 1", "Milestone 2", "Final Report"],
+    ICT302: ["Sprint 1 Delivery", "Sprint 2 Architecture", "Final Showcase"],
   };
 
-  const baseData = courseGrades[course] || [];
+  const baseData = (courseGrades[course] || []).map((row) => {
+    const colsForCourse = assignmentCols[course] || [];
+    const updatedAssignments = row.assignments.map((existingScore, idx) => {
+      const colName = colsForCourse[idx] ?? "";
+      const dbMatch = dbGradeRecords.find(
+        (g) =>
+          g.studentName.toLowerCase().includes(row.student.split(" ")[0].toLowerCase()) &&
+          (g.itemTitle.toLowerCase().includes(colName.toLowerCase()) || colName.toLowerCase().includes(g.itemTitle.toLowerCase()))
+      );
+      if (dbMatch) return Math.round(dbMatch.score);
+      const localScore = scores[`${row.student}-${colName}`];
+      if (localScore !== undefined && localScore !== "") return Number(localScore);
+      return existingScore;
+    });
+    return { ...row, assignments: updatedAssignments };
+  });
   const cols = assignmentCols[course] || [];
 
   const vitugSubs = submissionsList.filter(
@@ -4256,10 +4615,60 @@ function GradesPage() {
     });
   }
 
-  const handleSaveGrade = () => {
+  const handleOpenGradingModal = (student: string, assignment: string) => {
+    const defaultTotal = rubric.technicalExecution + rubric.methodology + rubric.documentation;
+    setScores((prev) => ({
+      ...prev,
+      [`${student}-${assignment}`]: prev[`${student}-${assignment}`] ?? String(defaultTotal),
+    }));
+    setGradingItem({ student, assignment });
+  };
+
+  const handleRubricChange = (field: keyof typeof rubric, value: number, max: number) => {
+    const clamped = Math.max(0, Math.min(max, Number.isFinite(value) ? value : 0));
+    const next = { ...rubric, [field]: clamped };
+    setRubric(next);
+    if (gradingItem) {
+      const sum = next.technicalExecution + next.methodology + next.documentation;
+      setScores((prev) => ({
+        ...prev,
+        [`${gradingItem.student}-${gradingItem.assignment}`]: String(sum),
+      }));
+    }
+  };
+
+  const handleSaveGrade = async () => {
     if (!gradingItem) return;
-    const scoreVal = scores[`${gradingItem.student}-${gradingItem.assignment}`] ?? "90";
-    gradeStudentSubmission(gradingItem.student, gradingItem.assignment, course, scoreVal, feedbackText);
+    setIsSavingGrade(true);
+    const key = `${gradingItem.student}-${gradingItem.assignment}`;
+    const scoreVal = scores[key] ?? String(rubric.technicalExecution + rubric.methodology + rubric.documentation);
+    const numericScore = Math.max(0, Math.min(100, Number(scoreVal) || 0));
+
+    // Sync localStorage immediately
+    gradeStudentSubmission(gradingItem.student, gradingItem.assignment, course, String(numericScore), feedbackText);
+
+    // Persist to Neon PostgreSQL via Instructor Server Action
+    const res = await gradeSubmissionAction({
+      studentName: gradingItem.student,
+      courseCode: course,
+      assignmentTitle: gradingItem.assignment,
+      score: numericScore,
+      maxScore: 100,
+      feedback: feedbackText,
+      rubric,
+      releaseImmediately: true,
+    });
+
+    if (res.success) {
+      setGradeToast(`Released ${numericScore}/100 (${res.gradeLabel}) for ${gradingItem.student} to Neon DB.`);
+      getInstructorGradingQueueAction(course).then((q) => {
+        if (q.success && q.gradeRecords) setDbGradeRecords(q.gradeRecords);
+      });
+    } else {
+      setGradeToast(`Saved locally (${numericScore}/100).`);
+    }
+    setTimeout(() => setGradeToast(null), 4000);
+    setIsSavingGrade(false);
     setGradingItem(null);
     setFeedbackText("");
   };
@@ -4276,9 +4685,8 @@ function GradesPage() {
             value={course} onChange={(e) => setCourse(e.target.value)}
             className="px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
-            <option value="ICT301">ICT301 – IT Project 1</option>
-            <option value="ICT272">ICT272 – Web Design</option>
-            <option value="ICT126">ICT126 – Artificial Intelligence</option>
+            <option value="ICT301">ICT301 – Information Technology Project 1 (Completed)</option>
+            <option value="ICT302">ICT302 – Information Technology Project 2 (Active)</option>
           </select>
           <button className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
             <IconDownload /><span>Export</span>
@@ -4286,9 +4694,16 @@ function GradesPage() {
         </div>
       </div>
 
+      {gradeToast && (
+        <div className="mb-4 px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium flex items-center justify-between">
+          <span>{gradeToast}</span>
+          <button onClick={() => setGradeToast(null)} className="text-emerald-600 hover:text-emerald-800 text-xs font-bold">Dismiss</button>
+        </div>
+      )}
+
       {gradingItem && (
         <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm p-6">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-base font-bold text-gray-900">Grade Submission</h3>
               <button onClick={() => setGradingItem(null)} className="text-gray-400 hover:text-gray-600">
@@ -4297,6 +4712,62 @@ function GradesPage() {
             </div>
             <p className="text-sm text-gray-600 mb-1"><span className="font-semibold">{gradingItem.student}</span></p>
             <p className="text-xs text-gray-500 mb-4">{gradingItem.assignment} · {course}</p>
+
+            {/* Rubric Evaluation Breakdown */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 mb-4 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Rubric Evaluation</span>
+                {(() => {
+                  const totalNum = Number(scores[`${gradingItem.student}-${gradingItem.assignment}`] ?? (rubric.technicalExecution + rubric.methodology + rubric.documentation));
+                  const band = totalNum >= 85 ? "HD" : totalNum >= 75 ? "DI" : totalNum >= 65 ? "CR" : totalNum >= 50 ? "P" : "F";
+                  const bandColor = totalNum >= 85 ? "bg-emerald-100 text-emerald-800" : totalNum >= 75 ? "bg-blue-100 text-blue-800" : totalNum >= 65 ? "bg-indigo-100 text-indigo-800" : totalNum >= 50 ? "bg-amber-100 text-amber-800" : "bg-red-100 text-red-800";
+                  return (
+                    <span data-testid="rubric-grade-band" className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${bandColor}`}>
+                      {band} · {totalNum}/100
+                    </span>
+                  );
+                })()}
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <label className="block text-[11px] font-semibold text-gray-600 mb-1">Technical (/40)</label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={40}
+                    aria-label="Technical Execution"
+                    value={rubric.technicalExecution}
+                    onChange={(e) => handleRubricChange("technicalExecution", Number(e.target.value), 40)}
+                    className="w-full px-2.5 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-gray-600 mb-1">Methodology (/30)</label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={30}
+                    aria-label="Methodology & Architecture"
+                    value={rubric.methodology}
+                    onChange={(e) => handleRubricChange("methodology", Number(e.target.value), 30)}
+                    className="w-full px-2.5 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-gray-600 mb-1">Docs (/30)</label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={30}
+                    aria-label="Documentation & Analysis"
+                    value={rubric.documentation}
+                    onChange={(e) => handleRubricChange("documentation", Number(e.target.value), 30)}
+                    className="w-full px-2.5 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  />
+                </div>
+              </div>
+            </div>
+
             <label className="block text-xs font-semibold text-gray-700 mb-1">Score (0–100)</label>
             <input
               type="number" min="0" max="100"
@@ -4315,7 +4786,14 @@ function GradesPage() {
             />
             <div className="flex gap-2">
               <button onClick={() => setGradingItem(null)} className="flex-1 py-2 rounded-xl text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">Cancel</button>
-              <button onClick={handleSaveGrade} className="flex-1 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer" style={{ background: "#1a3a9e" }}>Save Grade</button>
+              <button
+                onClick={handleSaveGrade}
+                disabled={isSavingGrade}
+                className="flex-1 py-2 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer disabled:opacity-60"
+                style={{ background: "#1a3a9e" }}
+              >
+                {isSavingGrade ? "Saving..." : "Save Grade"}
+              </button>
             </div>
           </div>
         </div>
@@ -4351,7 +4829,7 @@ function GradesPage() {
                         <span className={`text-sm font-bold ${score >= 90 ? "text-green-700" : score >= 75 ? "text-blue-700" : "text-amber-700"}`}>{score}</span>
                       ) : (
                         <button
-                          onClick={() => setGradingItem({ student: row.student, assignment: cols[j] })}
+                          onClick={() => handleOpenGradingModal(row.student, cols[j])}
                           className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors"
                         >
                           Grade
@@ -4364,7 +4842,7 @@ function GradesPage() {
                       <span className={`text-sm font-bold ${row.quiz >= 90 ? "text-green-700" : row.quiz >= 75 ? "text-blue-700" : "text-amber-700"}`}>{row.quiz}</span>
                     ) : (
                       <button
-                        onClick={() => setGradingItem({ student: row.student, assignment: "Quiz" })}
+                        onClick={() => handleOpenGradingModal(row.student, "Quiz")}
                         className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors"
                       >
                         Grade
@@ -4483,38 +4961,38 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
   {
     id: "cal-aug-18",
     year: 2026, month: 7, day: 18,
-    title: "Semester 2 Teaching Commences & Orientation",
+    title: "Trimester 3 Teaching Commences & Orientation",
     course: "Campus Academic Calendar",
     type: "Break",
     time: "All Day",
     room: "Campus-Wide",
     online: false,
     color: "#059669",
-    shortLabel: "Semester Starts",
+    shortLabel: "Trimester Starts",
     dateFormatted: "August 18, 2026",
-    description: "Orientation briefing, lab setup, and semester course syllabus distribution.",
-    info: "Semester 2 Academic Launch",
+    description: "Orientation briefing, lab setup, and trimester course syllabus distribution.",
+    info: "Trimester 3 Academic Launch",
   },
   {
     id: "cal-aug-20",
     year: 2026, month: 7, day: 20,
-    title: "Lab Exercise 1 Due: HTML Basics",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
+    title: "Weekly Progress Report 1: Project Initiation & Charter",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Assignment",
     time: "11:59 PM Due",
     room: "Online Portal",
     online: true,
     color: "#f59e0b",
-    shortLabel: "Lab 1 Due",
-    submissions: "38/38 Submitted (100%) · Graded",
+    shortLabel: "WPR 1 Due",
+    submissions: "3/3 Submitted (100%) · Graded",
     dateFormatted: "August 20, 2026",
-    description: "Semantic markup and structural HTML assignment submission.",
+    description: "Project charter, team roles, and 12-week roadmap.",
   },
   {
     id: "cal-aug-22",
     year: 2026, month: 7, day: 22,
-    title: "Weekly Journal Entry 1 Due",
+    title: "Milestone 1: Project Scope Archive",
     course: "ICT301 — Information Technology Project 1",
     courseCode: "ICT301",
     type: "Assignment",
@@ -4522,15 +5000,15 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
     room: "Online Portal",
     online: true,
     color: "#f59e0b",
-    shortLabel: "Journal 1 Due",
-    submissions: "32/32 Submitted (100%) · Graded",
+    shortLabel: "Milestone 1 (T2)",
+    submissions: "3/3 Submitted (100%) · Graded",
     dateFormatted: "August 22, 2026",
-    description: "Reflective log on team formation, sprint allocation, and project vision statement.",
+    description: "Archived Milestone 1 submission records from Project 1 completion.",
   },
   {
     id: "cal-aug-25",
     year: 2026, month: 7, day: 25,
-    title: "Milestone 1 Due: Project Proposal",
+    title: "Milestone 2: Requirements Specification Archive",
     course: "ICT301 — Information Technology Project 1",
     courseCode: "ICT301",
     type: "Assignment",
@@ -4538,101 +5016,101 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
     room: "Online Portal",
     online: true,
     color: "#f59e0b",
-    shortLabel: "Milestone 1 Due",
-    submissions: "32/32 Submitted (100%) · Graded",
+    shortLabel: "Milestone 2 (T2)",
+    submissions: "3/3 Submitted (100%) · Graded",
     dateFormatted: "August 25, 2026",
-    description: "Formal submission of project proposal charter and team workload distribution.",
+    description: "Archived Milestone 2 design specifications and database models.",
   },
   {
     id: "cal-aug-27",
     year: 2026, month: 7, day: 27,
-    title: "Lab Exercise 2 Due: CSS Layouts",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
+    title: "Weekly Progress Report 2: Full-Stack Architecture",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Assignment",
     time: "11:59 PM Due",
     room: "Online Portal",
     online: true,
     color: "#f59e0b",
-    shortLabel: "Lab 2 Due",
-    submissions: "37/38 Submitted (97%) · Graded",
+    shortLabel: "WPR 2 Due",
+    submissions: "3/3 Submitted (100%) · Graded",
     dateFormatted: "August 27, 2026",
-    description: "Modern CSS Flexbox and Grid responsive layouts.",
+    description: "Neon PostgreSQL schema and Next.js Server Actions design.",
   },
   {
     id: "cal-aug-28",
     year: 2026, month: 7, day: 28,
-    title: "Assignment 1 Due: AI History Review",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
-    type: "Assignment",
+    title: "Architecture & Verification Quiz",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
+    type: "Quiz",
     time: "11:59 PM Due",
     room: "Online Portal",
     online: true,
-    color: "#f59e0b",
-    shortLabel: "Assign 1 Due",
-    submissions: "26/26 Submitted (100%) · Graded",
+    color: "#dc2626",
+    shortLabel: "Arch Quiz",
+    submissions: "3/3 Submitted (100%) · Graded",
     dateFormatted: "August 28, 2026",
-    description: "Survey paper examining classical symbolic reasoning to contemporary machine learning.",
+    description: "Online quiz on full-stack architecture and connection pooling.",
   },
 
   // ── SEPTEMBER 2026 (Month 8) ─────────────────────────────────────────────
   {
     id: "cal-sep-1",
     year: 2026, month: 8, day: 1,
-    title: "ICT272 Online Lecture: Advanced DOM Scripting",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
+    title: "ICT302 Lecture: Advanced Web Architecture & Server Actions",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Lecture",
     time: "10:00 AM–12:00 PM",
-    room: "Zoom Meeting (ID: 842-119-301)",
+    room: "Online Zoom Meeting",
     online: true,
     color: "#0e9f6e",
-    shortLabel: "ICT272 Lecture",
-    description: "Deep dive into event delegation, mutation observers, and dynamic client-side rendering.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 38,
-    topic: "Week 3: Advanced DOM & Events",
+    shortLabel: "ICT302 Lecture",
+    description: "Deep dive into Next.js Server Components, Server Actions, and Neon connection pooling.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Week 3: Full-Stack Architecture",
     dateFormatted: "September 1, 2026",
   },
   {
     id: "cal-sep-2-lec",
     year: 2026, month: 8, day: 2,
-    title: "ICT126 Lecture: Supervised Learning Foundations",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
+    title: "ICT302 Workshop: Database Schema & Migration Review",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Lecture",
     time: "1:00–3:00 PM",
     room: "Room IT-304",
     online: false,
-    color: "#7c3aed",
-    shortLabel: "ICT126 Lecture",
-    description: "Classification algorithms, linear regression, and cross-validation techniques.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 26,
-    topic: "Week 3: Machine Learning Algorithms",
+    color: "#0e9f6e",
+    shortLabel: "ICT302 Workshop",
+    description: "Prisma ORM schema modeling, relational integrity, and migration workflows.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Week 3: Database Models & Schema Migrations",
     dateFormatted: "September 2, 2026",
   },
   {
     id: "cal-sep-2-quiz",
     year: 2026, month: 8, day: 2,
-    title: "Weekly Quiz 3 — Supervised Learning",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
+    title: "Sprint 1 Knowledge Check Quiz",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Quiz",
     time: "3:00–3:30 PM",
-    room: "Room IT-304",
-    online: false,
+    room: "Online Portal",
+    online: true,
     color: "#dc2626",
-    shortLabel: "Quiz 3: ML",
-    duration: "30 Mins · 20 Questions · 5% Weight",
+    shortLabel: "Sprint 1 Quiz",
+    duration: "20 Mins · 10 Questions",
     dateFormatted: "September 2, 2026",
-    description: "Timed 20-minute multiple choice quiz assessing regression and decision trees.",
+    description: "Timed 20-minute multiple choice quiz assessing Server Actions and database architecture.",
   },
   {
     id: "cal-sep-3-lec",
     year: 2026, month: 8, day: 3,
-    title: "ICT301 Lecture: System Architecture Design",
+    title: "ICT301 Completed Milestone Archive Review",
     course: "ICT301 — Information Technology Project 1",
     courseCode: "ICT301",
     type: "Lecture",
@@ -4640,288 +5118,171 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
     room: "Room IT-201",
     online: false,
     color: "#2563eb",
-    shortLabel: "ICT301 Lecture",
-    description: "Architectural decomposition, layered patterns, and client-server communication.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 32,
-    topic: "Week 3: System Modeling & Architecture",
+    shortLabel: "ICT301 Archive",
+    description: "Archived capstone part 1 architectural design review.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Capstone Part 1 Final Review",
     dateFormatted: "September 3, 2026",
   },
   {
     id: "cal-sep-3-ass",
     year: 2026, month: 8, day: 3,
-    title: "Lab Exercise 3 Due: JavaScript DOM",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
+    title: "Weekly Progress Report 3: Core Implementation",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Assignment",
     time: "11:59 PM Due",
     room: "Online Portal",
     online: true,
     color: "#f59e0b",
-    shortLabel: "Lab 3 Due",
-    submissions: "34/38 Submitted (89%) · 4 to Grade",
+    shortLabel: "WPR 3 Due",
+    submissions: "3/3 Submitted (100%) · Graded",
     dateFormatted: "September 3, 2026",
-    description: "Interactive DOM application with input validation and event listeners.",
+    description: "Implementation of authentication flows, RBAC, and Playwright verification.",
   },
   {
     id: "cal-sep-4-tut",
     year: 2026, month: 8, day: 4,
-    title: "ICT301 Tutorial: Architecture Modeling Workshop",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
+    title: "ICT302 Tutorial: Architecture Mentoring Session",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Tutorial",
     time: "10:00–11:30 AM",
-    room: "Room IT-202",
+    room: "Room IT-304",
     online: false,
-    color: "#2563eb",
-    shortLabel: "ICT301 Tutorial",
-    description: "Group consultation on UML component diagrams and data flow modeling.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 32,
-    topic: "Architecture Diagrams & CRC Cards",
+    color: "#0e9f6e",
+    shortLabel: "ICT302 Tutorial",
+    description: "Group consultation on system architecture, database models, and weekly progress logs.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Architecture Review & Milestone Mentoring",
     dateFormatted: "September 4, 2026",
   },
   {
     id: "cal-sep-4-ass",
     year: 2026, month: 8, day: 4,
-    title: "Assignment 2 Due: ML Algorithm Analysis",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
+    title: "Weekly Progress Report 4: Automated Testing & UI Refinement",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Assignment",
     time: "11:59 PM Due",
     room: "Online Portal",
     online: true,
     color: "#f59e0b",
-    shortLabel: "Assign 2 Due",
-    submissions: "24/26 Submitted (92%) · 8 to Grade",
+    shortLabel: "WPR 4 Due",
+    submissions: "2/3 Submitted (67%) · 1 to Submit",
     dateFormatted: "September 4, 2026",
-    description: "Empirical evaluation of decision trees versus random forests on benchmark classification data.",
+    description: "Comprehensive end-to-end testing suite, WCAG 2.1 AA audit, and performance optimization.",
   },
   {
     id: "cal-sep-5",
     year: 2026, month: 8, day: 5,
-    title: "Milestone 2 Due: Preliminary Design",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
-    type: "Assignment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
-    online: true,
-    color: "#f59e0b",
-    shortLabel: "Milestone 2 Due",
-    submissions: "30/32 Submitted (94%) · 6 to Grade",
+    title: "ICT302 Sprint 2 Checkpoint Meeting",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
+    type: "Tutorial",
+    time: "11:00 AM–12:30 PM",
+    room: "Room IT-304",
+    online: false,
+    color: "#0e9f6e",
+    shortLabel: "Sprint 2 Checkpoint",
+    submissions: "3/3 Teams Present",
     dateFormatted: "September 5, 2026",
-    description: "Preliminary architectural diagrams, database entity models, and UI wireframes.",
-  },
-  {
-    id: "cal-sep-7",
-    year: 2026, month: 8, day: 7,
-    title: "Lab Exercise 4 Due: React Basics",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Assignment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
-    online: true,
-    color: "#f59e0b",
-    shortLabel: "Lab 4 Due",
-    submissions: "36/38 Submitted (95%) · 10 to Grade",
-    dateFormatted: "September 7, 2026",
-    description: "Component hierarchy, functional props, and state management in React.",
+    description: "Sprint 2 architectural checkpoint and progress alignment.",
   },
   {
     id: "cal-sep-8-tut",
     year: 2026, month: 8, day: 8,
-    title: "ICT272 Tutorial: React Hooks & State Management",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
+    title: "ICT302 Tutorial: Next.js Server Actions & State Management",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Tutorial",
     time: "10:00 AM–12:00 PM",
-    room: "Zoom Meeting (ID: 842-119-301)",
+    room: "Online Zoom Meeting",
     online: true,
     color: "#0e9f6e",
-    shortLabel: "ICT272 Tutorial",
-    description: "Hands-on coding lab implementing useState, useEffect, and custom hook wrappers.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 38,
-    topic: "React Hooks Lab",
+    shortLabel: "ICT302 Lab",
+    description: "Hands-on coding lab implementing server actions, form validation, and reactive state.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Server Actions & Reactive UI",
     dateFormatted: "September 8, 2026",
-  },
-  {
-    id: "cal-sep-8-quiz",
-    year: 2026, month: 8, day: 8,
-    title: "Midterm Quiz: Machine Learning Concepts",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
-    type: "Quiz",
-    time: "1:00–2:30 PM",
-    room: "Room IT-304",
-    online: false,
-    color: "#dc2626",
-    shortLabel: "ML Midterm Quiz",
-    duration: "90 Mins · 25 Questions · 10% Weight",
-    dateFormatted: "September 8, 2026",
-    description: "Mid-semester laboratory quiz covering 25 supervised learning questions.",
   },
   {
     id: "cal-sep-10-lec",
     year: 2026, month: 8, day: 10,
-    title: "ICT301 Lecture: Database Integration & REST APIs",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
+    title: "ICT302 Lecture: Connection Pooling & Performance",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Lecture",
     time: "8:00–10:00 AM",
-    room: "Room IT-201",
-    online: false,
-    color: "#2563eb",
-    shortLabel: "ICT301 Lecture",
-    description: "RESTful architecture, OpenAPI documentation, and PostgreSQL schema normalization.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 32,
-    topic: "Week 4: API Design & Persistence",
-    dateFormatted: "September 10, 2026",
-  },
-  {
-    id: "cal-sep-10-quiz",
-    year: 2026, month: 8, day: 10,
-    title: "Lab Quiz 1: Frontend Web Essentials",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Quiz",
-    time: "2:00–3:00 PM",
-    room: "Online Zoom",
+    room: "Online Zoom Meeting",
     online: true,
-    color: "#dc2626",
-    shortLabel: "Frontend Quiz",
-    duration: "60 Mins · 20 Questions · 5% Weight",
+    color: "#0e9f6e",
+    shortLabel: "ICT302 Lecture",
+    description: "Neon serverless pooling architecture, query optimization, and latency benchmarks.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Week 4: Performance & Database Optimization",
     dateFormatted: "September 10, 2026",
-    description: "Online quiz on modern HTML5, CSS layout specifications, and DOM traversal.",
-  },
-  {
-    id: "cal-sep-11",
-    year: 2026, month: 8, day: 11,
-    title: "ICT126 Tutorial: Python Model Training Lab",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
-    type: "Tutorial",
-    time: "1:00–3:00 PM",
-    room: "Room IT-304",
-    online: false,
-    color: "#7c3aed",
-    shortLabel: "ICT126 Tutorial",
-    description: "Hands-on Jupyter notebook training decision trees on benchmark classification data.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 26,
-    topic: "Python Scikit-Learn Workshop",
-    dateFormatted: "September 11, 2026",
   },
   {
     id: "cal-sep-14",
     year: 2026, month: 8, day: 14,
-    title: "ICT301 Lecture: Sprint 2 Demo & Retrospective",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
+    title: "ICT302 Sprint 2 Demonstration & Retrospective",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Lecture",
     time: "9:00–11:00 AM",
-    room: "Room IT-201",
+    room: "Room IT-304",
     online: false,
-    color: "#2563eb",
-    shortLabel: "ICT301 Demo",
-    description: "Team prototype demonstrations, velocity retrospectives, and sprint 3 milestone scoping.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 32,
+    color: "#0e9f6e",
+    shortLabel: "Sprint 2 Demo",
+    description: "Capstone prototype demonstration and agile sprint retrospective.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
     topic: "Agile Retrospectives & Sprint Review",
     dateFormatted: "September 14, 2026",
   },
   {
     id: "cal-sep-15-lec",
     year: 2026, month: 8, day: 15,
-    title: "ICT272 Online Lecture: Full-Stack Architecture",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
+    title: "ICT302 Capstone Mentoring Session",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
     type: "Lecture",
     time: "10:00 AM–12:00 PM",
-    room: "Zoom Meeting (ID: 842-119-301)",
+    room: "Online Zoom Meeting",
     online: true,
     color: "#0e9f6e",
-    shortLabel: "ICT272 Lecture",
-    description: "Server-side integration, JWT authentication flows, and state synchronization.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 38,
-    topic: "Week 5: Full-Stack Integration",
+    shortLabel: "ICT302 Mentoring",
+    description: "Review of weekly progress reports and Assessment 1 preparations.",
+    instructor: "Anita Humagain",
+    enrolledStudents: 3,
+    topic: "Week 5: Assessment 1 Preparation",
     dateFormatted: "September 15, 2026",
-  },
-  {
-    id: "cal-sep-15-ass",
-    year: 2026, month: 8, day: 15,
-    title: "Major Project Draft Checkpoint Due",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Assessment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
-    online: true,
-    color: "#f59e0b",
-    shortLabel: "Draft Checkpoint",
-    submissions: "35/38 Submitted (92%) · 12 to Grade",
-    dateFormatted: "September 15, 2026",
-    description: "Formative milestone submission for the major full-stack web application assessment.",
-  },
-  {
-    id: "cal-sep-17",
-    year: 2026, month: 8, day: 17,
-    title: "ICT301 Lecture: QA & Automated Testing",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
-    type: "Lecture",
-    time: "8:00–10:00 AM",
-    room: "Room IT-201",
-    online: false,
-    color: "#2563eb",
-    shortLabel: "ICT301 Lecture",
-    description: "Automated regression testing, unit test fixtures, and GitHub Actions CI pipelines.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 32,
-    topic: "Week 5: Quality Assurance",
-    dateFormatted: "September 17, 2026",
   },
   {
     id: "cal-sep-18",
     year: 2026, month: 8, day: 18,
-    title: "Mid-Term Practical AI Assessment Due",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
-    type: "Assessment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
+    title: "Census Date — Trimester 3, 2026",
+    course: "Academic Calendar",
+    type: "Break",
+    time: "11:59 PM",
+    room: "University-Wide",
     online: true,
-    color: "#7c3aed",
-    shortLabel: "AI Assessment Due",
-    submissions: "25/26 Submitted (96%) · 15 to Grade",
+    color: "#ea580c",
+    shortLabel: "Census Date",
+    info: "Trimester 3 Census Date",
     dateFormatted: "September 18, 2026",
-    description: "Weighted summative assessment (25%): Hands-on machine learning code and report.",
-  },
-  {
-    id: "cal-sep-19",
-    year: 2026, month: 8, day: 19,
-    title: "AI Case Study Research Paper Due",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
-    type: "Assignment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
-    online: true,
-    color: "#f59e0b",
-    shortLabel: "Case Study Due",
-    submissions: "26/26 Submitted (100%) · 20 to Grade",
-    dateFormatted: "September 19, 2026",
-    description: "Case study evaluating real-world ethical implications of generative AI tools.",
+    description: "Last day to finalize enrollment and withdraw without academic penalty for Trimester 3.",
   },
   {
     id: "cal-sep-21",
     year: 2026, month: 8, day: 21,
     days: [21, 22, 23, 24, 25],
-    title: "Mid-Semester School Break Commences",
+    title: "Mid-Trimester School Break Commences",
     course: "Academic Calendar",
     type: "Break",
     time: "All Day",
@@ -4931,39 +5292,7 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
     shortLabel: "School Break",
     info: "Duration: 5 Days (Mon–Fri) · Campus libraries open",
     dateFormatted: "September 21–25, 2026",
-    description: "Mid-semester non-instructional study break for all schools. No classes scheduled.",
-  },
-  {
-    id: "cal-sep-22-ass",
-    year: 2026, month: 8, day: 22,
-    title: "Major Project Assessment Due: Web Application",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Assessment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
-    online: true,
-    color: "#0e9f6e",
-    shortLabel: "Major Project Due",
-    submissions: "37/38 Submitted (97%) · 25 to Grade",
-    dateFormatted: "September 22, 2026",
-    description: "Summative assessment (30% weight): Complete production-ready responsive web application.",
-  },
-  {
-    id: "cal-sep-25-ass",
-    year: 2026, month: 8, day: 25,
-    title: "Milestone 3 Due: Final System Implementation & Defense",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
-    type: "Assessment",
-    time: "11:59 PM Due",
-    room: "Online Portal",
-    online: true,
-    color: "#2563eb",
-    shortLabel: "Milestone 3 Due",
-    submissions: "31/32 Submitted (97%) · 18 to Grade",
-    dateFormatted: "September 25, 2026",
-    description: "Summative assessment (35% weight): Functional software submission and panel defense.",
+    description: "Mid-trimester non-instructional study break for all schools. No classes scheduled.",
   },
   {
     id: "cal-sep-28",
@@ -4980,82 +5309,28 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
     dateFormatted: "September 28, 2026",
     description: "Official public holiday — university campus closed, no lectures or tutorials scheduled.",
   },
-  {
-    id: "cal-sep-29",
-    year: 2026, month: 8, day: 29,
-    title: "ICT272 Online Lecture: Cloud Deployment & DevOps",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Lecture",
-    time: "10:00 AM–12:00 PM",
-    room: "Zoom Meeting (ID: 842-119-301)",
-    online: true,
-    color: "#0e9f6e",
-    shortLabel: "ICT272 Lecture",
-    description: "Serverless deployments, environment variable security, and edge performance optimization.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 38,
-    topic: "Week 6: Deployment & Monitoring",
-    dateFormatted: "September 29, 2026",
-  },
-  {
-    id: "cal-sep-30",
-    year: 2026, month: 8, day: 30,
-    title: "ICT126 Final Exam Review Session",
-    course: "ICT126 — Artificial Intelligence",
-    courseCode: "ICT126",
-    type: "Exam",
-    time: "1:00–3:00 PM",
-    room: "Room IT-304",
-    online: false,
-    color: "#dc2626",
-    shortLabel: "AI Exam Review",
-    duration: "120 Mins · Comprehensive Review",
-    dateFormatted: "September 30, 2026",
-    description: "Comprehensive exam preparation, past paper review, and rubric scoring criteria.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 26,
-    topic: "Final Exam Preparation",
-  },
 
   // ── OCTOBER 2026 (Month 9) ───────────────────────────────────────────────
   {
-    id: "cal-oct-5",
-    year: 2026, month: 9, day: 5,
-    title: "Public Holiday: Spring Holiday",
-    course: "Public Holiday",
-    type: "Holiday",
-    time: "All Day",
-    room: "Campus-Wide",
-    online: false,
-    color: "#ea580c",
-    shortLabel: "Spring Holiday",
-    info: "Official Public Holiday · Campus Closed",
-    dateFormatted: "October 5, 2026",
-    description: "University spring holiday — all university offices and teaching spaces closed.",
-  },
-  {
-    id: "cal-oct-8",
-    year: 2026, month: 9, day: 8,
-    title: "ICT301 Capstone Prototype Demo & Review",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
-    type: "Lecture",
-    time: "8:00–11:00 AM",
-    room: "Room IT-201",
-    online: false,
-    color: "#2563eb",
-    shortLabel: "ICT301 Demos",
-    description: "Live prototype demonstration before faculty panel and industry client stakeholders.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 32,
-    topic: "Capstone Project Demonstrations",
-    dateFormatted: "October 8, 2026",
+    id: "cal-oct-12",
+    year: 2026, month: 9, day: 12,
+    title: "Assessment 1 Due: Weekly Progress Report (Weeks 2–11)",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
+    color: "#0e9f6e",
+    shortLabel: "Assessment 1 Due",
+    submissions: "3/3 Submitted (100%) · Graded (20% Weight)",
+    dateFormatted: "October 12, 2026",
+    description: "Assessment 1 continuous weekly progress tracking evaluating technical implementation and group dynamics (20%).",
   },
   {
     id: "cal-oct-15",
     year: 2026, month: 9, day: 15,
-    title: "Midterm Assessment Marks Entry Deadline",
+    title: "Mid-Trimester Progress Marks Entry Deadline",
     course: "Faculty Academic Administration",
     type: "Assessment",
     time: "5:00 PM Due",
@@ -5065,89 +5340,56 @@ export const INSTRUCTOR_CALENDAR_EVENTS: InstructorCalendarEvent[] = [
     shortLabel: "Marks Entry Due",
     submissions: "Faculty Grade Entry Portal",
     dateFormatted: "October 15, 2026",
-    description: "Faculty grade submission deadline for all semester mid-term assessments.",
+    description: "Faculty grade submission deadline for all trimester mid-term assessments.",
   },
   {
-    id: "cal-oct-22",
-    year: 2026, month: 9, day: 22,
-    title: "ICT272 Student Project Showcase",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Tutorial",
-    time: "10:00 AM–1:00 PM",
-    room: "Room IT-202",
-    online: false,
+    id: "cal-oct-19",
+    year: 2026, month: 9, day: 19,
+    title: "Assessment 2 Due: Final Report and Group Activity Log",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Online Portal",
+    online: true,
     color: "#0e9f6e",
-    shortLabel: "ICT272 Showcase",
-    description: "Peer demonstrations and exhibition of interactive web applications.",
-    instructor: "Prof. Sarita Koirala",
-    enrolledStudents: 38,
-    topic: "Interactive Showcase Exhibition",
-    dateFormatted: "October 22, 2026",
+    shortLabel: "Assessment 2 Due",
+    submissions: "1/3 Submitted · In Progress (50% Weight)",
+    dateFormatted: "October 19, 2026",
+    description: "Major deliverable comprising Final Report (40% — 25 to 30 pages) and Group Activity Log (10% — 12 meeting minutes appendix).",
   },
   {
     id: "cal-oct-28",
     year: 2026, month: 9, day: 28,
-    title: "Final Examination Period Commences",
-    course: "Examinations Branch",
-    type: "Exam",
-    time: "All Day",
-    room: "Exam Halls 1–4",
-    online: false,
+    title: "Assessment 3 Due: Presentation and Demonstration",
+    course: "ICT302 — Information Technology Project 2",
+    courseCode: "ICT302",
+    type: "Assessment",
+    time: "11:59 PM Due",
+    room: "Main Auditorium & Online Zoom",
+    online: true,
     color: "#dc2626",
-    shortLabel: "Final Exams Start",
-    duration: "Formal Exam Session 1",
+    shortLabel: "Assessment 3 Due",
+    duration: "20-minute capstone defense (30% Weight)",
     dateFormatted: "October 28, 2026",
-    description: "Formal written examination period commences.",
+    description: "Final capstone defense comprising In-Class Presentation (20%) and Live Demonstration (10%).",
   },
 
   // ── NOVEMBER 2026 (Month 10) ─────────────────────────────────────────────
   {
-    id: "cal-nov-2",
-    year: 2026, month: 10, day: 2,
-    title: "ICT301 Final Examination",
-    course: "ICT301 — Information Technology Project 1",
-    courseCode: "ICT301",
-    type: "Exam",
-    time: "9:00 AM–12:00 PM",
-    room: "Exam Hall 2",
-    online: false,
-    color: "#dc2626",
-    shortLabel: "ICT301 Exam",
-    duration: "180 Mins · 40% Weight",
-    dateFormatted: "November 2, 2026",
-    description: "Formal 3-hour examination covering software engineering design and project delivery.",
-  },
-  {
-    id: "cal-nov-6",
-    year: 2026, month: 10, day: 6,
-    title: "ICT272 Practical Coding Examination",
-    course: "ICT272 — Web Design and Development",
-    courseCode: "ICT272",
-    type: "Exam",
-    time: "1:00–4:00 PM",
-    room: "Lab IT-101",
-    online: false,
-    color: "#dc2626",
-    shortLabel: "ICT272 Exam",
-    duration: "180 Mins · 35% Weight",
-    dateFormatted: "November 6, 2026",
-    description: "Timed lab practical examination on responsive frontend development and React architecture.",
-  },
-  {
     id: "cal-nov-12",
     year: 2026, month: 10, day: 12,
-    title: "Semester 2 Ends / End-of-Year Break",
+    title: "Trimester 3 Ends / End-of-Year Break",
     course: "Academic Calendar",
     type: "Break",
     time: "All Day",
     room: "Campus-Wide",
     online: false,
     color: "#059669",
-    shortLabel: "Semester Concludes",
+    shortLabel: "Trimester Concludes",
     info: "Official Teaching Period End",
     dateFormatted: "November 12, 2026",
-    description: "Official conclusion of semester 2 teaching and formal assessment periods.",
+    description: "Official conclusion of trimester 3 teaching and formal assessment periods.",
   },
 ];
 
@@ -5692,10 +5934,10 @@ const iAnnouncements: IAnnouncement[] = [
   },
   {
     id: 2,
-    title: "Updated Learning Materials — Week 8",
-    description: "Week 8 lecture slides and lab exercise files have been uploaded to the ICT272 course page. Please review them before the next session.",
+    title: "Updated Learning Materials — Sprint 2",
+    description: "Next.js SSR architecture specifications and connection pooling documentation have been uploaded to the ICT302 course page.",
     date: "Aug 28, 2026",
-    audience: "ICT272",
+    audience: "ICT302",
     status: "Published",
   },
   {
@@ -5914,9 +6156,8 @@ function InstructorAnnouncementsPage() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="All Courses">All Courses</option>
+                    <option value="ICT302">ICT302</option>
                     <option value="ICT301">ICT301</option>
-                    <option value="ICT272">ICT272</option>
-                    <option value="ICT126">ICT126</option>
                   </select>
                 </div>
                 <div>
@@ -5994,9 +6235,8 @@ function InstructorAnnouncementsPage() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="All Courses">All Courses</option>
+                    <option value="ICT302">ICT302</option>
                     <option value="ICT301">ICT301</option>
-                    <option value="ICT272">ICT272</option>
-                    <option value="ICT126">ICT126</option>
                   </select>
                 </div>
                 <div>
@@ -6108,16 +6348,16 @@ const iConversations: IConversation[] = [
   },
   {
     id: "c2",
-    name: "Sarah Chen",
-    context: "ICT272 — Student",
-    initials: "SC",
+    name: "Sadia Binte Mahmud",
+    context: "ICT302 — Student",
+    initials: "SM",
     color: "#0e9f6e",
-    lastMsg: "Could you please clarify the marking criteria for Lab Exercise 4?",
+    lastMsg: "Could you please clarify the marking criteria for Assessment 2 meeting logs?",
     time: "Yesterday",
     unread: 0,
     messages: [
-      { from: "them", text: "Hi Prof. Koirala, could you please clarify the marking criteria for Lab Exercise 4?", time: "Aug 29, 11:15 AM" },
-      { from: "me",   text: "Hi Sarah, the marking rubric is available in the Lab 4 brief. Focus on functionality, code quality, and documentation.", time: "Aug 29, 2:00 PM" },
+      { from: "them", text: "Hi Anita, could you please clarify the appendix requirements for our 12 meeting logs in Assessment 2?", time: "Aug 29, 11:15 AM" },
+      { from: "me",   text: "Hi Sadia, please include the formal minutes of all 12 meetings including agendas, attendee lists, and action items in Appendix A.", time: "Aug 29, 2:00 PM" },
     ],
   },
   {
@@ -6130,22 +6370,22 @@ const iConversations: IConversation[] = [
     time: "Aug 27",
     unread: 0,
     messages: [
-      { from: "them", text: "Dear Prof. Koirala, please note that final grade submissions for Semester T226 are due on September 20, 2026.", time: "Aug 27, 9:00 AM" },
+      { from: "them", text: "Dear Anita, please note that final grade submissions for Semester T226 are due on September 20, 2026.", time: "Aug 27, 9:00 AM" },
       { from: "me",   text: "Noted, thank you for the reminder.", time: "Aug 27, 9:45 AM" },
     ],
   },
   {
     id: "c4",
-    name: "Daniel Park",
-    context: "ICT126 — Student",
-    initials: "DP",
+    name: "Yusuf Rana Magar",
+    context: "ICT302 — Student",
+    initials: "YM",
     color: "#ea580c",
-    lastMsg: "I had an emergency and could not sit the midterm. Is there a supplementary option?",
+    lastMsg: "Our database connection pooling benchmarks have been added to GitHub.",
     time: "Aug 25",
     unread: 0,
     messages: [
-      { from: "them", text: "Hi Prof. Koirala, I had a medical emergency and could not sit the ICT126 midterm quiz. Is there a supplementary option?", time: "Aug 25, 8:30 AM" },
-      { from: "me",   text: "Hi Daniel, please submit a medical certificate to the student office and they will guide you through the supplementary assessment process.", time: "Aug 25, 10:00 AM" },
+      { from: "them", text: "Hi Anita, our serverless Neon PostgreSQL connection pooling benchmarks and test cases have been committed to GitHub.", time: "Aug 25, 8:30 AM" },
+      { from: "me",   text: "Excellent work Yusuf! The latency numbers look solid. Keep up the great pace for Sprint 2.", time: "Aug 25, 10:00 AM" },
     ],
   },
 ];
@@ -6361,8 +6601,8 @@ function InstructorProfilePage({ userName }: { userName: string }) {
   const effectiveEmail =
     sessionUser?.email ||
     (userName.toLowerCase().includes("anita")
-      ? "anita.humagain@eduflex.edu"
-      : "sarita.koirala@university.edu.au");
+      ? "anita.humagain@eduflex.en-rich.me"
+      : "anita.humagain@eduflex.en-rich.me");
   const parts = userName.replace(/^Prof\.\s*/i, "").split(" ");
   const initials = parts.map((p) => p[0]).join("").slice(0, 2).toUpperCase();
   const displayName = userName.startsWith("Prof.") ? userName : `Prof. ${userName}`;
@@ -6375,10 +6615,10 @@ function InstructorProfilePage({ userName }: { userName: string }) {
   ];
 
   const instructorInfo = [
-    { label: "Staff ID",            value: "STF-00845" },
+    { label: "Staff ID",            value: "20033316" },
     { label: "Department",          value: "Information Technology" },
     { label: "Faculty / School",    value: "School of Information Technology" },
-    { label: "Courses Teaching",    value: "ICT301, ICT272, ICT126" },
+    { label: "Courses Teaching",    value: "ICT301, ICT302" },
     { label: "Employment Status",   value: "Full-time" },
   ];
 
@@ -6402,7 +6642,7 @@ function InstructorProfilePage({ userName }: { userName: string }) {
           <p className="text-sm text-gray-500 mb-3">Instructor · School of Information Technology</p>
           <div className="flex items-center gap-3 flex-wrap">
             <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full">Full-time</span>
-            <span className="text-xs text-gray-500">STF-00845</span>
+            <span className="text-xs text-gray-500">20033316</span>
             <span className="text-xs text-gray-400">·</span>
             <span className="text-xs text-gray-500">{effectiveEmail}</span>
           </div>
@@ -6449,7 +6689,7 @@ function InstructorSettingsPage({
   onThemeChange?: (theme: "Light" | "Dark") => void;
 } = {}) {
   const [saved, setSaved] = useState(false);
-  const [email, setEmail] = useState("sarita.koirala@university.edu.au");
+  const [email, setEmail] = useState("anita.humagain@eduflex.en-rich.me");
   const [phone, setPhone] = useState("+61 2 9876 5432");
   const [notifs, setNotifs] = useState({
     messages:      true,
@@ -6649,11 +6889,18 @@ function Footer() {
 export default function InstructorDashboard({ onLogout = () => {} }: { onLogout?: () => void }) {
   const [active, setActive] = useState("dashboard");
   const [collapsed, setCollapsed] = useState(false);
-  const [userName, setUserName] = useState("Prof. Sarita Koirala");
+  const [userName, setUserName] = useState("Anita Humagain");
   const [theme, setTheme] = useState<"Light" | "Dark">("Light");
   const [assignmentCourses, setAssignmentCourses] = useState<InstructorCourseAssignments[]>(getSharedCourses);
   const isInitialMount = useRef(true);
   const lastSavedJsonRef = useRef<string>("");
+
+  useEffect(() => {
+    // Auto-sync seed in background
+    if (typeof window !== "undefined") {
+      fetch("/api/seed").catch(() => {});
+    }
+  }, []);
 
   useEffect(() => {
     if (isInitialMount.current) {

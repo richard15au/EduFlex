@@ -1,4 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import {
+  getAdminUsersAndApprovalsAction,
+  createAdminUserAction,
+  updateAdminUserAction,
+  deleteAdminUserAction,
+  reviewApprovalRequestAction,
+  approveAllPendingAction,
+} from "./actions/admin";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 const IconCamera = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -111,7 +119,7 @@ const IconClock = ({ className = "w-4 h-4" }: { className?: string }) => (
 );
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-export type Role = "Student" | "Instructor";
+export type Role = "Student" | "Instructor" | "Admin";
 export type Status = "Active" | "Inactive" | "Pending";
 
 export interface User {
@@ -141,27 +149,69 @@ export interface PendingItem {
 
 // ── Sample Data ───────────────────────────────────────────────────────────────
 export const INITIAL_USERS: User[] = [
-  { id: "STU-20262001", name: "Maria Santos",      email: "m.santos@eduflex.edu.ph",    role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 10:42 AM", joined: "Sep 1, 2026",  program: "BS Information Technology", phone: "+63 917 123 4567", courses: ["ICT301", "ICT272"] },
-  { id: "STU-20262002", name: "James Reyes",        email: "j.reyes@eduflex.edu.ph",     role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 9:15 AM",  joined: "Sep 1, 2026",  program: "BS Information Technology", phone: "+63 918 234 5678", courses: ["ICT301", "ICT126"] },
-  { id: "INS-20260034", name: "Anna Cruz",          email: "a.cruz@eduflex.edu.ph",      role: "Instructor", status: "Active",   lastActive: "Sep 2, 2026, 8:00 AM",  joined: "Aug 31, 2026", department: "School of IT", phone: "+63 919 345 6789", courses: ["ICT272", "ICT350"] },
-  { id: "INS-20260035", name: "Prof. Eduardo Lim",  email: "e.lim@eduflex.edu.ph",       role: "Instructor", status: "Active",   lastActive: "Sep 1, 2026, 4:30 PM",  joined: "Aug 15, 2026", department: "School of IT", phone: "+63 920 456 7890", courses: ["ICT301", "ICT126"] },
-  { id: "STU-20262003", name: "Carlos Bautista",    email: "c.bautista@eduflex.edu.ph",  role: "Student",    status: "Inactive", lastActive: "Aug 20, 2026, 2:11 PM", joined: "Aug 30, 2026", program: "BS Information Technology", phone: "+63 921 567 8901", courses: [] },
-  { id: "STU-20262004", name: "Sophia Dela Torre",  email: "s.delatorre@eduflex.edu.ph", role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 11:03 AM", joined: "Aug 28, 2026", program: "BS Information Technology", phone: "+63 922 678 9012", courses: ["ICT272"] },
-  { id: "STU-20262005", name: "Mark Villanueva",    email: "m.villanueva@eduflex.edu.ph",role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 7:45 AM",  joined: "Aug 27, 2026", program: "BS Information Technology", phone: "+63 923 789 0123", courses: ["ICT126", "ICT350"] },
-  { id: "INS-20260036", name: "Dr. Rachel Gomez",   email: "r.gomez@eduflex.edu.ph",     role: "Instructor", status: "Active",   lastActive: "Sep 1, 2026, 5:00 PM",  joined: "Jul 10, 2026", department: "School of IT", phone: "+63 924 890 1234", courses: ["ICT126"] },
-  { id: "STU-20262006", name: "Rico Dela Cruz",     email: "r.delacruz@eduflex.edu.ph",  role: "Student",    status: "Inactive", lastActive: "Aug 15, 2026, 9:00 AM", joined: "Aug 25, 2026", program: "BS Information Technology", phone: "+63 925 901 2345", courses: [] },
-  { id: "STU-20262007", name: "Patricia Aquino",    email: "p.aquino@eduflex.edu.ph",    role: "Student",    status: "Active",   lastActive: "Sep 2, 2026, 10:10 AM", joined: "Aug 22, 2026", program: "BS Information Technology", phone: "+63 926 012 3456", courses: ["ICT301"] },
-  { id: "STU-20262008", name: "Gabriel Mendoza",    email: "g.mendoza@eduflex.edu.ph",   role: "Student",    status: "Active",   lastActive: "Sep 1, 2026, 3:20 PM",  joined: "Aug 20, 2026", program: "BS Information Technology", phone: "+63 927 123 4567", courses: ["ICT272", "ICT126"] },
-  { id: "INS-20260037", name: "Prof. Carla Tan",    email: "c.tan@eduflex.edu.ph",       role: "Instructor", status: "Active",   lastActive: "Aug 30, 2026, 11:30 AM",joined: "Jun 1, 2026",  department: "School of IT", phone: "+63 928 234 5678", courses: ["ICT350"] },
+  {
+    id: "20027782",
+    name: "Yusuf Rana Magar",
+    email: "20027782@eduflex.en-rich.me",
+    role: "Student",
+    status: "Active",
+    lastActive: "Today, 10:45 AM",
+    joined: "Feb 15, 2026",
+    program: "Bachelor of Information Technology",
+    phone: "+61 400 111 222",
+    courses: ["ICT301", "ICT302"],
+  },
+  {
+    id: "20030988",
+    name: "Richard Vitug",
+    email: "20030988@eduflex.en-rich.me",
+    role: "Student",
+    status: "Active",
+    lastActive: "Just now",
+    joined: "Feb 15, 2026",
+    program: "Bachelor of Information Technology",
+    phone: "+61 400 333 444",
+    courses: ["ICT301", "ICT302"],
+  },
+  {
+    id: "20035294",
+    name: "Sadia Binte Mahmud",
+    email: "20035294@eduflex.en-rich.me",
+    role: "Student",
+    status: "Active",
+    lastActive: "Today, 09:15 AM",
+    joined: "Feb 15, 2026",
+    program: "Bachelor of Information Technology",
+    phone: "+61 400 555 666",
+    courses: ["ICT301", "ICT302"],
+  },
+  {
+    id: "20033316",
+    name: "Anita Humagain",
+    email: "anita.humagain@eduflex.en-rich.me",
+    role: "Instructor",
+    status: "Active",
+    lastActive: "Today, 11:30 AM",
+    joined: "Feb 01, 2026",
+    department: "School of Information and Communications Technology",
+    phone: "+61 400 777 888",
+    courses: ["ICT301", "ICT302"],
+  },
+  {
+    id: "20024439",
+    name: "Rojit Munankarmi",
+    email: "a.rojit.munankarmi@eduflex.en-rich.me",
+    role: "Admin",
+    status: "Active",
+    lastActive: "Just now",
+    joined: "Jan 10, 2026",
+    department: "System Administration & Academic Operations",
+    phone: "+61 400 999 000",
+    courses: [],
+  },
 ];
 
-export const INITIAL_PENDING: PendingItem[] = [
-  { id: "PA-001", name: "Bea Tolentino",  initials: "BT", role: "Instructor", action: "Account Registration",   email: "b.tolentino@eduflex.edu.ph", submitted: "Sep 1, 2026" },
-  { id: "PA-002", name: "Karl Navarro",   initials: "KN", role: "Student",    action: "Late Enrollment – ICT301", email: "karl.navarro@eduflex.edu.ph", submitted: "Sep 1, 2026" },
-  { id: "PA-003", name: "Liza Mendoza",   initials: "LM", role: "Instructor", action: "Account Registration",   email: "l.mendoza@eduflex.edu.ph", submitted: "Aug 31, 2026" },
-  { id: "PA-004", name: "Nico Aguilar",   initials: "NA", role: "Student",    action: "Course Override – ICT272", email: "n.aguilar@eduflex.edu.ph", submitted: "Aug 30, 2026" },
-  { id: "PA-005", name: "Danilo Santos",  initials: "DS", role: "Student",    action: "Account Registration",   email: "d.santos@eduflex.edu.ph", submitted: "Aug 29, 2026" },
-];
+export const INITIAL_PENDING: PendingItem[] = [];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function initials(name: string) {
@@ -725,6 +775,47 @@ export default function AdminUserManagement({
     }
   }, [initialModal]);
 
+  useEffect(() => {
+    let mounted = true;
+    getAdminUsersAndApprovalsAction().then((res) => {
+      if (!mounted || !res.success) return;
+      if (res.users && res.users.length > 0 && !controlledUsers) {
+        const mappedUsers: User[] = res.users.map((u) => ({
+          id: u.id,
+          name: u.name,
+          email: u.email,
+          role: u.role,
+          status: u.status,
+          lastActive: "Recently",
+          joined: u.joinedAt ? new Date(u.joinedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Sep 2, 2026",
+          department: u.department ?? undefined,
+          program: u.program ?? undefined,
+          courses: [],
+        }));
+        const dbEmails = new Set(mappedUsers.map((u) => u.email.toLowerCase()));
+        const fallbackUsers = INITIAL_USERS.filter((u) => !dbEmails.has(u.email.toLowerCase()));
+        setInternalUsers([...mappedUsers, ...fallbackUsers]);
+      }
+      if (res.pendingApprovals && res.pendingApprovals.length > 0 && !controlledPending) {
+        const mappedPending: PendingItem[] = res.pendingApprovals.map((p) => ({
+          id: p.id,
+          name: p.name,
+          email: p.email,
+          initials: p.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase(),
+          role: p.role,
+          action: p.actionLabel,
+          submitted: p.submittedAt ? new Date(p.submittedAt).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "Today",
+        }));
+        const dbPendingEmails = new Set(mappedPending.map((p) => p.email.toLowerCase()));
+        const fallbackPending = INITIAL_PENDING.filter((p) => !dbPendingEmails.has(p.email.toLowerCase()));
+        setInternalPending([...mappedPending, ...fallbackPending]);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [controlledUsers, controlledPending]);
+
   // Toast notification
   const [toast, setToast] = useState<{ msg: string; key: number } | null>(null);
   function showToast(msg: string) {
@@ -781,6 +872,7 @@ export default function AdminUserManagement({
   };
 
   function handleSaveUser(u: User) {
+    const isEdit = modal?.type === "edit";
     setUsers((prev) => {
       const idx = prev.findIndex((x) => x.id === u.id);
       if (idx >= 0) {
@@ -791,7 +883,33 @@ export default function AdminUserManagement({
       return [u, ...prev];
     });
     setModal(null);
-    showToast(modal?.type === "edit" ? `${u.name}'s profile updated.` : `${u.name} added successfully.`);
+    showToast(isEdit ? `${u.name}'s profile updated.` : `${u.name} added successfully.`);
+
+    if (isEdit) {
+      updateAdminUserAction({
+        id: u.id,
+        name: u.name,
+        email: u.email,
+        role: u.role,
+        status: u.status,
+        department: u.department,
+        program: u.program,
+      }).catch(() => {});
+    } else {
+      createAdminUserAction({
+        name: u.name,
+        email: u.email,
+        role: u.role,
+        status: u.status,
+        department: u.department,
+        program: u.program,
+      }).then((res) => {
+        if (res.success && res.user) {
+          const createdUser = res.user;
+          setUsers((prev) => prev.map((x) => (x.email === u.email ? { ...x, id: createdUser.id } : x)));
+        }
+      }).catch(() => {});
+    }
   }
 
   function handleConfirm() {
@@ -801,12 +919,15 @@ export default function AdminUserManagement({
       if (variant === "delete") {
         setUsers((prev) => prev.filter((u) => u.id !== userId));
         showToast(`${name}'s account has been deleted.`);
+        deleteAdminUserAction(userId).catch(() => {});
       } else if (variant === "deactivate") {
         setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, status: "Inactive" } : u));
         showToast(`${name}'s account deactivated.`);
+        updateAdminUserAction({ id: userId, status: "Inactive" }).catch(() => {});
       } else if (variant === "activate") {
         setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, status: "Active" } : u));
         showToast(`${name}'s account activated.`);
+        updateAdminUserAction({ id: userId, status: "Active" }).catch(() => {});
       }
     } else if (modal.type === "confirmPending") {
       const { variant, pendingId, name } = modal;
@@ -830,6 +951,10 @@ export default function AdminUserManagement({
       }
       setPending((prev) => prev.filter((p) => p.id !== pendingId));
       showToast(variant === "approve" ? `${name}'s request approved.` : `${name}'s request rejected.`);
+      reviewApprovalRequestAction({
+        approvalId: pendingId,
+        decision: variant === "approve" ? "APPROVED" : "REJECTED",
+      }).catch(() => {});
     }
     setModal(null);
   }
@@ -853,6 +978,7 @@ export default function AdminUserManagement({
     const approvedIds = new Set(listToApprove.map((p) => p.id));
     setPending((prev) => prev.filter((p) => !approvedIds.has(p.id)));
     showToast(`Approved all ${listToApprove.length} pending requests.`);
+    approveAllPendingAction().catch(() => {});
   };
 
   const totalStudents = users.filter((u) => u.role === "Student").length;

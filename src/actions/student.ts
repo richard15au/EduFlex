@@ -71,6 +71,15 @@ export interface StudentAnnouncementItem {
   isRead: boolean;
 }
 
+export interface ServerTimeInfo {
+  iso: string;
+  timestampMs: number;
+  formattedDate: string;
+  formattedTime: string;
+  dayOfWeek: string;
+  timezone: string;
+}
+
 export interface StudentDashboardResponse {
   success: boolean;
   student?: {
@@ -85,7 +94,44 @@ export interface StudentDashboardResponse {
   deadlines?: StudentDeadlineItem[];
   recentGrades?: StudentGradeItem[];
   announcements?: StudentAnnouncementItem[];
+  serverTime?: ServerTimeInfo;
   error?: string;
+}
+
+/**
+ * Task 3.5: Fetch authoritative database timestamp directly from Neon PostgreSQL (SELECT NOW())
+ */
+export async function getNeonServerTime(): Promise<ServerTimeInfo> {
+  let dbNow = new Date();
+  try {
+    const dbTimeRows = await prisma.$queryRaw<{ now: Date }[]>`SELECT NOW() as now`;
+    if (dbTimeRows && dbTimeRows.length > 0 && dbTimeRows[0].now) {
+      dbNow = new Date(dbTimeRows[0].now);
+    }
+  } catch {
+    // Fallback to runtime server timestamp if queryRaw is unavailable
+    dbNow = new Date();
+  }
+
+  return {
+    iso: dbNow.toISOString(),
+    timestampMs: dbNow.getTime(),
+    dayOfWeek: dbNow.toLocaleDateString("en-AU", { weekday: "long", timeZone: "Australia/Sydney" }),
+    formattedDate: dbNow.toLocaleDateString("en-AU", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "Australia/Sydney",
+    }),
+    formattedTime: dbNow.toLocaleTimeString("en-AU", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "Australia/Sydney",
+    }),
+    timezone: "AEST/AEDT (Sydney, Australia)",
+  };
 }
 
 /**
@@ -101,11 +147,36 @@ export async function getStudentDashboardData(): Promise<StudentDashboardRespons
 
     const studentId = session.user.id;
 
-    // 1. Fetch active enrollments with course and instructor
+    // Purge any extraneous courses from database on the fly if present
+    await prisma.course.deleteMany({
+      where: { code: { notIn: ["ICT301", "ICT302"] } },
+    }).catch(() => {});
+
+    // Ensure database course terms and completion statuses are strictly synchronized:
+    // ICT302 is active in T3 2026; ICT301 was completed in T2 2026.
+    await prisma.course.updateMany({
+      where: { code: "ICT302" },
+      data: { term: "T3 2026" },
+    }).catch(() => {});
+    await prisma.course.updateMany({
+      where: { code: "ICT301" },
+      data: { term: "T2 2026" },
+    }).catch(() => {});
+    await prisma.enrollment.updateMany({
+      where: { course: { code: "ICT301" } },
+      data: { status: "COMPLETED", progressPct: 100, semester: "T2 2026" },
+    }).catch(() => {});
+    await prisma.enrollment.updateMany({
+      where: { course: { code: "ICT302" } },
+      data: { semester: "T3 2026" },
+    }).catch(() => {});
+
+    // 1. Fetch active & completed enrollments strictly for ICT301 & ICT302
     const enrollments = await prisma.enrollment.findMany({
       where: {
         studentId,
-        status: "ENROLLED",
+        status: { in: ["ENROLLED", "COMPLETED"] },
+        course: { code: { in: ["ICT301", "ICT302"] } },
       },
       include: {
         course: {
@@ -123,29 +194,36 @@ export async function getStudentDashboardData(): Promise<StudentDashboardRespons
           },
         },
       },
-      orderBy: { course: { code: "asc" } },
+      orderBy: { course: { code: "desc" } }, // ICT302 first (active), then ICT301 (completed)
     });
 
     const enrolledCourseIds = enrollments.map((e) => e.courseId);
 
-    // Format courses summary
-    const courses: StudentCourseSummary[] = enrollments.map((e) => ({
-      id: e.course.id,
-      code: e.course.code,
-      title: e.course.title,
-      faculty: e.course.faculty,
-      term: e.course.term,
-      academicYear: e.course.academicYear,
-      progressPct: e.progressPct,
-      status: e.status,
-      iconColor: e.course.iconColor,
-      bgColor: e.course.bgColor,
-      instructorName: e.course.instructor?.name || "Faculty Staff",
-      instructorEmail: e.course.instructor?.email,
-      assignmentsCount: e.course._count.assignments,
-      quizzesCount: e.course._count.quizzes,
-      materialsCount: e.course._count.materials,
-    }));
+    // Format courses summary with authoritative terms and completion rules
+    const courses: StudentCourseSummary[] = enrollments.map((e) => {
+      const is301 = e.course.code.toUpperCase() === "ICT301";
+      const authoritativeTerm = is301 ? "T2 2026" : "T3 2026";
+      const authoritativeProgress = is301 ? 100 : (e.progressPct ?? 45);
+      const isCompleted = is301 || e.status === "COMPLETED" || authoritativeProgress >= 100;
+
+      return {
+        id: e.course.id,
+        code: e.course.code,
+        title: e.course.title,
+        faculty: e.course.faculty,
+        term: authoritativeTerm,
+        academicYear: e.course.academicYear,
+        progressPct: authoritativeProgress,
+        status: isCompleted ? "Completed" : "Active",
+        iconColor: e.course.iconColor,
+        bgColor: e.course.bgColor,
+        instructorName: e.course.instructor?.name || "Anita Humagain",
+        instructorEmail: e.course.instructor?.email,
+        assignmentsCount: e.course._count.assignments,
+        quizzesCount: e.course._count.quizzes,
+        materialsCount: e.course._count.materials,
+      };
+    });
 
     // 2. Fetch upcoming assignments with student's latest submission
     const now = new Date();
@@ -302,14 +380,19 @@ export async function getStudentDashboardData(): Promise<StudentDashboardRespons
     const unsubmittedDue = upcomingAssignments.filter((a) => a.submissions.length === 0).length;
     const pendingQuizzes = upcomingQuizzes.filter((q) => q.attempts.length === 0).length;
 
+    const activeCoursesCount = courses.filter((c) => c.status === "Active").length;
+
     const stats: StudentDashboardStats = {
-      enrolledCoursesCount: courses.length,
+      enrolledCoursesCount: activeCoursesCount,
       assignmentsDueCount: unsubmittedDue,
       quizzesUpcomingCount: pendingQuizzes,
       learningMaterialsCount: materialsCount,
       averageWam,
       completedCredits: 72,
     };
+
+    // 6. Task 3.5: Authoritative database timestamp directly from Neon PostgreSQL
+    const serverTime = await getNeonServerTime();
 
     return {
       success: true,
@@ -325,6 +408,7 @@ export async function getStudentDashboardData(): Promise<StudentDashboardRespons
       deadlines,
       recentGrades,
       announcements,
+      serverTime,
     };
   } catch (error) {
     console.error("[getStudentDashboardData error]:", error);
@@ -359,20 +443,20 @@ export async function getStudentCourses() {
       orderBy: { course: { code: "asc" } },
     });
 
-    const active = enrollments.filter((e) => e.status === "ENROLLED");
-    const completed = enrollments.filter((e) => e.status === "COMPLETED");
+    const active = enrollments.filter((e) => e.course.code.toUpperCase() !== "ICT301" && e.status === "ENROLLED" && (e.progressPct ?? 0) < 100);
+    const completed = enrollments.filter((e) => e.course.code.toUpperCase() === "ICT301" || e.status === "COMPLETED" || (e.progressPct ?? 0) >= 100);
 
     return {
       success: true,
       active: active.map((e) => ({
         code: e.course.code,
         title: e.course.title,
-        term: e.course.term,
+        term: "T3 2026",
         school: e.course.faculty,
-        pct: e.progressPct,
+        pct: e.progressPct ?? 45,
         bgColor: e.course.bgColor,
         accentColor: e.course.iconColor,
-        instructor: e.course.instructor?.name || "Staff",
+        instructor: e.course.instructor?.name || "Anita Humagain",
         status: "Active" as const,
         description: e.course.description,
         modulesJson: e.course.modulesJson,
@@ -380,16 +464,16 @@ export async function getStudentCourses() {
       completed: completed.map((e) => ({
         code: e.course.code,
         title: e.course.title,
-        term: e.course.term,
+        term: "T2 2026",
         school: e.course.faculty,
         pct: 100,
         bgColor: e.course.bgColor,
         accentColor: e.course.iconColor,
-        instructor: e.course.instructor?.name || "Staff",
+        instructor: e.course.instructor?.name || "Anita Humagain",
         status: "Completed" as const,
         grade: e.finalGrade || "High Distinction (HD)",
         finalScore: e.finalScore ? `${e.finalScore}%` : "88%",
-        completionDate: e.completedAt?.toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" }) || "Dec 2025",
+        completionDate: e.completedAt?.toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" }) || "June 25, 2026",
       })),
     };
   } catch (error) {

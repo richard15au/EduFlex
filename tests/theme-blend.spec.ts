@@ -6,7 +6,7 @@ test('verify assignments page dark and light mode blending', async ({ page }) =>
   await loginAs(page, 'student');
 
   await expect(page).toHaveURL(/\/student$/);
-  await expect(page.getByText('Richard Maceda Vitug')).toBeVisible();
+  await expect(page.getByText('Richard Vitug')).toBeVisible();
 
   // Navigate to Assignments
   await page.getByRole('button', { name: 'Assignments', exact: true }).click();

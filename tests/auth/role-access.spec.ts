@@ -18,7 +18,7 @@ for (const role of Object.keys(roleRoutes) as SeededRole[]) {
       await page.goto(roleRoutes[targetRole]);
 
       await expect(page).toHaveURL(new RegExp(`${roleRoutes[role]}$`));
-      await expect(page.getByText(seededAccounts[role].name, { exact: true })).toBeVisible();
+      await expect(page.getByText(seededAccounts[role].name, { exact: true }).first()).toBeVisible();
     });
   }
 }

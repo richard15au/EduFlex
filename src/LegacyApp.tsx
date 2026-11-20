@@ -14,6 +14,9 @@ import {
   InstructorCourseAssignments,
   InstructorAssignmentItem,
   StudentSubmission,
+  SubDeliverableItem,
+  getSharedSubDeliverables,
+  submitSubDeliverableAction,
 } from "./assignmentData";
 import {
   GradesPage,
@@ -32,7 +35,17 @@ import {
   type StudentDashboardResponse,
   type StudentDashboardStats,
   type StudentDeadlineItem,
+  type ServerTimeInfo,
 } from "./actions/student";
+import {
+  submitAssignmentAction,
+  getAssignmentSubmissionsAction,
+  type VersionedSubmissionRecord,
+} from "./actions/assignments";
+import {
+  startQuizAttemptAction,
+  submitQuizAttemptAction,
+} from "./actions/quizzes";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 const IconSun = ({ className = "" }: { className?: string } = {}) => (
@@ -205,7 +218,7 @@ const IconClock = ({ className = "w-4 h-4" }: { className?: string }) => (
 const navItems = [
   { label: "Dashboard",         icon: <IconDashboard />,   id: "dashboard" },
   { label: "My Courses",        icon: <IconBook />,        id: "courses" },
-  { label: "Assignments",       icon: <IconAssignment />,  id: "assignments" },
+  { label: "Assessments",       icon: <IconAssignment />,  id: "assignments" },
   { label: "Quizzes",           icon: <IconQuiz />,        id: "quizzes" },
   { label: "Learning Materials",icon: <IconFolder />,      id: "materials" },
   { label: "Grades",            icon: <IconGrades />,      id: "grades" },
@@ -682,7 +695,7 @@ function AnnouncementBanner({ onClick }: { onClick?: () => void }) {
         <p className="text-white font-semibold text-sm mb-0.5">Announcements</p>
         <div className="overflow-hidden">
           <p className="marquee-text text-blue-200 text-sm">
-            The Notification Message will display here sliding. &nbsp;&nbsp; Reminder: Assessment 2 for ICT301 is due September 3. &nbsp;&nbsp; New learning materials uploaded for ICT126 AI. &nbsp;&nbsp; Semester enrollment opens October 1.
+            The Notification Message will display here sliding. &nbsp;&nbsp; Reminder: ICT302 Assessment 2: Final Report & Group Activity Log is due Week 11. &nbsp;&nbsp; ICT301 Capstone completed with High Distinction (HD). &nbsp;&nbsp; Official academic domain: eduflex.en-rich.me.
           </p>
         </div>
       </div>
@@ -789,8 +802,8 @@ function CompletedCourseRow({
 // ── Grades Widget ─────────────────────────────────────────────────────────────
 function GradesWidget() {
   const grades = [
-    { name: "Assessment 1", course: "ICT301", note: "With Feedback", score: "8/10" },
-    { name: "Quiz 1",        course: "ICT272", note: "",              score: "32/35" },
+    { name: "Assessment 1: Weekly Progress", course: "ICT302", note: "With Feedback", score: "18/20 (DI)" },
+    { name: "Milestone 3: Final Defense",   course: "ICT301", note: "Completed",     score: "92/100 (HD)" },
   ];
   return (
     <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
@@ -818,8 +831,8 @@ function GradesWidget() {
 // ── Deadlines Widget ──────────────────────────────────────────────────────────
 function DeadlinesWidget() {
   const deadlines = [
-    { name: "Assessment 2", course: "ICT301", due: "Due 3 Sep" },
-    { name: "Assessment 2", course: "ICT272", due: "Due 07 Aug" },
+    { name: "Assessment 2: Final Report", course: "ICT302", due: "Due 19 Oct" },
+    { name: "Assessment 3: Defense Demo", course: "ICT302", due: "Due 28 Oct" },
   ];
   return (
     <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
@@ -942,13 +955,13 @@ function CourseDetailModal({
 // ── Assignments Modal ─────────────────────────────────────────────────────────
 function AssignmentsModal({ onClose }: { onClose: () => void }) {
   const items = [
-    { name: "Assessment 2", course: "ICT301", due: "Sep 3, 2026",  status: "Due" },
-    { name: "Assessment 2", course: "ICT272", due: "Aug 7, 2026",  status: "Overdue" },
-    { name: "Lab Report 1", course: "ICT126", due: "Sep 15, 2026", status: "Not started" },
+    { name: "Assessment 1: Weekly Progress Report (Weeks 2–11)", course: "ICT302", due: "Jan 24, 2027", status: "1/10 Submitted" },
+    { name: "Assessment 2: Final Report & Activity Log", course: "ICT302", due: "Jan 24, 2027", status: "1/2 Submitted" },
+    { name: "Assessment 3: Defense & Demo", course: "ICT302", due: "Jan 29, 2027", status: "0/1 Submitted" },
   ];
 
   return (
-    <PanelModal title="Assignments" onClose={onClose}>
+    <PanelModal title="Assessments" onClose={onClose}>
       <div className="space-y-3">
         {items.map((a, i) => (
           <div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
@@ -956,7 +969,15 @@ function AssignmentsModal({ onClose }: { onClose: () => void }) {
               <p className="text-sm font-semibold text-gray-800">{a.name} <span className="text-gray-500 font-normal">({a.course})</span></p>
               <p className="text-xs text-gray-400">Due: {a.due}</p>
             </div>
-            <span className={`text-xs font-semibold px-2 py-1 rounded-lg ${a.status === "Due" ? "bg-yellow-50 text-yellow-700" : a.status === "Overdue" ? "bg-red-50 text-red-600" : "bg-gray-100 text-gray-500"}`}>
+            <span
+              className={`text-xs font-bold px-2.5 py-1 rounded-full border ${
+                a.status.includes("Submitted")
+                  ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                  : a.status === "Due"
+                  ? "bg-yellow-50 text-yellow-700 border-yellow-200"
+                  : "bg-gray-100 text-gray-500 border-gray-200"
+              }`}
+            >
               {a.status}
             </span>
           </div>
@@ -972,9 +993,9 @@ function AssignmentsModal({ onClose }: { onClose: () => void }) {
 // ── Quizzes Modal ─────────────────────────────────────────────────────────────
 function QuizzesModal({ onClose }: { onClose: () => void }) {
   const items = [
-    { name: "Quiz 2", course: "ICT272", date: "Sep 10, 2026", status: "Upcoming", score: "" },
-    { name: "Quiz 1", course: "ICT272", date: "Aug 1, 2026",  status: "Finished", score: "32/35" },
-    { name: "Quiz 1", course: "ICT301", date: "Jul 20, 2026", status: "Finished", score: "8/10" },
+    { name: "Sprint 1 Knowledge Check", course: "ICT302", date: "Sep 22, 2026", status: "Upcoming", score: "" },
+    { name: "Architecture & Verification Quiz", course: "ICT302", date: "Aug 28, 2026", status: "Finished", score: "19/20" },
+    { name: "Project 1 Scope & Method Review", course: "ICT301", date: "Jul 20, 2026", status: "Finished", score: "8/10" },
   ];
   return (
     <PanelModal title="Quizzes" onClose={onClose}>
@@ -1120,6 +1141,9 @@ interface Assignment {
   type?: "Assignment" | "Assessment";
   maxScore?: number;
   weight?: number;
+  totalSubmissions?: number;
+  submittedCount?: number;
+  submissionRatioLabel?: string;
 }
 
 interface CourseGroup {
@@ -1133,68 +1157,97 @@ interface CourseGroup {
 
 const courseGroups: CourseGroup[] = [
   {
-    code: "ICT272",
-    title: "Web Design and Development",
-    term: "T226",
-    iconColor: "#2563eb",
-    assignments: [
+    code: "ICT302",
+    title: "Information Technology Project 2",
+    term: "T3 2026",
+    iconColor: "#0e9f6e",
+    assignments: [],
+    assessments: [
       {
-        id: "a1",
-        name: "RICT272 Web application",
-        description: "Create a responsive website layout using HTML, CSS, and Flexbox.",
-        dueDate: "May 30, 2026",
+        id: "ict302-ass1",
+        name: "Assessment 1: Weekly Progress Report & Self-Reflection (Weeks 2–11)",
+        description: "Continuous weekly progress tracking across Weeks 2 to 11 evaluating technical implementation, literature review, and group dynamics with individual 2-paragraph self-reflections (10 weekly submissions · 20% total).",
+        dueDate: "Jan 24, 2027",
         status: "submitted",
+        type: "Assessment",
+        maxScore: 100,
+        weight: 20,
+        score: "95",
+        feedback: "Outstanding continuous progress tracking. High Distinction (HD) awarded for Week 2.",
+        totalSubmissions: 10,
+        submittedCount: 1,
+        submissionRatioLabel: "1/10 Submitted",
       },
       {
-        id: "a2",
-        name: "Interactive Web Prototype",
-        description: "Add interactive elements using JavaScript and DOM manipulation.",
-        dueDate: "Jun 06, 2026",
-        status: "dueSoon",
+        id: "ict302-ass2",
+        name: "Assessment 2: Final Report and Group Activity Log",
+        description: "Major deliverable comprising Final Report (40% — 25 to 30 pages: project scope, architecture, test plan with 8+ test cases, evaluation, results) and Group Activity Log (10% — 12 meeting minutes appendix, roles, and interaction) (2 deliverables · 50% total).",
+        dueDate: "Jan 24, 2027",
+        status: "submitted",
+        type: "Assessment",
+        maxScore: 100,
+        weight: 50,
+        totalSubmissions: 2,
+        submittedCount: 1,
+        submissionRatioLabel: "1/2 Submitted",
+      },
+      {
+        id: "ict302-ass3",
+        name: "Assessment 3: Presentation and Demonstration",
+        description: "Final capstone defense (20 minutes) comprising In-Class Presentation (20% — visual appeal, content, dynamics, individual delivery) and Live Demonstration (10% — systematic functional software execution).",
+        dueDate: "Jan 29, 2027",
+        status: "notStarted",
+        type: "Assessment",
+        maxScore: 100,
+        weight: 30,
+        totalSubmissions: 1,
+        submittedCount: 0,
+        submissionRatioLabel: "0/1 Submitted",
       },
     ],
   },
   {
     code: "ICT301",
     title: "Information Technology Project 1",
-    term: "T226",
-    iconColor: "#7c3aed",
-    assignments: [
+    term: "T2 2026",
+    iconColor: "#2563eb",
+    assignments: [],
+    assessments: [
       {
-        id: "a3",
-        name: "Project Proposal",
-        description: "Submit a structured proposal outlining project scope and objectives.",
-        dueDate: "May 25, 2026",
+        id: "ict301-ass1",
+        name: "Milestone 1: Project Proposal & Scope Charter",
+        description: "Comprehensive project proposal detailing project scope, team roles, and Gantt chart schedule.",
+        dueDate: "Mar 25, 2026",
         status: "submitted",
+        type: "Assessment",
+        maxScore: 100,
+        weight: 20,
+        score: "95",
+        feedback: "Outstanding proposal. High Distinction (HD).",
       },
       {
-        id: "a4",
-        name: "Literature Review",
-        description: "Conduct a review of at least 10 academic sources related to your topic.",
-        dueDate: "Jun 15, 2026",
-        status: "notStarted",
-      },
-    ],
-  },
-  {
-    code: "ICT126",
-    title: "Artificial Intelligence",
-    term: "T226",
-    iconColor: "#db2777",
-    assignments: [
-      {
-        id: "a5",
-        name: "Lab Report 1: Perceptrons",
-        description: "Implement a single-layer perceptron model and evaluate classification metrics.",
-        dueDate: "Sep 15, 2026",
-        status: "dueSoon",
+        id: "ict301-ass2",
+        name: "Milestone 2: System Architecture & Requirements Specification",
+        description: "Preliminary architecture design diagrams, database schema models, and UX wireframe deliverables.",
+        dueDate: "May 15, 2026",
+        status: "submitted",
+        type: "Assessment",
+        maxScore: 100,
+        weight: 40,
+        score: "90",
+        feedback: "Robust architecture specification. High Distinction (HD).",
       },
       {
-        id: "a6",
-        name: "Mid-Semester Test",
-        description: "Comprehensive assessment covering state-space search and supervised learning.",
-        dueDate: "Oct 04, 2026",
-        status: "notStarted",
+        id: "ict301-ass3",
+        name: "Milestone 3: Project 1 Final Defense & Report",
+        description: "Final architectural presentation, risk management matrix, and Project 1 defense (Completed).",
+        dueDate: "Jun 20, 2026",
+        status: "submitted",
+        type: "Assessment",
+        maxScore: 100,
+        weight: 40,
+        score: "92",
+        feedback: "Excellent technical defense. High Distinction (HD).",
       },
     ],
   },
@@ -1202,12 +1255,28 @@ const courseGroups: CourseGroup[] = [
 
 type AssignmentFilter = "all" | "dueSoon" | "submitted" | "overdue";
 
-function StatusBadge({ status }: { status: AStatus }) {
+function StatusBadge({
+  status,
+  ratioLabel,
+}: {
+  status: AStatus;
+  ratioLabel?: string;
+}) {
   const s = assignmentStatuses[status];
+  const displayLabel = ratioLabel || s.label;
+  const isCustomSubmitted = ratioLabel && (ratioLabel.includes("Submitted") || ratioLabel.includes("/"));
   return (
-    <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full border ${s.bg} ${s.text} ${s.border}`}>
-      <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
-      {s.label}
+    <span
+      className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full border ${
+        isCustomSubmitted
+          ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+          : `${s.bg} ${s.text} ${s.border}`
+      }`}
+    >
+      <span
+        className={`w-1.5 h-1.5 rounded-full ${isCustomSubmitted ? "bg-emerald-600 animate-pulse" : s.dot}`}
+      />
+      {displayLabel}
     </span>
   );
 }
@@ -1223,7 +1292,16 @@ function AssignmentRow({
 }) {
   return (
     <div
+      role="button"
+      tabIndex={0}
+      data-testid={`assignment-item-${a.id}`}
       onClick={() => onSelect(a, course)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect(a, course);
+        }
+      }}
       className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 dark:border-gray-800/80 last:border-0 hover:bg-blue-50/40 dark:hover:bg-blue-950/20 transition-colors group cursor-pointer"
       style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
       title={`Click to view details for ${a.name}`}
@@ -1261,7 +1339,16 @@ function AssessmentRow({
 }) {
   return (
     <div
+      role="button"
+      tabIndex={0}
+      data-testid={`assessment-item-${a.id}`}
       onClick={() => onSelect(a, course)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect(a, course);
+        }
+      }}
       className="grid items-center gap-4 px-5 py-3.5 border-b border-gray-100 dark:border-gray-800/80 last:border-0 hover:bg-purple-50/40 dark:hover:bg-purple-950/20 transition-colors group cursor-pointer"
       style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
       title={`Click to view details for ${a.name}`}
@@ -1274,6 +1361,11 @@ function AssessmentRow({
           <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 border border-transparent dark:border-purple-800/50 shrink-0">
             Weight: {a.weight ?? 25}%
           </span>
+          {a.totalSubmissions && (
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 shrink-0">
+              {a.totalSubmissions === 10 ? "10 Submissions (Weeks 2–11)" : `${a.totalSubmissions} Submissions`}
+            </span>
+          )}
         </div>
       </div>
       <div>
@@ -1284,7 +1376,7 @@ function AssessmentRow({
         <span>{a.dueDate}</span>
       </div>
       <div>
-        <StatusBadge status={a.status} />
+        <StatusBadge status={a.status} ratioLabel={a.submissionRatioLabel} />
       </div>
       <div className="flex justify-end text-gray-300 dark:text-gray-600 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
         <IconChevronRight className="w-4 h-4" />
@@ -1337,7 +1429,9 @@ function CourseAccordion({
             {group.code} – {group.title} {group.term ? `(${group.term})` : ""}
           </p>
           <p className="text-xs text-gray-500 mt-0.5">
-            {assignments.length} assignment{assignments.length !== 1 ? "s" : ""} · {assessments.length} assessment{assessments.length !== 1 ? "s" : ""}
+            {assignments.length > 0
+              ? `${assignments.length} assignment${assignments.length !== 1 ? "s" : ""} · ${assessments.length} assessment${assessments.length !== 1 ? "s" : ""}`
+              : `${assessments.length} Assessments · 100% Total Weight`}
           </p>
         </div>
         <div className={`text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
@@ -1347,40 +1441,44 @@ function CourseAccordion({
 
       {open && (
         <div className="border-t border-gray-100">
-          {/* ── ASSIGNMENTS SECTION ── */}
-          <div className="px-5 py-2.5 bg-gray-50/75 dark:bg-[#0f172a] border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Assignments</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-transparent dark:border-gray-700/60">
-                {visibleAssignments.length}
-              </span>
-            </div>
-            <span className="text-[11px] text-gray-400 dark:text-gray-400">Regular coursework &amp; lab exercises</span>
-          </div>
-
-          {visibleAssignments.length === 0 ? (
-            <div className="px-5 py-4 text-center text-xs text-gray-400">
-              {filter === "all" ? "No regular assignments in this course." : "No assignments match the selected filter."}
-            </div>
-          ) : (
+          {/* ── ASSIGNMENTS SECTION (Rendered only if course has standalone assignments) ── */}
+          {assignments.length > 0 && (
             <div>
-              {/* Table header */}
-              <div
-                className="grid px-5 py-2 bg-gray-50/50 dark:bg-[#0b0f19]/70 border-b border-gray-100 dark:border-gray-800/80 gap-4"
-                style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
-              >
-                {["Assignment", "Description", "Due Date", "Status", ""].map((h, idx) => (
-                  <p key={idx} className="text-[10px] font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider">{h}</p>
-                ))}
+              <div className="px-5 py-2.5 bg-gray-50/75 dark:bg-[#0f172a] border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-200">Assignments</span>
+                  <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-transparent dark:border-gray-700/60">
+                    {visibleAssignments.length}
+                  </span>
+                </div>
+                <span className="text-[11px] text-gray-400 dark:text-gray-400">Regular coursework &amp; lab exercises</span>
               </div>
-              {visibleAssignments.map((a) => (
-                <AssignmentRow key={a.id} a={a} course={group} onSelect={onSelectAssignment} />
-              ))}
+
+              {visibleAssignments.length === 0 ? (
+                <div className="px-5 py-4 text-center text-xs text-gray-400">
+                  {filter === "all" ? "No regular assignments in this course." : "No assignments match the selected filter."}
+                </div>
+              ) : (
+                <div>
+                  {/* Table header */}
+                  <div
+                    className="grid px-5 py-2 bg-gray-50/50 dark:bg-[#0b0f19]/70 border-b border-gray-100 dark:border-gray-800/80 gap-4"
+                    style={{ gridTemplateColumns: "1.2fr 2fr 130px 110px 32px" }}
+                  >
+                    {["Assignment", "Description", "Due Date", "Status", ""].map((h, idx) => (
+                      <p key={idx} className="text-[10px] font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider">{h}</p>
+                    ))}
+                  </div>
+                  {visibleAssignments.map((a) => (
+                    <AssignmentRow key={a.id} a={a} course={group} onSelect={onSelectAssignment} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
           {/* ── ASSESSMENTS SECTION ── */}
-          <div className="px-5 py-2.5 bg-purple-50/70 dark:bg-purple-950/40 border-t border-b border-purple-100 dark:border-purple-900/40 flex items-center justify-between">
+          <div className={`px-5 py-2.5 bg-purple-50/70 dark:bg-purple-950/40 border-b border-purple-100 dark:border-purple-900/40 flex items-center justify-between ${assignments.length > 0 ? "border-t" : ""}`}>
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-purple-900 dark:text-purple-200">Assessments</span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 border border-transparent dark:border-purple-800/60">
@@ -1450,6 +1548,26 @@ function buildStudentCourseGroups(
         }
       }
 
+      let totalSubs = item.totalSubmissions;
+      let subsCount = item.submittedCount;
+      let ratioLabel = item.submissionRatioLabel;
+
+      if (c.code === "ICT302") {
+        if (item.id === "ict302-ass1" || item.title.includes("Assessment 1")) {
+          totalSubs = 10;
+          subsCount = 1;
+          ratioLabel = "1/10 Submitted";
+        } else if (item.id === "ict302-ass2" || item.title.includes("Assessment 2")) {
+          totalSubs = 2;
+          subsCount = 1;
+          ratioLabel = "1/2 Submitted";
+        } else if (item.id === "ict302-ass3" || item.title.includes("Assessment 3")) {
+          totalSubs = 1;
+          subsCount = 0;
+          ratioLabel = "0/1 Submitted";
+        }
+      }
+
       return {
         id: item.id || `${itemType.toLowerCase()}-${item.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
         name: item.title,
@@ -1466,12 +1584,15 @@ function buildStudentCourseGroups(
         type: itemType,
         maxScore: item.maxScore ?? 100,
         weight: item.weight ?? (itemType === "Assessment" ? 25 : undefined),
+        totalSubmissions: totalSubs,
+        submittedCount: subsCount,
+        submissionRatioLabel: ratioLabel,
       };
     };
 
-    const publishedAssignments = (c.assignments || [])
-      .filter((a) => a.status !== "Draft")
-      .map((a) => mapItem(a, "Assignment"));
+    // In EduFlex (ICT302 & ICT301), all coursework is structured inside Assessments (1, 2, 3).
+    // Standalone regular assignments are eliminated to ensure clean, non-duplicated assessment hierarchies.
+    const publishedAssignments: Assignment[] = [];
 
     const publishedAssessments = (c.assessments || [])
       .filter((ass) => ass.status === "Published" || !ass.status)
@@ -1480,7 +1601,7 @@ function buildStudentCourseGroups(
     return {
       code: c.code,
       title: c.name,
-      term: c.term || "T226",
+      term: c.term || (c.code === "ICT301" ? "T2 2026" : "T3 2026"),
       iconColor: c.color,
       assignments: publishedAssignments,
       assessments: publishedAssessments,
@@ -1514,6 +1635,20 @@ const IconFileTextDoc = ({ className = "w-5 h-5" }: { className?: string }) => (
 const IconDownloadBtn = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+);
+
+const IconLinkChain = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+  </svg>
+);
+
+const IconCopyBtn = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
   </svg>
 );
 
@@ -1592,50 +1727,50 @@ const assignmentCustomData: Record<string, AssignmentDetailMeta> = {
         ".PDF (Accompanying technical report & design rationale)",
       ],
       maxSize: "50 MB",
-      namingConvention: "ICT272_A2_StudentID_LastName.zip",
+      namingConvention: "ICT302_A2_StudentID_LastName.zip",
       policies: [
-        "Academic Integrity Declaration: All HTML, CSS, and JavaScript source code must be authored by the student. Any third-party starter templates, icons, or snippets must be explicitly cited in README.md.",
-        "Late Submissions: 5% per calendar day penalty applies up to a maximum of 5 days. Submissions submitted after 5 days cannot be marked without approved academic consideration.",
-        "Browser Compatibility: Code must execute without console errors on modern releases of Google Chrome, Firefox, and Safari.",
+        "Academic Integrity Declaration: All source code, architectural documentation, and meeting minutes must be authored by the student team. Any third-party libraries or starter code must be cited in the project README.md.",
+        "Late Submissions: 5% per calendar day penalty applies up to a maximum of 5 days in accordance with Section 2.8 of the KOI Outline.",
+        "Deliverables: 25 to 30 page Final Report (PDF) with 8+ test execution results and Group Activity Log appendix.",
       ],
     },
     rubric: [
       {
-        criterion: "DOM Manipulation & Event Interactivity",
-        maxPts: 35,
-        desc: "Robust event listener implementation, seamless DOM mutation, clean state transitions, and bug-free runtime execution.",
+        criterion: "Project Structure & Technical Implementation",
+        maxPts: 19,
+        desc: "Structural organisation (4m) and full-stack software implementation with Server Actions and connection pooling (15m).",
       },
       {
-        criterion: "Responsive UI / UX & Visual Polish",
-        maxPts: 25,
-        desc: "Modern aesthetic hierarchy, consistent typography and spacing, and fluid adaptation across breakpoints.",
+        criterion: "Testing & Evaluation Plan",
+        maxPts: 18,
+        desc: "Test plan detailing at least 8 test cases (5m), evaluation methodology (5m), and comprehensive execution results (8m).",
       },
       {
-        criterion: "Code Architecture & Best Practices",
-        maxPts: 20,
-        desc: "Modular JavaScript separation of concerns, descriptive identifiers, optimal execution, and meaningful comments.",
+        criterion: "Conclusions & Recommendations",
+        maxPts: 3,
+        desc: "Evaluation against project objectives and clear recommendations for system extension and scalability.",
       },
       {
-        criterion: "Accessibility & Documentation",
-        maxPts: 20,
-        desc: "WCAG 2.1 AA compliance, keyboard focus navigation, semantic HTML, ARIA attributes, and an informative README guide.",
+        criterion: "Group Activity Log & Minutes Appendix",
+        maxPts: 10,
+        desc: "Complete documentation of 12 team meeting minutes (4m), quality of interaction (3m), and individual task allocation (3m).",
       },
     ],
     resources: [
       {
-        name: "ICT272_Assignment2_Specification_Brief.pdf",
+        name: "ICT302_Assessment2_Specification_Brief.pdf",
         size: "1.4 MB",
         type: "PDF Document",
         desc: "Official assessment brief, technical specifications, and step-by-step deliverable checklist.",
       },
       {
-        name: "interactive_web_prototype_starter_code.zip",
+        name: "ICT302_FinalReport_Template.docx",
         size: "3.8 MB",
-        type: "ZIP Archive",
-        desc: "Boilerplate project template with starter layout, sample JSON data fixtures, and icon assets.",
+        type: "Document",
+        desc: "Standard 25-30 page project report template with meeting minutes appendix tables.",
       },
       {
-        name: "ICT272_Assessment2_Marking_Rubric.pdf",
+        name: "ICT302_Assessment2_Marking_Rubric.pdf",
         size: "420 KB",
         type: "PDF Document",
         desc: "Detailed marking criteria matrix, performance descriptors, and score band standards.",
@@ -1647,47 +1782,47 @@ const assignmentCustomData: Record<string, AssignmentDetailMeta> = {
     totalMarks: 100,
     gradeInfo: {
       status: "Graded & Released",
-      score: "94 / 100",
-      grade: "High Distinction (HD)",
-      submissionDate: "May 28, 2026 at 4:15 PM AEST",
-      receipt: "#EDF-2026-8192",
+      score: "88 / 100",
+      grade: "Distinction (DI)",
+      submissionDate: "Oct 10, 2026 at 4:30 PM AEST",
+      receipt: "#EDF-2026-3021",
       feedback:
-        "Outstanding work! Semantic HTML tags are used impeccably. Fluid flexbox design adapts perfectly from 320px up to 4K displays. Great documentation in the README.",
+        "Outstanding continuous progress tracking across Weeks 2 through 11! Server Actions architecture and Playwright tests are well documented.",
     },
     instructions: {
       overview:
-        "Design and construct a multi-page responsive website utilizing HTML5 semantics, CSS3 Flexbox, CSS Grid layouts, and responsive media query techniques.",
+        "Weekly Progress Reports tracking continuous literature review, technical implementation, and team sprint execution across Weeks 2 to 11.",
       tasks: [
         {
-          title: "1. Layout Architecture",
-          desc: "Implement a fluid multi-breakpoint grid system with standard header, navigation bar, hero container, and footer.",
+          title: "1. Weekly Sprint Journal",
+          desc: "Document technical challenges, design decisions, and sprint velocity for each week.",
         },
         {
-          title: "2. Visual Hierarchy & CSS Best Practices",
-          desc: "Use modern CSS custom properties (variables) for consistent color theming, spacing, and typography scales.",
+          title: "2. Architecture & Code Verification",
+          desc: "Provide commit hashes, pull request reviews, and automated Playwright test verification logs.",
         },
         {
-          title: "3. Accessibility Audit",
-          desc: "Attain a Lighthouse accessibility score above 95 with correct alt text, color contrast ratios, and landmark regions.",
+          title: "3. Individual Contribution Tracking",
+          desc: "Detail task completion and individual member responsibilities.",
         },
       ],
     },
     submissionRequirements: {
       acceptedFormats: [".ZIP", ".PDF"],
       maxSize: "50 MB",
-      namingConvention: "ICT272_A1_StudentID_LastName.zip",
+      namingConvention: "ICT302_A1_StudentID_LastName.zip",
       policies: [
         "Work must adhere to standard university academic integrity requirements.",
       ],
     },
     rubric: [
-      { criterion: "Responsive Design & Flexbox", maxPts: 40, desc: "Flawless layout behavior across all screen resolutions." },
-      { criterion: "Semantic HTML & CSS Structure", maxPts: 30, desc: "Clean, valid HTML5 markup and organized stylesheets." },
-      { criterion: "Visual Polish & Accessibility", maxPts: 30, desc: "Typography, color contrast, and WCAG 2.1 compliance." },
+      { criterion: "Continuous Progress & Journal", maxPts: 40, desc: "Thorough weekly records across Weeks 2 to 11." },
+      { criterion: "Technical Implementation & Testing", maxPts: 30, desc: "Evidence of working code and automated verification." },
+      { criterion: "Group Coordination & Reflection", maxPts: 30, desc: "Individual contributions and problem resolution." },
     ],
     resources: [
-      { name: "RICT272_Assignment1_Project_Brief.pdf", size: "1.1 MB", type: "PDF Document", desc: "Project brief and submission instructions." },
-      { name: "RICT272_Assignment1_Rubric.pdf", size: "310 KB", type: "PDF Document", desc: "Grading matrix." },
+      { name: "ICT302_Assessment1_WeeklyReport_Brief.pdf", size: "1.1 MB", type: "PDF Document", desc: "Project brief and submission instructions." },
+      { name: "ICT302_Assessment1_Rubric.pdf", size: "310 KB", type: "PDF Document", desc: "Grading matrix." },
     ],
   },
 };
@@ -1777,6 +1912,123 @@ function getAssignmentDetails(a: Assignment, course: CourseGroup): AssignmentDet
   };
 }
 
+const ICT302_WEEKLY_PROGRESS_REPORTS = [
+  {
+    week: 2,
+    title: "Project Initiation & Team Charter",
+    description: "Team role allocation, repository initialization, and 12-week Gantt schedule.",
+    due: "Nov 08, 2026",
+    status: "Submitted (Verified)",
+    badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    score: "9.5/10",
+  },
+  {
+    week: 3,
+    title: "Full-Stack Architecture & DB Schema",
+    description: "Neon PostgreSQL schema ERD, Next.js Server Actions design, and connection pooler setup.",
+    due: "Nov 15, 2026",
+    status: "Due Soon (Current Week)",
+    badgeClass: "bg-orange-100 text-orange-800 border-orange-300",
+    score: null,
+  },
+  {
+    week: 4,
+    title: "Core Implementation & Authentication",
+    description: "Role-based access control, session management, and Playwright verification suite.",
+    due: "Nov 22, 2026",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 5,
+    title: "Testing Suite & WCAG Accessibility",
+    description: "End-to-end testing coverage, WCAG 2.1 AA accessibility audit, and form validations.",
+    due: "Nov 29, 2026",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 6,
+    title: "Mid-Trimester Milestone Review",
+    description: "Lecturer consultation review covering sprint deliverables and milestone progress.",
+    due: "Dec 06, 2026",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 7,
+    title: "UI/UX & Responsive Layout Optimization",
+    description: "Responsive grid layouts, theme blend, and mobile drawer accessibility.",
+    due: "Dec 13, 2026",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 8,
+    title: "Database Optimization & Connection Pooling",
+    description: "Serverless connection pooling, Prisma query optimization, and Neon indexing.",
+    due: "Dec 20, 2026",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 9,
+    title: "Security Hardening & RBAC Controls",
+    description: "Security rules audit, parameter sanitization, and penetration test verification.",
+    due: "Jan 10, 2027",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 10,
+    title: "Pre-Submission Code Freeze & Staging",
+    description: "Production build validation, comprehensive smoke test runs, and user acceptance testing.",
+    due: "Jan 17, 2027",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+  {
+    week: 11,
+    title: "Final Progress Compilation & Sign-off",
+    description: "Consolidated weekly progress log, 12 meeting minutes appendix, and Assessment 1 sign-off.",
+    due: "Jan 24, 2027",
+    status: "Upcoming",
+    badgeClass: "bg-gray-100 text-gray-700 border-gray-200",
+    score: null,
+  },
+];
+
+const ICT302_ASSESSMENT2_SUBMISSIONS = [
+  {
+    part: 1,
+    title: "Deliverable 1: Final Project Report",
+    weight: "40%",
+    description: "25 to 30 pages comprehensive final report detailing project scope, full-stack architecture, test plan with 8+ test cases, evaluation, results, and deployment.",
+    due: "Jan 24, 2027 (Week 11)",
+    status: "In Progress",
+    badgeClass: "bg-blue-100 text-blue-800 border-blue-200",
+    score: null,
+    fileName: "ICT302_Final_Report_EduFlex_Draft.pdf",
+  },
+  {
+    part: 2,
+    title: "Deliverable 2: Group Activity Log & Meeting Minutes",
+    weight: "10%",
+    description: "12 meeting minutes appendix, roles allocation, individual contributions journal, and team interaction records.",
+    due: "Jan 24, 2027 (Week 11)",
+    status: "Submitted (Verified)",
+    badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-300",
+    score: "9.2/10",
+    fileName: "ICT302_Group_Activity_Log_12_Minutes.pdf",
+  },
+];
 
 // ── Dedicated Reusable Assignment Details View ────────────────────────────────
 function AssignmentDetailsView({
@@ -1796,11 +2048,15 @@ function AssignmentDetailsView({
 }) {
   const details = getAssignmentDetails(assignment, course);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const isAssessment1 = assignment.id === "ict302-ass1" || assignment.name.includes("Weekly Progress") || assignment.name.includes("Assessment 1");
 
   const isInitiallySubmitted = assignment.status === "submitted";
   const [currentStatus, setCurrentStatus] = useState<AStatus>(assignment.status);
   const [isSubmitted, setIsSubmitted] = useState(isInitiallySubmitted);
   const [isResubmitting, setIsResubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [attemptNumber, setAttemptNumber] = useState<number>(1);
+  const [submissionHistory, setSubmissionHistory] = useState<VersionedSubmissionRecord[]>([]);
 
   const [uploadedFile, setUploadedFile] = useState<{ name: string; size: string } | null>(
     isInitiallySubmitted
@@ -1825,7 +2081,212 @@ function AssignmentDetailsView({
     setTimeout(() => setToastMessage(null), 3500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleDownloadResource = (fileName: string) => {
+    showToast(`Downloading ${fileName}...`);
+    try {
+      const blob = new Blob([`EduFlex Academic Deliverable: ${fileName}\nUnit: ${course.code} - ${course.title}\nTerm: T3 2026\nStudent: Richard Vitug (20030988)`], { type: "application/octet-stream" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch {
+      // fallback
+    }
+  };
+
+  // Task 3.3: Fetch versioned submission revision trail from Neon DB
+  useEffect(() => {
+    let isMounted = true;
+    getAssignmentSubmissionsAction(assignment.id)
+      .then((res) => {
+        if (!isMounted) return;
+        if (res.success && res.submissions && res.submissions.length > 0) {
+          setSubmissionHistory(res.submissions);
+          const latest = res.submissions[0];
+          setReceiptNumber(latest.receiptNumber);
+          setSubmissionTimestamp(latest.submittedAt);
+          setAttemptNumber(latest.attemptNumber);
+          setIsSubmitted(true);
+          setCurrentStatus("submitted");
+          setUploadedFile({
+            name: latest.fileName,
+            size: latest.fileSizeLabel,
+          });
+          if (latest.comments) {
+            setComments(latest.comments);
+          }
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not load submission history:", err);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, [assignment.id]);
+
+  // ── Sub-Deliverables State & Modal (Weeks 2–11, Final Report, Group Activity Log) ──
+  const [subDeliverables, setSubDeliverables] = useState<SubDeliverableItem[]>(() => {
+    return getSharedSubDeliverables();
+  });
+  const [activeSubModalItem, setActiveSubModalItem] = useState<SubDeliverableItem | null>(null);
+  const [subModalIsResubmit, setSubModalIsResubmit] = useState<boolean>(false);
+  const [subModalFile, setSubModalFile] = useState<{
+    name: string;
+    size: string;
+    fileSizeBytes?: number;
+    mimeType?: string;
+    storageKey?: string;
+  } | null>(null);
+  const [subModalUploading, setSubModalUploading] = useState<boolean>(false);
+  const subModalFileInputRef = useRef<HTMLInputElement | null>(null);
+  const [subModalComments, setSubModalComments] = useState<string>("");
+  const [subModalIntegrity, setSubModalIntegrity] = useState<boolean>(false);
+  const [subModalError, setSubModalError] = useState<string | null>(null);
+  const [subModalSubmitting, setSubModalSubmitting] = useState<boolean>(false);
+  const [subModalSuccess, setSubModalSuccess] = useState<boolean>(false);
+  const [subModalReceipt, setSubModalReceipt] = useState<string | null>(null);
+  const [subModalCopied, setSubModalCopied] = useState<boolean>(false);
+  const [subModalLearned, setSubModalLearned] = useState<string>("");
+  const [subModalGrowth, setSubModalGrowth] = useState<string>("");
+
+  const openSubDeliverableModal = (item: SubDeliverableItem, isResubmitMode: boolean = false) => {
+    setActiveSubModalItem(item);
+    setSubModalIsResubmit(isResubmitMode);
+    setSubModalFile(
+      item.fileName && !isResubmitMode
+        ? { name: item.fileName, size: item.fileSize || "3.4 MB" }
+        : null
+    );
+    setSubModalComments(item.comments || "");
+    setSubModalLearned(item.selfReflection?.learned || "");
+    setSubModalGrowth(item.selfReflection?.growth || "");
+    setSubModalIntegrity(false);
+    setSubModalError(null);
+    setSubModalSubmitting(false);
+    setSubModalSuccess(false);
+    setSubModalReceipt(item.receiptNumber || null);
+    setSubModalCopied(false);
+  };
+
+  const handleSubModalRealFile = async (file: File) => {
+    setSubModalError(null);
+    setSubModalUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const response = await fetch("/api/submissions/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        setSubModalError(data.error || "Failed to upload file.");
+        return;
+      }
+      setSubModalFile({
+        name: data.fileName,
+        size: data.fileSizeLabel,
+        fileSizeBytes: data.fileSizeBytes,
+        mimeType: data.mimeType,
+        storageKey: data.storageKey,
+      });
+      setSubModalIntegrity(true);
+    } catch {
+      setSubModalError("Network error while uploading file. Please try again.");
+    } finally {
+      setSubModalUploading(false);
+    }
+  };
+
+  const handleSubDeliverableSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!subModalFile) {
+      setSubModalError("Please select or attach a deliverable file to submit.");
+      return;
+    }
+    if (!subModalIntegrity) {
+      setSubModalError("Please accept the Academic Integrity Declaration to proceed.");
+      return;
+    }
+    setSubModalError(null);
+    setSubModalSubmitting(true);
+
+    if (!activeSubModalItem) {
+      setSubModalSubmitting(false);
+      return;
+    }
+
+    const combinedComments = [
+      activeSubModalItem.week && subModalLearned.trim()
+        ? `Paragraph 1 (What I learned): ${subModalLearned.trim()}`
+        : "",
+      activeSubModalItem.week && subModalGrowth.trim()
+        ? `Paragraph 2 (How it improved my approach): ${subModalGrowth.trim()}`
+        : "",
+      subModalComments.trim() ? `Notes: ${subModalComments.trim()}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
+    const neonResult = await submitAssignmentAction({
+      assignmentSlugOrId: assignment.id,
+      courseCode: course.code,
+      assignmentTitle: `${assignment.name} — ${activeSubModalItem.linkTitle}`,
+      fileName: subModalFile.name,
+      fileSizeLabel: subModalFile.size,
+      fileSizeBytes: subModalFile.fileSizeBytes,
+      mimeType: subModalFile.mimeType,
+      storageKey: subModalFile.storageKey,
+      comments: combinedComments || undefined,
+      integrityAccepted: true,
+      maxScore: assignment.maxScore ?? details.totalMarks,
+    });
+
+    const res = submitSubDeliverableAction(
+      activeSubModalItem.id,
+      subModalFile.name,
+      subModalFile.size,
+      subModalComments,
+      "20030988@eduflex.en-rich.me",
+      "Richard Vitug",
+      activeSubModalItem.week ? { learned: subModalLearned, growth: subModalGrowth } : undefined
+    );
+
+    if (neonResult.success || res.success) {
+      const fresh = getSharedSubDeliverables();
+      setSubDeliverables(fresh);
+      if (res.item) {
+        setActiveSubModalItem(res.item);
+      }
+      const receipt = neonResult.receiptNumber || res.item?.receiptNumber || null;
+      setSubModalReceipt(receipt);
+      setSubModalSuccess(true);
+      setSubModalSubmitting(false);
+      showToast(`✓ ${activeSubModalItem.linkTitle} submitted! Receipt: ${receipt ?? "Verified"}`);
+    } else {
+      setSubModalSubmitting(false);
+      setSubModalError(neonResult.error || "Failed to record submission. Please try again.");
+    }
+  };
+
+  const ass1Reports = subDeliverables.filter((d) => d.assessmentId === "ict302-ass1");
+  const ass1Submitted = ass1Reports.filter((d) => d.status === "Submitted (Verified)").length;
+  const ass1Total = ass1Reports.length || 10;
+
+  const ass2Deliverables = subDeliverables.filter((d) => d.assessmentId === "ict302-ass2");
+  const ass2Submitted = ass2Deliverables.filter((d) => d.status === "Submitted (Verified)").length;
+  const ass2Total = ass2Deliverables.length || 2;
+
+  const ass3Deliverables = subDeliverables.filter((d) => d.assessmentId === "ict302-ass3");
+  const ass3Submitted = ass3Deliverables.filter((d) => d.status === "Submitted (Verified)").length;
+  const ass3Total = ass3Deliverables.length || 2;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!uploadedFile) {
       setValidationError("Please upload or attach your submission file before submitting.");
@@ -1836,46 +2297,95 @@ function AssignmentDetailsView({
       return;
     }
     setValidationError(null);
+    setIsSubmitting(true);
 
-    const newReceipt = `#EDF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-    const now = new Date();
-    const formattedDate =
-      now.toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" }) +
-      " at " +
-      now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }) +
-      " AEST";
+    try {
+      // Task 3.1 & 3.2 & 3.3: Authoritative Server Action directly into Neon DB
+      const result = await submitAssignmentAction({
+        assignmentSlugOrId: assignment.id,
+        courseCode: course.code,
+        assignmentTitle: assignment.name,
+        fileName: uploadedFile.name,
+        fileSizeLabel: uploadedFile.size,
+        comments: comments.trim() || undefined,
+        integrityAccepted: true,
+        maxScore: assignment.maxScore ?? details.totalMarks,
+      });
 
-    setReceiptNumber(newReceipt);
-    setSubmissionTimestamp(formattedDate);
-    setIsSubmitted(true);
-    setCurrentStatus("submitted");
-    setIsResubmitting(false);
+      if (!result.success || !result.receiptNumber) {
+        setValidationError(result.error || "Submission failed. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
 
-    // Save to shared submissions store
-    const sessionUser = getSessionUser();
-    const studentName = sessionUser?.name || "Richard Maceda Vitug";
-    const studentEmail = sessionUser?.email || "2003988@eduflex.edu";
+      const newReceipt = result.receiptNumber;
+      const formattedDate = result.submittedAt || new Date().toLocaleString();
+      const newAttemptNum = result.attemptNumber || (submissionHistory.length + 1);
 
-    addStudentSubmission({
-      itemId: assignment.id,
-      itemTitle: assignment.name,
-      itemType: assignment.type === "Assessment" ? "Assessment" : "Assignment",
-      courseCode: course.code,
-      studentName,
-      studentEmail,
-      fileName: uploadedFile.name,
-      fileSize: uploadedFile.size,
-      comments: comments.trim() || undefined,
-      receiptNumber: newReceipt,
-      maxScore: assignment.maxScore ?? details.totalMarks,
-    });
+      setReceiptNumber(newReceipt);
+      setSubmissionTimestamp(formattedDate);
+      setAttemptNumber(newAttemptNum);
+      setIsSubmitted(true);
+      setCurrentStatus("submitted");
+      setIsResubmitting(false);
+      setIsSubmitting(false);
 
-    showToast(
-      `${assignment.type === "Assessment" ? "Assessment" : "Assignment"} "${assignment.name}" submitted & verified! Receipt: ${newReceipt}`
-    );
-    onStatusChange(assignment.id, "submitted", {
-      submissionDate: formattedDate,
-    });
+      // Refresh history from Neon DB
+      const historyRes = await getAssignmentSubmissionsAction(assignment.id);
+      if (historyRes.success && historyRes.submissions && historyRes.submissions.length > 0) {
+        setSubmissionHistory(historyRes.submissions);
+      } else {
+        setSubmissionHistory((prev) => [
+          {
+            id: result.submissionId || `sub-${Date.now()}`,
+            attemptNumber: newAttemptNum,
+            isLatest: true,
+            receiptNumber: newReceipt,
+            fileName: uploadedFile.name,
+            fileSizeLabel: uploadedFile.size,
+            comments: comments.trim() || null,
+            status: "SUBMITTED",
+            score: null,
+            maxScore: assignment.maxScore ?? details.totalMarks,
+            gradeLabel: null,
+            feedback: null,
+            submittedAt: formattedDate,
+            integrityAccepted: true,
+          },
+          ...prev.map((s) => ({ ...s, isLatest: false })),
+        ]);
+      }
+
+      // Save to shared submissions store
+      const sessionUser = getSessionUser();
+      const studentName = sessionUser?.name || "Richard Vitug";
+      const studentEmail = sessionUser?.email || "20030988@eduflex.en-rich.me";
+
+      addStudentSubmission({
+        itemId: assignment.id,
+        itemTitle: assignment.name,
+        itemType: assignment.type === "Assessment" ? "Assessment" : "Assignment",
+        courseCode: course.code,
+        studentName,
+        studentEmail,
+        fileName: uploadedFile.name,
+        fileSize: uploadedFile.size,
+        comments: comments.trim() || undefined,
+        receiptNumber: newReceipt,
+        maxScore: assignment.maxScore ?? details.totalMarks,
+      });
+
+      showToast(
+        `${assignment.type === "Assessment" ? "Assessment" : "Assignment"} "${assignment.name}" submitted & verified! Receipt: ${newReceipt} (Attempt #${newAttemptNum})`
+      );
+      onStatusChange(assignment.id, "submitted", {
+        submissionDate: formattedDate,
+      });
+    } catch (err: any) {
+      console.error("Error submitting assignment:", err);
+      setValidationError("Failed to communicate with submission server. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -2001,12 +2511,12 @@ function AssignmentDetailsView({
         </div>
       </div>
 
-      {/* Main 2-Column Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left 2 Columns: Instructions, Requirements, Rubric & Attached Files */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Grade / Evaluation Card (shown when available or submitted) */}
-          {(assignment.score || (isSubmitted && details.gradeInfo?.score)) && (
+      {/* Main Container: Full width for Assessment 1, 2-Column Grid for others */}
+      <div className={isAssessment1 ? "w-full space-y-6" : "grid grid-cols-1 lg:grid-cols-3 gap-6"}>
+        {/* Main Body: Full width for Assessment 1, 2 Columns for others */}
+        <div className={isAssessment1 ? "w-full space-y-6" : "lg:col-span-2 space-y-6"}>
+          {/* Grade / Evaluation Card (hidden for Assessment 1, shown for other coursework when graded) */}
+          {!isAssessment1 && (assignment.score || (isSubmitted && details.gradeInfo?.score)) && (
             <div className="bg-white rounded-2xl border border-emerald-200 shadow-sm p-6 relative overflow-hidden">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <div className="flex items-center gap-3">
@@ -2035,198 +2545,701 @@ function AssignmentDetailsView({
             </div>
           )}
 
-          {/* Section 1: Assignment Instructions & Tasks */}
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-            <div className="flex items-center gap-2.5 pb-4 border-b border-gray-100 mb-4">
-              <span className="p-2 rounded-xl bg-blue-50 text-blue-600">
-                <IconClipboardList className="w-5 h-5" />
-              </span>
-              <div>
-                <h2 className="text-base font-bold text-gray-900">Assignment Instructions &amp; Objectives</h2>
-                <p className="text-xs text-gray-400">Step-by-step technical implementation deliverables</p>
-              </div>
-            </div>
-
-            <p className="text-xs text-gray-600 leading-relaxed mb-5">
-              {details.instructions.overview}
-            </p>
-
-            <div className="space-y-3.5">
-              {details.instructions.tasks.map((task, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 bg-gray-50/80 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors"
-                >
-                  <h3 className="text-xs font-bold text-gray-900 mb-1 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-[10px] font-black flex items-center justify-center shrink-0">
-                      {idx + 1}
-                    </span>
-                    <span>{task.title}</span>
-                  </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed pl-7">{task.desc}</p>
+          {/* Assessment 1: Official Resources, Template & Marking Rubric */}
+          {isAssessment1 && (
+            <div data-testid="assessment-1-resources-card" className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-gray-100 flex-wrap gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-purple-50 text-purple-700">
+                    <IconFileArchive className="w-5 h-5" />
+                  </span>
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900">
+                      Assessment 1 Resources &amp; Templates
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                      Official weekly progress report template, marking rubric criteria, and assessment brief
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Section 2: Submission Requirements & Academic Policies */}
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-            <div className="flex items-center gap-2.5 pb-4 border-b border-gray-100 mb-4">
-              <span className="p-2 rounded-xl bg-purple-50 text-purple-600">
-                <IconAlertCircle className="w-5 h-5" />
-              </span>
-              <div>
-                <h2 className="text-base font-bold text-gray-900">Submission Requirements &amp; Policies</h2>
-                <p className="text-xs text-gray-400">Accepted file types, naming conventions, and academic guidelines</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">
-                  Accepted Deliverable Formats
-                </span>
-                <div className="space-y-1">
-                  {details.submissionRequirements.acceptedFormats.map((fmt, i) => (
-                    <span
-                      key={i}
-                      className="block text-xs font-semibold text-gray-800 bg-white border border-gray-200 px-2.5 py-1 rounded-md"
-                    >
-                      {fmt}
-                    </span>
-                  ))}
-                </div>
-                <span className="text-[10px] text-gray-400 mt-2 block">Max file size limit: {details.submissionRequirements.maxSize}</span>
-              </div>
-
-              <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">
-                  File Naming Standard
-                </span>
-                <code className="text-xs font-mono font-bold text-blue-700 bg-white border border-gray-200 px-2.5 py-1.5 rounded-md block truncate">
-                  {details.submissionRequirements.namingConvention}
-                </code>
-                <span className="text-[10px] text-gray-400 mt-2 block">
-                  Please replace StudentID and LastName with your official details
+                <span className="text-xs font-bold text-purple-800 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full">
+                  3 Official Files
                 </span>
               </div>
-            </div>
 
-            <div className="space-y-2">
-              {details.submissionRequirements.policies.map((pol, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-2 text-xs text-gray-600 bg-blue-50/40 p-3 rounded-xl border border-blue-100"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 mt-1.5" />
-                  <span>{pol}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Section 3: Marking Rubric & Criteria Breakdown */}
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-4">
-              <div className="flex items-center gap-2.5">
-                <span className="p-2 rounded-xl bg-amber-50 text-amber-600">
-                  <IconCheckCircle className="w-5 h-5" />
-                </span>
-                <div>
-                  <h2 className="text-base font-bold text-gray-900">Marking Rubric &amp; Grade Criteria</h2>
-                  <p className="text-xs text-gray-400">Total 100 points distributed across 4 key evaluation categories</p>
-                </div>
-              </div>
-              <span className="text-xs font-extrabold text-blue-700 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-lg">
-                100 Marks Total
-              </span>
-            </div>
-
-            <div className="overflow-x-auto rounded-xl border border-gray-100">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-gray-50/80 text-gray-500 uppercase tracking-wider font-bold">
-                  <tr>
-                    <th className="px-4 py-3">Criterion</th>
-                    <th className="px-4 py-3 text-right">Marks</th>
-                    <th className="px-4 py-3">Descriptor &amp; Requirements</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {details.rubric.map((r, i) => (
-                    <tr key={i} className="hover:bg-gray-50/50 transition-colors">
-                      <td className="px-4 py-3.5 font-bold text-gray-900 align-top whitespace-nowrap">
-                        {r.criterion}
-                      </td>
-                      <td className="px-4 py-3.5 font-extrabold text-blue-700 text-right whitespace-nowrap align-top">
-                        {r.maxPts} pts
-                      </td>
-                      <td className="px-4 py-3.5 text-gray-600 leading-relaxed align-top">
-                        {r.desc}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Section 4: Attached Course Resources & Starter Files */}
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-4">
-              <div className="flex items-center gap-2.5">
-                <span className="p-2 rounded-xl bg-emerald-50 text-emerald-600">
-                  <IconFileArchive className="w-5 h-5" />
-                </span>
-                <div>
-                  <h2 className="text-base font-bold text-gray-900">Attached Resources &amp; Starter Files</h2>
-                  <p className="text-xs text-gray-400">Official briefs, templates, and downloadable assets</p>
-                </div>
-              </div>
-              <span className="text-xs text-gray-400 font-medium">
-                {details.resources.length} files available
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {details.resources.map((res, i) => (
-                <div
-                  key={i}
-                  className="p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex items-start justify-between gap-3"
-                >
-                  <div className="flex items-start gap-3 min-w-0">
-                    <div className="p-2.5 rounded-xl bg-white border border-gray-200 text-blue-600 shrink-0">
-                      {res.type.includes("ZIP") ? (
-                        <IconFileArchive className="w-5 h-5 text-amber-600" />
-                      ) : (
-                        <IconFileTextDoc className="w-5 h-5 text-red-500" />
-                      )}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                {/* 1. Weekly Progress Report Template */}
+                <div className="p-4 bg-gray-50/80 hover:bg-blue-50/40 rounded-xl border border-gray-200/90 hover:border-blue-300 transition-all flex flex-col justify-between gap-3 group">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 rounded-xl bg-blue-100 text-blue-700 shrink-0">
+                      <IconFileTextDoc className="w-5 h-5" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-gray-900 truncate" title={res.name}>
-                        {res.name}
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-100/70 px-1.5 py-0.5 rounded">
+                          Template
+                        </span>
+                        <span className="text-[10px] text-gray-400">.DOCX · 145 KB</span>
+                      </div>
+                      <h4 className="text-xs font-bold text-gray-900 group-hover:text-blue-700 transition-colors truncate" title="ICT302_Weekly_Progress_Report_Template.docx">
+                        ICT302_Weekly_Progress_Report_Template.docx
                       </h4>
-                      <p className="text-[11px] text-gray-400 mt-0.5">
-                        {res.type} · {res.size}
+                      <p className="text-[11px] text-gray-500 mt-1 line-clamp-2">
+                        Official KOI progress report template with 2-paragraph self-reflection &amp; task sections.
                       </p>
-                      <p className="text-[11px] text-gray-500 mt-1 line-clamp-1">{res.desc}</p>
                     </div>
                   </div>
                   <button
-                    onClick={() => showToast(`Downloading ${res.name}...`)}
-                    className="p-2 text-gray-500 hover:text-blue-700 hover:bg-white rounded-lg transition-colors shrink-0"
-                    title={`Download ${res.name}`}
+                    type="button"
+                    onClick={() => handleDownloadResource("ICT302_Weekly_Progress_Report_Template.docx")}
+                    className="w-full py-1.5 px-3 bg-white hover:bg-blue-600 hover:text-white border border-gray-200 hover:border-blue-600 rounded-lg text-xs font-bold text-gray-700 transition-all flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
                   >
-                    <IconDownloadBtn className="w-4 h-4" />
+                    <IconDownloadBtn className="w-3.5 h-3.5" />
+                    <span>Download Template</span>
                   </button>
                 </div>
-              ))}
+
+                {/* 2. Marking Rubric */}
+                <div className="p-4 bg-gray-50/80 hover:bg-purple-50/40 rounded-xl border border-gray-200/90 hover:border-purple-300 transition-all flex flex-col justify-between gap-3 group">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 rounded-xl bg-purple-100 text-purple-700 shrink-0">
+                      <IconFileArchive className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700 bg-purple-100/70 px-1.5 py-0.5 rounded">
+                          Marking Rubric
+                        </span>
+                        <span className="text-[10px] text-gray-400">PDF · 320 KB</span>
+                      </div>
+                      <h4 className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-colors truncate" title="ICT302_Assessment1_Marking_Rubric.pdf">
+                        ICT302_Assessment1_Marking_Rubric.pdf
+                      </h4>
+                      <p className="text-[11px] text-gray-500 mt-1 line-clamp-2">
+                        Official evaluation criteria, performance grade bands (HD, DI, CR, P), and weekly reflection rubric.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleDownloadResource("ICT302_Assessment1_Marking_Rubric.pdf")}
+                    className="w-full py-1.5 px-3 bg-white hover:bg-purple-600 hover:text-white border border-gray-200 hover:border-purple-600 rounded-lg text-xs font-bold text-gray-700 transition-all flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
+                  >
+                    <IconDownloadBtn className="w-3.5 h-3.5" />
+                    <span>Download Rubric</span>
+                  </button>
+                </div>
+
+                {/* 3. Specification Brief */}
+                <div className="p-4 bg-gray-50/80 hover:bg-emerald-50/40 rounded-xl border border-gray-200/90 hover:border-emerald-300 transition-all flex flex-col justify-between gap-3 group">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 rounded-xl bg-emerald-100 text-emerald-700 shrink-0">
+                      <IconClipboardList className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-1.5 py-0.5 rounded">
+                          Unit Brief
+                        </span>
+                        <span className="text-[10px] text-gray-400">PDF · 1.2 MB</span>
+                      </div>
+                      <h4 className="text-xs font-bold text-gray-900 group-hover:text-emerald-700 transition-colors truncate" title="ICT302_Assessment1_Specification_Brief.pdf">
+                        ICT302_Assessment1_Specification_Brief.pdf
+                      </h4>
+                      <p className="text-[11px] text-gray-500 mt-1 line-clamp-2">
+                        Complete assessment specifications, continuous milestone expectations, and 10-week schedule.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleDownloadResource("ICT302_Assessment1_Specification_Brief.pdf")}
+                    className="w-full py-1.5 px-3 bg-white hover:bg-emerald-600 hover:text-white border border-gray-200 hover:border-emerald-600 rounded-lg text-xs font-bold text-gray-700 transition-all flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
+                  >
+                    <IconDownloadBtn className="w-3.5 h-3.5" />
+                    <span>Download Brief</span>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Nested Weekly Milestones inside Assessment 1 (10 Submissions: Weeks 2 to 11) - Placed at Top */}
+          {(assignment.id === "ict302-ass1" || assignment.name.includes("Weekly Progress") || assignment.name.includes("Assessment 1")) && (
+            <div data-testid="assessment-1-weekly-breakdown-card" className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-gray-100 flex-wrap gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-emerald-50 text-emerald-700">
+                    <IconClipboardList className="w-5 h-5" />
+                  </span>
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900">
+                      Weekly Progress Reports Breakdown (Weeks 2 to 11)
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                      Continuous weekly milestone entries contributing to Assessment 1 · 10 Submissions (Weeks 2–11)
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3 py-1 rounded-full">
+                    {ass1Submitted}/{ass1Total} Submitted
+                  </span>
+                  <span className="text-xs font-extrabold text-purple-800 bg-purple-100 px-3 py-1 rounded-full">
+                    20% Total Weight
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {ass1Reports.map((report) => (
+                  <div
+                    key={report.id}
+                    data-testid={`sub-deliverable-item-${report.id}`}
+                    className="p-4 rounded-xl border border-gray-200 bg-gray-50/70 hover:bg-white hover:border-emerald-300 hover:shadow-md transition-all text-xs space-y-3 flex flex-col justify-between"
+                  >
+                    <div className="space-y-2">
+                      {/* Week Header: Week X Progress and Status */}
+                      <div className="flex items-center justify-between font-bold gap-2">
+                        <span className="text-gray-900 flex items-center gap-2 min-w-0">
+                          <span className={`w-6 h-6 rounded-lg text-white flex items-center justify-center text-[10px] font-black shrink-0 ${report.status === "Locked" ? "bg-gray-400" : "bg-emerald-600"}`}>
+                            W{report.week}
+                          </span>
+                          <span className="truncate max-w-[220px] text-xs font-bold text-gray-900" title={`Week ${report.week} Progress`}>
+                            Week {report.week} Progress
+                          </span>
+                        </span>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border shrink-0 flex items-center gap-1 ${report.status === "Locked" ? "bg-gray-100 text-gray-500 border-gray-200" : report.badgeClass}`}>
+                          {report.status === "Locked" && <IconLock className="w-2.5 h-2.5" />}
+                          <span>{report.status}</span>
+                        </span>
+                      </div>
+
+                      {/* Due date & Score/Weight */}
+                      <div className="flex items-center justify-between text-[10px] text-gray-400 pt-1 border-t border-gray-100">
+                        <span>Due: {report.due}</span>
+                        <span className="font-semibold text-gray-700">
+                          {report.score ? `Score: ${report.score}` : `Weight: ${report.weight}`}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* SUBMISSION LINK SECTION */}
+                    <div className="pt-2.5 border-t border-gray-200/70 mt-1">
+                      {report.status === "Submitted (Verified)" ? (
+                        <div className="flex items-center justify-between gap-1.5 flex-wrap">
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="text-[10px] font-bold text-emerald-800 truncate max-w-[130px]" title={report.fileName}>
+                              {report.fileName || `WPR_Week${report.week}.docx`}
+                            </span>
+                            <span className="text-[9px] font-mono text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">
+                              {report.receiptNumber}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => openSubDeliverableModal(report, false)}
+                              className="px-2.5 py-1 text-[10px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors flex items-center gap-1 cursor-pointer border border-blue-200"
+                              title={`View ${report.linkTitle}`}
+                            >
+                              <IconLinkChain className="w-3 h-3" />
+                              <span>{report.linkTitle}</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => openSubDeliverableModal(report, true)}
+                              className="px-2 py-1 text-[10px] font-medium text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors cursor-pointer"
+                              title="Resubmit / Upload new revision"
+                            >
+                              Resubmit
+                            </button>
+                          </div>
+                        </div>
+                      ) : report.status === "Locked" ? (
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1.5 text-[10px] text-gray-400">
+                            <IconLock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+                            <span>Locked until {report.opensAt || `Week ${report.week}`}</span>
+                          </div>
+                          <button
+                            type="button"
+                            disabled
+                            className="px-3 py-1.5 text-[10px] font-semibold text-gray-400 bg-gray-100 border border-gray-200 rounded-md flex items-center gap-1 cursor-not-allowed opacity-90 shadow-2xs"
+                            title={`Week ${report.week} submission is locked until ${report.opensAt || `Week ${report.week}`}`}
+                          >
+                            <IconLock className="w-3 h-3 text-gray-400" />
+                            <span>Locked</span>
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1 text-[10px] text-gray-400">
+                            <IconClock className="w-3 h-3 text-orange-500 shrink-0" />
+                            <span>{report.status.includes("Due Soon") ? "Submission Due Soon" : "Upcoming Submission"}</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => openSubDeliverableModal(report, true)}
+                            className="px-3 py-1.5 text-[10px] font-bold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 rounded-md transition-all flex items-center gap-1 shadow-xs cursor-pointer shrink-0"
+                            title={`Open ${report.linkTitle}`}
+                          >
+                            <IconCloudUpload className="w-3.5 h-3.5" />
+                            <span>{report.linkTitle}</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Section 1: Assignment Instructions & Objectives */}
+          {!isAssessment1 && (
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+              <div className="flex items-center gap-2.5 pb-4 border-b border-gray-100 mb-4">
+                <span className="p-2 rounded-xl bg-blue-50 text-blue-600">
+                  <IconClipboardList className="w-5 h-5" />
+                </span>
+                <div>
+                  <h2 className="text-base font-bold text-gray-900">Assignment Instructions &amp; Objectives</h2>
+                  <p className="text-xs text-gray-400">Step-by-step technical implementation deliverables</p>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-600 leading-relaxed mb-5">
+                {details.instructions.overview}
+              </p>
+
+              <div className="space-y-3.5">
+                {details.instructions.tasks.map((task, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 bg-gray-50/80 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors"
+                  >
+                    <h3 className="text-xs font-bold text-gray-900 mb-1 flex items-center gap-2">
+                      <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-[10px] font-black flex items-center justify-center shrink-0">
+                        {idx + 1}
+                      </span>
+                      <span>{task.title}</span>
+                    </h3>
+                    <p className="text-xs text-gray-600 leading-relaxed pl-7">{task.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Submissions Breakdown for Assessment 2 (2 Submissions: Final Report + Group Activity Log) */}
+          {(assignment.id === "ict302-ass2" || assignment.name.includes("Assessment 2") || assignment.name.includes("Final Report")) && (
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-gray-100 flex-wrap gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-purple-50 text-purple-700">
+                    <IconClipboardList className="w-5 h-5" />
+                  </span>
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900">
+                      Assessment 2 Deliverables Breakdown (2 Submissions)
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                      Major Capstone Project Deliverables · Final Report (40%) + Group Activity Log (10%)
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3 py-1 rounded-full">
+                    {ass2Submitted}/{ass2Total} Submitted
+                  </span>
+                  <span className="text-xs font-extrabold text-purple-800 bg-purple-100 px-3 py-1 rounded-full">
+                    50% Total Weight
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {ass2Deliverables.map((deliv) => (
+                  <div
+                    key={deliv.id}
+                    data-testid={`sub-deliverable-item-${deliv.id}`}
+                    className="p-4 rounded-xl border border-gray-100 bg-gray-50/70 hover:bg-white hover:border-purple-200 transition-all text-xs space-y-2.5 flex flex-col justify-between"
+                  >
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between font-bold">
+                        <span className="text-gray-900 flex items-center gap-2">
+                          <span className="w-5 h-5 rounded-md bg-purple-600 text-white flex items-center justify-center text-[10px] font-black shrink-0">
+                            P{deliv.part}
+                          </span>
+                          <span className="truncate max-w-[220px] text-xs font-bold text-gray-900" title={deliv.part === 1 ? "Final Project Report Submission Link" : deliv.linkTitle}>
+                            {deliv.part === 1 ? "Final Project Report Submission Link" : deliv.linkTitle}
+                          </span>
+                        </span>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${deliv.badgeClass}`}>
+                          {deliv.status}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-gray-400 pt-1.5 border-t border-gray-100">
+                        <span>Due: {deliv.due}</span>
+                        <span className="font-semibold text-purple-700">
+                          {deliv.score ? `Score: ${deliv.score}` : `Weight: ${deliv.weight}`}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* SUBMISSION LINK SECTION */}
+                    <div className="pt-2 border-t border-gray-200/70 mt-1">
+                      {deliv.status === "Submitted (Verified)" ? (
+                        <div className="flex items-center justify-between gap-1.5 flex-wrap">
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="text-[10px] font-bold text-emerald-800 truncate max-w-[140px]" title={deliv.fileName}>
+                              {deliv.fileName || `ICT302_Part${deliv.part}.pdf`}
+                            </span>
+                            <span className="text-[9px] font-mono text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
+                              {deliv.receiptNumber}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => openSubDeliverableModal(deliv, false)}
+                              className="px-2 py-1 text-[10px] font-bold text-purple-700 bg-purple-50 hover:bg-purple-100 rounded-md transition-colors flex items-center gap-1 cursor-pointer"
+                              title={`View ${deliv.linkTitle}`}
+                            >
+                              <IconLinkChain className="w-3 h-3" />
+                              <span>{deliv.linkTitle}</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => openSubDeliverableModal(deliv, true)}
+                              className="px-1.5 py-1 text-[10px] font-medium text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors cursor-pointer"
+                              title="Resubmit"
+                            >
+                              Resubmit
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1 text-[10px] text-gray-400">
+                            <IconClock className="w-3 h-3 text-purple-500 shrink-0" />
+                            <span>Deliverable In Progress</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => openSubDeliverableModal(deliv, true)}
+                            className="px-2.5 py-1 text-[10px] font-bold text-white bg-purple-700 hover:bg-purple-800 active:scale-95 rounded-md transition-all flex items-center gap-1 shadow-xs cursor-pointer shrink-0"
+                            title={`Open ${deliv.linkTitle}`}
+                          >
+                            <IconCloudUpload className="w-3 h-3" />
+                            <span>{deliv.linkTitle}</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Submissions Breakdown for Assessment 3 (2 Deliverables: Presentation Slides + Live Demo & Repo) */}
+          {(assignment.id === "ict302-ass3" || assignment.name.includes("Assessment 3") || assignment.name.includes("Presentation")) && (
+            <div data-testid="assessment-3-deliverables-breakdown-card" className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-gray-100 flex-wrap gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-indigo-50 text-indigo-700">
+                    <IconClipboardList className="w-5 h-5" />
+                  </span>
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900">
+                      Assessment 3 Deliverables Breakdown (2 Deliverables)
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                      Final Capstone Defense · In-Class Presentation (20%) + Live Demonstration &amp; Repository (10%)
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-indigo-800 bg-indigo-100 border border-indigo-300 px-3 py-1 rounded-full">
+                    {ass3Submitted}/{ass3Total} Submitted
+                  </span>
+                  <span className="text-xs font-extrabold text-indigo-800 bg-indigo-100 px-3 py-1 rounded-full">
+                    30% Total Weight
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {ass3Deliverables.map((deliv) => (
+                  <div
+                    key={deliv.id}
+                    data-testid={`sub-deliverable-item-${deliv.id}`}
+                    className="p-4 rounded-xl border border-gray-100 bg-gray-50/70 hover:bg-white hover:border-indigo-200 transition-all text-xs space-y-2.5 flex flex-col justify-between"
+                  >
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between font-bold">
+                        <span className="text-gray-900 flex items-center gap-2">
+                          <span className={`w-5 h-5 rounded-md text-white flex items-center justify-center text-[10px] font-black shrink-0 ${deliv.status === "Locked" ? "bg-gray-400" : "bg-indigo-600"}`}>
+                            P{deliv.part}
+                          </span>
+                          <span className="truncate max-w-[220px] text-xs font-bold text-gray-900" title={deliv.linkTitle}>
+                            {deliv.linkTitle}
+                          </span>
+                        </span>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border flex items-center gap-1 ${deliv.status === "Locked" ? "bg-gray-100 text-gray-500 border-gray-200" : deliv.badgeClass}`}>
+                          {deliv.status === "Locked" && <IconLock className="w-2.5 h-2.5" />}
+                          <span>{deliv.status}</span>
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-gray-400 pt-1.5 border-t border-gray-100">
+                        <span>Due: {deliv.due}</span>
+                        <span className="font-semibold text-indigo-700">
+                          Weight: {deliv.weight}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* SUBMISSION LINK SECTION */}
+                    <div className="pt-2 border-t border-gray-200/70 mt-1">
+                      {deliv.status === "Submitted (Verified)" ? (
+                        <div className="flex items-center justify-between gap-1.5 flex-wrap">
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="text-[10px] font-bold text-emerald-800 truncate max-w-[140px]" title={deliv.fileName}>
+                              {deliv.fileName || `ICT302_Defense_Part${deliv.part}.pdf`}
+                            </span>
+                            <span className="text-[9px] font-mono text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
+                              {deliv.receiptNumber}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => openSubDeliverableModal(deliv, false)}
+                              className="px-2 py-1 text-[10px] font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-md transition-colors flex items-center gap-1 cursor-pointer"
+                              title={`View ${deliv.linkTitle}`}
+                            >
+                              <IconLinkChain className="w-3 h-3" />
+                              <span>{deliv.linkTitle}</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => openSubDeliverableModal(deliv, true)}
+                              className="px-1.5 py-1 text-[10px] font-medium text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors cursor-pointer"
+                              title="Resubmit"
+                            >
+                              Resubmit
+                            </button>
+                          </div>
+                        </div>
+                      ) : deliv.status === "Locked" ? (
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1.5 text-[10px] text-gray-400">
+                            <IconLock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+                            <span>Locked until {deliv.opensAt || "Week 12"}</span>
+                          </div>
+                          <button
+                            type="button"
+                            disabled
+                            className="px-2.5 py-1 text-[10px] font-semibold text-gray-400 bg-gray-100 border border-gray-200 rounded-md flex items-center gap-1 cursor-not-allowed opacity-90 shadow-2xs"
+                            title={`Presentation submission is locked until ${deliv.opensAt || "Week 12"}`}
+                          >
+                            <IconLock className="w-3 h-3 text-gray-400" />
+                            <span>Locked</span>
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1 text-[10px] text-gray-400">
+                            <IconClock className="w-3 h-3 text-indigo-500 shrink-0" />
+                            <span>Upcoming Presentation</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => openSubDeliverableModal(deliv, true)}
+                            className="px-2.5 py-1 text-[10px] font-bold text-white bg-indigo-700 hover:bg-indigo-800 active:scale-95 rounded-md transition-all flex items-center gap-1 shadow-xs cursor-pointer shrink-0"
+                            title={`Open ${deliv.linkTitle}`}
+                          >
+                            <IconCloudUpload className="w-3 h-3" />
+                            <span>{deliv.linkTitle}</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Section 2, 3, 4: Requirements, Rubric & Starter Files (Hidden for Assessment 1) */}
+          {!isAssessment1 && (
+            <>
+              {/* Section 2: Submission Requirements & Academic Policies */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+                <div className="flex items-center gap-2.5 pb-4 border-b border-gray-100 mb-4">
+                  <span className="p-2 rounded-xl bg-purple-50 text-purple-600">
+                    <IconAlertCircle className="w-5 h-5" />
+                  </span>
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900">Submission Requirements &amp; Policies</h2>
+                    <p className="text-xs text-gray-400">Accepted file types, naming conventions, and academic guidelines</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">
+                      Accepted Deliverable Formats
+                    </span>
+                    <div className="space-y-1">
+                      {details.submissionRequirements.acceptedFormats.map((fmt, i) => (
+                        <span
+                          key={i}
+                          className="block text-xs font-semibold text-gray-800 bg-white border border-gray-200 px-2.5 py-1 rounded-md"
+                        >
+                          {fmt}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-gray-400 mt-2 block">Max file size limit: {details.submissionRequirements.maxSize}</span>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">
+                      File Naming Standard
+                    </span>
+                    <code className="text-xs font-mono font-bold text-blue-700 bg-white border border-gray-200 px-2.5 py-1.5 rounded-md block truncate">
+                      {details.submissionRequirements.namingConvention}
+                    </code>
+                    <span className="text-[10px] text-gray-400 mt-2 block">
+                      Please replace StudentID and LastName with your official details
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  {details.submissionRequirements.policies.map((pol, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-2 text-xs text-gray-600 bg-blue-50/40 p-3 rounded-xl border border-blue-100"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 mt-1.5" />
+                      <span>{pol}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Section 3: Marking Rubric & Criteria Breakdown */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+                <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="p-2 rounded-xl bg-amber-50 text-amber-600">
+                      <IconCheckCircle className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <h2 className="text-base font-bold text-gray-900">Marking Rubric &amp; Grade Criteria</h2>
+                      <p className="text-xs text-gray-400">Total 100 points distributed across 4 key evaluation categories</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-extrabold text-blue-700 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-lg">
+                    100 Marks Total
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto rounded-xl border border-gray-100">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-gray-50/80 text-gray-500 uppercase tracking-wider font-bold">
+                      <tr>
+                        <th className="px-4 py-3">Criterion</th>
+                        <th className="px-4 py-3 text-right">Marks</th>
+                        <th className="px-4 py-3">Descriptor &amp; Requirements</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {details.rubric.map((r, i) => (
+                        <tr key={i} className="hover:bg-gray-50/50 transition-colors">
+                          <td className="px-4 py-3.5 font-bold text-gray-900 align-top whitespace-nowrap">
+                            {r.criterion}
+                          </td>
+                          <td className="px-4 py-3.5 font-extrabold text-blue-700 text-right whitespace-nowrap align-top">
+                            {r.maxPts} pts
+                          </td>
+                          <td className="px-4 py-3.5 text-gray-600 leading-relaxed align-top">
+                            {r.desc}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Section 4: Attached Course Resources & Starter Files */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+                <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="p-2 rounded-xl bg-emerald-50 text-emerald-600">
+                      <IconFileArchive className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <h2 className="text-base font-bold text-gray-900">Attached Resources &amp; Starter Files</h2>
+                      <p className="text-xs text-gray-400">Official briefs, templates, and downloadable assets</p>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 font-medium">
+                    {details.resources.length} files available
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {details.resources.map((res, i) => (
+                    <div
+                      key={i}
+                      className="p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex items-start justify-between gap-3"
+                    >
+                      <div className="flex items-start gap-3 min-w-0">
+                        <div className="p-2.5 rounded-xl bg-white border border-gray-200 text-blue-600 shrink-0">
+                          {res.type.includes("ZIP") ? (
+                            <IconFileArchive className="w-5 h-5 text-amber-600" />
+                          ) : (
+                            <IconFileTextDoc className="w-5 h-5 text-red-500" />
+                          )}
+                        </div>
+                        <div className="min-w-0">
+                          <h4 className="text-xs font-bold text-gray-900 truncate" title={res.name}>
+                            {res.name}
+                          </h4>
+                          <p className="text-[11px] text-gray-400 mt-0.5">
+                            {res.type} · {res.size}
+                          </p>
+                          <p className="text-[11px] text-gray-500 mt-1 line-clamp-1">{res.desc}</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => showToast(`Downloading ${res.name}...`)}
+                        className="p-2 text-gray-500 hover:text-blue-700 hover:bg-white rounded-lg transition-colors shrink-0"
+                        title={`Download ${res.name}`}
+                      >
+                        <IconDownloadBtn className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
-        {/* Right 1 Column: Interactive Submission Area */}
-        <div className="lg:col-span-1 space-y-6">
-          {/* Submission Status & Form Card */}
+        {/* Right 1 Column: Interactive Submission Area (Hidden for Assessment 1) */}
+        {!isAssessment1 && (
+          <div className="lg:col-span-1 space-y-6">
+            {/* Submission Status & Form Card */}
           <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4 sticky top-20">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div className="flex items-center gap-2">
@@ -2259,9 +3272,18 @@ function AssignmentDetailsView({
                       {receiptNumber}
                     </span>
                   </div>
-                  <p className="text-green-700 text-[11px]">
-                    Recorded on {submissionTimestamp}
-                  </p>
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-green-700">
+                      Recorded on {submissionTimestamp}
+                    </span>
+                    <span className="px-2 py-0.5 bg-green-200 text-green-900 font-extrabold rounded text-[10px]">
+                      Attempt #{attemptNumber} (Latest)
+                    </span>
+                  </div>
+                  <div className="pt-1 flex items-center gap-1.5 text-[10px] text-green-800 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-600 shrink-0" />
+                    <span>Academic Integrity Declaration Signed &amp; Timestamped</span>
+                  </div>
                 </div>
 
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2.5 text-xs">
@@ -2440,16 +3462,538 @@ function AssignmentDetailsView({
                 {/* Submit Assignment / Assessment Button */}
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] hover:bg-[#102d80] active:scale-[0.99] transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-[#1a3a9e] hover:bg-[#102d80] active:scale-[0.99] transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <IconCheck className="w-4 h-4" />
-                  <span>Submit {assignment.type === "Assessment" ? "Assessment" : "Assignment"}</span>
+                  <span>
+                    {isSubmitting
+                      ? "Submitting to Neon DB..."
+                      : `Submit ${assignment.type === "Assessment" ? "Assessment" : "Assignment"}`}
+                  </span>
                 </button>
               </form>
             )}
           </div>
+
+          {/* Task 3.3: Submission Revision Trail Card */}
+          {submissionHistory.length > 0 && (
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 space-y-3">
+              <div className="flex items-center justify-between pb-2 border-b border-gray-100">
+                <div className="flex items-center gap-2">
+                  <span className="p-1 rounded-lg bg-purple-50 text-purple-700">
+                    <IconClipboardList className="w-4 h-4" />
+                  </span>
+                  <h4 className="text-xs font-bold text-gray-900">
+                    Revision Audit Trail ({submissionHistory.length})
+                  </h4>
+                </div>
+                <span className="text-[10px] font-semibold text-gray-400">Neon DB History</span>
+              </div>
+
+              <div className="space-y-2.5">
+                {submissionHistory.map((sub) => (
+                  <div
+                    key={sub.id}
+                    className={`p-3 rounded-xl border text-xs transition-all ${
+                      sub.isLatest
+                        ? "bg-green-50/60 border-green-200 text-green-900"
+                        : "bg-gray-50/80 border-gray-200 text-gray-600"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between font-bold mb-1">
+                      <span className="flex items-center gap-1.5">
+                        <span>Attempt #{sub.attemptNumber}</span>
+                        {sub.isLatest && (
+                          <span className="text-[9px] font-extrabold uppercase bg-green-200 text-green-800 px-1.5 py-0.5 rounded">
+                            Latest
+                          </span>
+                        )}
+                      </span>
+                      <span className="font-mono text-[11px] font-semibold">
+                        {sub.receiptNumber}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between text-[11px] text-gray-500 mb-1">
+                      <span className="truncate max-w-[170px]" title={sub.fileName}>
+                        📄 {sub.fileName}
+                      </span>
+                      <span>{sub.submittedAt}</span>
+                    </div>
+                    {sub.comments && (
+                      <p className="text-[10px] italic text-gray-500 bg-white/70 p-1.5 rounded border border-gray-100 line-clamp-2">
+                        "{sub.comments}"
+                      </p>
+                    )}
+                    <div className="mt-1 flex items-center justify-between text-[10px] pt-1 border-t border-gray-100">
+                      <span className="text-emerald-700 font-semibold flex items-center gap-1">
+                        ✓ Integrity Verified
+                      </span>
+                      <span className="font-medium text-gray-600">
+                        {sub.score !== null ? `Score: ${sub.score}/${sub.maxScore} (${sub.gradeLabel || ""})` : "Pending Evaluation"}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      </div>
+      )}
+    </div>
+
+      {/* ── Sub-Deliverable Submission Modal ── */}
+      {activeSubModalItem && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-in fade-in duration-150">
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-2xl max-w-lg w-full overflow-hidden animate-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
+            {/* Modal Header */}
+            <div className="px-6 py-4 bg-gray-50 border-b border-gray-100 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                  <IconLinkChain className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-gray-900">
+                    {activeSubModalItem.linkTitle}
+                  </h3>
+                  <p className="text-[11px] text-gray-500">
+                    {activeSubModalItem.title} · Weight: {activeSubModalItem.weight}
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveSubModalItem(null)}
+                className="w-8 h-8 rounded-lg hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto space-y-4">
+              {subModalSuccess ? (
+                <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+                    <IconCheckCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-bold text-emerald-900">
+                      {activeSubModalItem.linkTitle} Submitted Successfully!
+                    </h4>
+                    <p className="text-xs text-emerald-700 mt-1">
+                      Your deliverable file has been securely uploaded and recorded in the database.
+                    </p>
+                  </div>
+                  {subModalReceipt && (
+                    <div className="p-3 bg-white rounded-xl border border-emerald-200 flex items-center justify-between text-xs">
+                      <div>
+                        <span className="text-gray-400 block text-[10px] font-bold uppercase tracking-wider">
+                          Authoritative Receipt Number
+                        </span>
+                        <span className="font-mono font-bold text-gray-900">{subModalReceipt}</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText(subModalReceipt || "");
+                          setSubModalCopied(true);
+                          setTimeout(() => setSubModalCopied(false), 2000);
+                        }}
+                        className="px-2.5 py-1 text-xs font-semibold bg-emerald-100 text-emerald-800 hover:bg-emerald-200 rounded-lg transition-colors cursor-pointer"
+                      >
+                        {subModalCopied ? "Copied!" : "Copy Receipt"}
+                      </button>
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setActiveSubModalItem(null)}
+                    className="w-full py-2.5 rounded-xl font-bold text-xs text-white bg-emerald-700 hover:bg-emerald-800 transition-colors cursor-pointer"
+                  >
+                    Done &amp; Close Link
+                  </button>
+                </div>
+              ) : !subModalIsResubmit && activeSubModalItem.status === "Submitted (Verified)" ? (
+                /* View Mode for Verified Submission */
+                <div className="space-y-4">
+                  {/* Authoritative Cover Header for Assessment 1 Weekly Submissions */}
+                  {activeSubModalItem.week && (
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-3.5 space-y-1.5 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-blue-900">ICT302 Information Technology Project 2 (T3 2026)</span>
+                        <span className="font-semibold text-blue-700 bg-white px-2 py-0.5 rounded border border-blue-200 text-[10px]">
+                          Week {activeSubModalItem.week} – Individual Submission
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-gray-600 grid grid-cols-2 gap-x-4 gap-y-1 pt-1.5 border-t border-blue-100">
+                        <div><span className="font-medium text-gray-500">Student Name:</span> <span className="font-bold text-gray-800">Richard Maceda Vitug (2003988)</span></div>
+                        <div><span className="font-medium text-gray-500">Lecturer:</span> <span className="font-bold text-gray-800">Sarita KOIRALA</span></div>
+                        <div className="col-span-2"><span className="font-medium text-gray-500">Project Title:</span> <span className="font-bold text-gray-800">EduFlex – A Lightweight Course Management Tool</span></div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-bold text-emerald-900">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>Verified Authoritative Submission</span>
+                    </div>
+                    <span className="text-[10px] font-semibold text-emerald-700 bg-white px-2 py-0.5 rounded-full border border-emerald-200">
+                      Attempt #{activeSubModalItem.attemptNumber ?? 1}
+                    </span>
+                  </div>
+
+                  {/* Assigned Section & Work Completed */}
+                  {activeSubModalItem.assignedSection && (
+                    <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-200 text-xs space-y-1.5">
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Assigned Section &amp; Scope</span>
+                      <p className="text-gray-800 leading-relaxed text-[11px]">{activeSubModalItem.assignedSection}</p>
+                      {activeSubModalItem.workCompleted && activeSubModalItem.workCompleted.length > 0 && (
+                        <ul className="list-disc list-inside text-gray-700 text-[11px] space-y-0.5 pt-1">
+                          {activeSubModalItem.workCompleted.map((w, i) => (
+                            <li key={i}>{w}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Self-Reflection Section (2 Structured Paragraphs) */}
+                  {activeSubModalItem.selfReflection && (
+                    <div className="bg-purple-50/70 rounded-xl p-3.5 border border-purple-200 text-xs space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-purple-900 uppercase tracking-wider">
+                          Self-Reflection (2 Paragraphs)
+                        </span>
+                        <span className="text-[10px] font-semibold text-purple-700 bg-white px-2 py-0.5 rounded border border-purple-200">
+                          Individual Reflection
+                        </span>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="bg-white p-2.5 rounded-lg border border-purple-100">
+                          <p className="text-[10px] font-bold text-purple-800 mb-1">1. What I Learned &amp; Why It Mattered:</p>
+                          <p className="text-gray-700 leading-relaxed text-[11px]">{activeSubModalItem.selfReflection.learned}</p>
+                        </div>
+                        <div className="bg-white p-2.5 rounded-lg border border-purple-100">
+                          <p className="text-[10px] font-bold text-purple-800 mb-1">2. Growth, Approach &amp; Handling Challenges:</p>
+                          <p className="text-gray-700 leading-relaxed text-[11px]">{activeSubModalItem.selfReflection.growth}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-xs space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-500 font-medium">Official Receipt:</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-mono font-bold text-gray-900 bg-white px-2 py-0.5 rounded border border-gray-200">
+                          {activeSubModalItem.receiptNumber || "#EDF-2026-3021"}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            navigator.clipboard.writeText(activeSubModalItem.receiptNumber || "");
+                            setSubModalCopied(true);
+                            setTimeout(() => setSubModalCopied(false), 2000);
+                          }}
+                          className="p-1 hover:bg-gray-200 rounded text-gray-500 cursor-pointer"
+                          title="Copy receipt number"
+                        >
+                          <IconCopyBtn className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-500 font-medium">Submitted At:</span>
+                      <span className="font-semibold text-gray-800">
+                        {activeSubModalItem.submittedAt || "Nov 8, 2026 at 4:30 PM AEST"}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-500 font-medium">Submitted File:</span>
+                      <span className="font-bold text-blue-700 truncate max-w-[200px]" title={activeSubModalItem.fileName}>
+                        {activeSubModalItem.fileName || "submission_deliverable.docx"}
+                      </span>
+                    </div>
+
+                    {activeSubModalItem.score && (
+                      <div className="pt-2 border-t border-gray-200 flex items-center justify-between">
+                        <span className="text-gray-500 font-medium">Graded Score:</span>
+                        <span className="font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">
+                          {activeSubModalItem.score}
+                        </span>
+                      </div>
+                    )}
+
+                    {activeSubModalItem.feedback && (
+                      <div className="pt-2 border-t border-gray-200 space-y-1">
+                        <span className="text-gray-500 font-medium block">Evaluator Feedback:</span>
+                        <p className="p-2.5 bg-white rounded-lg border border-gray-200 text-gray-700 italic">
+                          "{activeSubModalItem.feedback}"
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => showToast(`Downloading ${activeSubModalItem.fileName || "deliverable.docx"}...`)}
+                      className="flex-1 py-2.5 rounded-xl font-bold text-xs text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <IconDownloadBtn className="w-4 h-4" />
+                      <span>Download File</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSubModalIsResubmit(true)}
+                      className="flex-1 py-2.5 rounded-xl font-bold text-xs text-blue-700 bg-blue-50 border border-blue-200 hover:bg-blue-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <span>Resubmit Revision</span>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* Submission Form */
+                <form onSubmit={handleSubDeliverableSubmit} className="space-y-4 text-xs">
+                  {/* Authoritative Cover Header for Assessment 1 Weekly Submissions */}
+                  {activeSubModalItem.week && (
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-3.5 space-y-1.5 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-blue-900">ICT302 Information Technology Project 2 (T3 2026)</span>
+                        <span className="font-semibold text-blue-700 bg-white px-2 py-0.5 rounded border border-blue-200 text-[10px]">
+                          Week {activeSubModalItem.week} – Individual Submission
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-gray-600 grid grid-cols-2 gap-x-4 gap-y-1 pt-1.5 border-t border-blue-100">
+                        <div><span className="font-medium text-gray-500">Student Name:</span> <span className="font-bold text-gray-800">Richard Maceda Vitug (2003988)</span></div>
+                        <div><span className="font-medium text-gray-500">Lecturer:</span> <span className="font-bold text-gray-800">Sarita KOIRALA</span></div>
+                        <div className="col-span-2"><span className="font-medium text-gray-500">Project Title:</span> <span className="font-bold text-gray-800">EduFlex – A Lightweight Course Management Tool</span></div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="p-3 bg-blue-50/70 rounded-xl border border-blue-200 space-y-1">
+                    <div className="flex items-center justify-between font-bold text-blue-900">
+                      <span>{activeSubModalItem.linkTitle}</span>
+                      <span>Due: {activeSubModalItem.due}</span>
+                    </div>
+                    <p className="text-[11px] text-blue-800">
+                      {activeSubModalItem.description}
+                    </p>
+                  </div>
+
+                  {/* Weekly Self-Reflection Input Fields (Assessment 1) */}
+                  {activeSubModalItem.week && (
+                    <div className="bg-purple-50/70 rounded-xl p-3.5 border border-purple-200 text-xs space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-purple-900 uppercase tracking-wider">
+                          Weekly Self-Reflection (2 Paragraphs) <span className="text-red-500">*</span>
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (activeSubModalItem.selfReflection) {
+                              setSubModalLearned(activeSubModalItem.selfReflection.learned);
+                              setSubModalGrowth(activeSubModalItem.selfReflection.growth);
+                            } else if (activeSubModalItem.week === 3) {
+                              setSubModalLearned(
+                                "Working on the assignment submission and quiz scoring workflows taught me how to enforce academic integrity on the server and generate tamper-proof submission receipts. I learned how multi-attempt versioning maintains an authentic revision audit trail and why server-side timer calculations ensure fair assessments across all students."
+                              );
+                              setSubModalGrowth(
+                                "This milestone strengthened my confidence in writing production-grade Server Actions in Next.js. Connecting the web app clock directly to Neon's live database timestamp resolved synchronization discrepancies and set a solid foundation for the staff portals and grading queues in Week 4."
+                              );
+                            }
+                          }}
+                          className="text-[10px] font-semibold text-purple-700 hover:text-purple-900 bg-white hover:bg-purple-100 px-2.5 py-1 rounded-lg border border-purple-200 transition-colors cursor-pointer"
+                        >
+                          ✨ Prefill Week {activeSubModalItem.week} Reflection
+                        </button>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-purple-900 mb-1">
+                          Paragraph 1: What I learned or understood better and why it mattered
+                        </label>
+                        <textarea
+                          rows={2}
+                          value={subModalLearned}
+                          onChange={(e) => setSubModalLearned(e.target.value)}
+                          placeholder="I learned how... and why it mattered because..."
+                          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-purple-900 mb-1">
+                          Paragraph 2: How the work improved my approach and handled challenges
+                        </label>
+                        <textarea
+                          rows={2}
+                          value={subModalGrowth}
+                          onChange={(e) => setSubModalGrowth(e.target.value)}
+                          placeholder="This improved my technical approach by... When I encountered... I solved it by..."
+                          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* File Dropzone */}
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1.5">
+                      Deliverable File <span className="text-red-500">*</span>
+                    </label>
+
+                    {subModalFile ? (
+                      <div className="p-3 bg-blue-50 rounded-xl border border-blue-200 flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className="p-1.5 rounded-lg bg-blue-600 text-white shrink-0">
+                            <IconFileArchive className="w-4 h-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="font-bold text-gray-900 truncate max-w-[200px]" title={subModalFile.name}>
+                              {subModalFile.name}
+                            </p>
+                            <p className="text-[10px] text-gray-500">{subModalFile.size} · Attached</p>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setSubModalFile(null)}
+                          className="w-6 h-6 rounded-full hover:bg-blue-100 flex items-center justify-center text-gray-500 hover:text-red-600 transition-colors shrink-0 cursor-pointer"
+                          title="Remove file"
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    ) : (
+                      <div
+                        onDragOver={(e) => e.preventDefault()}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          const dropped = e.dataTransfer.files?.[0];
+                          if (dropped) void handleSubModalRealFile(dropped);
+                        }}
+                        className="border-2 border-dashed border-gray-300 hover:border-blue-500 rounded-xl p-4 text-center bg-gray-50/50 space-y-2"
+                      >
+                        <input
+                          ref={subModalFileInputRef}
+                          type="file"
+                          accept=".pdf,.docx,.doc,.zip,.txt,.md,.png,.jpg,.jpeg"
+                          className="hidden"
+                          onChange={(e) => {
+                            const picked = e.target.files?.[0];
+                            if (picked) void handleSubModalRealFile(picked);
+                            e.target.value = "";
+                          }}
+                        />
+                        <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
+                          <IconCloudUpload className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className="font-bold text-gray-800">
+                            {subModalUploading ? "Uploading file..." : "Choose file or drag & drop"}
+                          </p>
+                          <p className="text-[10px] text-gray-400">PDF, DOCX, ZIP (Up to 50MB)</p>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 flex-wrap">
+                          <button
+                            type="button"
+                            disabled={subModalUploading}
+                            onClick={() => subModalFileInputRef.current?.click()}
+                            className="px-3 py-1 bg-[#1a3a9e] hover:bg-[#102d80] text-white font-semibold text-[11px] rounded-lg transition-colors inline-flex items-center gap-1 cursor-pointer disabled:opacity-60"
+                          >
+                            <span>Choose Real File</span>
+                          </button>
+                          <button
+                            type="button"
+                            disabled={subModalUploading}
+                            onClick={() => {
+                              const sampleName = activeSubModalItem.week
+                                ? `ICT302_WPR_Week${activeSubModalItem.week}_Vitug.pdf`
+                                : activeSubModalItem.part === 1 && activeSubModalItem.assessmentId === "ict302-ass2"
+                                ? "ICT302_Final_Report_EduFlex.pdf"
+                                : activeSubModalItem.part === 2 && activeSubModalItem.assessmentId === "ict302-ass2"
+                                ? "ICT302_Group_Activity_Log_12_Minutes.pdf"
+                                : "ICT302_Presentation_Slides.pdf";
+                              setSubModalFile({ name: sampleName, size: "3.8 MB" });
+                              setSubModalIntegrity(true);
+                            }}
+                            className="px-3 py-1 bg-white hover:bg-blue-50 border border-blue-200 text-blue-700 font-semibold text-[11px] rounded-lg transition-colors inline-flex items-center gap-1 cursor-pointer"
+                          >
+                            <span>+ Attach Sample File</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Notes / Comments */}
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">
+                      Student Notes / Submission Comments
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={subModalComments}
+                      onChange={(e) => setSubModalComments(e.target.value)}
+                      placeholder="Brief summary of what was completed for this milestone deliverable..."
+                      className="w-full px-3 py-2 rounded-xl border border-gray-200 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  {/* Academic Integrity Checkbox */}
+                  <label className="flex items-start gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 cursor-pointer hover:bg-gray-100/70 transition-colors">
+                    <input
+                      type="checkbox"
+                      checked={subModalIntegrity}
+                      onChange={(e) => setSubModalIntegrity(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 shrink-0"
+                    />
+                    <span className="text-[11px] text-gray-700 leading-snug">
+                      I declare that this submission is my own original work and adheres to KOI Academic Integrity Policies.
+                    </span>
+                  </label>
+
+                  {/* Error Message */}
+                  {subModalError && (
+                    <div className="p-2.5 bg-red-50 text-red-700 border border-red-200 rounded-xl text-[11px] font-medium">
+                      {subModalError}
+                    </div>
+                  )}
+
+                  {/* Action Buttons */}
+                  <div className="flex items-center justify-end gap-2 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (activeSubModalItem.status === "Submitted (Verified)") {
+                          setSubModalIsResubmit(false);
+                        } else {
+                          setActiveSubModalItem(null);
+                        }
+                      }}
+                      className="px-4 py-2 rounded-xl font-bold text-xs text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={subModalSubmitting}
+                      className="px-5 py-2 rounded-xl font-bold text-xs text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-sm flex items-center gap-1.5 cursor-pointer disabled:opacity-60"
+                    >
+                      <IconCheckCircle className="w-3.5 h-3.5" />
+                      <span>{subModalSubmitting ? "Submitting to Neon..." : `Submit ${activeSubModalItem.linkTitle}`}</span>
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -2458,9 +4002,8 @@ type SortOption = "dueDate" | "newest" | "oldest" | "status";
 
 const courseOptions = [
   { value: "all",    label: "All Courses" },
+  { value: "ICT302", label: "ICT302 – Information Technology Project 2" },
   { value: "ICT301", label: "ICT301 – Information Technology Project 1" },
-  { value: "ICT272", label: "ICT272 – Web Design and Development" },
-  { value: "ICT126", label: "ICT126 – Artificial Intelligence" },
 ];
 
 const sortOptions: { value: SortOption; label: string }[] = [
@@ -2476,13 +4019,23 @@ function AssignmentsPage() {
   const [sortBy, setSortBy] = useState<SortOption>("dueDate");
   const [courseOpen, setCourseOpen] = useState(false);
   const [sortOpen, setSortOpen] = useState(false);
+  type AssessmentMilestoneFilter = "all" | "ass1" | "ass2" | "ass3";
+  const [assessmentFilter, setAssessmentFilter] = useState<AssessmentMilestoneFilter>("all");
+  const [assessmentOpen, setAssessmentOpen] = useState(false);
+
+  const assessmentOptions: { value: AssessmentMilestoneFilter; label: string }[] = [
+    { value: "all",  label: "All Assessments (1, 2 & 3)" },
+    { value: "ass1", label: "Assessment 1: Weekly Progress (20%)" },
+    { value: "ass2", label: "Assessment 2: Final Report (50%)" },
+    { value: "ass3", label: "Assessment 3: Presentation & Demo (30%)" },
+  ];
 
   // Dynamic course groups connected to shared store
   const [allCourseGroups, setAllCourseGroups] = useState<CourseGroup[]>(() => {
     const courses = getSharedCourses();
     const subs = getSharedSubmissions();
     const user = getSessionUser();
-    return buildStudentCourseGroups(courses, subs, user?.email || "2003988@eduflex.edu");
+    return buildStudentCourseGroups(courses, subs, user?.email || "20030988@eduflex.en-rich.me");
   });
   const [selectedAssignment, setSelectedAssignment] = useState<{
     assignment: Assignment;
@@ -2494,7 +4047,7 @@ function AssignmentsPage() {
       const courses = getSharedCourses();
       const subs = getSharedSubmissions();
       const user = getSessionUser();
-      const studentEmail = user?.email || "2003988@eduflex.edu";
+      const studentEmail = user?.email || "20030988@eduflex.en-rich.me";
       const updatedGroups = buildStudentCourseGroups(courses, subs, studentEmail);
       setAllCourseGroups(updatedGroups);
 
@@ -2590,10 +4143,27 @@ function AssignmentsPage() {
     );
   }
 
+  const filterAssessmentFn = (a: Assignment) => {
+    if (assessmentFilter === "all") return true;
+    const lowerId = (a.id || "").toLowerCase();
+    const lowerName = (a.name || "").toLowerCase();
+    if (assessmentFilter === "ass1") {
+      return lowerId.includes("ass1") || lowerName.includes("assessment 1") || lowerName.includes("milestone 1");
+    }
+    if (assessmentFilter === "ass2") {
+      return lowerId.includes("ass2") || lowerName.includes("assessment 2") || lowerName.includes("milestone 2");
+    }
+    if (assessmentFilter === "ass3") {
+      return lowerId.includes("ass3") || lowerName.includes("assessment 3") || lowerName.includes("milestone 3");
+    }
+    return true;
+  };
+
   const allItems = allCourseGroups.flatMap((g) => [...g.assignments, ...(g.assessments || [])]);
-  const dueSoonCount = allItems.filter((a) => a.status === "dueSoon").length;
-  const submittedCount = allItems.filter((a) => a.status === "submitted").length;
-  const overdueCount = allItems.filter((a) => a.status === "overdue").length;
+  const filteredByMilestone = allItems.filter(filterAssessmentFn);
+  const dueSoonCount = filteredByMilestone.filter((a) => a.status === "dueSoon").length;
+  const submittedCount = filteredByMilestone.filter((a) => a.status === "submitted").length;
+  const overdueCount = filteredByMilestone.filter((a) => a.status === "overdue").length;
 
   const visibleGroups = allCourseGroups
     .filter((g) => courseFilter === "all" || g.code === courseFilter)
@@ -2606,10 +4176,11 @@ function AssignmentsPage() {
       };
       return {
         ...g,
-        assignments: [...g.assignments].sort(sortFn),
-        assessments: [...(g.assessments || [])].sort(sortFn),
+        assignments: [...g.assignments].filter(filterAssessmentFn).sort(sortFn),
+        assessments: [...(g.assessments || [])].filter(filterAssessmentFn).sort(sortFn),
       };
-    });
+    })
+    .filter((g) => g.assignments.length > 0 || (g.assessments && g.assessments.length > 0));
 
   const currentCourseOptions = [
     { value: "all", label: "All Courses" },
@@ -2628,7 +4199,7 @@ function AssignmentsPage() {
         <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
           <span>Assignments</span>
           <span>/</span>
-          <span className="text-gray-600">View and manage your course assignments and assessments</span>
+          <span className="text-gray-600">View and manage your course assessments</span>
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Assignments &amp; Assessments</h1>
       </div>
@@ -2636,14 +4207,16 @@ function AssignmentsPage() {
       {/* Stat banner cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {/* Total */}
-        <button onClick={() => setFilter("all")} className="text-left bg-white rounded-2xl border border-gray-200 shadow-sm p-4 flex items-start gap-3 hover:shadow-md hover:border-blue-200 transition-all">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+        <button onClick={() => setFilter("all")} className="text-left bg-white rounded-2xl border border-gray-200 shadow-sm p-4 flex items-start gap-3 hover:shadow-md hover:border-purple-200 transition-all">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
             <IconClipboardList className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Total Coursework</p>
-            <p className="text-2xl font-extrabold text-gray-900 leading-none">{allItems.length}</p>
-            <p className="text-xs text-gray-400 mt-1">Across all courses</p>
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Total Assessments</p>
+            <p className="text-2xl font-extrabold text-gray-900 leading-none">{filteredByMilestone.length}</p>
+            <p className="text-xs text-gray-400 mt-1">
+              {assessmentFilter === "all" ? "3 Milestones · 100% Total" : `${assessmentOptions.find((o) => o.value === assessmentFilter)?.label.split(":")[0]}`}
+            </p>
           </div>
         </button>
 
@@ -2711,10 +4284,37 @@ function AssignmentsPage() {
 
               {/* Dropdowns */}
               <div className="flex items-center gap-2 shrink-0 pl-4">
+                {/* Assessment Milestone filter */}
+                <div className="relative">
+                  <button
+                    onClick={() => { setAssessmentOpen((o) => !o); setCourseOpen(false); setSortOpen(false); }}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-lg px-3 py-1.5 transition-colors"
+                  >
+                    <span>{assessmentOptions.find((o) => o.value === assessmentFilter)?.label ?? "All Assessments"}</span>
+                    <IconChevronDown className="w-3.5 h-3.5 text-purple-500" />
+                  </button>
+                  {assessmentOpen && (
+                    <div className="absolute right-0 top-full mt-1 z-30 bg-white border border-gray-200 rounded-xl shadow-lg py-1 min-w-[280px]">
+                      {assessmentOptions.map((opt) => (
+                        <button
+                          key={opt.value}
+                          onClick={() => { setAssessmentFilter(opt.value); setAssessmentOpen(false); }}
+                          className={`w-full text-left px-4 py-2.5 text-xs hover:bg-purple-50 transition-colors flex items-center justify-between ${
+                            assessmentFilter === opt.value ? "text-purple-700 font-semibold bg-purple-50/50" : "text-gray-700"
+                          }`}
+                        >
+                          <span>{opt.label}</span>
+                          {assessmentFilter === opt.value && <span className="text-purple-600 font-bold">✓</span>}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 {/* Course filter */}
                 <div className="relative">
                   <button
-                    onClick={() => { setCourseOpen((o) => !o); setSortOpen(false); }}
+                    onClick={() => { setCourseOpen((o) => !o); setSortOpen(false); setAssessmentOpen(false); }}
                     className="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg px-3 py-1.5 transition-colors"
                   >
                     {courseLabel === "All Courses" ? "All Courses" : courseFilter}
@@ -2738,7 +4338,7 @@ function AssignmentsPage() {
                 {/* Sort */}
                 <div className="relative">
                   <button
-                    onClick={() => { setSortOpen((o) => !o); setCourseOpen(false); }}
+                    onClick={() => { setSortOpen((o) => !o); setCourseOpen(false); setAssessmentOpen(false); }}
                     className="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg px-3 py-1.5 transition-colors"
                   >
                     Sort by: {sortLabel}
@@ -2803,11 +4403,12 @@ type QuizFilter = "all" | "upcoming" | "completed" | "overdue";
 export interface QuizQuestion {
   id: string;
   questionNumber: number;
-  text: string;
-  codeSnippet?: string;
+  text?: string;
+  prompt?: string;
+  codeSnippet?: string | null;
   options: string[];
-  correctIndex: number;
-  explanation: string;
+  correctIndex?: number;
+  explanation?: string;
 }
 
 export interface QuizItem {
@@ -2840,71 +4441,58 @@ export interface QuizCourseGroup {
 
 const quizCourseGroups: QuizCourseGroup[] = [
   {
-    code: "ICT272",
-    title: "Web Design and Development",
-    term: "T226",
-    iconColor: "#2563eb",
+    code: "ICT302",
+    title: "Information Technology Project 2",
+    term: "T326",
+    iconColor: "#0e9f6e",
     quizzes: [
       {
         id: "q1",
-        name: "Weekly Quiz 4",
-        description: "JavaScript DOM manipulation and event handling.",
-        dueDate: "Sep 05, 2026",
+        name: "Sprint 1 Knowledge Check: Serverless Architecture & Next.js SSR",
+        description: "10-question timed assessment covering Next.js Server Components, Server Actions, and Neon connection pooling.",
+        dueDate: "Sep 22, 2026",
         status: "open",
-        timeLimit: "30 Mins",
-        questions: 15,
-        weight: "5%",
+        timeLimit: "20 Mins",
+        questions: 10,
+        weight: "10%",
         attemptsAllowed: 1,
         attemptsUsed: 0,
         availableDate: "Open Now",
       },
       {
         id: "q2",
-        name: "Weekly Quiz 3",
-        description: "CSS Flexbox and responsive layout.",
-        dueDate: "Aug 15, 2026",
+        name: "Continuous Progress Review 1: ERD & Connection Pooling",
+        description: "Technical review covering database schema entity models and serverless performance.",
+        dueDate: "Aug 28, 2026",
         status: "completed",
-        score: "13/15",
-        percentage: "86.7%",
-        dateTaken: "Aug 15, 2026",
+        score: "19/20",
+        percentage: "95.0%",
+        dateTaken: "Aug 28, 2026",
         timeLimit: "30 Mins",
-        questions: 15,
+        questions: 20,
         weight: "5%",
         attemptsAllowed: 1,
         attemptsUsed: 1,
-        feedback: "Outstanding work on CSS Flexbox container properties, alignment, and flex-wrap responsiveness. Review flex-basis auto vs 0 edge cases.",
-        userAnswers: { 0: 1, 1: 1, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0, 7: 0, 8: 1, 9: 0, 10: 1, 11: 1, 12: 0, 13: 1, 14: 2 },
+        feedback: "Outstanding score. Clear understanding of connection pooling, migration constraints, and relational integrity.",
+        userAnswers: { 0: 1, 1: 1, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0, 7: 0, 8: 1, 9: 0, 10: 1, 11: 1, 12: 0, 13: 1, 14: 2, 15: 0, 16: 1, 17: 2, 18: 3, 19: 0 },
       },
     ],
   },
   {
     code: "ICT301",
     title: "Information Technology Project 1",
-    term: "T226",
-    iconColor: "#7c3aed",
+    term: "T2 2026",
+    iconColor: "#2563eb",
     quizzes: [
       {
         id: "q3",
-        name: "Midterm Exam",
-        description: "Project management and systems analysis.",
-        dueDate: "Oct 12, 2026",
-        status: "locked",
-        timeLimit: "90 Mins",
-        questions: 40,
-        weight: "20%",
-        attemptsAllowed: 1,
-        attemptsUsed: 0,
-        availableDate: "Oct 12, 2026, 09:00 AM",
-      },
-      {
-        id: "q4",
-        name: "Weekly Quiz 1",
-        description: "Introduction to project lifecycle.",
-        dueDate: "Aug 02, 2026",
+        name: "Milestone 2 Architecture Knowledge Check",
+        description: "Project management and systems analysis review.",
+        dueDate: "May 10, 2026",
         status: "completed",
         score: "32/35",
         percentage: "91.4%",
-        dateTaken: "Aug 02, 2026",
+        dateTaken: "May 10, 2026",
         timeLimit: "45 Mins",
         questions: 35,
         weight: "10%",
@@ -2918,38 +4506,21 @@ const quizCourseGroups: QuizCourseGroup[] = [
           30: 2, 31: 3, 32: 1, 33: 1, 34: 1,
         },
       },
-    ],
-  },
-  {
-    code: "ICT126",
-    title: "Artificial Intelligence",
-    term: "T226",
-    iconColor: "#059669",
-    quizzes: [
       {
-        id: "q5",
-        name: "Weekly Quiz 3",
-        description: "Neural networks and deep learning fundamentals.",
-        dueDate: "Sep 20, 2026",
-        status: "locked",
+        id: "q4",
+        name: "Project Lifecycle & Scope Charter Review",
+        description: "Introduction to project charter and scope formulation.",
+        dueDate: "Mar 18, 2026",
+        status: "completed",
+        score: "34/35",
+        percentage: "97.1%",
+        dateTaken: "Mar 18, 2026",
         timeLimit: "30 Mins",
-        questions: 15,
-        weight: "5%",
+        questions: 35,
+        weight: "10%",
         attemptsAllowed: 1,
-        attemptsUsed: 0,
-        availableDate: "Sep 20, 2026, 10:00 AM",
-      },
-      {
-        id: "q6",
-        name: "Weekly Quiz 1",
-        description: "Foundations of AI and propositional logic.",
-        dueDate: "Jul 28, 2026",
-        status: "overdue",
-        timeLimit: "25 Mins",
-        questions: 10,
-        weight: "5%",
-        attemptsAllowed: 1,
-        attemptsUsed: 0,
+        attemptsUsed: 1,
+        feedback: "Near-perfect submission demonstrating thorough mastery of project initiation standards.",
       },
     ],
   },
@@ -2964,9 +4535,8 @@ const quizStatusStyles: Record<QuizStatus, { label: string; bg: string; text: st
 
 const quizCourseOptions = [
   { value: "all",    label: "All Courses" },
-  { value: "ICT272", label: "ICT272 – Web Design and Development" },
+  { value: "ICT302", label: "ICT302 – Information Technology Project 2" },
   { value: "ICT301", label: "ICT301 – Information Technology Project 1" },
-  { value: "ICT126", label: "ICT126 – Artificial Intelligence" },
 ];
 
 function QuizStatusBadge({ status }: { status: QuizStatus }) {
@@ -3353,12 +4923,14 @@ function QuizDetailsView({
   onBack,
   onStartQuiz,
   onReviewAnswers,
+  isStarting = false,
 }: {
   quiz: QuizItem;
   group: QuizCourseGroup;
   onBack: () => void;
   onStartQuiz: () => void;
   onReviewAnswers: () => void;
+  isStarting?: boolean;
 }) {
   const isCompleted = quiz.status === "completed";
   const isLocked = quiz.status === "locked";
@@ -3544,11 +5116,12 @@ function QuizDetailsView({
             {canStart && (
               <button
                 onClick={onStartQuiz}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white shadow-md hover:shadow-lg hover:opacity-95 transition-all"
+                disabled={isStarting}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white shadow-md hover:shadow-lg hover:opacity-95 transition-all disabled:opacity-60 cursor-pointer"
                 style={{ background: "#1a3a9e" }}
               >
                 <IconPlay className="w-4 h-4" />
-                Start Quiz Now
+                {isStarting ? "Starting Quiz Attempt..." : "Start Quiz Now"}
               </button>
             )}
 
@@ -3593,12 +5166,14 @@ function QuizAttemptView({
   quiz,
   group,
   questions,
+  initialTimeLeft,
   onCancel,
   onSubmit,
 }: {
   quiz: QuizItem;
   group: QuizCourseGroup;
   questions: QuizQuestion[];
+  initialTimeLeft?: number;
   onCancel: () => void;
   onSubmit: (userAnswers: Record<number, number>) => void;
 }) {
@@ -3608,10 +5183,13 @@ function QuizAttemptView({
   const [showExitModal, setShowExitModal] = useState(false);
 
   const initialSeconds = useMemo(() => {
+    if (typeof initialTimeLeft === "number" && initialTimeLeft > 0) {
+      return initialTimeLeft;
+    }
     const raw = quiz.timeLimit ?? "30";
     const num = parseInt(raw, 10);
     return isNaN(num) ? 1800 : num * 60;
-  }, [quiz.timeLimit]);
+  }, [quiz.timeLimit, initialTimeLeft]);
 
   const [timeLeft, setTimeLeft] = useState(initialSeconds);
 
@@ -3722,7 +5300,7 @@ function QuizAttemptView({
 
             {/* Question Text */}
             <h2 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug">
-              {currentQuestion.text}
+              {currentQuestion.prompt || currentQuestion.text}
             </h2>
 
             {currentQuestion.codeSnippet && (
@@ -4187,7 +5765,7 @@ function QuizResultView({
                 </div>
 
                 <p className="text-sm sm:text-base font-bold text-gray-900 leading-snug">
-                  {q.text}
+                  {q.prompt || q.text}
                 </p>
 
                 {q.codeSnippet && (
@@ -4422,6 +6000,12 @@ export function QuizzesPage({
     group: QuizCourseGroup;
   } | null>(null);
 
+  const [activeAttemptId, setActiveAttemptId] = useState<string | null>(null);
+  const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[] | null>(null);
+  const [timeRemainingSecs, setTimeRemainingSecs] = useState<number | undefined>(undefined);
+  const [isStartingQuiz, setIsStartingQuiz] = useState(false);
+  const [isSubmittingQuiz, setIsSubmittingQuiz] = useState(false);
+
   const filterTabs: { id: QuizFilter; label: string }[] = [
     { id: "all",       label: "All Quizzes" },
     { id: "upcoming",  label: "Upcoming" },
@@ -4434,19 +6018,106 @@ export function QuizzesPage({
     setViewMode(mode);
   };
 
-  const handleQuizSubmit = (userAnswers: Record<number, number>) => {
+  const handleStartQuiz = async () => {
     if (!selectedQuizState) return;
     const { quiz, group } = selectedQuizState;
-    const questions = getQuizQuestions(quiz);
+    setIsStartingQuiz(true);
+    try {
+      const res = await startQuizAttemptAction({
+        quizSlugOrId: quiz.id,
+        courseCode: group.code,
+        title: quiz.name,
+      });
+      if (res.success && res.questions && res.questions.length > 0) {
+        setActiveAttemptId(res.attemptId || null);
+        setTimeRemainingSecs(res.timeRemainingSecs);
+        // Map SanitizedQuizQuestion to QuizQuestion
+        // Note: correctIndex and explanation are deliberately omitted by server action (Task 3.6)
+        const mapped: QuizQuestion[] = res.questions.map((q) => ({
+          id: q.id,
+          questionNumber: q.questionNumber,
+          text: q.prompt,
+          prompt: q.prompt,
+          codeSnippet: q.codeSnippet || undefined,
+          options: q.options,
+        }));
+        setActiveQuestions(mapped);
+        setViewMode("attempt");
+      } else {
+        const localQuestions = getQuizQuestions(quiz);
+        setActiveQuestions(localQuestions);
+        setViewMode("attempt");
+      }
+    } catch (err) {
+      console.warn("Falling back to local quiz questions:", err);
+      const localQuestions = getQuizQuestions(quiz);
+      setActiveQuestions(localQuestions);
+      setViewMode("attempt");
+    } finally {
+      setIsStartingQuiz(false);
+    }
+  };
 
+  const handleQuizSubmit = async (userAnswers: Record<number, number>) => {
+    if (!selectedQuizState) return;
+    const { quiz, group } = selectedQuizState;
+    const currentQuestions = activeQuestions || getQuizQuestions(quiz);
+    setIsSubmittingQuiz(true);
+
+    if (activeAttemptId) {
+      try {
+        const answersPayload = currentQuestions.map((q, idx) => ({
+          questionId: q.id,
+          selectedIndex: userAnswers[idx] ?? -1,
+        }));
+
+        const submitRes = await submitQuizAttemptAction(activeAttemptId, answersPayload);
+        if (submitRes.success && submitRes.review) {
+          const unlockedQuestions: QuizQuestion[] = submitRes.review.map((r) => ({
+            id: r.id,
+            questionNumber: r.questionNumber,
+            text: r.prompt,
+            prompt: r.prompt,
+            codeSnippet: r.codeSnippet || undefined,
+            options: r.options,
+            correctIndex: r.correctIndex,
+            explanation: r.explanation,
+          }));
+          setActiveQuestions(unlockedQuestions);
+
+          const scoreStr = `${submitRes.score}/${submitRes.maxScore}`;
+          const pctStr = `${submitRes.percentage}%`;
+          const updatedQuiz: QuizItem = {
+            ...quiz,
+            status: "completed",
+            score: scoreStr,
+            percentage: pctStr,
+            dateTaken: submitRes.submittedAt || new Date().toLocaleDateString(),
+            attemptsUsed: (quiz.attemptsUsed ?? 0) + 1,
+            feedback: submitRes.feedback || "Attempt recorded in Neon PostgreSQL.",
+            userAnswers,
+          };
+
+          onUpdateQuiz?.(group.code, quiz.id, updatedQuiz);
+          setSelectedQuizState({ quiz: updatedQuiz, group });
+          setViewMode("results");
+          setIsSubmittingQuiz(false);
+          return;
+        }
+      } catch (err) {
+        console.error("Error submitting quiz attempt via Server Action:", err);
+      }
+    }
+
+    // Local fallback calculation
     let correctCount = 0;
-    questions.forEach((q, idx) => {
+    currentQuestions.forEach((q, idx) => {
       if (userAnswers[idx] === q.correctIndex) {
         correctCount++;
       }
     });
 
-    const total = questions.length;
+    const total = currentQuestions.length;
     const scoreStr = `${correctCount}/${total}`;
     const pct = Math.round((correctCount / total) * 1000) / 10;
     const pctStr = `${pct}%`;
@@ -4479,23 +6150,25 @@ export function QuizzesPage({
     onUpdateQuiz?.(group.code, quiz.id, updatedQuiz);
     setSelectedQuizState({ quiz: updatedQuiz, group });
     setViewMode("results");
+    setIsSubmittingQuiz(false);
   };
 
   // Dedicated View Switching
   if (selectedQuizState) {
     const { quiz, group } = selectedQuizState;
-    const questions = getQuizQuestions(quiz);
+    const questions = activeQuestions || getQuizQuestions(quiz);
 
     if (viewMode === "details") {
       return (
         <QuizDetailsView
           quiz={quiz}
           group={group}
+          isStarting={isStartingQuiz}
           onBack={() => {
             setSelectedQuizState(null);
             setViewMode("list");
           }}
-          onStartQuiz={() => setViewMode("attempt")}
+          onStartQuiz={handleStartQuiz}
           onReviewAnswers={() => setViewMode("results")}
         />
       );
@@ -4507,6 +6180,7 @@ export function QuizzesPage({
           quiz={quiz}
           group={group}
           questions={questions}
+          initialTimeLeft={timeRemainingSecs}
           onCancel={() => setViewMode("details")}
           onSubmit={handleQuizSubmit}
         />
@@ -4741,53 +6415,45 @@ interface RecentMaterial {
 }
 
 const recentMaterials: RecentMaterial[] = [
-  { name: "ICT301 Project Charter Template", course: "ICT301", type: "courseMaterials", typeLabel: "Course Material", date: "Aug 28, 2026", icon: <IconFilePdf className="w-4 h-4" />, iconBg: "bg-red-50 text-red-500", action: "Open" },
-  { name: "Week 8 — Lecture Recording (AI Ethics)", course: "ICT126", type: "recordings", typeLabel: "Class Recording", date: "Aug 27, 2026", icon: <IconVideo className="w-4 h-4" />, iconBg: "bg-blue-50 text-blue-500", action: "Watch" },
-  { name: "Neural Networks — 3Blue1Brown", course: "ICT126", type: "additionalResources", typeLabel: "YouTube Tutorial", date: "Aug 26, 2026", icon: <IconGlobe className="w-4 h-4" />, iconBg: "bg-orange-50 text-orange-500", action: "View", href: "https://www.youtube.com/watch?v=aircAruvnKk" },
-  { name: "ICT272 Week 7 Slides — React Hooks", course: "ICT272", type: "courseMaterials", typeLabel: "Presentation", date: "Aug 25, 2026", icon: <IconPresentation className="w-4 h-4" />, iconBg: "bg-indigo-50 text-indigo-500", action: "Open" },
-  { name: "Lab 5 — Perceptron Starter Code", course: "ICT126", type: "codeAndLab", typeLabel: "Lab File", date: "Aug 23, 2026", icon: <IconCode className="w-4 h-4" />, iconBg: "bg-emerald-50 text-emerald-600", action: "Open" },
-  { name: "ICT301 GitHub Repository — Project T226", course: "ICT301", type: "codeAndLab", typeLabel: "GitHub Repo", date: "Aug 22, 2026", icon: <IconGithub className="w-4 h-4" />, iconBg: "bg-gray-100 text-gray-600", action: "View", href: "https://github.com" },
-  { name: "Week 7 — Zoom Recording (Web APIs)", course: "ICT272", type: "recordings", typeLabel: "Class Recording", date: "Aug 20, 2026", icon: <IconVideo className="w-4 h-4" />, iconBg: "bg-blue-50 text-blue-500", action: "Watch" },
-  { name: "MDN Web Docs — JavaScript Reference", course: "ICT272", type: "additionalResources", typeLabel: "Documentation", date: "Aug 19, 2026", icon: <IconGlobe className="w-4 h-4" />, iconBg: "bg-orange-50 text-orange-500", action: "View", href: "https://developer.mozilla.org" },
+  { name: "ICT302 Project Brief & Agile Milestone Rubric", course: "ICT302", type: "courseMaterials", typeLabel: "Course Material", date: "Aug 28, 2026", icon: <IconFilePdf className="w-4 h-4" />, iconBg: "bg-emerald-50 text-emerald-600", action: "Open" },
+  { name: "Week 2 — Next.js SSR & Server Actions Workshop", course: "ICT302", type: "recordings", typeLabel: "Class Recording", date: "Aug 27, 2026", icon: <IconVideo className="w-4 h-4" />, iconBg: "bg-blue-50 text-blue-500", action: "Watch" },
+  { name: "Next.js App Router & Server Actions Documentation", course: "ICT302", type: "additionalResources", typeLabel: "Documentation", date: "Aug 26, 2026", icon: <IconGlobe className="w-4 h-4" />, iconBg: "bg-orange-50 text-orange-500", action: "View", href: "https://nextjs.org/docs" },
+  { name: "ICT302 Sprint 2 Architecture Slides", course: "ICT302", type: "courseMaterials", typeLabel: "Presentation", date: "Aug 25, 2026", icon: <IconPresentation className="w-4 h-4" />, iconBg: "bg-indigo-50 text-indigo-500", action: "Open" },
+  { name: "Neon Connection Pooling & SSL Guide", course: "ICT302", type: "codeAndLab", typeLabel: "Lab File", date: "Aug 23, 2026", icon: <IconCode className="w-4 h-4" />, iconBg: "bg-emerald-50 text-emerald-600", action: "Open" },
+  { name: "ICT302 Team Repository — eduflex.en-rich.me", course: "ICT302", type: "codeAndLab", typeLabel: "GitHub Repo", date: "Aug 22, 2026", icon: <IconGithub className="w-4 h-4" />, iconBg: "bg-gray-100 text-gray-600", action: "View", href: "https://github.com" },
+  { name: "Week 1 — Capstone Project Initiation Zoom", course: "ICT302", type: "recordings", typeLabel: "Class Recording", date: "Aug 20, 2026", icon: <IconVideo className="w-4 h-4" />, iconBg: "bg-blue-50 text-blue-500", action: "Watch" },
+  { name: "ICT301 Final Report Archive & Defense Slides", course: "ICT301", type: "courseMaterials", typeLabel: "Course Material", date: "Jun 25, 2026", icon: <IconFilePdf className="w-4 h-4" />, iconBg: "bg-red-50 text-red-500", action: "Open" },
 ];
 
 const courseMaterials = [
-  { name: "ICT301 Project Charter Template", type: "PDF", size: "340 KB", date: "Aug 28, 2026", course: "ICT301" },
-  { name: "ICT301 Assessment 2 Brief", type: "PDF", size: "518 KB", date: "Aug 20, 2026", course: "ICT301" },
-  { name: "ICT272 Week 7 Slides — React Hooks", type: "PowerPoint", size: "3.1 MB", date: "Aug 25, 2026", course: "ICT272" },
-  { name: "ICT272 Handout — CSS Grid & Flexbox", type: "PDF", size: "210 KB", date: "Aug 18, 2026", course: "ICT272" },
-  { name: "ICT126 Week 8 — AI Ethics Lecture Notes", type: "PDF", size: "425 KB", date: "Aug 27, 2026", course: "ICT126" },
-  { name: "ICT126 Assessment 1 Rubric", type: "Document", size: "128 KB", date: "Aug 10, 2026", course: "ICT126" },
-  { name: "ICT101 Complete Python Lecture Notes & Guide", type: "PDF", size: "1.4 MB", date: "Nov 25, 2025", course: "ICT101" },
-  { name: "ICT101 Final Exam Revision & Practice Solutions", type: "PDF", size: "820 KB", date: "Dec 01, 2025", course: "ICT101" },
-  { name: "ICT102 Discrete Mathematics Theorems & Proofs Summary", type: "PDF", size: "1.8 MB", date: "Nov 20, 2025", course: "ICT102" },
-  { name: "ICT102 Logic, Sets & Graph Theory Formula Sheet", type: "PDF", size: "430 KB", date: "Nov 24, 2025", course: "ICT102" },
+  { name: "ICT302 Capstone Project Brief & Agile Milestone Rubric", type: "PDF", size: "2.1 MB", date: "Aug 28, 2026", course: "ICT302" },
+  { name: "ICT302 Next.js SSR & Neon PostgreSQL Specification", type: "PDF", size: "3.5 MB", date: "Aug 25, 2026", course: "ICT302" },
+  { name: "ICT302 Assessment 2 Final Report Brief & Rubric", type: "PDF", size: "1.2 MB", date: "Aug 24, 2026", course: "ICT302" },
+  { name: "ICT302 Sprint 2 Architecture Presentation Slides", type: "PowerPoint", size: "4.8 MB", date: "Aug 20, 2026", course: "ICT302" },
+  { name: "ICT301 Project Charter & Scope Baseline", type: "PDF", size: "1.4 MB", date: "Mar 25, 2026", course: "ICT301" },
+  { name: "ICT301 Milestone 3 Final Defense Presentation", type: "PowerPoint", size: "6.2 MB", date: "Jun 20, 2026", course: "ICT301" },
 ];
 
 const classRecordings = [
-  { title: "Week 8 — AI Ethics & Bias in Machine Learning", course: "ICT126", date: "Aug 27, 2026", duration: "1h 52m" },
-  { title: "Week 7 — REST APIs & Async JavaScript", course: "ICT272", date: "Aug 20, 2026", duration: "1h 47m" },
-  { title: "Week 7 — Project Scoping and Stakeholder Analysis", course: "ICT301", date: "Aug 19, 2026", duration: "1h 58m" },
-  { title: "Week 6 — Neural Networks Fundamentals", course: "ICT126", date: "Aug 13, 2026", duration: "1h 44m" },
-  { title: "ICT101 Final Review — Python Programming & Algorithms", course: "ICT101", date: "Nov 28, 2025", duration: "1h 55m" },
-  { title: "ICT102 Final Exam Prep — Proof Techniques & Graphs", course: "ICT102", date: "Nov 22, 2025", duration: "1h 50m" },
+  { title: "Week 2 — Next.js SSR & Server Actions Workshop", course: "ICT302", date: "Aug 27, 2026", duration: "1h 55m" },
+  { title: "Week 1 — Capstone Project Initiation & Agile Setup", course: "ICT302", date: "Aug 20, 2026", duration: "1h 48m" },
+  { title: "Milestone 3 — Project 1 Final Defense Showcase", course: "ICT301", date: "Jun 20, 2026", duration: "2h 10m" },
+  { title: "Milestone 2 — System Architecture & Specification", course: "ICT301", date: "May 15, 2026", duration: "1h 50m" },
 ];
 
 const additionalResources = [
-  { title: "Neural Networks — 3Blue1Brown Series", source: "YouTube", url: "https://www.youtube.com/watch?v=aircAruvnKk", desc: "Visual explainer on how neural networks learn" },
-  { title: "MDN Web Docs — JavaScript Reference", source: "Web Docs", url: "https://developer.mozilla.org", desc: "Comprehensive JS/HTML/CSS documentation" },
-  { title: "freeCodeCamp — Responsive Web Design", source: "Course", url: "https://www.freecodecamp.org", desc: "Free interactive web design curriculum" },
-  { title: "Kaggle — Intro to Machine Learning", source: "Course", url: "https://www.kaggle.com/learn", desc: "Hands-on ML notebooks and datasets" },
-  { title: "Google AI Blog", source: "Article", url: "https://ai.googleblog.com", desc: "Latest research articles from Google AI" },
+  { title: "Next.js App Router & Server Actions Official Guide", source: "Web Docs", url: "https://nextjs.org/docs", desc: "Production guide to React Server Components and data mutations" },
+  { title: "Neon Serverless Postgres Architecture Documentation", source: "Web Docs", url: "https://neon.tech/docs", desc: "Connection pooling, autoscaling, and branching workflows" },
+  { title: "Playwright End-to-End Testing Comprehensive Guide", source: "Web Docs", url: "https://playwright.dev", desc: "Automated test writing and cross-browser execution" },
+  { title: "WCAG 2.1 AA Accessibility Guidelines Checklist", source: "Article", url: "https://www.w3.org/WAI/standards-guidelines/wcag", desc: "Contrast, keyboard focus, and screen-reader standards" },
+  { title: "Prisma ORM Best Practices with PostgreSQL", source: "Web Docs", url: "https://www.prisma.io/docs", desc: "Schema modeling, migrations, and relationship integrity" },
 ];
 
 const codeAndLabResources = [
-  { title: "ICT301 Project — GitHub Repository", desc: "Team project repository for T226 semester", tags: ["GitHub", "Python"], date: "Aug 22, 2026", url: "https://github.com" },
-  { title: "Lab 5 — Perceptron Starter Code", desc: "Starter template for Lab 5 perceptron implementation", tags: ["Python", "Jupyter"], date: "Aug 23, 2026", url: "#" },
-  { title: "Lab 4 — Linear Regression Notebook", desc: "Completed notebook with sklearn examples", tags: ["Python", "Notebook"], date: "Aug 16, 2026", url: "#" },
-  { title: "ICT272 Portfolio Starter Template", desc: "HTML/CSS/JS template for your portfolio project", tags: ["HTML", "CSS", "JS"], date: "Aug 20, 2026", url: "#" },
-  { title: "ICT101 Python Archive — Solutions & Notebooks", desc: "Archived complete Python notebooks and starter code", tags: ["Python", "Jupyter", "Archived"], date: "Dec 05, 2025", url: "#" },
-  { title: "ICT102 Mathematical Proofs & Graph Algorithms Code", desc: "Python implementations of graph algorithms (BFS/DFS, Dijkstra)", tags: ["Python", "Algorithms"], date: "Nov 26, 2025", url: "#" },
+  { title: "ICT302 Capstone Repository — eduflex.en-rich.me", desc: "Production Next.js 15 repository with Server Actions and Neon DB", tags: ["Next.js", "TypeScript", "PostgreSQL"], date: "Aug 28, 2026", url: "https://github.com" },
+  { title: "ICT302 Neon Connection Pooler Starter Script", desc: "Connection pooling configuration for serverless Prisma Client", tags: ["Prisma", "Neon", "SQL"], date: "Aug 25, 2026", url: "#" },
+  { title: "ICT302 Playwright E2E Test Suite", desc: "Automated integration tests for student and instructor flows", tags: ["Playwright", "Testing"], date: "Aug 22, 2026", url: "#" },
+  { title: "ICT301 Project Archive — Architecture & Scope", desc: "Completed Milestone 1 & 2 deliverables and system designs", tags: ["Archived", "Architecture"], date: "Jun 20, 2026", url: "#" },
 ];
 
 const filterOptions: { id: MaterialFilter; label: string }[] = [
@@ -4799,7 +6465,7 @@ const filterOptions: { id: MaterialFilter; label: string }[] = [
 ];
 
 const typeColors: Record<string, string> = {
-  "Course Material":   "bg-red-50 text-red-600 border-red-100",
+  "Course Material":   "bg-emerald-50 text-emerald-700 border-emerald-100",
   "Presentation":      "bg-indigo-50 text-indigo-600 border-indigo-100",
   "Class Recording":   "bg-blue-50 text-blue-600 border-blue-100",
   "YouTube Tutorial":  "bg-orange-50 text-orange-600 border-orange-100",
@@ -4810,11 +6476,8 @@ const typeColors: Record<string, string> = {
 };
 
 const learningMaterialsCourseMap: Record<string, string> = {
-  ICT301: "ICT 301 Information Technology Project 1 IT Project",
-  ICT272: "ICT 272 Web & Mobile App Development Web Development Mobile Development Frontend",
-  ICT126: "ICT 126 Introduction to Artificial Intelligence AI Machine Learning",
-  ICT101: "ICT 101 Introduction to Programming Python Programming Algorithms",
-  ICT102: "ICT 102 Discrete Mathematics for IT Discrete Mathematics Math Logic Graphs",
+  ICT302: "ICT 302 Information Technology Project 2 Capstone System Implementation Agile",
+  ICT301: "ICT 301 Information Technology Project 1 IT Project Architecture",
 };
 
 function matchesMaterialSearch(searchWords: string[], targetText: string): boolean {
@@ -4864,9 +6527,9 @@ function LearningMaterialsPage() {
           : r.source === "Article"
           ? "Article Blog Read"
           : "Course Interactive Web";
-      const courseHints = `${r.title.includes("Neural") ? "ICT126 Artificial Intelligence AI" : ""} ${
-        r.title.includes("JavaScript") || r.title.includes("Web Design") ? "ICT272 Web Mobile Development" : ""
-      } ${r.title.includes("Machine Learning") ? "ICT126 Artificial Intelligence AI" : ""}`;
+      const courseHints = `${r.title.includes("Next.js") || r.title.includes("Postgres") ? "ICT302 Information Technology Project 2" : ""} ${
+        r.title.includes("Architecture") ? "ICT301 ICT302 Project" : ""
+      }`;
       const searchable = `${r.title} ${r.source} ${r.desc} ${typeDesc} ${courseHints} Additional Resources Additional Resource`;
       return matchesMaterialSearch(searchWords, searchable);
     });
@@ -4882,11 +6545,9 @@ function LearningMaterialsPage() {
   const filteredCodeAndLab = useMemo(() => {
     return codeAndLabResources.filter((r) => {
       const tagsStr = r.tags.join(" ");
-      const courseHints = `${r.title.includes("ICT301") ? learningMaterialsCourseMap.ICT301 : ""} ${
-        r.title.includes("ICT272") ? learningMaterialsCourseMap.ICT272 : ""
-      } ${r.title.includes("ICT101") ? learningMaterialsCourseMap.ICT101 : ""} ${
-        r.title.includes("ICT102") ? learningMaterialsCourseMap.ICT102 : ""
-      } ${r.title.includes("Perceptron") || r.title.includes("Regression") ? "ICT126 " + learningMaterialsCourseMap.ICT126 : ""}`;
+      const courseHints = `${r.title.includes("ICT302") ? learningMaterialsCourseMap.ICT302 : ""} ${
+        r.title.includes("ICT301") ? learningMaterialsCourseMap.ICT301 : ""
+      }`;
       const searchable = `${r.title} ${r.desc} ${tagsStr} ${courseHints} Code & Lab Resources Code and Lab Resources Lab File GitHub Repo Repository Notebook Jupyter Code`;
       return matchesMaterialSearch(searchWords, searchable);
     });
@@ -5359,7 +7020,7 @@ function LearningMaterialsPage() {
 
             <div className="p-5 flex items-center justify-between bg-white text-xs">
               <div className="text-gray-500">
-                <span>Recorded on {activeVideo.date ?? "Semester T226"}</span>
+                <span>Recorded on {activeVideo.date ?? "Trimester T326"}</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -5466,7 +7127,7 @@ function MyCoursesPage({
   stats?: StudentDashboardStats;
   theme?: "Light" | "Dark";
 }) {
-  const displayCourses = courses && courses.length > 0 ? courses : activeCourses;
+  const displayCourses = courses && courses.length > 0 ? courses : [...activeCourses, ...completedCourses];
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">My Courses</h1>
@@ -5474,8 +7135,8 @@ function MyCoursesPage({
       {/* Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
         <button className="text-left h-full" onClick={() => setActiveNav("courses")}>
-          <StatCard title="My Courses" icon={<IconBook />} bigNum="3" bigLabel="My Courses"
-            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Active", value: 3 }, { color: "text-green-600 dark:text-green-400", label: "Completed", value: 2 }]} />
+          <StatCard title="My Courses" icon={<IconBook />} bigNum="2" bigLabel="My Courses"
+            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Active", value: 1 }, { color: "text-green-600 dark:text-green-400", label: "Completed", value: 1 }]} />
         </button>
         <button className="text-left h-full" onClick={() => setActiveNav("assignments")}>
           <StatCard title="Assignments" icon={<IconAssignment />} bigNum="2" bigLabel="Assignments"
@@ -5724,12 +7385,12 @@ function TodaySchedule() {
     {
       time: "02:00 PM",
       end: "04:00 PM",
-      code: "ICT126",
-      name: "Artificial Intelligence",
-      location: "Room 1004 — Lecture",
+      code: "ICT302",
+      name: "Information Technology Project 2",
+      location: "Room 1004 — Agile Lab",
       isLive: false,
-      accentColor: "#db2777",
-      bg: "#fdf2f8",
+      accentColor: "#0e9f6e",
+      bg: "#ecfdf5",
     },
   ];
 
@@ -5803,6 +7464,45 @@ function TodaySchedule() {
   );
 }
 
+// ── Neon DB Live Synchronized Clock ──────────────────────────────────────────
+function NeonLiveClock({ serverTime }: { serverTime?: ServerTimeInfo }) {
+  const [currentDate, setCurrentDate] = useState<Date>(() => {
+    return serverTime?.timestampMs ? new Date(serverTime.timestampMs) : new Date();
+  });
+
+  useEffect(() => {
+    const initialServerMs = serverTime?.timestampMs || Date.now();
+    const clientOffset = initialServerMs - Date.now();
+
+    const interval = setInterval(() => {
+      setCurrentDate(new Date(Date.now() + clientOffset));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [serverTime?.timestampMs]);
+
+  const formattedDate = currentDate.toLocaleDateString("en-AU", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Australia/Sydney",
+  });
+
+  const formattedTime = currentDate.toLocaleTimeString("en-AU", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "Australia/Sydney",
+  });
+
+  return (
+    <p className="text-xs text-gray-400 dark:text-gray-400 pb-0.5 font-medium shrink-0">
+      {formattedDate} <span className="text-gray-300 dark:text-gray-600">·</span> <span className="text-gray-600 dark:text-gray-300 font-semibold">{formattedTime}</span>
+    </p>
+  );
+}
+
 // ── Dashboard Page ────────────────────────────────────────────────────────────
 function DashboardPage({
   setActiveNav,
@@ -5811,6 +7511,7 @@ function DashboardPage({
   courses,
   stats,
   deadlines: customDeadlines,
+  serverTime,
   theme,
 }: {
   setActiveNav: (id: string) => void;
@@ -5819,21 +7520,23 @@ function DashboardPage({
   courses?: ActiveCourse[];
   stats?: StudentDashboardStats;
   deadlines?: StudentDeadlineItem[];
+  serverTime?: ServerTimeInfo;
   theme?: "Light" | "Dark";
 }) {
   const firstName = userName.split(" ")[0];
 
   const quickNav = [
-    { id: "courses",     label: "My Courses",        icon: <IconBook />,       note: stats ? `${stats.enrolledCoursesCount} active this semester` : "3 active this semester" },
+    { id: "courses",     label: "My Courses",        icon: <IconBook />,       note: stats ? `${stats.enrolledCoursesCount} active this trimester` : "1 active this trimester" },
     { id: "assignments", label: "Assignments",        icon: <IconAssignment />, note: stats ? `${stats.assignmentsDueCount} due soon` : "2 due soon" },
     { id: "quizzes",     label: "Quizzes",            icon: <IconQuiz />,       note: stats ? `${stats.quizzesUpcomingCount} upcoming` : "1 upcoming" },
     { id: "materials",   label: "Learning Materials", icon: <IconFolder />,     note: stats ? `${stats.learningMaterialsCount} resources available` : "12 resources available" },
   ];
 
   const defaultDeadlines = [
-    { name: "Assessment 2", course: "ICT301", fullCourse: "Information Technology Project 1", due: "Due 3 Sep 2026", urgent: true },
-    { name: "Assessment 2", course: "ICT272", fullCourse: "Web Design and Development",       due: "Due 7 Aug 2026", urgent: true },
-    { name: "Lab Report 1", course: "ICT126", fullCourse: "Artificial Intelligence",          due: "Due 15 Sep 2026", urgent: false },
+    { name: "Assessment 1: WPR Week 3 (Architecture & DB)", course: "ICT302", fullCourse: "Information Technology Project 2", due: "Due 15 Nov 2026", urgent: true },
+    { name: "Assessment 2: Final Report & Activity Log", course: "ICT302", fullCourse: "Information Technology Project 2", due: "Due 24 Jan 2027", urgent: false },
+    { name: "Assessment 3: Defense & Demo", course: "ICT302", fullCourse: "Information Technology Project 2", due: "Due 29 Jan 2027", urgent: false },
+    { name: "Milestone 3: Final Defense", course: "ICT301", fullCourse: "Information Technology Project 1", due: "Completed (HD)", urgent: false },
   ];
 
   const deadlines = customDeadlines && customDeadlines.length > 0
@@ -5846,18 +7549,18 @@ function DashboardPage({
       }))
     : defaultDeadlines;
 
-  const displayCourses = courses && courses.length > 0 ? courses : activeCourses;
+  const displayCourses = courses && courses.length > 0 ? courses : [...activeCourses, ...completedCourses];
 
   return (
     <div className="p-7">
 
-      {/* ── Row 1: Welcome + semester info ── */}
+      {/* ── Row 1: Welcome + trimester info ── */}
       <div className="flex items-end justify-between mb-7">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Welcome to EduFlex, {firstName}!</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Bachelor of Information Technology — Semester T226</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">Bachelor of Information Technology — Trimester T326</p>
         </div>
-        <p className="text-xs text-gray-400 pb-0.5">Monday, 7 September 2026</p>
+        <NeonLiveClock serverTime={serverTime} />
       </div>
 
       {/* ── Row 2: Four nav cards, full width ── */}
@@ -6017,7 +7720,7 @@ function buildStudentSearchCatalog(): StudentSearchItem[] {
       category: "Page",
       title: "Grades & Results",
       subtitle: "GPA, transcript & scores",
-      description: "Check your academic performance, semester GPA, assessment marks, and course grades.",
+      description: "Check your academic performance, trimester GPA, assessment marks, and course grades.",
       badgeBg: "bg-teal-50",
       badgeText: "text-teal-700",
       nav: "grades",
@@ -6190,8 +7893,8 @@ function buildStudentSearchCatalog(): StudentSearchItem[] {
       id: "grade-gpa-summary",
       category: "Grade" as const,
       title: "Academic Transcript & GPA Summary",
-      subtitle: "Semester T226 · GPA: 3.72 · Overall Average: 81.4%",
-      description: "Current GPA is 3.72. Overall average: 81.4%. 20 completed courses, 96 credits earned of 120 required.",
+      subtitle: "Trimester T326 · GPA: 3.75 · Overall Average: 90.0%",
+      description: "Current GPA is 3.75. Overall average: 90.0%. Completed Capstone ICT301 (6 credits) and active ICT302 (6 credits).",
       badgeBg: "bg-teal-50",
       badgeText: "text-teal-700",
       nav: "grades",
@@ -6215,14 +7918,14 @@ function buildStudentSearchCatalog(): StudentSearchItem[] {
     ...calEvents.map((e) => ({
       id: `cal-event-${e.day}-${e.label}`,
       category: "Calendar" as const,
-      title: `${e.label} (September ${e.day})`,
-      subtitle: `September ${e.day}, 2026 · Academic Calendar`,
-      description: `Scheduled calendar date: ${e.label} on September ${e.day}, 2026.`,
+      title: `${e.label} (November ${e.day})`,
+      subtitle: `November ${e.day}, 2026 · Academic Calendar`,
+      description: `Scheduled calendar date: ${e.label} on November ${e.day}, 2026.`,
       badgeBg: "bg-orange-50",
       badgeText: "text-orange-700",
       nav: "calendar",
       navLabel: "Calendar",
-      keywords: [e.label, `September ${e.day}`, "calendar", "event", "schedule", "deadline", "class"],
+      keywords: [e.label, `November ${e.day}`, "calendar", "event", "schedule", "deadline", "class"],
     })),
 
     // ── Announcements ──
@@ -6345,16 +8048,16 @@ function SearchResultsPage({
   }, [results, selectedCategory]);
 
   const quickSuggestions = [
-    "ICT272",
+    "ICT302",
     "ICT301",
-    "AI",
+    "Capstone",
     "Assignment",
     "Quiz",
     "Materials",
     "Grades",
     "Calendar",
     "Announcement",
-    "Dr. Mitchell",
+    "Anita Humagain",
     "Password",
   ];
 
@@ -6531,8 +8234,8 @@ const courseZoomScheduleMap: Record<string, CourseZoomSession[]> = {
       startTime: "10:00 AM",
       endTime: "12:00 PM",
       duration: "2-hour session",
-      instructor: "Dr. Sarah Mitchell",
-      instructorRole: "Course Lecturer",
+      instructor: "Anita Humagain",
+      instructorRole: "Unit Coordinator & Lecturer",
       location: "Online · Zoom Room A",
       meetingId: "849 2011 3012",
       passcode: "ICT301",
@@ -6548,8 +8251,8 @@ const courseZoomScheduleMap: Record<string, CourseZoomSession[]> = {
       startTime: "10:00 AM",
       endTime: "12:00 PM",
       duration: "2-hour session",
-      instructor: "James Thornton",
-      instructorRole: "Senior Lab Tutor",
+      instructor: "Anita Humagain",
+      instructorRole: "Unit Coordinator & Lecturer",
       location: "Room IT-201 & Zoom",
       meetingId: "849 2011 3013",
       passcode: "ICT301",
@@ -6557,148 +8260,40 @@ const courseZoomScheduleMap: Record<string, CourseZoomSession[]> = {
       topic: "Jira Sprint Tracking & Automated CI/CD Setup",
     },
   ],
-  ICT272: [
+  ICT302: [
     {
-      id: "ict272-lecture",
+      id: "ict302-lecture",
       type: "Lecture",
-      title: "ICT272 Weekly Lecture",
+      title: "ICT302 Weekly Lecture & Capstone Briefing",
       day: "Tuesday",
       date: "Sep 15, 2026",
       startTime: "10:00 AM",
       endTime: "12:00 PM",
       duration: "2-hour session",
-      instructor: "Prof. David Chen",
-      instructorRole: "Course Lecturer",
-      location: "Online · Zoom Room B",
-      meetingId: "752 4892 2721",
-      passcode: "ICT272",
+      instructor: "Anita Humagain",
+      instructorRole: "Unit Coordinator & Lecturer",
+      location: "Online · Zoom Room A",
+      meetingId: "752 4892 3021",
+      passcode: "ICT302",
       isLive: false,
-      topic: "Modern Web Frameworks & State Architecture",
+      topic: "Agile Sprint 2 Delivery & Full-Stack Next.js SSR Integration",
     },
     {
-      id: "ict272-tutorial",
+      id: "ict302-tutorial",
       type: "Tutorial/Class",
-      title: "ICT272 Tutorial / Practical Lab",
+      title: "ICT302 Capstone Laboratory & Code Defense",
       day: "Thursday",
       date: "Sep 17, 2026",
       startTime: "02:00 PM",
       endTime: "04:00 PM",
       duration: "2-hour session",
-      instructor: "Alicia Zhang",
-      instructorRole: "Workshop Demonstrator",
-      location: "Lab 3B & Zoom",
-      meetingId: "752 4892 2722",
-      passcode: "ICT272",
-      isLive: false,
-      topic: "Interactive CSS Layouts & Responsive Code Review",
-    },
-  ],
-  ICT126: [
-    {
-      id: "ict126-lecture",
-      type: "Lecture",
-      title: "ICT126 Weekly Lecture",
-      day: "Wednesday",
-      date: "Sep 16, 2026",
-      startTime: "10:00 AM",
-      endTime: "12:00 PM",
-      duration: "2-hour session",
-      instructor: "Dr. Elena Rostova",
-      instructorRole: "Course Lecturer",
-      location: "Online · Zoom Room C",
-      meetingId: "618 3920 1261",
-      passcode: "ICT126",
-      isLive: false,
-      topic: "Neural Networks & Gradient Descent Intuition",
-    },
-    {
-      id: "ict126-tutorial",
-      type: "Tutorial/Class",
-      title: "ICT126 Tutorial / Practical AI Lab",
-      day: "Friday",
-      date: "Sep 18, 2026",
-      startTime: "01:00 PM",
-      endTime: "03:00 PM",
-      duration: "2-hour session",
-      instructor: "Marcus Vance",
-      instructorRole: "AI Teaching Assistant",
-      location: "Lab AI-1 & Zoom",
-      meetingId: "618 3920 1262",
-      passcode: "ICT126",
+      instructor: "Anita Humagain",
+      instructorRole: "Unit Coordinator & Lecturer",
+      location: "Lab IT-304 & Zoom",
+      meetingId: "752 4892 3022",
+      passcode: "ICT302",
       isLive: true,
-      topic: "Hands-on PyTorch Tensor Operations & Model Training",
-    },
-  ],
-  ICT101: [
-    {
-      id: "ict101-lecture",
-      type: "Lecture",
-      title: "ICT101 Python Programming Fundamentals",
-      day: "Monday",
-      date: "Nov 17, 2025",
-      startTime: "10:00 AM",
-      endTime: "12:00 PM",
-      duration: "2-hour session",
-      instructor: "Dr. Alan Turing",
-      instructorRole: "Course Lecturer",
-      location: "Online · Zoom Archived Room",
-      meetingId: "512 8810 1011",
-      passcode: "ICT101",
-      isLive: false,
-      topic: "Python Data Structures, Functions, and OOP Review",
-    },
-    {
-      id: "ict101-tutorial",
-      type: "Tutorial/Class",
-      title: "ICT101 Interactive Code Lab",
-      day: "Wednesday",
-      date: "Nov 19, 2025",
-      startTime: "02:00 PM",
-      endTime: "04:00 PM",
-      duration: "2-hour session",
-      instructor: "Dr. Alan Turing",
-      instructorRole: "Course Lecturer",
-      location: "Lab Room 101 & Zoom",
-      meetingId: "512 8810 1012",
-      passcode: "ICT101",
-      isLive: false,
-      topic: "Algorithm Implementation & Pythonic Best Practices",
-    },
-  ],
-  ICT102: [
-    {
-      id: "ict102-lecture",
-      type: "Lecture",
-      title: "ICT102 Discrete Mathematics Lecture",
-      day: "Tuesday",
-      date: "Nov 18, 2025",
-      startTime: "10:00 AM",
-      endTime: "12:00 PM",
-      duration: "2-hour session",
-      instructor: "Prof. Ada Lovelace",
-      instructorRole: "Course Lecturer",
-      location: "Online · Zoom Archived Room",
-      meetingId: "640 1934 1021",
-      passcode: "ICT102",
-      isLive: false,
-      topic: "Propositional Logic, Proofs & Set Theory",
-    },
-    {
-      id: "ict102-tutorial",
-      type: "Tutorial/Class",
-      title: "ICT102 Problem Solving Workshop",
-      day: "Thursday",
-      date: "Nov 20, 2025",
-      startTime: "01:00 PM",
-      endTime: "03:00 PM",
-      duration: "2-hour session",
-      instructor: "Prof. Ada Lovelace",
-      instructorRole: "Course Lecturer",
-      location: "Lab Room 204 & Zoom",
-      meetingId: "640 1934 1022",
-      passcode: "ICT102",
-      isLive: false,
-      topic: "Graph Theory, Combinatorics, and Boolean Algebra",
+      topic: "Playwright Automated Test Suites & Database Pooling Verification",
     },
   ],
 };
@@ -6726,60 +8321,12 @@ function CourseOverviewPage({
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const isCompleted = course.status === "Completed" || course.pct === 100;
-  const completionDate = course.completionDate ?? (course.code === "ICT102" ? "November 28, 2025" : "December 12, 2025");
+  const completionDate = course.completionDate ?? "June 25, 2026";
 
   // Local assignments state so student can submit and see changes in mock UI
   const initialAssignments = useMemo(() => {
     const existing = courseGroups.find((g) => g.code === course.code)?.assignments ?? [];
     if (existing.length > 0) return existing;
-    if (course.code === "ICT101") {
-      return [
-        {
-          id: "ict101-a1",
-          name: "Assignment 1: Algorithms & Structured Programming",
-          description: "Python control flow, modular functions, algorithmic problem solving, and unit test suites.",
-          dueDate: "Oct 10, 2025",
-          status: "submitted" as const,
-          score: "92/100 (HD)",
-          submissionDate: "Oct 08, 2025",
-          feedback: "Outstanding code structure, well-commented functions, and elegant algorithmic decomposition. All unit test cases passed with optimal execution time.",
-        },
-        {
-          id: "ict101-a2",
-          name: "Assignment 2: Python Data Analytics & Automation",
-          description: "End-to-end Python pipeline processing real-world CSV datasets with error handling and visualization.",
-          dueDate: "Nov 15, 2025",
-          status: "submitted" as const,
-          score: "86/100 (HD)",
-          submissionDate: "Nov 14, 2025",
-          feedback: "Comprehensive data preprocessing, robust exception handling, and clean visualization outputs. Demonstrated strong mastery of modular Python architecture.",
-        },
-      ];
-    }
-    if (course.code === "ICT102") {
-      return [
-        {
-          id: "ict102-a1",
-          name: "Problem Set 1: Propositional Logic & Truth Tables",
-          description: "Formal logic proofs, Boolean algebra reductions, and digital logic equivalence problem sets.",
-          dueDate: "Sep 20, 2025",
-          status: "submitted" as const,
-          score: "84/100 (D)",
-          submissionDate: "Sep 18, 2025",
-          feedback: "Rigorous logical proofs and well-structured truth tables. Induction steps are clearly stated and justified.",
-        },
-        {
-          id: "ict102-a2",
-          name: "Problem Set 2: Graph Theory & Combinatorics",
-          description: "Applications of Eulerian/Hamiltonian paths, tree traversals, recurrence relations, and permutations.",
-          dueDate: "Oct 30, 2025",
-          status: "submitted" as const,
-          score: "80/100 (D)",
-          submissionDate: "Oct 28, 2025",
-          feedback: "Accurate bipartite graph models and sound combinatorial arguments throughout.",
-        },
-      ];
-    }
     return [];
   }, [course.code]);
 
@@ -6794,62 +8341,6 @@ function CourseOverviewPage({
   const courseQuizzes = useMemo(() => {
     const existing = quizCourseGroups.find((g) => g.code === course.code)?.quizzes ?? [];
     if (existing.length > 0) return existing;
-    if (course.code === "ICT101") {
-      return [
-        {
-          id: "q-ict101-1",
-          name: "Python Syntax & Basic Data Types Quiz",
-          description: "Variables, conditionals, loops, lists, and basic I/O operations.",
-          dueDate: "Sep 18, 2025",
-          status: "completed" as const,
-          score: "19/20 (95%)",
-          dateTaken: "Sep 17, 2025",
-          timeLimit: "30 Mins",
-          questions: 20,
-          weight: "10%",
-        },
-        {
-          id: "q-ict101-2",
-          name: "Functions, Scope & Recursion Quiz",
-          description: "Parameter passing, recursion depth, pure functions, and namespaces.",
-          dueDate: "Oct 22, 2025",
-          status: "completed" as const,
-          score: "18/20 (90%)",
-          dateTaken: "Oct 21, 2025",
-          timeLimit: "30 Mins",
-          questions: 20,
-          weight: "10%",
-        },
-      ];
-    }
-    if (course.code === "ICT102") {
-      return [
-        {
-          id: "q-ict102-1",
-          name: "Set Theory & Predicate Logic Quiz",
-          description: "Venn diagrams, set builder notation, and first-order quantifiers.",
-          dueDate: "Sep 12, 2025",
-          status: "completed" as const,
-          score: "17/20 (85%)",
-          dateTaken: "Sep 11, 2025",
-          timeLimit: "30 Mins",
-          questions: 20,
-          weight: "10%",
-        },
-        {
-          id: "q-ict102-2",
-          name: "Relations, Functions & Proofs Quiz",
-          description: "Equivalence relations, partial orderings, and direct vs contradiction proofs.",
-          dueDate: "Oct 15, 2025",
-          status: "completed" as const,
-          score: "16/20 (80%)",
-          dateTaken: "Oct 14, 2025",
-          timeLimit: "30 Mins",
-          questions: 20,
-          weight: "10%",
-        },
-      ];
-    }
     return [];
   }, [course.code]);
 
@@ -6872,22 +8363,6 @@ function CourseOverviewPage({
   const courseGrades = useMemo(() => {
     const existing = gradeRows.filter((g) => g.code === course.code);
     if (existing.length > 0) return existing;
-    if (course.code === "ICT101") {
-      return [
-        { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Assignment 1: Algorithms & Structured Programming", score: 92, max: 100, grade: "HD", status: "Released" as const },
-        { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Assignment 2: Python Data Analytics & Automation", score: 86, max: 100, grade: "HD", status: "Released" as const },
-        { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Formative Quizzes & Code Exercises", score: 37, max: 40, grade: "HD", status: "Released" as const },
-        { course: "Introduction to Programming (Python)", code: "ICT101", assessment: "Final Examination", score: 88, max: 100, grade: "HD", status: "Released" as const },
-      ];
-    }
-    if (course.code === "ICT102") {
-      return [
-        { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Problem Set 1: Propositional Logic & Truth Tables", score: 84, max: 100, grade: "D", status: "Released" as const },
-        { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Problem Set 2: Graph Theory & Combinatorics", score: 80, max: 100, grade: "D", status: "Released" as const },
-        { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Mid-Term Test", score: 33, max: 40, grade: "D", status: "Released" as const },
-        { course: "Discrete Mathematics for IT", code: "ICT102", assessment: "Final Examination", score: 81, max: 100, grade: "D", status: "Released" as const },
-      ];
-    }
     return [];
   }, [course.code]);
 
@@ -6901,30 +8376,30 @@ function CourseOverviewPage({
       startTime: "10:00 AM",
       endTime: "12:00 PM",
       duration: "2-hour session",
-      instructor: course.instructor ?? "Dr. Jane Smith",
-      instructorRole: "Course Lecturer",
+      instructor: course.instructor ?? "Anita Humagain",
+      instructorRole: "Unit Coordinator & Lecturer",
       location: "Online · Zoom",
-      meetingId: "800 1234 5678",
-      passcode: "EDUFLEX",
+      meetingId: "752 4892 3021",
+      passcode: course.code,
       isLive: false,
-      topic: "Unit overview and core conceptual lecture.",
+      topic: `${course.code} Technical Briefing`,
     },
     {
       id: `${course.code.toLowerCase()}-tutorial`,
       type: "Tutorial/Class" as const,
-      title: `${course.code} Tutorial / Class`,
+      title: `${course.code} Practical Workshop`,
       day: "Thursday",
       date: "Sep 17, 2026",
       startTime: "10:00 AM",
       endTime: "12:00 PM",
       duration: "2-hour session",
-      instructor: "Alex Rivera",
-      instructorRole: "Workshop Demonstrator",
-      location: "Online / Campus · Zoom",
-      meetingId: "800 1234 5679",
-      passcode: "EDUFLEX",
+      instructor: "Anita Humagain",
+      instructorRole: "Unit Coordinator",
+      location: "Room IT-304 / Online Zoom",
+      meetingId: "752 4892 3022",
+      passcode: course.code,
       isLive: false,
-      topic: "Weekly practical exercises and mentoring.",
+      topic: "Weekly capstone development mentoring and practical exercises.",
     },
   ];
 
@@ -7034,7 +8509,7 @@ function CourseOverviewPage({
               )}
               <span className="flex items-center gap-1.5 text-gray-400">
                 <IconCalendar />
-                {course.year ? `Semester ${course.term} ${course.year}` : "Semester T2 2026"}
+                {course.year ? `Trimester ${course.term} ${course.year}` : "Trimester T3 2026"}
               </span>
             </div>
           </div>
@@ -8508,6 +9983,12 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     }
 
     let isMounted = true;
+
+    // Background auto-sync seed to ensure remote database contains strictly ICT301 & ICT302
+    if (typeof window !== "undefined") {
+      fetch("/api/seed").catch(() => {});
+    }
+
     getStudentDashboardData()
       .then((res) => {
         if (!isMounted || !res.success) return;
@@ -8525,37 +10006,43 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
           }
         }
         if (res.courses && res.courses.length > 0) {
-          const mapped: ActiveCourse[] = res.courses.map((c) => {
-            const fallback = activeCourses.find(
-              (ac) => ac.code.toUpperCase() === c.code.toUpperCase()
-            );
-            return {
-              code: c.code,
-              title: c.title,
-              term: c.term,
-              school: c.faculty,
-              pct: c.progressPct,
-              bgColor: c.bgColor || fallback?.bgColor || "#eff6ff",
-              accentColor: c.iconColor || fallback?.accentColor || "#2563eb",
-              instructor: c.instructorName,
-              status: "Active",
-              svgIcon:
-                fallback?.svgIcon ||
-                ((col) => (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={col}
-                    strokeWidth="1.8"
-                    className="w-7 h-7"
-                  >
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M8 12h8M12 8v8" />
-                  </svg>
-                )),
-            };
-          });
-          setLiveCourses(mapped);
+          const allowedCodes = new Set(["ICT301", "ICT302"]);
+          const filteredCourses = res.courses.filter((c) => allowedCodes.has(c.code.toUpperCase()));
+          if (filteredCourses.length > 0) {
+            const mapped: ActiveCourse[] = filteredCourses.map((c) => {
+              const is301 = c.code.toUpperCase() === "ICT301";
+              const fallback = (is301 ? completedCourses : activeCourses).find(
+                (ac) => ac.code.toUpperCase() === c.code.toUpperCase()
+              );
+              const isCompleted = is301 || c.status === "Completed" || c.progressPct >= 100;
+              return {
+                code: c.code,
+                title: c.title,
+                term: is301 ? "T2 2026" : "T3 2026",
+                school: c.faculty,
+                pct: isCompleted ? 100 : c.progressPct,
+                bgColor: c.bgColor || fallback?.bgColor || (isCompleted ? "#f0fdf4" : "#eff6ff"),
+                accentColor: c.iconColor || fallback?.accentColor || (isCompleted ? "#16a34a" : "#2563eb"),
+                instructor: c.instructorName,
+                status: isCompleted ? "Completed" : "Active",
+                svgIcon:
+                  fallback?.svgIcon ||
+                  ((col) => (
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke={col}
+                      strokeWidth="1.8"
+                      className="w-7 h-7"
+                    >
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <path d="M8 12h8M12 8v8" />
+                    </svg>
+                  )),
+              };
+            });
+            setLiveCourses(mapped);
+          }
         }
       })
       .catch((err) => {
@@ -8668,6 +10155,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
               courses={liveCourses}
               stats={dashboardData?.stats}
               deadlines={dashboardData?.deadlines}
+              serverTime={dashboardData?.serverTime}
               theme={theme}
             />
           )}

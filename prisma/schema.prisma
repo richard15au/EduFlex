@@ -216,7 +216,7 @@ model ApprovalRequest {
 
 model Course {
   id           String       @id @default(cuid())
-  /// Canonical unit code (e.g., "ICT301", "ICT272", "ICT126", "ICT350")
+  /// Canonical unit code (e.g., "ICT301", "ICT302")
   code         String       @unique
   title        String
   faculty      String       @default("School of ICT")

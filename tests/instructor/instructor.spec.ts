@@ -163,11 +163,11 @@ test.describe('Instructor Portal Comprehensive Workflows', () => {
     await expect(page.getByRole('heading', { name: 'Student Grades', exact: true })).toBeVisible();
 
     // Verify student roster in grade table
-    await expect(page.getByText('Marco Reyes')).toBeVisible();
+    await expect(page.getByText('Richard Vitug').first()).toBeVisible();
 
     // Filter course
     const select = page.locator('select').first();
-    await select.selectOption('ICT272');
-    await expect(page.getByText('Aisha Patel')).toBeVisible();
+    await select.selectOption('ICT302');
+    await expect(page.getByText('Yusuf Rana Magar').first()).toBeVisible();
   });
 });

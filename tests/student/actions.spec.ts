@@ -19,18 +19,14 @@ test.describe('Student Server Actions & SSR Data Binding', () => {
 
     // Verify enrolled course cards from DB
     await expect(page.getByRole('button', { name: 'Enrolled Courses' })).toBeVisible();
-    await expect(page.getByText('Information Technology Project 1', { exact: true })).toBeVisible();
-    await expect(page.getByText('Web Design and Development', { exact: true })).toBeVisible();
-    await expect(page.getByText('Artificial Intelligence', { exact: true })).toBeVisible();
+    await expect(page.getByText('Information Technology Project 2', { exact: true })).toBeVisible();
 
     // Verify course unit codes
-    await expect(page.getByText('ICT301', { exact: true }).first()).toBeVisible();
-    await expect(page.getByText('ICT272', { exact: true }).first()).toBeVisible();
-    await expect(page.getByText('ICT126', { exact: true }).first()).toBeVisible();
+    await expect(page.getByText('ICT302', { exact: true }).first()).toBeVisible();
 
     // Verify navigation to My Courses shows active courses grid
     await page.getByRole('button', { name: 'My Courses', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'My Courses', exact: true })).toBeVisible();
-    await expect(page.getByText('Active Courses (3)')).toBeVisible();
+    await expect(page.getByText(/Active Courses \(1\)/)).toBeVisible();
   });
 });
