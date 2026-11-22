@@ -695,7 +695,7 @@ function AnnouncementBanner({ onClick }: { onClick?: () => void }) {
         <p className="text-white font-semibold text-sm mb-0.5">Announcements</p>
         <div className="overflow-hidden">
           <p className="marquee-text text-blue-200 text-sm">
-            The Notification Message will display here sliding. &nbsp;&nbsp; Reminder: ICT302 Assessment 2: Final Report & Group Activity Log is due Week 11. &nbsp;&nbsp; ICT301 Capstone completed with High Distinction (HD). &nbsp;&nbsp; Official academic domain: eduflex.en-rich.me.
+            The Notification Message will display here sliding. &nbsp;&nbsp; Reminder: ICT302 Assessment 2: Final Report & Group Activity Log is due Week 11. &nbsp;&nbsp; ICT301 Capstone completed with High Distinction (HD). &nbsp;&nbsp; Official academic domain: eduflex.richv.win.
           </p>
         </div>
       </div>
@@ -928,7 +928,7 @@ function CourseDetailModal({
           [
             { label: "Assignments", val: "2 pending" },
             { label: "Quizzes",     val: "1 upcoming" },
-            { label: "Materials",   val: "12 resources" },
+            { label: "Materials",   val: `${courseMaterials.length + classRecordings.length + additionalResources.length + codeAndLabResources.length} resources` },
             { label: "Grade",       val: "In progress" },
           ].map((s) => (
             <div key={s.label} className="bg-gray-50 rounded-xl p-3">
@@ -956,7 +956,7 @@ function CourseDetailModal({
 function AssignmentsModal({ onClose }: { onClose: () => void }) {
   const items = [
     { name: "Assessment 1: Weekly Progress Report (Weeks 2–11)", course: "ICT302", due: "Jan 24, 2027", status: "1/10 Submitted" },
-    { name: "Assessment 2: Final Report & Activity Log", course: "ICT302", due: "Jan 24, 2027", status: "1/2 Submitted" },
+    { name: "Assessment 2: Final Report & Activity Log", course: "ICT302", due: "Jan 24, 2027", status: "0/2 Submitted" },
     { name: "Assessment 3: Defense & Demo", course: "ICT302", due: "Jan 29, 2027", status: "0/1 Submitted" },
   ];
 
@@ -1025,14 +1025,14 @@ function QuizzesModal({ onClose }: { onClose: () => void }) {
 // ── Course data ───────────────────────────────────────────────────────────────
 const activeCourses: ActiveCourse[] = [
   {
-    code: "ICT301",
-    title: "Information Technology Project 1",
+    code: "ICT302",
+    title: "Information Technology Project 2",
     term: "T226",
     school: "School of Information Technology",
-    pct: 58,
+    pct: 45,
     bgColor: "#eff6ff",
     accentColor: "#2563eb",
-    instructor: "Dr. Sarah Mitchell",
+    instructor: "Anita Humagain",
     status: "Active",
     svgIcon: (c) => (
       <svg viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" className="w-7 h-7">
@@ -1040,80 +1040,26 @@ const activeCourses: ActiveCourse[] = [
       </svg>
     ),
   },
-  {
-    code: "ICT272",
-    title: "Web Design and Development",
-    term: "T226",
-    school: "School of Information Technology",
-    pct: 72,
-    bgColor: "#f0fdf4",
-    accentColor: "#16a34a",
-    instructor: "Prof. David Chen",
-    status: "Active",
-    svgIcon: (c) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" className="w-7 h-7">
-        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
-      </svg>
-    ),
-  },
-  {
-    code: "ICT126",
-    title: "Artificial Intelligence",
-    term: "T226",
-    school: "School of Information Technology",
-    pct: 35,
-    bgColor: "#fdf2f8",
-    accentColor: "#db2777",
-    instructor: "Dr. Elena Rostova",
-    status: "Active",
-    svgIcon: (c) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" className="w-7 h-7">
-        <path d="M12 2a4 4 0 014 4v1h1a3 3 0 013 3v2a3 3 0 01-3 3h-1v1a4 4 0 01-8 0v-1H7a3 3 0 01-3-3v-2a3 3 0 013-3h1V6a4 4 0 014-4z" /><circle cx="9" cy="10" r="1" fill={c} stroke="none" /><circle cx="15" cy="10" r="1" fill={c} stroke="none" /><path d="M9 15s1 1.5 3 1.5 3-1.5 3-1.5" />
-      </svg>
-    ),
-  },
 ];
 
 const completedCourses: ActiveCourse[] = [
   {
-    code: "ICT101",
-    title: "Introduction to Programming (Python)",
-    term: "T125",
-    year: "2025",
+    code: "ICT301",
+    title: "Information Technology Project 1",
+    term: "T126",
+    year: "2026",
     school: "School of Information Technology",
-    instructor: "Dr. Alan Turing",
+    instructor: "Anita Humagain",
     pct: 100,
     status: "Completed",
     grade: "High Distinction (HD)",
-    finalScore: "88%",
-    completionDate: "December 12, 2025",
+    finalScore: "92%",
+    completionDate: "July 18, 2026",
     bgColor: "#f0fdf4",
     accentColor: "#16a34a",
     svgIcon: (c) => (
       <svg viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" className="w-7 h-7">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-  },
-  {
-    code: "ICT102",
-    title: "Discrete Mathematics for IT",
-    term: "T225",
-    year: "2025",
-    school: "School of Information Technology",
-    instructor: "Prof. Ada Lovelace",
-    pct: 100,
-    status: "Completed",
-    grade: "Distinction (D)",
-    finalScore: "81%",
-    completionDate: "November 28, 2025",
-    bgColor: "#f0fdf4",
-    accentColor: "#16a34a",
-    svgIcon: (c) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" className="w-7 h-7">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
       </svg>
     ),
   },
@@ -1183,13 +1129,13 @@ const courseGroups: CourseGroup[] = [
         name: "Assessment 2: Final Report and Group Activity Log",
         description: "Major deliverable comprising Final Report (40% — 25 to 30 pages: project scope, architecture, test plan with 8+ test cases, evaluation, results) and Group Activity Log (10% — 12 meeting minutes appendix, roles, and interaction) (2 deliverables · 50% total).",
         dueDate: "Jan 24, 2027",
-        status: "submitted",
+        status: "notStarted",
         type: "Assessment",
         maxScore: 100,
         weight: 50,
         totalSubmissions: 2,
-        submittedCount: 1,
-        submissionRatioLabel: "1/2 Submitted",
+        submittedCount: 0,
+        submissionRatioLabel: "0/2 Submitted",
       },
       {
         id: "ict302-ass3",
@@ -1559,8 +1505,8 @@ function buildStudentCourseGroups(
           ratioLabel = "1/10 Submitted";
         } else if (item.id === "ict302-ass2" || item.title.includes("Assessment 2")) {
           totalSubs = 2;
-          subsCount = 1;
-          ratioLabel = "1/2 Submitted";
+          subsCount = 0;
+          ratioLabel = "0/2 Submitted";
         } else if (item.id === "ict302-ass3" || item.title.includes("Assessment 3")) {
           totalSubs = 1;
           subsCount = 0;
@@ -2252,7 +2198,7 @@ function AssignmentDetailsView({
       subModalFile.name,
       subModalFile.size,
       subModalComments,
-      "20030988@eduflex.en-rich.me",
+      "20030988@eduflex.richv.win",
       "Richard Vitug",
       activeSubModalItem.week ? { learned: subModalLearned, growth: subModalGrowth } : undefined
     );
@@ -2359,7 +2305,7 @@ function AssignmentDetailsView({
       // Save to shared submissions store
       const sessionUser = getSessionUser();
       const studentName = sessionUser?.name || "Richard Vitug";
-      const studentEmail = sessionUser?.email || "20030988@eduflex.en-rich.me";
+      const studentEmail = sessionUser?.email || "20030988@eduflex.richv.win";
 
       addStudentSubmission({
         itemId: assignment.id,
@@ -4035,19 +3981,65 @@ function AssignmentsPage() {
     const courses = getSharedCourses();
     const subs = getSharedSubmissions();
     const user = getSessionUser();
-    return buildStudentCourseGroups(courses, subs, user?.email || "20030988@eduflex.en-rich.me");
+    return buildStudentCourseGroups(courses, subs, user?.email || "20030988@eduflex.richv.win");
   });
   const [selectedAssignment, setSelectedAssignment] = useState<{
     assignment: Assignment;
     course: CourseGroup;
   } | null>(null);
+  const isDetailPopRef = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPopOrHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith("#tab=assignments/detail/")) {
+        const targetId = decodeURIComponent(hash.slice("#tab=assignments/detail/".length));
+        for (const group of allCourseGroups) {
+          const match = [...group.assignments, ...(group.assessments || [])].find(
+            (item) => item.id === targetId
+          );
+          if (match) {
+            isDetailPopRef.current = true;
+            setSelectedAssignment({ assignment: match, course: group });
+            return;
+          }
+        }
+      } else if (!hash.includes("/detail")) {
+        isDetailPopRef.current = true;
+        setSelectedAssignment(null);
+      }
+    };
+    window.addEventListener("popstate", onPopOrHash);
+    window.addEventListener("hashchange", onPopOrHash);
+    return () => {
+      window.removeEventListener("popstate", onPopOrHash);
+      window.removeEventListener("hashchange", onPopOrHash);
+    };
+  }, [allCourseGroups]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isDetailPopRef.current) {
+      isDetailPopRef.current = false;
+      return;
+    }
+    if (selectedAssignment) {
+      const targetHash = `#tab=assignments/detail/${encodeURIComponent(selectedAssignment.assignment.id)}`;
+      if (window.location.hash !== targetHash) {
+        window.history.pushState(null, "", `${window.location.pathname}${window.location.search}${targetHash}`);
+      }
+    } else if (window.location.hash.startsWith("#tab=assignments/detail")) {
+      window.history.pushState(null, "", `${window.location.pathname}${window.location.search}#tab=assignments`);
+    }
+  }, [selectedAssignment]);
 
   useEffect(() => {
     const refreshData = () => {
       const courses = getSharedCourses();
       const subs = getSharedSubmissions();
       const user = getSessionUser();
-      const studentEmail = user?.email || "20030988@eduflex.en-rich.me";
+      const studentEmail = user?.email || "20030988@eduflex.richv.win";
       const updatedGroups = buildStudentCourseGroups(courses, subs, studentEmail);
       setAllCourseGroups(updatedGroups);
 
@@ -6016,7 +6008,38 @@ export function QuizzesPage({
   const handleSelectQuiz = (quiz: QuizItem, group: QuizCourseGroup, mode: "details" | "attempt" | "results" = "details") => {
     setSelectedQuizState({ quiz, group });
     setViewMode(mode);
+    const targetHash = `#tab=quizzes/detail/${encodeURIComponent(quiz.id)}`;
+    if (typeof window !== "undefined" && window.location.hash !== targetHash) {
+      window.history.pushState(null, "", `${window.location.pathname}${window.location.search}${targetHash}`);
+    }
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPopOrHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith("#tab=quizzes/detail/")) {
+        const quizId = decodeURIComponent(hash.slice("#tab=quizzes/detail/".length));
+        for (const grp of groups) {
+          const match = grp.quizzes.find((q) => q.id === quizId);
+          if (match) {
+            setSelectedQuizState({ quiz: match, group: grp });
+            setViewMode("details");
+            return;
+          }
+        }
+      } else if (!hash.includes("/detail")) {
+        setSelectedQuizState(null);
+        setViewMode("list");
+      }
+    };
+    window.addEventListener("popstate", onPopOrHash);
+    window.addEventListener("hashchange", onPopOrHash);
+    return () => {
+      window.removeEventListener("popstate", onPopOrHash);
+      window.removeEventListener("hashchange", onPopOrHash);
+    };
+  }, [groups]);
 
   const handleStartQuiz = async () => {
     if (!selectedQuizState) return;
@@ -6414,47 +6437,15 @@ interface RecentMaterial {
   href?: string;
 }
 
-const recentMaterials: RecentMaterial[] = [
-  { name: "ICT302 Project Brief & Agile Milestone Rubric", course: "ICT302", type: "courseMaterials", typeLabel: "Course Material", date: "Aug 28, 2026", icon: <IconFilePdf className="w-4 h-4" />, iconBg: "bg-emerald-50 text-emerald-600", action: "Open" },
-  { name: "Week 2 — Next.js SSR & Server Actions Workshop", course: "ICT302", type: "recordings", typeLabel: "Class Recording", date: "Aug 27, 2026", icon: <IconVideo className="w-4 h-4" />, iconBg: "bg-blue-50 text-blue-500", action: "Watch" },
-  { name: "Next.js App Router & Server Actions Documentation", course: "ICT302", type: "additionalResources", typeLabel: "Documentation", date: "Aug 26, 2026", icon: <IconGlobe className="w-4 h-4" />, iconBg: "bg-orange-50 text-orange-500", action: "View", href: "https://nextjs.org/docs" },
-  { name: "ICT302 Sprint 2 Architecture Slides", course: "ICT302", type: "courseMaterials", typeLabel: "Presentation", date: "Aug 25, 2026", icon: <IconPresentation className="w-4 h-4" />, iconBg: "bg-indigo-50 text-indigo-500", action: "Open" },
-  { name: "Neon Connection Pooling & SSL Guide", course: "ICT302", type: "codeAndLab", typeLabel: "Lab File", date: "Aug 23, 2026", icon: <IconCode className="w-4 h-4" />, iconBg: "bg-emerald-50 text-emerald-600", action: "Open" },
-  { name: "ICT302 Team Repository — eduflex.en-rich.me", course: "ICT302", type: "codeAndLab", typeLabel: "GitHub Repo", date: "Aug 22, 2026", icon: <IconGithub className="w-4 h-4" />, iconBg: "bg-gray-100 text-gray-600", action: "View", href: "https://github.com" },
-  { name: "Week 1 — Capstone Project Initiation Zoom", course: "ICT302", type: "recordings", typeLabel: "Class Recording", date: "Aug 20, 2026", icon: <IconVideo className="w-4 h-4" />, iconBg: "bg-blue-50 text-blue-500", action: "Watch" },
-  { name: "ICT301 Final Report Archive & Defense Slides", course: "ICT301", type: "courseMaterials", typeLabel: "Course Material", date: "Jun 25, 2026", icon: <IconFilePdf className="w-4 h-4" />, iconBg: "bg-red-50 text-red-500", action: "Open" },
-];
+const recentMaterials: RecentMaterial[] = [];
 
-const courseMaterials = [
-  { name: "ICT302 Capstone Project Brief & Agile Milestone Rubric", type: "PDF", size: "2.1 MB", date: "Aug 28, 2026", course: "ICT302" },
-  { name: "ICT302 Next.js SSR & Neon PostgreSQL Specification", type: "PDF", size: "3.5 MB", date: "Aug 25, 2026", course: "ICT302" },
-  { name: "ICT302 Assessment 2 Final Report Brief & Rubric", type: "PDF", size: "1.2 MB", date: "Aug 24, 2026", course: "ICT302" },
-  { name: "ICT302 Sprint 2 Architecture Presentation Slides", type: "PowerPoint", size: "4.8 MB", date: "Aug 20, 2026", course: "ICT302" },
-  { name: "ICT301 Project Charter & Scope Baseline", type: "PDF", size: "1.4 MB", date: "Mar 25, 2026", course: "ICT301" },
-  { name: "ICT301 Milestone 3 Final Defense Presentation", type: "PowerPoint", size: "6.2 MB", date: "Jun 20, 2026", course: "ICT301" },
-];
+const courseMaterials: { name: string; type: string; size: string; date: string; course: string }[] = [];
 
-const classRecordings = [
-  { title: "Week 2 — Next.js SSR & Server Actions Workshop", course: "ICT302", date: "Aug 27, 2026", duration: "1h 55m" },
-  { title: "Week 1 — Capstone Project Initiation & Agile Setup", course: "ICT302", date: "Aug 20, 2026", duration: "1h 48m" },
-  { title: "Milestone 3 — Project 1 Final Defense Showcase", course: "ICT301", date: "Jun 20, 2026", duration: "2h 10m" },
-  { title: "Milestone 2 — System Architecture & Specification", course: "ICT301", date: "May 15, 2026", duration: "1h 50m" },
-];
+const classRecordings: { title: string; course: string; date: string; duration: string }[] = [];
 
-const additionalResources = [
-  { title: "Next.js App Router & Server Actions Official Guide", source: "Web Docs", url: "https://nextjs.org/docs", desc: "Production guide to React Server Components and data mutations" },
-  { title: "Neon Serverless Postgres Architecture Documentation", source: "Web Docs", url: "https://neon.tech/docs", desc: "Connection pooling, autoscaling, and branching workflows" },
-  { title: "Playwright End-to-End Testing Comprehensive Guide", source: "Web Docs", url: "https://playwright.dev", desc: "Automated test writing and cross-browser execution" },
-  { title: "WCAG 2.1 AA Accessibility Guidelines Checklist", source: "Article", url: "https://www.w3.org/WAI/standards-guidelines/wcag", desc: "Contrast, keyboard focus, and screen-reader standards" },
-  { title: "Prisma ORM Best Practices with PostgreSQL", source: "Web Docs", url: "https://www.prisma.io/docs", desc: "Schema modeling, migrations, and relationship integrity" },
-];
+const additionalResources: { title: string; source: string; url: string; desc: string }[] = [];
 
-const codeAndLabResources = [
-  { title: "ICT302 Capstone Repository — eduflex.en-rich.me", desc: "Production Next.js 15 repository with Server Actions and Neon DB", tags: ["Next.js", "TypeScript", "PostgreSQL"], date: "Aug 28, 2026", url: "https://github.com" },
-  { title: "ICT302 Neon Connection Pooler Starter Script", desc: "Connection pooling configuration for serverless Prisma Client", tags: ["Prisma", "Neon", "SQL"], date: "Aug 25, 2026", url: "#" },
-  { title: "ICT302 Playwright E2E Test Suite", desc: "Automated integration tests for student and instructor flows", tags: ["Playwright", "Testing"], date: "Aug 22, 2026", url: "#" },
-  { title: "ICT301 Project Archive — Architecture & Scope", desc: "Completed Milestone 1 & 2 deliverables and system designs", tags: ["Archived", "Architecture"], date: "Jun 20, 2026", url: "#" },
-];
+const codeAndLabResources: { title: string; desc: string; tags: string[]; date: string; url: string }[] = [];
 
 const filterOptions: { id: MaterialFilter; label: string }[] = [
   { id: "all",               label: "All Courses" },
@@ -6610,8 +6601,8 @@ function LearningMaterialsPage() {
           </div>
           <div>
             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Course Materials</p>
-            <p className="text-2xl font-extrabold text-gray-900 leading-none">6</p>
-            <p className="text-xs text-gray-400 mt-1">6 Available</p>
+            <p className="text-2xl font-extrabold text-gray-900 leading-none">{courseMaterials.length}</p>
+            <p className="text-xs text-gray-400 mt-1">{courseMaterials.length} Available</p>
           </div>
         </button>
 
@@ -6622,8 +6613,8 @@ function LearningMaterialsPage() {
           </div>
           <div>
             <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-wider mb-0.5">Class Recordings</p>
-            <p className="text-2xl font-extrabold text-indigo-700 leading-none">4</p>
-            <p className="text-xs text-indigo-400 mt-1">4 Available</p>
+            <p className="text-2xl font-extrabold text-indigo-700 leading-none">{classRecordings.length}</p>
+            <p className="text-xs text-indigo-400 mt-1">{classRecordings.length} Available</p>
           </div>
         </button>
 
@@ -6634,8 +6625,8 @@ function LearningMaterialsPage() {
           </div>
           <div>
             <p className="text-[10px] font-bold text-orange-400 uppercase tracking-wider mb-0.5">Additional Resources</p>
-            <p className="text-2xl font-extrabold text-orange-600 leading-none">5</p>
-            <p className="text-xs text-orange-400 mt-1">2 New</p>
+            <p className="text-2xl font-extrabold text-orange-600 leading-none">{additionalResources.length}</p>
+            <p className="text-xs text-orange-400 mt-1">{additionalResources.length} Available</p>
           </div>
         </button>
 
@@ -6646,8 +6637,8 @@ function LearningMaterialsPage() {
           </div>
           <div>
             <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-0.5">Code &amp; Lab Resources</p>
-            <p className="text-2xl font-extrabold text-emerald-700 leading-none">4</p>
-            <p className="text-xs text-emerald-500 mt-1">1 New</p>
+            <p className="text-2xl font-extrabold text-emerald-700 leading-none">{codeAndLabResources.length}</p>
+            <p className="text-xs text-emerald-500 mt-1">{codeAndLabResources.length} Available</p>
           </div>
         </button>
       </div>
@@ -7147,8 +7138,8 @@ function MyCoursesPage({
             rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Upcoming", value: 1 }, { color: "text-green-600 dark:text-green-400", label: "Finished", value: 2 }]} />
         </button>
         <button className="text-left h-full" onClick={() => setActiveNav("materials")}>
-          <StatCard title="Learning Materials" icon={<IconFolder />} bigNum="12" bigLabel="Resources"
-            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Resources", value: 12 }, { color: "text-gray-400 dark:text-gray-400", label: "New", value: 0 }]} />
+          <StatCard title="Learning Materials" icon={<IconFolder />} bigNum={String(courseMaterials.length + classRecordings.length + additionalResources.length + codeAndLabResources.length)} bigLabel="Resources"
+            rows={[{ color: "text-blue-600 dark:text-blue-400", label: "Resources", value: courseMaterials.length + classRecordings.length + additionalResources.length + codeAndLabResources.length }, { color: "text-gray-400 dark:text-gray-400", label: "New", value: 0 }]} />
         </button>
       </div>
 
@@ -7529,7 +7520,7 @@ function DashboardPage({
     { id: "courses",     label: "My Courses",        icon: <IconBook />,       note: stats ? `${stats.enrolledCoursesCount} active this trimester` : "1 active this trimester" },
     { id: "assignments", label: "Assignments",        icon: <IconAssignment />, note: stats ? `${stats.assignmentsDueCount} due soon` : "2 due soon" },
     { id: "quizzes",     label: "Quizzes",            icon: <IconQuiz />,       note: stats ? `${stats.quizzesUpcomingCount} upcoming` : "1 upcoming" },
-    { id: "materials",   label: "Learning Materials", icon: <IconFolder />,     note: stats ? `${stats.learningMaterialsCount} resources available` : "12 resources available" },
+    { id: "materials",   label: "Learning Materials", icon: <IconFolder />,     note: stats ? `${stats.learningMaterialsCount} resources available` : "0 resources available" },
   ];
 
   const defaultDeadlines = [
@@ -9928,6 +9919,58 @@ function ProviderPortalPage() {
 // ── Student portal ────────────────────────────────────────────────────────────
 export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => void }) {
   const [activeNav, setActiveNav]         = useState("dashboard");
+  const hasRestoredTabRef                 = useRef(false);
+  const isPopStateRef                     = useRef(false);
+  const lastCourseRef                     = useRef<ActiveCourse | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const syncFromHash = () => {
+      const hash = window.location.hash;
+      const rawTab = hash.startsWith("#tab=") ? hash.slice(5) : "dashboard";
+      const nextTab = (rawTab.split("/")[0] || "dashboard");
+      isPopStateRef.current = true;
+      setActiveNav(nextTab);
+      if (nextTab === "course-detail") {
+        setSelectedCourse((prev) => prev || lastCourseRef.current || activeCourses[0]);
+      } else {
+        setSelectedCourse(null);
+      }
+    };
+    window.addEventListener("popstate", syncFromHash);
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.removeEventListener("popstate", syncFromHash);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!hasRestoredTabRef.current) {
+      hasRestoredTabRef.current = true;
+      const hash = window.location.hash;
+      if (hash.startsWith("#tab=")) {
+        const savedTab = hash.slice(5).split("/")[0];
+        if (savedTab && savedTab !== "dashboard") {
+          setActiveNav(savedTab === "course-detail" ? "courses" : savedTab);
+          return;
+        }
+      }
+    }
+    const targetHash = activeNav === "dashboard" ? "" : `#tab=${activeNav}`;
+    const targetUrl = window.location.pathname + window.location.search + targetHash;
+    const isSubDetail = activeNav !== "dashboard" && window.location.hash.startsWith(`#tab=${activeNav}/`);
+    if (!isSubDetail && window.location.hash !== targetHash) {
+      if (isPopStateRef.current) {
+        isPopStateRef.current = false;
+      } else {
+        window.history.pushState(null, "", targetUrl);
+      }
+    } else {
+      isPopStateRef.current = false;
+    }
+  }, [activeNav]);
   const [collapsed, setCollapsed]         = useState(false);
   const [openCourse, setOpenCourse]       = useState<ActiveCourse | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<ActiveCourse | null>(null);
@@ -10219,6 +10262,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
           onClose={() => setOpenCourse(null)}
           onGoToCourse={(course) => {
             setOpenCourse(null);
+            lastCourseRef.current = course;
             setSelectedCourse(course);
             setActiveNav("course-detail");
           }}

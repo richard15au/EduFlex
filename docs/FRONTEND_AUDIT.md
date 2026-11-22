@@ -19,9 +19,9 @@
 
 | Feature / Workflow | Implementation | Status | Persistence / Notes |
 | --- | --- | --- | --- |
-| Student Login (`@eduflex.edu` & `@richacademy.en-rich.me`) | [`src/auth.ts`](../src/auth.ts), [`app/login/page.tsx`](../app/login/page.tsx) | **Verified Working Locally** | `localStorage` (`eduflex_session_user`). Requires Backend Integration for server-validated sessions. |
-| Instructor Login (`@eduflex.edu` & `@richacademy.en-rich.me`) | [`src/auth.ts`](../src/auth.ts), [`app/login/page.tsx`](../app/login/page.tsx) | **Verified Working Locally** | Case-insensitive email lookup; routes to `/instructor`. |
-| Admin Login (`@eduflex.edu` & `@richacademy.en-rich.me`) | [`src/auth.ts`](../src/auth.ts), [`app/login/page.tsx`](../app/login/page.tsx) | **Verified Working Locally** | Canonical role normalization (`admin` / `administrator` -> `"admin"`); routes to `/admin`. |
+| Student Login (`@eduflex.edu` & `@richacademy.richv.win`) | [`src/auth.ts`](../src/auth.ts), [`app/login/page.tsx`](../app/login/page.tsx) | **Verified Working Locally** | `localStorage` (`eduflex_session_user`). Requires Backend Integration for server-validated sessions. |
+| Instructor Login (`@eduflex.edu` & `@richacademy.richv.win`) | [`src/auth.ts`](../src/auth.ts), [`app/login/page.tsx`](../app/login/page.tsx) | **Verified Working Locally** | Case-insensitive email lookup; routes to `/instructor`. |
+| Admin Login (`@eduflex.edu` & `@richacademy.richv.win`) | [`src/auth.ts`](../src/auth.ts), [`app/login/page.tsx`](../app/login/page.tsx) | **Verified Working Locally** | Canonical role normalization (`admin` / `administrator` -> `"admin"`); routes to `/admin`. |
 | Session Persistence on Page Refresh | [`src/auth.ts`](../src/auth.ts), [`src/ProtectedRoute.tsx`](../src/ProtectedRoute.tsx) | **Verified Working Locally** | Persists across reloads via `localStorage`; verified in [`tests/auth/sessions.spec.ts`](../tests/auth/sessions.spec.ts). |
 | Logout & Session Termination | [`src/auth.ts`](../src/auth.ts) (`logoutUser`) | **Verified Working Locally** | Clears `eduflex_session_user` and redirects to `/login`. |
 | Unauthenticated Route Protection (`/student`, `/instructor`, `/admin`) | [`src/ProtectedRoute.tsx`](../src/ProtectedRoute.tsx) | **Verified Working Locally** | Redirects unauthenticated visitors to `/login`; verified in [`tests/auth-access.spec.ts`](../tests/auth-access.spec.ts). |

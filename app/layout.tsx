@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../src/index.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://eduflex.edu";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://eduflex.richv.win";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

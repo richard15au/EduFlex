@@ -4,7 +4,7 @@ test.describe('Week 3: Academic Assessments & Timed Quiz Engine Suite', () => {
   test.beforeEach(async ({ page }) => {
     // Authenticate as student Richard Vitug
     await page.goto('/login');
-    await page.getByLabel('Email address').fill('20030988@eduflex.en-rich.me');
+    await page.getByLabel('Email address').fill('20030988@eduflex.richv.win');
     await page.locator('input[type="password"]').fill('student123');
     await page.getByRole('button', { name: 'Log in' }).click();
 

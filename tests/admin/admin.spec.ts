@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+﻿import { expect, test } from '@playwright/test';
 import { loginAs } from '../helpers/auth';
 
 test.describe('Admin Portal Comprehensive Workflows', () => {
@@ -73,7 +73,7 @@ test.describe('Admin Portal Comprehensive Workflows', () => {
     await expect(page.getByRole('heading', { name: 'Add New User' })).toBeVisible();
 
     const newUserName = `Test Student ${Date.now()}`;
-    const newUserEmail = `test.student.${Date.now()}@eduflex.en-rich.me`;
+    const newUserEmail = `test.student.${Date.now()}@eduflex.richv.win`;
     await page.getByPlaceholder('e.g. Maria Santos').fill(newUserName);
     await page.getByPlaceholder('user@eduflex.edu.ph').fill(newUserEmail);
     await page.getByRole('button', { name: 'Create User' }).click();

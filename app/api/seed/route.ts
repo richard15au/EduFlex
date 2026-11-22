@@ -64,7 +64,7 @@ async function handleSeed() {
       {
         externalId: "20027782",
         name: "Yusuf Rana Magar",
-        email: "20027782@eduflex.en-rich.me",
+        email: "20027782@eduflex.richv.win",
         password: "student123",
         role: UserRole.STUDENT,
         program: "Bachelor of Information Technology",
@@ -73,7 +73,7 @@ async function handleSeed() {
       {
         externalId: "20030988",
         name: "Richard Vitug",
-        email: "20030988@eduflex.en-rich.me",
+        email: "20030988@eduflex.richv.win",
         password: "student123",
         role: UserRole.STUDENT,
         program: "Bachelor of Information Technology",
@@ -82,7 +82,7 @@ async function handleSeed() {
       {
         externalId: "20035294",
         name: "Sadia Binte Mahmud",
-        email: "20035294@eduflex.en-rich.me",
+        email: "20035294@eduflex.richv.win",
         password: "student123",
         role: UserRole.STUDENT,
         program: "Bachelor of Information Technology",
@@ -91,7 +91,7 @@ async function handleSeed() {
       {
         externalId: "20033316",
         name: "Anita Humagain",
-        email: "anita.humagain@eduflex.en-rich.me",
+        email: "anita.humagain@eduflex.richv.win",
         password: "instructor123",
         role: UserRole.INSTRUCTOR,
         department: "School of ICT",
@@ -100,7 +100,7 @@ async function handleSeed() {
       {
         externalId: "20024439",
         name: "Rojit Munankarmi",
-        email: "a.rojit.munankarmi@eduflex.en-rich.me",
+        email: "a.rojit.munankarmi@eduflex.richv.win",
         password: "admin123",
         role: UserRole.ADMIN,
         department: "University Administration",

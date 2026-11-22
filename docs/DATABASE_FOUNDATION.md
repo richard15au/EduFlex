@@ -49,7 +49,7 @@ The schema defines **20 models** and **14 enums** across 10 domain areas:
 1. **Password Hashes Only (`User.passwordHash`)**:
    - Plaintext passwords are never stored. `User.passwordHash` stores a `node:crypto` `scrypt` digest in the self-describing format `scrypt$16384$8$1$<saltHex>$<derivedKeyHex>`, verified in constant time via `timingSafeEqual` in [`lib/password.ts`](../lib/password.ts).
 2. **Authoritative Role Column (`User.role`)**:
-   - Portal and API authorization is governed strictly by `User.role` (`STUDENT`, `INSTRUCTOR`, `ADMIN`) and `User.status` (`ACTIVE`). Email addresses or domains (`@richacademy.en-rich.me`) never confer elevated privileges.
+   - Portal and API authorization is governed strictly by `User.role` (`STUDENT`, `INSTRUCTOR`, `ADMIN`) and `User.status` (`ACTIVE`). Email addresses or domains (`@richacademy.richv.win`) never confer elevated privileges.
 3. **Hashed Session Tokens (`Session.tokenHash`)**:
    - Database-backed sessions store only the SHA-256 hex digest (`tokenHash @unique`) of the opaque session token rather than the raw token string.
 4. **Explicit Academic Integrity Acceptance (`AssignmentSubmission.integrityAccepted` & `integrityAcceptedAt`)**:
@@ -72,7 +72,7 @@ The seed script uses deterministic `upsert` operations ordered across 6 dependen
 
 1. **Tier 1 (`SystemSetting`, `User`)**:
    - Upserts singleton `SystemSetting` (`id: "default"`).
-   - Upserts the 3 authoritative institutional accounts first (`2003988@richacademy.en-rich.me`, `anita.humagain@richacademy.en-rich.me`, `a.rojit.munankarmi@richacademy.en-rich.me`), followed by the 3 legacy `@eduflex.edu` demo accounts, 13 Admin roster accounts (`STU-20262001`–`STU-20262008`, `INS-20260012`, `INS-20260034`–`INS-20260037`), 5 pending approval requesters (`PA-001`–`PA-005`), and 2 system service accounts.
+   - Upserts the 3 authoritative institutional accounts first (`2003988@richacademy.richv.win`, `anita.humagain@richacademy.richv.win`, `a.rojit.munankarmi@richacademy.richv.win`), followed by the 3 legacy `@eduflex.edu` demo accounts, 13 Admin roster accounts (`STU-20262001`–`STU-20262008`, `INS-20260012`, `INS-20260034`–`INS-20260037`), 5 pending approval requesters (`PA-001`–`PA-005`), and 2 system service accounts.
 2. **Tier 2 (`Course`, `ApprovalRequest`, `Enrollment`)**:
    - Upserts 9 courses (`ICT301`, `ICT272`, `ICT126`, `ICT350`, `ICT410`, `ICT220`, `ICT180`, `ICT101`, `ICT102`) with structured `modulesJson`.
    - Upserts `PA-001`–`PA-005` approval requests and 18 student enrollments (keyed by `studentId_courseId_semester` and `referenceCode`).

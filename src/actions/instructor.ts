@@ -354,3 +354,345 @@ export async function deleteSubmissionAction(
     return { success: false, error: "Failed to delete submission." };
   }
 }
+
+export interface StaffAnnouncementDTO {
+  id: string;
+  code: string | null;
+  title: string;
+  body: string;
+  authorName: string;
+  authorRole: string;
+  courseCode: string | null;
+  audience: "ALL_USERS" | "STUDENTS" | "INSTRUCTORS" | "COURSE_ONLY";
+  status: "PUBLISHED" | "DRAFT" | "SCHEDULED" | "ARCHIVED";
+  isImportant: boolean;
+  publishedAt: string;
+}
+
+function mapAudienceInput(raw: string): "ALL_USERS" | "STUDENTS" | "INSTRUCTORS" | "COURSE_ONLY" {
+  const norm = raw.trim().toLowerCase();
+  if (norm === "students") return "STUDENTS";
+  if (norm === "instructors") return "INSTRUCTORS";
+  if (norm === "all users" || norm === "all") return "ALL_USERS";
+  return "COURSE_ONLY";
+}
+
+function mapStatusInput(raw: string): "PUBLISHED" | "DRAFT" | "SCHEDULED" {
+  const norm = raw.trim().toLowerCase();
+  if (norm === "draft") return "DRAFT";
+  if (norm === "scheduled") return "SCHEDULED";
+  return "PUBLISHED";
+}
+
+export async function getStaffAnnouncementsAction(): Promise<{
+  success: boolean;
+  announcements?: StaffAnnouncementDTO[];
+  error?: string;
+}> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    const list = await prisma.announcement.findMany({
+      include: { course: { select: { code: true } } },
+      orderBy: { publishedAt: "desc" },
+    });
+
+    return {
+      success: true,
+      announcements: list.map((a) => ({
+        id: a.id,
+        code: a.code,
+        title: a.title,
+        body: a.body,
+        authorName: a.authorName,
+        authorRole: a.authorRole || "Staff",
+        courseCode: a.course?.code ?? null,
+        audience: a.audience,
+        status: a.status,
+        isImportant: a.isImportant,
+        publishedAt: a.publishedAt.toLocaleDateString("en-AU", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }),
+      })),
+    };
+  } catch (err) {
+    console.error("[getStaffAnnouncementsAction] Error:", err);
+    return { success: false, error: "Failed to load announcements." };
+  }
+}
+
+export async function createStaffAnnouncementAction(input: {
+  title: string;
+  body: string;
+  audience: string;
+  status: string;
+  courseCode?: string;
+  isImportant?: boolean;
+}): Promise<{ success: boolean; announcement?: StaffAnnouncementDTO; error?: string }> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    const title = input.title.trim();
+    const body = input.body.trim();
+    if (!title || !body) {
+      return { success: false, error: "Title and message body are required." };
+    }
+
+    const explicitCourseCode =
+      input.courseCode?.trim() ||
+      (["ICT301", "ICT302"].includes(input.audience.trim().toUpperCase())
+        ? input.audience.trim().toUpperCase()
+        : undefined);
+
+    const course = explicitCourseCode
+      ? await prisma.course.findUnique({ where: { code: explicitCourseCode }, select: { id: true, code: true } })
+      : null;
+
+    const audience = course ? "COURSE_ONLY" : mapAudienceInput(input.audience);
+    const status = mapStatusInput(input.status);
+    const now = new Date();
+
+    const created = await prisma.announcement.create({
+      data: {
+        code: `ANN-${Date.now().toString().slice(-6)}`,
+        courseId: course?.id ?? null,
+        authorId: auth.user.id,
+        authorName: auth.user.name,
+        authorRole: auth.user.role === "admin" ? "Platform Administrator" : "Instructor & Unit Coordinator",
+        title,
+        body,
+        audience,
+        status,
+        isImportant: Boolean(input.isImportant),
+        publishedAt: now,
+      },
+      include: { course: { select: { code: true } } },
+    });
+
+    return {
+      success: true,
+      announcement: {
+        id: created.id,
+        code: created.code,
+        title: created.title,
+        body: created.body,
+        authorName: created.authorName,
+        authorRole: created.authorRole || "Staff",
+        courseCode: created.course?.code ?? null,
+        audience: created.audience,
+        status: created.status,
+        isImportant: created.isImportant,
+        publishedAt: created.publishedAt.toLocaleDateString("en-AU", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }),
+      },
+    };
+  } catch (err) {
+    console.error("[createStaffAnnouncementAction] Error:", err);
+    return { success: false, error: "Failed to publish announcement." };
+  }
+}
+
+export async function updateStaffAnnouncementAction(input: {
+  id: string;
+  title: string;
+  body: string;
+  audience: string;
+  status: string;
+  courseCode?: string;
+}): Promise<{ success: boolean; error?: string }> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    const explicitCourseCode =
+      input.courseCode?.trim() ||
+      (["ICT301", "ICT302"].includes(input.audience.trim().toUpperCase())
+        ? input.audience.trim().toUpperCase()
+        : undefined);
+    const course = explicitCourseCode
+      ? await prisma.course.findUnique({ where: { code: explicitCourseCode }, select: { id: true } })
+      : null;
+
+    await prisma.announcement.update({
+      where: { id: input.id },
+      data: {
+        title: input.title.trim(),
+        body: input.body.trim(),
+        courseId: course?.id ?? null,
+        audience: course ? "COURSE_ONLY" : mapAudienceInput(input.audience),
+        status: mapStatusInput(input.status),
+      },
+    });
+    return { success: true };
+  } catch (err) {
+    console.error("[updateStaffAnnouncementAction] Error:", err);
+    return { success: false, error: "Failed to update announcement." };
+  }
+}
+
+export async function deleteStaffAnnouncementAction(id: string): Promise<{
+  success: boolean;
+  error?: string;
+}> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    await prisma.announcement.delete({ where: { id } });
+    return { success: true };
+  } catch (err) {
+    console.error("[deleteStaffAnnouncementAction] Error:", err);
+    return { success: false, error: "Failed to delete announcement." };
+  }
+}
+
+export interface StaffMaterialDTO {
+  id: string;
+  title: string;
+  courseCode: string;
+  courseTitle: string;
+  type: "Slides" | "Document" | "Video";
+  category: "Lecture" | "Tutorial";
+  week: number;
+  size: string;
+  date: string;
+  description: string;
+  storageKey?: string | null;
+  fileName?: string | null;
+}
+
+export async function getStaffMaterialsAction(): Promise<{
+  success: boolean;
+  materials?: StaffMaterialDTO[];
+  error?: string;
+}> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    const list = await prisma.learningMaterial.findMany({
+      include: { course: { select: { code: true, title: true } } },
+      orderBy: { publishedAt: "desc" },
+    });
+
+    return {
+      success: true,
+      materials: list.map((m) => ({
+        id: m.id,
+        title: m.title,
+        courseCode: m.course.code,
+        courseTitle: m.course.title,
+        type: m.format === "POWERPOINT" ? "Slides" : m.format === "VIDEO" ? "Video" : "Document",
+        category: (m.category === "CLASS_RECORDING" ? "Lecture" : "Tutorial") as "Lecture" | "Tutorial",
+        week: parseInt((m.weekLabel || "1").replace(/\D/g, ""), 10) || 1,
+        size: m.fileSizeLabel || "1.0 MB",
+        date: m.publishedAt.toLocaleDateString("en-AU", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }),
+        description: m.description || `Course resource for ${m.course.code}.`,
+        storageKey: m.storageKey,
+        fileName: m.fileName,
+      })),
+    };
+  } catch (err) {
+    console.error("[getStaffMaterialsAction] Error:", err);
+    return { success: false, error: "Failed to load learning materials." };
+  }
+}
+
+export async function createStaffMaterialAction(input: {
+  title: string;
+  courseCode: string;
+  type: "Slides" | "Document" | "Video";
+  week: number;
+  description?: string;
+  fileName?: string;
+  fileSizeLabel?: string;
+  mimeType?: string;
+  storageKey?: string;
+}): Promise<{ success: boolean; material?: StaffMaterialDTO; error?: string }> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    const course = await prisma.course.findUnique({
+      where: { code: input.courseCode },
+      select: { id: true, code: true, title: true },
+    });
+    if (!course) {
+      return { success: false, error: `Course ${input.courseCode} not found.` };
+    }
+
+    const format =
+      input.type === "Slides" ? "POWERPOINT" : input.type === "Video" ? "VIDEO" : "PDF";
+    const category = input.type === "Video" ? "CLASS_RECORDING" : "COURSE_MATERIAL";
+
+    const created = await prisma.learningMaterial.create({
+      data: {
+        courseId: course.id,
+        uploadedById: auth.user.id,
+        title: input.title.trim(),
+        description: input.description?.trim() || `Course resource for ${course.code}.`,
+        category,
+        format,
+        weekLabel: `Week ${input.week || 1}`,
+        fileName: input.fileName || `${input.title.trim().replace(/[^a-zA-Z0-9._-]/g, "_")}.pdf`,
+        fileSizeLabel: input.fileSizeLabel || "2.5 MB",
+        mimeType: input.mimeType || "application/pdf",
+        storageKey: input.storageKey || null,
+        isPublished: true,
+        publishedAt: new Date(),
+      },
+    });
+
+    return {
+      success: true,
+      material: {
+        id: created.id,
+        title: created.title,
+        courseCode: course.code,
+        courseTitle: course.title,
+        type: input.type,
+        category: input.type === "Video" ? "Lecture" : "Tutorial",
+        week: input.week || 1,
+        size: created.fileSizeLabel || "2.5 MB",
+        date: created.publishedAt.toLocaleDateString("en-AU", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }),
+        description: created.description || "",
+        storageKey: created.storageKey,
+        fileName: created.fileName,
+      },
+    };
+  } catch (err) {
+    console.error("[createStaffMaterialAction] Error:", err);
+    return { success: false, error: "Failed to save learning material." };
+  }
+}
+
+export async function deleteStaffMaterialAction(id: string): Promise<{
+  success: boolean;
+  error?: string;
+}> {
+  try {
+    const auth = await requireInstructorOrAdmin();
+    if (!auth.ok) return { success: false, error: auth.error };
+
+    await prisma.learningMaterial.delete({ where: { id } });
+    return { success: true };
+  } catch (err) {
+    console.error("[deleteStaffMaterialAction] Error:", err);
+    return { success: false, error: "Failed to delete learning material." };
+  }
+}

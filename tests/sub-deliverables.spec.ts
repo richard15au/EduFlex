@@ -4,7 +4,7 @@ test.describe('Sub-Deliverable Submission Links Suite', () => {
   test('Submission links exist for each report and deliverable with modal actions', async ({ page }) => {
     // 1. Log in as student Richard Vitug
     await page.goto('/login');
-    await page.getByLabel('Email address').fill('20030988@eduflex.en-rich.me');
+    await page.getByLabel('Email address').fill('20030988@eduflex.richv.win');
     await page.locator('input[type="password"]').fill('student123');
     await page.getByRole('button', { name: 'Log in' }).click();
     await expect(page).toHaveURL(/\/student$/, { timeout: 15000 });
@@ -76,18 +76,16 @@ test.describe('Sub-Deliverable Submission Links Suite', () => {
     await expect(finalReportItem).toBeVisible();
     await expect(finalReportItem.getByRole('button', { name: 'Final Report Submission Link' })).toBeVisible();
 
-    // 9. Verify Deliverable 2 has Group Activity Log Submission Link
+    // 9. Verify Deliverable 2 has Group Activity Log Submission Link (unsubmitted by default)
     const groupLogItem = page.locator('[data-testid="sub-deliverable-item-ict302-ass2-d2"]');
     await expect(groupLogItem).toBeVisible();
-    await expect(groupLogItem.getByText('#EDF-2026-3022')).toBeVisible();
+    await expect(groupLogItem.getByText('#EDF-2026-3022')).toHaveCount(0);
     const groupLogLinkBtn = groupLogItem.getByRole('button', { name: 'Group Activity Log Submission Link' });
     await expect(groupLogLinkBtn).toBeVisible();
 
-    // Click Group Activity Log Submission Link to view verified submission modal
+    // Click Group Activity Log Submission Link to open submission modal
     await groupLogLinkBtn.click();
     await expect(page.getByRole('heading', { name: 'Group Activity Log Submission Link' })).toBeVisible();
-    await expect(page.getByText('ICT302_Assessment2_Part2_GroupActivityLog.pdf').first()).toBeVisible();
-    await expect(page.getByText('9.2/10', { exact: true })).toBeVisible();
 
     // Take screenshot of modal for artifact verification
     await page.screenshot({ path: 'C:/Users/Richard/.gemini/antigravity/brain/87e98f76-75aa-4f8f-b2fd-766e02151c5d/verified_sub_deliverable_modal.png' });

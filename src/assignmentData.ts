@@ -144,15 +144,15 @@ export const INITIAL_ASSIGNMENT_COURSES: InstructorCourseAssignments[] = [
         id: "ict302-ass2",
         title: "Assessment 2: Final Report and Group Activity Log",
         due: "Jan 24, 2027",
-        submissions: 1,
+        submissions: 0,
         total: 2,
         type: "Assessment",
         graded: false,
         maxScore: 100,
         weight: 50,
         totalSubmissions: 2,
-        submittedCount: 1,
-        submissionRatioLabel: "1/2 Submitted",
+        submittedCount: 0,
+        submissionRatioLabel: "0/2 Submitted",
         description: "Major deliverable comprising Final Report (40% — 25 to 30 pages: project scope, architecture, test plan with 8+ test cases, evaluation, results) and Group Activity Log (10% — 12 meeting minutes appendix, roles, and interaction) (2 deliverables · 50% total).",
         status: "Published",
       },
@@ -235,7 +235,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assessment",
     courseCode: "ICT302",
     studentName: "Richard Vitug",
-    studentEmail: "20030988@eduflex.en-rich.me",
+    studentEmail: "20030988@eduflex.richv.win",
     submittedAt: "Nov 8, 2026 at 4:30 PM AEST",
     fileName: "ICT302_Assessment1_WPR_Week2_Vitug.pdf",
     fileSize: "3.4 MB",
@@ -250,31 +250,13 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     gradedBy: "Anita Humagain",
   },
   {
-    id: "sub-ict302-a2-richard",
-    itemId: "ict302-ass2",
-    itemTitle: "Assessment 2: Final Report and Group Activity Log",
-    itemType: "Assessment",
-    courseCode: "ICT302",
-    studentName: "Richard Vitug",
-    studentEmail: "20030988@eduflex.en-rich.me",
-    submittedAt: "Nov 7, 2026 at 6:15 PM AEST",
-    fileName: "ICT302_Assessment2_Part2_GroupActivityLog.pdf",
-    fileSize: "4.2 MB",
-    comments: "Deliverable 2: Group Activity Log and team meeting minutes (1/2 submitted).",
-    receiptNumber: "#EDF-2026-3022",
-    status: "submitted",
-    score: undefined,
-    maxScore: 100,
-    grade: undefined,
-  },
-  {
     id: "sub-ict301-a1-richard",
     itemId: "ict301-a1",
     itemTitle: "Milestone 1: Project Proposal & Scope Charter",
     itemType: "Assignment",
     courseCode: "ICT301",
     studentName: "Richard Vitug",
-    studentEmail: "20030988@eduflex.en-rich.me",
+    studentEmail: "20030988@eduflex.richv.win",
     submittedAt: "Mar 24, 2026 at 6:20 PM AEST",
     fileName: "ICT301_Milestone1_Proposal_Vitug.pdf",
     fileSize: "2.4 MB",
@@ -295,7 +277,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assignment",
     courseCode: "ICT301",
     studentName: "Richard Vitug",
-    studentEmail: "20030988@eduflex.en-rich.me",
+    studentEmail: "20030988@eduflex.richv.win",
     submittedAt: "May 14, 2026 at 8:10 PM AEST",
     fileName: "ICT301_Milestone2_Architecture_Vitug.pdf",
     fileSize: "3.8 MB",
@@ -316,7 +298,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assessment",
     courseCode: "ICT301",
     studentName: "Richard Vitug",
-    studentEmail: "20030988@eduflex.en-rich.me",
+    studentEmail: "20030988@eduflex.richv.win",
     submittedAt: "Jun 19, 2026 at 9:15 PM AEST",
     fileName: "ICT301_Final_Defense_Vitug.pdf",
     fileSize: "4.5 MB",
@@ -339,7 +321,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assessment",
     courseCode: "ICT302",
     studentName: "Yusuf Rana Magar",
-    studentEmail: "20027782@eduflex.en-rich.me",
+    studentEmail: "20027782@eduflex.richv.win",
     submittedAt: "Oct 10, 2026 at 5:00 PM AEST",
     fileName: "ICT302_Assessment1_WeeklyReports_Yusuf.pdf",
     fileSize: "3.2 MB",
@@ -360,7 +342,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assessment",
     courseCode: "ICT301",
     studentName: "Yusuf Rana Magar",
-    studentEmail: "20027782@eduflex.en-rich.me",
+    studentEmail: "20027782@eduflex.richv.win",
     submittedAt: "Jun 19, 2026 at 8:50 PM AEST",
     fileName: "ICT301_Final_Defense_Yusuf.pdf",
     fileSize: "4.1 MB",
@@ -383,7 +365,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assessment",
     courseCode: "ICT302",
     studentName: "Sadia Binte Mahmud",
-    studentEmail: "20035294@eduflex.en-rich.me",
+    studentEmail: "20035294@eduflex.richv.win",
     submittedAt: "Oct 10, 2026 at 5:15 PM AEST",
     fileName: "ICT302_Assessment1_WeeklyReports_Sadia.pdf",
     fileSize: "3.6 MB",
@@ -404,7 +386,7 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
     itemType: "Assessment",
     courseCode: "ICT301",
     studentName: "Sadia Binte Mahmud",
-    studentEmail: "20035294@eduflex.en-rich.me",
+    studentEmail: "20035294@eduflex.richv.win",
     submittedAt: "Jun 19, 2026 at 9:00 PM AEST",
     fileName: "ICT301_Final_Defense_Sadia.pdf",
     fileSize: "4.3 MB",
@@ -421,9 +403,9 @@ export const INITIAL_SUBMISSIONS: StudentSubmission[] = [
 ];
 
 // Current storage keys versioned to v12 (Synced Weeks 3-11 with 12-Week Master Gantt Chart WBS)
-const STORAGE_KEY_COURSES = "eduflex_assignment_courses_v12";
-const STORAGE_KEY_SUBMISSIONS = "eduflex_assignment_submissions_v12";
-export const STORAGE_KEY_SUB_DELIVERABLES = "eduflex_sub_deliverables_v12";
+const STORAGE_KEY_COURSES = "eduflex_assignment_courses_v13";
+const STORAGE_KEY_SUBMISSIONS = "eduflex_assignment_submissions_v13";
+export const STORAGE_KEY_SUB_DELIVERABLES = "eduflex_sub_deliverables_v13";
 
 export function formatDueDate(dateStr: string): string {
   if (!dateStr) return "";
@@ -676,7 +658,7 @@ export function gradeStudentSubmission(
       itemType: "Assessment",
       courseCode: courseCode || "ICT302",
       studentName,
-      studentEmail: `${studentUser}@eduflex.en-rich.me`,
+      studentEmail: `${studentUser}@eduflex.richv.win`,
       submittedAt: formattedGradedAt,
       fileName: `${(courseCode || "ICT302").toLowerCase()}_submission.pdf`,
       fileSize: "4.8 MB",
@@ -999,17 +981,10 @@ export const INITIAL_SUB_DELIVERABLES: SubDeliverableItem[] = [
     weight: "10%",
     description: "12 meeting minutes appendix, roles allocation, individual contributions journal, and team interaction records.",
     due: "Jan 24, 2027 (Week 11)",
-    status: "Submitted (Verified)",
-    badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-300",
-    score: "9.2/10",
+    status: "In Progress",
+    badgeClass: "bg-blue-100 text-blue-800 border-blue-200",
+    score: null,
     linkTitle: "Group Activity Log Submission Link",
-    receiptNumber: "#EDF-2026-3022",
-    fileName: "ICT302_Assessment2_Part2_GroupActivityLog.pdf",
-    fileSize: "4.2 MB",
-    submittedAt: "Nov 7, 2026 at 6:15 PM AEST",
-    feedback: "Well-documented meeting minutes covering weekly standups, mentor consultation notes, and task allocations.",
-    comments: "Deliverable 2: Group Activity Log and team meeting minutes (1/2 submitted).",
-    attemptNumber: 1,
   },
 
   // Assessment 3: Presentation and Demonstration (2 Deliverables · 30% Total Weight)
@@ -1075,7 +1050,7 @@ export function submitSubDeliverableAction(
   fileName: string,
   fileSize: string = "4.5 MB",
   comments: string = "",
-  studentEmail: string = "20030988@eduflex.en-rich.me",
+  studentEmail: string = "20030988@eduflex.richv.win",
   studentName: string = "Richard Vitug",
   selfReflection?: { learned: string; growth: string }
 ): { success: boolean; item?: SubDeliverableItem; submittedCount: number; totalCount: number; ratioLabel: string } {
@@ -1159,5 +1134,22 @@ export function submitSubDeliverableAction(
   saveSharedSubmissions(submissions);
 
   return { success: true, item: updatedItem, submittedCount, totalCount, ratioLabel };
+}
+
+export function toggleSubDeliverableLock(deliverableId: string): SubDeliverableItem[] {
+  const current = getSharedSubDeliverables();
+  const next: SubDeliverableItem[] = current.map((d) => {
+    if (d.id !== deliverableId) return d;
+    const isLocked = d.status === "Locked";
+    return {
+      ...d,
+      status: (isLocked ? "Upcoming" : "Locked") as SubDeliverableItem["status"],
+      badgeClass: isLocked
+        ? "bg-gray-100 text-gray-700 border-gray-200"
+        : "bg-gray-100 text-gray-500 border-gray-200",
+    };
+  });
+  saveSharedSubDeliverables(next);
+  return next;
 }
 

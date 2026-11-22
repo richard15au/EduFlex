@@ -6,7 +6,7 @@ const ARTIFACT_DIR =
 test.describe("Week 3: Staff Portals (Grading & Admin Operations)", () => {
   test("Student cannot access /instructor or /admin routes (role boundary enforcement)", async ({ page }) => {
     await page.goto("/login");
-    await page.getByLabel("Email address").fill("20030988@eduflex.en-rich.me");
+    await page.getByLabel("Email address").fill("20030988@eduflex.richv.win");
     await page.locator('input[type="password"]').fill("student123");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(page).toHaveURL(/\/student$/, { timeout: 15000 });
@@ -20,7 +20,7 @@ test.describe("Week 3: Staff Portals (Grading & Admin Operations)", () => {
 
   test("Instructor can open rubric grading modal, compute KOI grade band, and save grade", async ({ page }) => {
     await page.goto("/login");
-    await page.getByLabel("Email address").fill("anita.humagain@eduflex.en-rich.me");
+    await page.getByLabel("Email address").fill("anita.humagain@eduflex.richv.win");
     await page.locator('input[type="password"]').fill("instructor123");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(page).toHaveURL(/\/instructor$/, { timeout: 15000 });
@@ -59,7 +59,7 @@ test.describe("Week 3: Staff Portals (Grading & Admin Operations)", () => {
 
   test("Admin can manage users (create & delete) and inspect approval queue", async ({ page }) => {
     await page.goto("/login");
-    await page.getByLabel("Email address").fill("a.rojit.munankarmi@eduflex.en-rich.me");
+    await page.getByLabel("Email address").fill("a.rojit.munankarmi@eduflex.richv.win");
     await page.locator('input[type="password"]').fill("admin123");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(page).toHaveURL(/\/admin$/, { timeout: 15000 });
@@ -76,7 +76,7 @@ test.describe("Week 3: Staff Portals (Grading & Admin Operations)", () => {
     });
 
     // Create a temporary user via Add New User modal
-    const uniqueEmail = `week3.test.${Date.now()}@eduflex.en-rich.me`;
+    const uniqueEmail = `week3.test.${Date.now()}@eduflex.richv.win`;
     await page.getByRole("button", { name: /Add New User/i }).click();
     await page.getByPlaceholder("e.g. Maria Santos").fill("Week3 Test User");
     await page.getByPlaceholder("user@eduflex.edu.ph").fill(uniqueEmail);

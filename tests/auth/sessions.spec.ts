@@ -47,7 +47,7 @@ for (const role of Object.keys(institutionalAccounts) as SeededRole[]) {
 
 test('case-insensitive email login works for instructor and admin accounts', async ({ page }) => {
   await page.goto('/login');
-  await page.getByLabel('Email address').fill('  Anita.Humagain@RichAcademy.en-rich.me  ');
+  await page.getByLabel('Email address').fill('  Anita.Humagain@RichAcademy.richv.win  ');
   await page.locator('input[type="password"]').fill('instructor123');
   await page.getByRole('button', { name: 'Log in' }).click();
 
@@ -56,7 +56,7 @@ test('case-insensitive email login works for instructor and admin accounts', asy
 });
 
 test('trusted role determines portal access rather than email pattern alone', async ({ page }) => {
-  const customAdminLikeEmail = 'a.untrusted.user@richacademy.en-rich.me';
+  const customAdminLikeEmail = 'a.untrusted.user@richacademy.richv.win';
   await page.goto('/register');
   await page.getByLabel('Full name').fill('Untrusted Pattern User');
   await page.getByLabel('Email address').fill(customAdminLikeEmail);

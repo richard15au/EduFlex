@@ -122,7 +122,7 @@ export const INITIAL_ADMIN_USERS: AdminUser[] = [
   {
     id: "20027782",
     name: "Yusuf Rana Magar",
-    email: "20027782@eduflex.en-rich.me",
+    email: "20027782@eduflex.richv.win",
     role: "Student",
     status: "Active",
     lastActive: "Today, 10:45 AM",
@@ -134,7 +134,7 @@ export const INITIAL_ADMIN_USERS: AdminUser[] = [
   {
     id: "20030988",
     name: "Richard Vitug",
-    email: "20030988@eduflex.en-rich.me",
+    email: "20030988@eduflex.richv.win",
     role: "Student",
     status: "Active",
     lastActive: "Just now",
@@ -146,7 +146,7 @@ export const INITIAL_ADMIN_USERS: AdminUser[] = [
   {
     id: "20035294",
     name: "Sadia Binte Mahmud",
-    email: "20035294@eduflex.en-rich.me",
+    email: "20035294@eduflex.richv.win",
     role: "Student",
     status: "Active",
     lastActive: "Today, 09:15 AM",
@@ -158,7 +158,7 @@ export const INITIAL_ADMIN_USERS: AdminUser[] = [
   {
     id: "20033316",
     name: "Anita Humagain",
-    email: "anita.humagain@eduflex.en-rich.me",
+    email: "anita.humagain@eduflex.richv.win",
     role: "Instructor",
     status: "Active",
     lastActive: "Today, 11:30 AM",
@@ -170,7 +170,7 @@ export const INITIAL_ADMIN_USERS: AdminUser[] = [
   {
     id: "20024439",
     name: "Rojit Munankarmi",
-    email: "a.rojit.munankarmi@eduflex.en-rich.me",
+    email: "a.rojit.munankarmi@eduflex.richv.win",
     role: "Admin",
     status: "Active",
     lastActive: "Just now",
@@ -231,7 +231,7 @@ export const INITIAL_ADMIN_CONVERSATIONS: AdminConversation[] = [
     initials: "RV",
     color: "bg-purple-500",
     messages: [
-      { id: "m-201", from: "Richard Vitug", text: "Hi Rojit, confirming the new domain eduflex.en-rich.me is working smoothly.", time: "9:00 AM", mine: false },
+      { id: "m-201", from: "Richard Vitug", text: "Hi Rojit, confirming the new domain eduflex.richv.win is working smoothly.", time: "9:00 AM", mine: false },
       { id: "m-202", from: "Me", text: "Hi Richard, all accounts and subjects ICT301 and ICT302 are active.", time: "9:12 AM", mine: true },
       { id: "m-203", from: "Richard Vitug", text: "Thank you for updating our student portal domain.", time: "9:15 AM", mine: false },
     ],
@@ -273,7 +273,7 @@ export const INITIAL_ADMIN_CALENDAR_EVENTS: Record<string, AdminCalendarEvent[]>
 
 export const INITIAL_ADMIN_SETTINGS: AdminSystemSettingsData = {
   institutionName: "EduFlex University",
-  institutionEmail: "admin@eduflex.en-rich.me",
+  institutionEmail: "admin@eduflex.richv.win",
   contactNumber: "+63 2 8888 0000",
   timezone: "Asia/Manila (UTC+8)",
   academicYear: "2026",

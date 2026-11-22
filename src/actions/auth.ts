@@ -70,26 +70,26 @@ export async function loginAction(
     return { success: false, error: "Please enter your email and password." };
   }
 
-  // Domain & ID alias normalization to seamlessly route to authoritative eduflex.en-rich.me accounts
-  if (email.endsWith("@eduflex.edu") || email.endsWith("@richacademy.en-rich.me")) {
+  // Domain & ID alias normalization to seamlessly route to authoritative eduflex.richv.win accounts
+  if (email.endsWith("@eduflex.edu") || email.endsWith("@eduflex.en-rich.me") || email.endsWith("@richacademy.richv.win")) {
     const userPart = email.split("@")[0];
     if (userPart === "2003988" || userPart === "20030988" || userPart === "richard") {
-      email = "20030988@eduflex.en-rich.me";
+      email = "20030988@eduflex.richv.win";
     } else {
-      email = `${userPart}@eduflex.en-rich.me`;
+      email = `${userPart}@eduflex.richv.win`;
     }
   }
   // Short name aliases on authoritative domain
-  if (email === "richard@eduflex.en-rich.me" || email === "2003988@eduflex.en-rich.me") {
-    email = "20030988@eduflex.en-rich.me";
-  } else if (email === "yusuf@eduflex.en-rich.me") {
-    email = "20027782@eduflex.en-rich.me";
-  } else if (email === "sadia@eduflex.en-rich.me") {
-    email = "20035294@eduflex.en-rich.me";
-  } else if (email === "anita@eduflex.en-rich.me") {
-    email = "anita.humagain@eduflex.en-rich.me";
-  } else if (email === "rojit@eduflex.en-rich.me" || email === "rojit.munankarmi@eduflex.en-rich.me") {
-    email = "a.rojit.munankarmi@eduflex.en-rich.me";
+  if (email === "richard@eduflex.richv.win" || email === "2003988@eduflex.richv.win") {
+    email = "20030988@eduflex.richv.win";
+  } else if (email === "yusuf@eduflex.richv.win") {
+    email = "20027782@eduflex.richv.win";
+  } else if (email === "sadia@eduflex.richv.win") {
+    email = "20035294@eduflex.richv.win";
+  } else if (email === "anita@eduflex.richv.win") {
+    email = "anita.humagain@eduflex.richv.win";
+  } else if (email === "rojit@eduflex.richv.win" || email === "rojit.munankarmi@eduflex.richv.win") {
+    email = "a.rojit.munankarmi@eduflex.richv.win";
   }
 
   try {

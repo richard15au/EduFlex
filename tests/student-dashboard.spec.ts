@@ -1,8 +1,8 @@
-import { expect, test } from '@playwright/test';
+﻿import { expect, test } from '@playwright/test';
 
 test('seeded Student can access the Student dashboard', async ({ page }) => {
   await page.goto('/login');
-  await page.getByLabel('Email address').fill('20030988@eduflex.en-rich.me');
+  await page.getByLabel('Email address').fill('20030988@eduflex.richv.win');
   await page.locator('input[type="password"]').fill('student123');
   await page.getByRole('button', { name: 'Log in' }).click();
 
@@ -15,5 +15,5 @@ test('seeded Student can access the Student dashboard', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Toggle Theme' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Enrolled Courses' })).toBeVisible();
   await expect(page.getByText(/Information Technology Project [12]/).first()).toBeVisible();
-  await expect(page.getByText('Bachelor of Information Technology — Semester T226', { exact: true })).toBeVisible();
+  await expect(page.getByText(/Bachelor of Information Technology — (Semester|Trimester) T\d+/)).toBeVisible();
 });

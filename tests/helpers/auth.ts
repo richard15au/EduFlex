@@ -2,17 +2,17 @@ import type { Page } from '@playwright/test';
 
 export const seededAccounts = {
   student: {
-    email: '20030988@eduflex.en-rich.me',
+    email: '20030988@eduflex.richv.win',
     password: 'student123',
     name: 'Richard Vitug',
   },
   instructor: {
-    email: 'anita.humagain@eduflex.en-rich.me',
+    email: 'anita.humagain@eduflex.richv.win',
     password: 'instructor123',
     name: 'Anita Humagain',
   },
   admin: {
-    email: 'a.rojit.munankarmi@eduflex.en-rich.me',
+    email: 'a.rojit.munankarmi@eduflex.richv.win',
     password: 'admin123',
     name: 'Rojit Munankarmi',
   },
@@ -20,17 +20,17 @@ export const seededAccounts = {
 
 export const institutionalAccounts = {
   student: {
-    email: '2003988@richacademy.en-rich.me',
+    email: '2003988@richacademy.richv.win',
     password: 'student123',
     name: 'Richard Vitug',
   },
   instructor: {
-    email: 'anita.humagain@richacademy.en-rich.me',
+    email: 'anita.humagain@richacademy.richv.win',
     password: 'instructor123',
     name: 'Anita Humagain',
   },
   admin: {
-    email: 'a.rojit.munankarmi@richacademy.en-rich.me',
+    email: 'a.rojit.munankarmi@richacademy.richv.win',
     password: 'admin123',
     name: 'Rojit Munankarmi',
   },

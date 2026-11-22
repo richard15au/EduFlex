@@ -192,21 +192,21 @@ const identityTable = new Table({
       children: [
         createCell("Student", false, 20),
         createCell("[studentNumber]@[domain]", false, 35),
-        createCell("2003988@richacademy.en-rich.me\n2003988@eduflex.edu", false, 45),
+        createCell("2003988@richacademy.richv.win\n2003988@eduflex.edu", false, 45),
       ],
     }),
     new TableRow({
       children: [
         createCell("Instructor", false, 20),
         createCell("[firstname].[lastname]@[domain]", false, 35),
-        createCell("anita.humagain@richacademy.en-rich.me\nanita.humagain@eduflex.edu", false, 45),
+        createCell("anita.humagain@richacademy.richv.win\nanita.humagain@eduflex.edu", false, 45),
       ],
     }),
     new TableRow({
       children: [
         createCell("Administrator", false, 20),
         createCell("a.[firstname].[lastname]@[domain]", false, 35),
-        createCell("a.rojit.munankarmi@richacademy.en-rich.me\na.rojit.munankarmi@eduflex.edu", false, 45),
+        createCell("a.rojit.munankarmi@richacademy.richv.win\na.rojit.munankarmi@eduflex.edu", false, 45),
       ],
     }),
   ],

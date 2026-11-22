@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { readFile } from "fs/promises";
 import path from "path";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "@/src/actions/auth";
+import { getObjectFromPrimaryStorage } from "@/src/lib/object-storage";
 
 function escapeHtml(text: string): string {
   return text
@@ -45,21 +45,18 @@ export async function GET(
     const forceDownload = url.searchParams.get("download") === "1";
 
     if (submission.storageKey) {
-      const safeKey = path.basename(submission.storageKey);
-      const filePath = path.join(process.cwd(), "storage", "submissions", safeKey);
-      try {
-        const bytes = await readFile(filePath);
+      const storedObj = await getObjectFromPrimaryStorage(submission.storageKey);
+      if (storedObj) {
         const safeFileName = path.basename(submission.fileName).replace(/"/g, "");
-        return new NextResponse(bytes, {
+        return new NextResponse(new Uint8Array(storedObj.bytes), {
           status: 200,
           headers: {
             "Content-Type": submission.mimeType || "application/octet-stream",
             "Content-Disposition": `${forceDownload ? "attachment" : "inline"}; filename="${safeFileName}"`,
+            "X-EduFlex-Storage-Provider": storedObj.provider,
             "Cache-Control": "private, max-age=60",
           },
         });
-      } catch {
-        // Fall through to metadata summary if file is missing on disk
       }
     }
 

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { mkdir, writeFile } from "fs/promises";
 import path from "path";
 import crypto from "crypto";
 import { getServerSession } from "@/src/actions/auth";
+import { uploadObjectToPrimaryStorage } from "@/src/lib/object-storage";
 
 const MAX_FILE_SIZE_BYTES = 50 * 1024 * 1024; // 50 MB
 const ALLOWED_EXTENSIONS = new Set([
@@ -56,19 +56,28 @@ export async function POST(request: Request) {
 
     const safeName = originalName.replace(/[^a-zA-Z0-9._-]/g, "_");
     const storageKey = `${Date.now()}-${crypto.randomUUID().slice(0, 8)}-${safeName}`;
-    const uploadDir = path.join(process.cwd(), "storage", "submissions");
-    await mkdir(uploadDir, { recursive: true });
+    const mimeType = file.type || (ext === ".pdf" ? "application/pdf" : "application/octet-stream");
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    await writeFile(path.join(uploadDir, storageKey), buffer);
+    const stored = await uploadObjectToPrimaryStorage({
+      key: storageKey,
+      body: buffer,
+      contentType: mimeType,
+      metadata: {
+        uploadedBy: session.user.id,
+        originalName: safeName,
+      },
+    });
 
     return NextResponse.json({
       success: true,
-      storageKey,
+      storageKey: stored.storageKey,
+      provider: stored.provider,
+      sha256: stored.sha256,
       fileName: originalName,
       fileSizeBytes: file.size,
       fileSizeLabel: formatBytes(file.size),
-      mimeType: file.type || (ext === ".pdf" ? "application/pdf" : "application/octet-stream"),
+      mimeType,
     });
   } catch (err) {
     console.error("[POST /api/submissions/upload] Error:", err);

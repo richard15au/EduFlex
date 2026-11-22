@@ -1,6 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import {
+  getStudentAnnouncements,
+  markAnnouncementAsRead,
+  getStudentConversationsAction,
+  sendStudentMessageAction,
+  markStudentConversationReadAction,
+} from "./actions/student";
 
 // ── Shared Icons ──────────────────────────────────────────────────────────────
 const IconChevronLeft = () => (
@@ -1266,9 +1273,43 @@ function AnnouncementDetailView({
 // ── ANNOUNCEMENTS PAGE COMPONENT ──────────────────────────────────────────────
 
 export function AnnouncementsPage() {
-  const [items, setItems] = useState<Announcement[]>(() => announcements);
+  const [items, setItems] = useState<Announcement[]>([]);
+  const [dbIdByUiId, setDbIdByUiId] = useState<Record<number, string>>({});
   const [filter, setFilter] = useState<"all" | "unread" | "important">("all");
   const [selectedId, setSelectedId] = useState<number | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    getStudentAnnouncements().then((res) => {
+      if (!mounted || !res.success || !res.announcements) return;
+      const idMap: Record<number, string> = {};
+      const dbMapped: Announcement[] = res.announcements.map((a, idx) => {
+        const uiId = 10000 + idx;
+        idMap[uiId] = a.id;
+        return {
+          id: uiId,
+          title: a.title,
+          description: a.body,
+          fullContent: a.body.split("\n\n").filter(Boolean),
+          date: a.publishedAt,
+          category: a.courseCode ? "Course" : "System",
+          course: a.courseCode,
+          courseName: a.courseTitle,
+          important: a.isImportant,
+          unread: !a.isRead,
+          author: {
+            name: a.authorName,
+            role: a.authorRole || "Faculty",
+          },
+        };
+      });
+      setDbIdByUiId(idMap);
+      setItems(dbMapped);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const selectedAnnouncement = items.find((a) => a.id === selectedId) ?? null;
 
@@ -1278,12 +1319,44 @@ export function AnnouncementsPage() {
       setItems((prev) =>
         prev.map((item) => (item.id === a.id ? { ...item, unread: false } : item))
       );
+      const dbId = dbIdByUiId[a.id];
+      if (dbId) {
+        markAnnouncementAsRead(dbId).catch(() => {});
+      }
     }
     setSelectedId(a.id);
+    const targetHash = `#tab=announcements/detail/${a.id}`;
+    if (typeof window !== "undefined" && window.location.hash !== targetHash) {
+      window.history.pushState(null, "", `${window.location.pathname}${window.location.search}${targetHash}`);
+    }
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPopOrHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith("#tab=announcements/detail/")) {
+        const parsedId = Number(hash.slice("#tab=announcements/detail/".length));
+        if (Number.isFinite(parsedId)) {
+          setSelectedId(parsedId);
+        }
+      } else if (!hash.includes("/detail")) {
+        setSelectedId(null);
+      }
+    };
+    window.addEventListener("popstate", onPopOrHash);
+    window.addEventListener("hashchange", onPopOrHash);
+    return () => {
+      window.removeEventListener("popstate", onPopOrHash);
+      window.removeEventListener("hashchange", onPopOrHash);
+    };
+  }, []);
 
   const handleBackToList = () => {
     setSelectedId(null);
+    if (typeof window !== "undefined" && window.location.hash.startsWith("#tab=announcements/detail")) {
+      window.history.pushState(null, "", `${window.location.pathname}${window.location.search}#tab=announcements`);
+    }
   };
 
   if (selectedAnnouncement) {
@@ -1464,25 +1537,72 @@ export function MessagesPage() {
   const [activeId, setActiveId] = useState("c1");
   const [input, setInput] = useState("");
   const [messageSearch, setMessageSearch] = useState("");
-  const [attachedFile, setAttachedFile] = useState<{ name: string; size: string } | null>(null);
+  const [attachedFile, setAttachedFile] = useState<{
+    name: string;
+    size: string;
+    storageKey?: string;
+    provider?: string;
+  } | null>(null);
+  const [isUploadingAttachment, setIsUploadingAttachment] = useState(false);
+  const [dbHydrated, setDbHydrated] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [threads, setThreads] = useState(() =>
     conversations.map((conversation) => ({ ...conversation, messages: [...conversation.messages] }))
   );
 
+  useEffect(() => {
+    let mounted = true;
+    getStudentConversationsAction().then((res) => {
+      if (!mounted) return;
+      if (res.success && res.conversations && res.conversations.length > 0) {
+        const dbThreads = res.conversations.map((c) => ({
+          id: c.id,
+          sender: c.sender,
+          role: c.role,
+          initials: c.initials,
+          initialsColor: c.initialsColor,
+          lastMsg: c.lastMsg,
+          time: c.time,
+          unread: c.unread,
+          messages: c.messages.map((m) => ({ from: m.from, text: m.text, time: m.time })),
+        }));
+        const dbSenders = new Set(dbThreads.map((t) => t.sender.toLowerCase()));
+        const fallback = conversations
+          .filter((c) => !dbSenders.has(c.sender.toLowerCase()))
+          .map((c) => ({ ...c, messages: [...c.messages] }));
+        const merged = [...dbThreads, ...fallback];
+        setThreads(merged);
+        setActiveId(merged[0].id);
+      }
+      setDbHydrated(true);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   const active = threads.find((c) => c.id === activeId) ?? threads[0];
+
+  const handleSelectThread = (id: string) => {
+    setActiveId(id);
+    setThreads((prev) => prev.map((t) => (t.id === id ? { ...t, unread: 0 } : t)));
+    if (!/^c\d+$/.test(id)) {
+      markStudentConversationReadAction(id).catch(() => {});
+    }
+  };
 
   const handleSend = (customText?: string) => {
     const textToSend = customText ?? input.trim();
     if (!textToSend && !attachedFile) return;
 
     const fullMessageText = attachedFile
-      ? `${textToSend ? textToSend + " " : ""}[Attached: ${attachedFile.name} (${attachedFile.size})]`
+      ? `${textToSend ? textToSend + " " : ""}[Attached: ${attachedFile.name} (${attachedFile.size})${attachedFile.storageKey ? ` · key:${attachedFile.storageKey}` : ""}]`
       : textToSend;
 
+    const targetId = active?.id ?? activeId;
     setThreads((previous) => previous.map((conversation) =>
-      conversation.id === activeId
+      conversation.id === targetId
         ? {
             ...conversation,
             lastMsg: fullMessageText,
@@ -1493,6 +1613,10 @@ export function MessagesPage() {
     ));
     setInput("");
     setAttachedFile(null);
+
+    if (targetId && !/^c\d+$/.test(targetId)) {
+      sendStudentMessageAction({ conversationId: targetId, body: fullMessageText }).catch(() => {});
+    }
   };
 
   const filteredThreads = threads.filter((t) => {
@@ -1513,7 +1637,7 @@ export function MessagesPage() {
   ];
 
   return (
-    <div className="p-7 h-[calc(100vh-64px)] flex flex-col">
+    <div data-db-hydrated={dbHydrated ? "true" : "false"} className="p-7 h-[calc(100vh-64px)] flex flex-col">
       <PageHeader title="Messages" subtitle="Communicate with your lecturers and university services" />
 
       <div className="flex gap-5 flex-1 min-h-0">
@@ -1539,7 +1663,7 @@ export function MessagesPage() {
             {filteredThreads.map((c) => (
               <button
                 key={c.id}
-                onClick={() => setActiveId(c.id)}
+                onClick={() => handleSelectThread(c.id)}
                 className={`w-full flex items-start gap-3 p-4 text-left transition-colors hover:bg-gray-50 cursor-pointer ${activeId === c.id ? "bg-blue-50/60 border-r-2 border-blue-600" : ""}`}
               >
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style={{ background: c.initialsColor }}>
@@ -1620,6 +1744,11 @@ export function MessagesPage() {
               <div className="mb-2 flex items-center justify-between bg-blue-50 border border-blue-200 text-blue-800 px-3 py-1.5 rounded-xl text-xs">
                 <span className="flex items-center gap-1.5 font-medium">
                   <IconPaperclip /> {attachedFile.name} ({attachedFile.size})
+                  {attachedFile.provider && (
+                    <span className="px-1.5 py-0.5 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase">
+                      {attachedFile.provider === "cloudflare-r2" ? "R2" : "Stored"}
+                    </span>
+                  )}
                 </span>
                 <button
                   type="button"
@@ -1635,15 +1764,36 @@ export function MessagesPage() {
                 ref={fileInputRef}
                 type="file"
                 className="hidden"
-                onChange={(e) => {
+                onChange={async (e) => {
                   const f = e.target.files?.[0];
-                  if (f) {
-                    setAttachedFile({ name: f.name, size: `${(f.size / (1024 * 1024)).toFixed(1)} MB` });
+                  if (!f) return;
+                  const fallbackSize = `${(f.size / (1024 * 1024)).toFixed(2)} MB`;
+                  setIsUploadingAttachment(true);
+                  try {
+                    const formData = new FormData();
+                    formData.append("file", f);
+                    const res = await fetch("/api/submissions/upload", { method: "POST", body: formData });
+                    const data = await res.json();
+                    if (res.ok && data.success) {
+                      setAttachedFile({
+                        name: data.fileName || f.name,
+                        size: data.fileSizeLabel || fallbackSize,
+                        storageKey: data.storageKey,
+                        provider: data.provider,
+                      });
+                    } else {
+                      setAttachedFile({ name: f.name, size: fallbackSize });
+                    }
+                  } catch {
+                    setAttachedFile({ name: f.name, size: fallbackSize });
+                  } finally {
+                    setIsUploadingAttachment(false);
                   }
                 }}
               />
               <button
                 type="button"
+                disabled={isUploadingAttachment}
                 onClick={() => {
                   if (fileInputRef.current) {
                     fileInputRef.current.click();
@@ -1651,8 +1801,8 @@ export function MessagesPage() {
                     setAttachedFile({ name: "Document_Attachment.pdf", size: "1.4 MB" });
                   }
                 }}
-                className="text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-xl hover:bg-gray-100 cursor-pointer"
-                title="Attach file"
+                className="text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-xl hover:bg-gray-100 cursor-pointer disabled:opacity-50"
+                title="Attach file to R2 Object Storage"
               >
                 <IconPaperclip />
               </button>
@@ -1698,7 +1848,7 @@ export interface StudentProfileData {
 
 export const initialStudentProfile: StudentProfileData = {
   fullName: "Richard Vitug",
-  email: "20030988@eduflex.en-rich.me",
+  email: "20030988@eduflex.richv.win",
   phone: "+61 412 345 678",
   address: "Sydney, NSW, Australia",
   dateOfBirth: "14 March 2003",

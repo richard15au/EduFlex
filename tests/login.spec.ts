@@ -1,8 +1,8 @@
-import { expect, test } from '@playwright/test';
+﻿import { expect, test } from '@playwright/test';
 
 test('EduFlex login redirects the seeded demo user to the authenticated dashboard', async ({ page }) => {
   await page.goto('/login');
-  await page.getByLabel('Email address').fill('20030988@eduflex.en-rich.me');
+  await page.getByLabel('Email address').fill('20030988@eduflex.richv.win');
   await page.locator('input[type="password"]').fill('student123');
   await page.getByRole('button', { name: 'Log in' }).click();
 

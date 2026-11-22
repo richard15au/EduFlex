@@ -792,3 +792,205 @@ export async function markAnnouncementAsRead(announcementId: string) {
     return { success: false, error: "Failed to mark announcement as read." };
   }
 }
+
+export interface StudentMessageItemDTO {
+  id: string;
+  from: "me" | "them";
+  text: string;
+  time: string;
+}
+
+export interface StudentConversationDTO {
+  id: string;
+  sender: string;
+  role: string;
+  initials: string;
+  initialsColor: string;
+  lastMsg: string;
+  time: string;
+  unread: number;
+  messages: StudentMessageItemDTO[];
+}
+
+/**
+ * Server Action: Load Neon PostgreSQL conversation threads for the authenticated student.
+ */
+export async function getStudentConversationsAction(): Promise<{
+  success: boolean;
+  conversations?: StudentConversationDTO[];
+  error?: string;
+}> {
+  try {
+    const session = await getServerSession();
+    if (!session || !session.user) {
+      return { success: false, error: "Unauthorized" };
+    }
+
+    const userId = session.user.id;
+    const convs = await prisma.conversation.findMany({
+      where: {
+        participants: {
+          some: { userId },
+        },
+      },
+      include: {
+        course: { select: { code: true } },
+        participants: {
+          include: {
+            user: { select: { id: true, name: true, role: true, department: true } },
+          },
+        },
+        messages: {
+          orderBy: { createdAt: "asc" },
+          include: {
+            sender: { select: { id: true, name: true } },
+          },
+        },
+      },
+      orderBy: { lastMessageAt: "desc" },
+    });
+
+    const palette = ["#1a3a9e", "#0f766e", "#4338ca", "#b45309", "#0369a1"];
+
+    const formatted: StudentConversationDTO[] = convs.map((c, idx) => {
+      const meParticipant = c.participants.find((p) => p.userId === userId);
+      const otherParticipant = c.participants.find((p) => p.userId !== userId)?.user;
+      const senderName = otherParticipant?.name || c.title || "Course Staff";
+      const initials = senderName
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase();
+      const roleLabel =
+        otherParticipant?.role === "INSTRUCTOR"
+          ? `${c.course?.code ? `${c.course.code} ` : ""}Instructor`
+          : otherParticipant?.role === "ADMIN"
+            ? "University Administration"
+            : "Peer / Support";
+
+      const lastReadAt = meParticipant?.lastReadAt;
+      const unread = c.messages.filter(
+        (m) => m.senderId !== userId && (!lastReadAt || m.createdAt > lastReadAt)
+      ).length;
+
+      const lastMessage = c.messages[c.messages.length - 1];
+      const timeLabel = (lastMessage?.createdAt ?? c.lastMessageAt).toLocaleTimeString("en-AU", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      return {
+        id: c.id,
+        sender: senderName,
+        role: roleLabel,
+        initials,
+        initialsColor: palette[idx % palette.length],
+        lastMsg: lastMessage?.body || c.title || "No messages yet",
+        time: timeLabel,
+        unread,
+        messages: c.messages.map((m) => ({
+          id: m.id,
+          from: m.senderId === userId ? "me" : "them",
+          text: m.body,
+          time: m.createdAt.toLocaleTimeString("en-AU", { hour: "2-digit", minute: "2-digit" }),
+        })),
+      };
+    });
+
+    return { success: true, conversations: formatted };
+  } catch (error) {
+    console.error("[getStudentConversationsAction error]:", error);
+    return { success: false, error: "Failed to load conversations." };
+  }
+}
+
+/**
+ * Server Action: Send a message in an existing conversation the student participates in.
+ */
+export async function sendStudentMessageAction(input: {
+  conversationId: string;
+  body: string;
+}): Promise<{ success: boolean; message?: StudentMessageItemDTO; error?: string }> {
+  try {
+    const session = await getServerSession();
+    if (!session || !session.user) {
+      return { success: false, error: "Unauthorized" };
+    }
+
+    const trimmed = input.body.trim();
+    if (!trimmed) {
+      return { success: false, error: "Message body cannot be empty." };
+    }
+
+    const participant = await prisma.conversationParticipant.findUnique({
+      where: {
+        conversationId_userId: {
+          conversationId: input.conversationId,
+          userId: session.user.id,
+        },
+      },
+    });
+    if (!participant) {
+      return { success: false, error: "Forbidden: Not a participant of this conversation." };
+    }
+
+    const now = new Date();
+    const created = await prisma.$transaction(async (tx) => {
+      const msg = await tx.message.create({
+        data: {
+          conversationId: input.conversationId,
+          senderId: session.user.id,
+          body: trimmed,
+          createdAt: now,
+        },
+      });
+      await tx.conversation.update({
+        where: { id: input.conversationId },
+        data: { lastMessageAt: now },
+      });
+      await tx.conversationParticipant.update({
+        where: { id: participant.id },
+        data: { lastReadAt: now },
+      });
+      return msg;
+    });
+
+    return {
+      success: true,
+      message: {
+        id: created.id,
+        from: "me",
+        text: created.body,
+        time: created.createdAt.toLocaleTimeString("en-AU", { hour: "2-digit", minute: "2-digit" }),
+      },
+    };
+  } catch (error) {
+    console.error("[sendStudentMessageAction error]:", error);
+    return { success: false, error: "Failed to send message." };
+  }
+}
+
+/**
+ * Server Action: Mark a student conversation as read.
+ */
+export async function markStudentConversationReadAction(conversationId: string): Promise<{
+  success: boolean;
+}> {
+  try {
+    const session = await getServerSession();
+    if (!session || !session.user) {
+      return { success: false };
+    }
+    await prisma.conversationParticipant.updateMany({
+      where: {
+        conversationId,
+        userId: session.user.id,
+      },
+      data: { lastReadAt: new Date() },
+    });
+    return { success: true };
+  } catch {
+    return { success: false };
+  }
+}

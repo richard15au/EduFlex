@@ -4,6 +4,12 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import AdminUserManagement, { User as AdminUserManagementUser } from "./AdminUserManagement";
 import { getSessionUser, getInitials } from "./auth";
 import {
+  getStaffAnnouncementsAction,
+  createStaffAnnouncementAction,
+  updateStaffAnnouncementAction,
+  deleteStaffAnnouncementAction,
+} from "./actions/instructor";
+import {
   AdminUser,
   AdminPendingItem,
   AdminCourse,
@@ -207,9 +213,6 @@ const adminNavItems = [
   { label: "User Management",   icon: <IconUsers />,        id: "users" },
   { label: "Course Management", icon: <IconBook />,         id: "courses" },
   { label: "Enrollment",        icon: <IconEnrollment />,   id: "enrollment" },
-  { label: "Announcements",     icon: <IconAnnouncement />, id: "announcements" },
-  { label: "Messages",          icon: <IconMail />,         id: "messages" },
-  { label: "Calendar",          icon: <IconCalendar />,     id: "calendar" },
   { label: "Reports & Analytics",icon: <IconBarChart />,    id: "reports" },
   { label: "System Settings",   icon: <IconSettings />,     id: "settings" },
 ];
@@ -2562,6 +2565,32 @@ function AdminAnnouncements({
   const [formError, setFormError] = useState("");
 
   useEffect(() => {
+    let mounted = true;
+    getStaffAnnouncementsAction().then((res) => {
+      if (!mounted || !res.success || !res.announcements) return;
+      const mapped: AdminAnnouncementItem[] = res.announcements.map((a) => ({
+        id: a.id,
+        title: a.title,
+        desc: a.body,
+        date: a.publishedAt,
+        author: a.authorName,
+        audience:
+          a.audience === "STUDENTS"
+            ? "Students"
+            : a.audience === "INSTRUCTORS"
+              ? "Instructors"
+              : "All Users",
+        status: a.status === "DRAFT" ? "Draft" : a.status === "SCHEDULED" ? "Scheduled" : "Published",
+        course: a.courseCode || undefined,
+      }));
+      setAnnouncements(mapped);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [setAnnouncements]);
+
+  useEffect(() => {
     if (initialAction === "create") {
       openCreate();
       if (onClearInitialAction) onClearInitialAction();
@@ -2596,11 +2625,12 @@ function AdminAnnouncements({
     }
 
     if (modalState?.type === "create") {
+      const tempId = `ANN-${String(Date.now()).slice(-4)}`;
       const newAnn: AdminAnnouncementItem = {
-        id: `ANN-${String(Date.now()).slice(-4)}`,
+        id: tempId,
         title: formTitle.trim(),
         desc: formDesc.trim(),
-        date: "Sep 2, 2026",
+        date: new Date().toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" }),
         author: "Admin Office",
         audience: formAudience,
         status: formStatus,
@@ -2608,9 +2638,23 @@ function AdminAnnouncements({
       };
       setAnnouncements([newAnn, ...announcements]);
       onShowToast(`Announcement "${newAnn.title}" created successfully.`);
+      createStaffAnnouncementAction({
+        title: newAnn.title,
+        body: newAnn.desc,
+        audience: formAudience,
+        status: formStatus,
+        courseCode: formCourse || undefined,
+      }).then((res) => {
+        if (res.success && res.announcement) {
+          setAnnouncements((prev) =>
+            prev.map((a) => (a.id === tempId ? { ...a, id: res.announcement!.id, author: res.announcement!.authorName } : a))
+          );
+        }
+      }).catch(() => {});
     } else if (modalState?.type === "edit" && modalState.announcement) {
+      const targetId = modalState.announcement.id;
       const updated = announcements.map((a) =>
-        a.id === modalState.announcement!.id
+        a.id === targetId
           ? {
               ...a,
               title: formTitle.trim(),
@@ -2623,6 +2667,16 @@ function AdminAnnouncements({
       );
       setAnnouncements(updated);
       onShowToast(`Announcement updated.`);
+      if (!targetId.startsWith("ANN-")) {
+        updateStaffAnnouncementAction({
+          id: targetId,
+          title: formTitle.trim(),
+          body: formDesc.trim(),
+          audience: formAudience,
+          status: formStatus,
+          courseCode: formCourse || undefined,
+        }).catch(() => {});
+      }
     }
     setModalState(null);
   };
@@ -2631,6 +2685,9 @@ function AdminAnnouncements({
     setAnnouncements((prev) => prev.filter((a) => a.id !== id));
     setModalState(null);
     onShowToast("Announcement deleted.");
+    if (!id.startsWith("ANN-")) {
+      deleteStaffAnnouncementAction(id).catch(() => {});
+    }
   };
 
   const filtered = announcements.filter((item) => {
@@ -3909,6 +3966,50 @@ function AdminSystemSettings({
 // ── Root Admin Dashboard ──────────────────────────────────────────────────────
 export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () => void }) {
   const [active, setActive] = useState("dashboard");
+  const hasRestoredTabRef = useRef(false);
+  const isPopStateRef = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const syncFromHash = () => {
+      const hash = window.location.hash;
+      const nextTab = hash.startsWith("#tab=") ? hash.slice(5) : "dashboard";
+      isPopStateRef.current = true;
+      setActive(nextTab || "dashboard");
+    };
+    window.addEventListener("popstate", syncFromHash);
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.removeEventListener("popstate", syncFromHash);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!hasRestoredTabRef.current) {
+      hasRestoredTabRef.current = true;
+      const hash = window.location.hash;
+      if (hash.startsWith("#tab=")) {
+        const savedTab = hash.slice(5);
+        if (savedTab && savedTab !== "dashboard") {
+          setActive(savedTab);
+          return;
+        }
+      }
+    }
+    const targetHash = active === "dashboard" ? "" : `#tab=${active}`;
+    const targetUrl = window.location.pathname + window.location.search + targetHash;
+    if (window.location.hash !== targetHash) {
+      if (isPopStateRef.current) {
+        isPopStateRef.current = false;
+      } else {
+        window.history.pushState(null, "", targetUrl);
+      }
+    } else {
+      isPopStateRef.current = false;
+    }
+  }, [active]);
   const [collapsed, setCollapsed] = useState(false);
   const [userName, setUserName] = useState("Rojit Munankarmi");
 

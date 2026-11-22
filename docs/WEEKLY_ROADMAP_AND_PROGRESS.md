@@ -14,9 +14,9 @@ User account provisioning is strictly governed by institutional identity policie
 
 | Role | Email Format Convention | Concrete Institutional Examples |
 | :--- | :--- | :--- |
-| **Student** | **`[studentNumber]@[domain]`** | `2003988@richacademy.en-rich.me`<br>`2003988@eduflex.edu` |
-| **Instructor** | **`[firstname].[lastname]@[domain]`** | `anita.humagain@richacademy.en-rich.me`<br>`anita.humagain@eduflex.edu` |
-| **Administrator** | **`a.[firstname].[lastname]@[domain]`** | `a.rojit.munankarmi@richacademy.en-rich.me`<br>`a.rojit.munankarmi@eduflex.edu` |
+| **Student** | **`[studentNumber]@[domain]`** | `2003988@richacademy.richv.win`<br>`2003988@eduflex.edu` |
+| **Instructor** | **`[firstname].[lastname]@[domain]`** | `anita.humagain@richacademy.richv.win`<br>`anita.humagain@eduflex.edu` |
+| **Administrator** | **`a.[firstname].[lastname]@[domain]`** | `a.rojit.munankarmi@richacademy.richv.win`<br>`a.rojit.munankarmi@eduflex.edu` |
 
 * **Self-Registration Constraint:** Any public student self-registration creates a `STUDENT` account with status `PENDING`, queued in Admin `ApprovalRequest` for review before full portal access.
 

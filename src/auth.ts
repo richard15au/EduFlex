@@ -20,26 +20,26 @@ export function normalizeRole(role: unknown): UserRole | null {
 }
 
 export const SEED_ACCOUNTS: UserAccount[] = [
-  // Authoritative Group Members (eduflex.en-rich.me)
-  { name: "Richard Vitug", email: "20030988@eduflex.en-rich.me", password: "student123", role: "student" },
-  { name: "Richard Vitug", email: "richard@eduflex.en-rich.me", password: "student123", role: "student" },
-  { name: "Yusuf Rana Magar", email: "20027782@eduflex.en-rich.me", password: "student123", role: "student" },
-  { name: "Yusuf Rana Magar", email: "yusuf@eduflex.en-rich.me", password: "student123", role: "student" },
-  { name: "Sadia Binte Mahmud", email: "20035294@eduflex.en-rich.me", password: "student123", role: "student" },
-  { name: "Sadia Binte Mahmud", email: "sadia@eduflex.en-rich.me", password: "student123", role: "student" },
-  { name: "Anita Humagain", email: "anita.humagain@eduflex.en-rich.me", password: "instructor123", role: "instructor" },
-  { name: "Anita Humagain", email: "anita@eduflex.en-rich.me", password: "instructor123", role: "instructor" },
-  { name: "Rojit Munankarmi", email: "a.rojit.munankarmi@eduflex.en-rich.me", password: "admin123", role: "admin" },
-  { name: "Rojit Munankarmi", email: "rojit.munankarmi@eduflex.en-rich.me", password: "admin123", role: "admin" },
-  { name: "Rojit Munankarmi", email: "rojit@eduflex.en-rich.me", password: "admin123", role: "admin" },
+  // Authoritative Group Members (eduflex.richv.win)
+  { name: "Richard Vitug", email: "20030988@eduflex.richv.win", password: "student123", role: "student" },
+  { name: "Richard Vitug", email: "richard@eduflex.richv.win", password: "student123", role: "student" },
+  { name: "Yusuf Rana Magar", email: "20027782@eduflex.richv.win", password: "student123", role: "student" },
+  { name: "Yusuf Rana Magar", email: "yusuf@eduflex.richv.win", password: "student123", role: "student" },
+  { name: "Sadia Binte Mahmud", email: "20035294@eduflex.richv.win", password: "student123", role: "student" },
+  { name: "Sadia Binte Mahmud", email: "sadia@eduflex.richv.win", password: "student123", role: "student" },
+  { name: "Anita Humagain", email: "anita.humagain@eduflex.richv.win", password: "instructor123", role: "instructor" },
+  { name: "Anita Humagain", email: "anita@eduflex.richv.win", password: "instructor123", role: "instructor" },
+  { name: "Rojit Munankarmi", email: "a.rojit.munankarmi@eduflex.richv.win", password: "admin123", role: "admin" },
+  { name: "Rojit Munankarmi", email: "rojit.munankarmi@eduflex.richv.win", password: "admin123", role: "admin" },
+  { name: "Rojit Munankarmi", email: "rojit@eduflex.richv.win", password: "admin123", role: "admin" },
   // Backward compatibility aliases
   { name: "Richard Vitug", email: "20030988@eduflex.edu", password: "student123", role: "student" },
   { name: "Richard Vitug", email: "2003988@eduflex.edu", password: "student123", role: "student" },
   { name: "Anita Humagain", email: "anita.humagain@eduflex.edu", password: "instructor123", role: "instructor" },
   { name: "Rojit Munankarmi", email: "a.rojit.munankarmi@eduflex.edu", password: "admin123", role: "admin" },
-  { name: "Richard Vitug", email: "2003988@richacademy.en-rich.me", password: "student123", role: "student" },
-  { name: "Anita Humagain", email: "anita.humagain@richacademy.en-rich.me", password: "instructor123", role: "instructor" },
-  { name: "Rojit Munankarmi", email: "a.rojit.munankarmi@richacademy.en-rich.me", password: "admin123", role: "admin" },
+  { name: "Richard Vitug", email: "2003988@richacademy.richv.win", password: "student123", role: "student" },
+  { name: "Anita Humagain", email: "anita.humagain@richacademy.richv.win", password: "instructor123", role: "instructor" },
+  { name: "Rojit Munankarmi", email: "a.rojit.munankarmi@richacademy.richv.win", password: "admin123", role: "admin" },
 ];
 
 function getAccounts(): UserAccount[] {

@@ -9,14 +9,29 @@ import {
   gradeStudentSubmission,
   INITIAL_ASSIGNMENT_COURSES,
   formatDueDate,
+  getSharedSubDeliverables,
+  toggleSubDeliverableLock,
+  type SubDeliverableItem,
 } from "./assignmentData";
 import {
   getInstructorGradingQueueAction,
   gradeSubmissionAction,
   deleteSubmissionAction,
+  getStaffAnnouncementsAction,
+  createStaffAnnouncementAction,
+  updateStaffAnnouncementAction,
+  deleteStaffAnnouncementAction,
+  getStaffMaterialsAction,
+  createStaffMaterialAction,
+  deleteStaffMaterialAction,
   type InstructorGradeRecordSummary,
   type InstructorGradingQueueItem,
 } from "./actions/instructor";
+import {
+  getStudentConversationsAction,
+  sendStudentMessageAction,
+  markStudentConversationReadAction,
+} from "./actions/student";
 import type {
   InstructorAssignmentItem,
   InstructorCourseAssignments,
@@ -272,9 +287,6 @@ const navItems = [
   { label: "Quizzes",            icon: <IconQuiz />,         id: "quizzes" },
   { label: "Learning Materials", icon: <IconFolder />,       id: "materials" },
   { label: "Grades",             icon: <IconGrades />,       id: "grades" },
-  { label: "Announcements",      icon: <IconAnnouncement />, id: "announcements" },
-  { label: "Messages",           icon: <IconMessage />,      id: "messages" },
-  { label: "Calendar",           icon: <IconCalendar />,     id: "calendar" },
   { label: "Profile",            icon: <IconProfile />,      id: "profile" },
 ];
 
@@ -418,9 +430,9 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
 
   // 2. Students
   const sampleStudents = [
-    { name: "Yusuf Rana Magar", id: "20027782", course: "ICT302", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Active" },
-    { name: "Richard Vitug", id: "20030988", course: "ICT302", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Active" },
-    { name: "Sadia Binte Mahmud", id: "20035294", course: "ICT302", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Active" },
+    { name: "Yusuf Rana Magar", id: "20027782", course: "ICT302", email: "20027782@eduflex.richv.win", grade: "HD", status: "Active" },
+    { name: "Richard Vitug", id: "20030988", course: "ICT302", email: "20030988@eduflex.richv.win", grade: "HD", status: "Active" },
+    { name: "Sadia Binte Mahmud", id: "20035294", course: "ICT302", email: "20035294@eduflex.richv.win", grade: "HD", status: "Active" },
   ];
   sampleStudents.forEach((s) => {
     pool.push({
@@ -516,7 +528,7 @@ export function getInstructorSearchPool(assignmentCourses: InstructorCourseAssig
     { title: "ICT302 Assessment 2 Brief & Rubric Released", course: "ICT302", status: "Published", date: "Aug 24, 2026" },
     { title: "Learning Materials Updated — ICT302", course: "ICT302", status: "Published", date: "Aug 27, 2026" },
     { title: "ICT301 Completed Grade Records Released", course: "ICT301", status: "Published", date: "Jun 25, 2026" },
-    { title: "Official Domain Migration to eduflex.en-rich.me", course: "All Courses", status: "Published", date: "Sep 02, 2026" },
+    { title: "Official Domain Migration to eduflex.richv.win", course: "All Courses", status: "Published", date: "Sep 02, 2026" },
   ];
   sampleAnnouncements.forEach((a, idx) => {
     pool.push({
@@ -1438,9 +1450,9 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
         { name: "Sadia Binte Mahmud", id: "20035294", grade: "HD" },
       ],
       allStudents: [
-        { name: "Richard Vitug", id: "20030988", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Completed", submitted: 3, total: 3 },
-        { name: "Yusuf Rana Magar", id: "20027782", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Completed", submitted: 3, total: 3 },
-        { name: "Sadia Binte Mahmud", id: "20035294", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Completed", submitted: 3, total: 3 },
+        { name: "Richard Vitug", id: "20030988", email: "20030988@eduflex.richv.win", grade: "HD", status: "Completed", submitted: 3, total: 3 },
+        { name: "Yusuf Rana Magar", id: "20027782", email: "20027782@eduflex.richv.win", grade: "HD", status: "Completed", submitted: 3, total: 3 },
+        { name: "Sadia Binte Mahmud", id: "20035294", email: "20035294@eduflex.richv.win", grade: "HD", status: "Completed", submitted: 3, total: 3 },
       ],
     },
     {
@@ -1470,9 +1482,9 @@ function MyCoursesPage({ setActive }: { setActive: (id: string) => void }) {
         { name: "Sadia Binte Mahmud", id: "20035294", grade: "HD" },
       ],
       allStudents: [
-        { name: "Richard Vitug", id: "20030988", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Active", submitted: 2, total: 3 },
-        { name: "Yusuf Rana Magar", id: "20027782", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Active", submitted: 2, total: 3 },
-        { name: "Sadia Binte Mahmud", id: "20035294", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Active", submitted: 2, total: 3 },
+        { name: "Richard Vitug", id: "20030988", email: "20030988@eduflex.richv.win", grade: "HD", status: "Active", submitted: 2, total: 3 },
+        { name: "Yusuf Rana Magar", id: "20027782", email: "20027782@eduflex.richv.win", grade: "HD", status: "Active", submitted: 2, total: 3 },
+        { name: "Sadia Binte Mahmud", id: "20035294", email: "20035294@eduflex.richv.win", grade: "HD", status: "Active", submitted: 2, total: 3 },
       ],
     },
   ];
@@ -2020,9 +2032,9 @@ function StudentsPage() {
   const [viewStudent, setViewStudent] = useState<null | typeof students[0]>(null);
 
   const students = [
-    { name: "Yusuf Rana Magar",   id: "20027782", course: "ICT302", email: "20027782@eduflex.en-rich.me", grade: "HD", status: "Active",   submitted: 10, total: 10 },
-    { name: "Richard Vitug",       id: "20030988", course: "ICT302", email: "20030988@eduflex.en-rich.me", grade: "HD", status: "Active",   submitted: 10, total: 10 },
-    { name: "Sadia Binte Mahmud", id: "20035294", course: "ICT302", email: "20035294@eduflex.en-rich.me", grade: "HD", status: "Active",   submitted: 10, total: 10 },
+    { name: "Yusuf Rana Magar",   id: "20027782", course: "ICT302", email: "20027782@eduflex.richv.win", grade: "HD", status: "Active",   submitted: 10, total: 10 },
+    { name: "Richard Vitug",       id: "20030988", course: "ICT302", email: "20030988@eduflex.richv.win", grade: "HD", status: "Active",   submitted: 10, total: 10 },
+    { name: "Sadia Binte Mahmud", id: "20035294", course: "ICT302", email: "20035294@eduflex.richv.win", grade: "HD", status: "Active",   submitted: 10, total: 10 },
   ];
 
   const filtered = students.filter((s) => {
@@ -2224,6 +2236,14 @@ function AssignmentsPage({
   const [open, setOpen] = useState<string | null>("ICT301");
   const [searchQuery, setSearchQuery] = useState("");
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [subDeliverables, setSubDeliverables] = useState<SubDeliverableItem[]>(() => getSharedSubDeliverables());
+
+  const handleToggleLock = (id: string, title: string, currentlyLocked: boolean) => {
+    const updated = toggleSubDeliverableLock(id);
+    setSubDeliverables(updated);
+    setToastMessage(`${title} ${currentlyLocked ? "unlocked" : "locked"} for student submissions.`);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   const [neonSubmissions, setNeonSubmissions] = useState<InstructorGradingQueueItem[]>([]);
   const [loadingSubmissions, setLoadingSubmissions] = useState(true);
@@ -2947,15 +2967,15 @@ function AssignmentsPage({
                           </div>
                         ) : (
                           <div className="overflow-x-auto border-b border-gray-100">
-                            <table className="w-full text-left border-collapse">
+                            <table className="w-full table-fixed text-left border-collapse">
                               <thead>
                                 <tr className="bg-gray-50/80 border-b border-gray-100 text-[11px] font-semibold uppercase tracking-wider text-gray-500">
-                                  <th className="py-2.5 px-5">Student</th>
-                                  <th className="py-2.5 px-4">Assessment / Deliverable</th>
-                                  <th className="py-2.5 px-4">Submitted File</th>
-                                  <th className="py-2.5 px-4">Submitted</th>
-                                  <th className="py-2.5 px-4">Status / Grade</th>
-                                  <th className="py-2.5 px-5 text-right">Action</th>
+                                  <th className="py-2.5 px-3 w-[20%]">Student</th>
+                                  <th className="py-2.5 px-3 w-[21%]">Assessment</th>
+                                  <th className="py-2.5 px-3 w-[25%]">Submitted File</th>
+                                  <th className="py-2.5 px-3 w-[12%]">Submitted</th>
+                                  <th className="py-2.5 px-3 w-[11%]">Status</th>
+                                  <th className="py-2.5 px-3 w-[11%] text-right">Action</th>
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-gray-100 text-xs">
@@ -2963,70 +2983,70 @@ function AssignmentsPage({
                                   const isGraded = sub.score !== null;
                                   return (
                                     <tr key={sub.id} className="hover:bg-blue-50/20 transition-colors">
-                                      <td className="py-3 px-5">
-                                        <div className="flex items-center gap-2.5">
+                                      <td className="py-3 px-3 min-w-0">
+                                        <div className="flex items-center gap-2 min-w-0">
                                           <div
                                             className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0"
                                             style={{ background: "#1a3a9e" }}
                                           >
                                             {getInitials(sub.studentName)}
                                           </div>
-                                          <div>
-                                            <p className="font-semibold text-gray-900">{sub.studentName}</p>
-                                            <p className="text-[11px] text-gray-400">{sub.studentEmail}</p>
+                                          <div className="min-w-0 flex-1">
+                                            <p className="font-semibold text-gray-900 truncate">{sub.studentName}</p>
+                                            <p className="text-[11px] text-gray-400 truncate">{sub.studentEmail}</p>
                                           </div>
                                         </div>
                                       </td>
-                                      <td className="py-3 px-4">
-                                        <p className="font-medium text-gray-800">{sub.assignmentTitle}</p>
-                                        <p className="text-[11px] text-gray-400 font-mono">{sub.receiptNumber}</p>
+                                      <td className="py-3 px-3 min-w-0">
+                                        <p className="font-medium text-gray-800 line-clamp-2">{sub.assignmentTitle}</p>
+                                        <p className="text-[11px] text-gray-400 font-mono truncate">{sub.receiptNumber}</p>
                                       </td>
-                                      <td className="py-3 px-4">
+                                      <td className="py-3 px-3 min-w-0">
                                         <button
                                           type="button"
                                           onClick={() => openGradeModal(sub)}
-                                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#1a3a9e] font-medium transition-colors cursor-pointer"
-                                          title="View submitted file & grade"
+                                          className="inline-flex items-center gap-1.5 max-w-full px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#1a3a9e] font-medium transition-colors cursor-pointer"
+                                          title={`${sub.fileName} — View submitted file & grade`}
                                         >
-                                          <IconFile className="w-3.5 h-3.5 text-[#1a3a9e]" />
-                                          <span>{sub.fileName}</span>
+                                          <IconFile className="w-3.5 h-3.5 text-[#1a3a9e] shrink-0" />
+                                          <span className="truncate">{sub.fileName}</span>
                                           {sub.fileSizeLabel && (
-                                            <span className="text-[10px] text-gray-500">({sub.fileSizeLabel})</span>
+                                            <span className="text-[10px] text-gray-500 shrink-0">({sub.fileSizeLabel})</span>
                                           )}
                                         </button>
                                       </td>
-                                      <td className="py-3 px-4 text-gray-500">
-                                        {new Date(sub.submittedAt).toLocaleString()}
+                                      <td className="py-3 px-3 text-[11px] text-gray-500">
+                                        {new Date(sub.submittedAt).toLocaleDateString()}
                                       </td>
-                                      <td className="py-3 px-4">
+                                      <td className="py-3 px-3">
                                         {isGraded ? (
-                                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-700 font-semibold border border-green-200">
+                                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-semibold border border-green-200 whitespace-nowrap">
                                             {sub.score}/{sub.maxScore}
                                             {sub.gradeLabel ? ` (${sub.gradeLabel})` : ""}
                                           </span>
                                         ) : (
-                                          <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 font-semibold border border-amber-200">
-                                            Needs Grading
+                                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-semibold border border-amber-200 whitespace-nowrap">
+                                            Pending
                                           </span>
                                         )}
                                       </td>
-                                      <td className="py-3 px-5 text-right">
-                                        <div className="inline-flex items-center gap-1.5">
+                                      <td className="py-3 px-3 text-right">
+                                        <div className="inline-flex items-center justify-end gap-1">
                                           <button
                                             type="button"
                                             onClick={() => openGradeModal(sub)}
-                                            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-colors cursor-pointer"
+                                            className="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold text-white transition-colors cursor-pointer whitespace-nowrap"
                                             style={{ background: isGraded ? "#374151" : "#1a3a9e" }}
                                           >
-                                            {isGraded ? "Update Grade" : "Grade"}
+                                            {isGraded ? "Update" : "Grade"}
                                           </button>
                                           <button
                                             type="button"
                                             onClick={() => void handleDeleteSubmission(sub)}
-                                            className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                                            className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer shrink-0"
                                             title="Remove submission"
                                           >
-                                            <IconTrash className="w-4 h-4" />
+                                            <IconTrash className="w-3.5 h-3.5" />
                                           </button>
                                         </div>
                                       </td>
@@ -3888,6 +3908,48 @@ function AssignmentsPage({
         </div>
       )}
 
+      {/* Assessment Submission Lock Controls (Instructor Control) */}
+      <div className="mt-6 bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <div>
+            <h2 className="text-sm font-bold text-gray-900">Assessment Submission Lock Controls (ICT302)</h2>
+            <p className="text-xs text-gray-500">Unlock or lock weekly reports and assessment deliverables for students.</p>
+          </div>
+          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+            {subDeliverables.filter((d) => d.status !== "Locked").length}/{subDeliverables.length} Unlocked
+          </span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-h-72 overflow-y-auto pr-1">
+          {subDeliverables.map((d) => {
+            const isLocked = d.status === "Locked";
+            return (
+              <div
+                key={d.id}
+                className="flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl border border-gray-100 bg-gray-50/60"
+              >
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-gray-800 truncate">{d.title}</p>
+                  <p className="text-[11px] text-gray-500 truncate">
+                    {d.due} · <span className={isLocked ? "text-amber-700 font-semibold" : "text-emerald-700 font-semibold"}>{d.status}</span>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleToggleLock(d.id, d.title, isLocked)}
+                  className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                    isLocked
+                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100"
+                      : "bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100"
+                  }`}
+                >
+                  {isLocked ? "Unlock" : "Lock"}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Success Toast */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs animate-in fade-in slide-in-from-bottom-2 duration-200">
@@ -3928,6 +3990,14 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [subDeliverables, setSubDeliverables] = useState<SubDeliverableItem[]>(() => getSharedSubDeliverables());
+
+  const handleToggleLock = (id: string, title: string, currentlyLocked: boolean) => {
+    const updated = toggleSubDeliverableLock(id);
+    setSubDeliverables(updated);
+    setToastMessage(`${title} ${currentlyLocked ? "unlocked" : "locked"} for student submissions.`);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   // Form states
   const [formTitle, setFormTitle] = useState("");
@@ -4262,18 +4332,49 @@ function QuizzesPage({ setActive }: { setActive: (id: string) => void }) {
 
 // ── Learning Materials Page ───────────────────────────────────────────────────
 function LearningMaterialsPage() {
-  const [materials, setMaterials] = useState<LearningMaterialItem[]>(INSTRUCTOR_LEARNING_MATERIALS);
+  const [materials, setMaterials] = useState<LearningMaterialItem[]>([]);
   const [filter, setFilter] = useState("all");
   const [previewMaterial, setPreviewMaterial] = useState<LearningMaterialItem | null>(null);
   const [downloadToast, setDownloadToast] = useState<string | null>(null);
   const [isUploadOpen, setIsUploadOpen] = useState(false);
+  const hasMutatedMatRef = useRef(false);
 
   // Upload Form State
   const [uploadTitle, setUploadTitle] = useState("");
-  const [uploadCourse, setUploadCourse] = useState("ICT301");
+  const [uploadCourse, setUploadCourse] = useState("ICT302");
   const [uploadType, setUploadType] = useState<"Slides" | "Document" | "Video">("Slides");
   const [uploadWeek, setUploadWeek] = useState("1");
   const [uploadDesc, setUploadDesc] = useState("");
+
+  useEffect(() => {
+    let mounted = true;
+    getStaffMaterialsAction().then((res) => {
+      if (!mounted || hasMutatedMatRef.current || !res.success || !res.materials) return;
+      const iconMap: Record<string, string> = {
+        Slides: "📊",
+        Document: "📄",
+        Video: "🎥",
+      };
+      setMaterials(
+        res.materials.map((m) => ({
+          id: m.id,
+          title: m.title,
+          course: m.courseCode,
+          courseName: m.courseTitle,
+          type: m.type,
+          category: m.category,
+          week: m.week,
+          size: m.size,
+          date: m.date,
+          icon: iconMap[m.type] || "📄",
+          description: m.description,
+        }))
+      );
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const courseColors: Record<string, string> = {
     ICT302: "bg-emerald-100 text-emerald-700",
@@ -4290,6 +4391,7 @@ function LearningMaterialsPage() {
   const handleUploadSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!uploadTitle.trim()) return;
+    hasMutatedMatRef.current = true;
 
     const courseNameMap: Record<string, string> = {
       ICT302: "Information Technology Project 2",
@@ -4302,16 +4404,18 @@ function LearningMaterialsPage() {
       Video: "🎥",
     };
 
+    const tempId = `mat-${Date.now()}`;
+    const weekNum = parseInt(uploadWeek, 10) || 1;
     const newMat: LearningMaterialItem = {
-      id: `mat-${Date.now()}`,
+      id: tempId,
       title: uploadTitle.trim(),
       course: uploadCourse,
       courseName: courseNameMap[uploadCourse] || uploadCourse,
       type: uploadType,
       category: uploadType === "Video" ? "Lecture" : "Tutorial",
-      week: parseInt(uploadWeek, 10) || 1,
+      week: weekNum,
       size: "2.5 MB",
-      date: "Sep 2, 2026",
+      date: new Date().toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" }),
       icon: iconMap[uploadType] || "📄",
       description: uploadDesc.trim() || `Course resource for ${uploadCourse}.`,
     };
@@ -4322,6 +4426,20 @@ function LearningMaterialsPage() {
     setUploadDesc("");
     setDownloadToast(`Uploaded "${newMat.title}" successfully!`);
     setTimeout(() => setDownloadToast(null), 3500);
+
+    createStaffMaterialAction({
+      title: newMat.title,
+      courseCode: uploadCourse,
+      type: uploadType,
+      week: weekNum,
+      description: newMat.description,
+    }).then((res) => {
+      if (res.success && res.material) {
+        setMaterials((prev) =>
+          prev.map((item) => (item.id === tempId ? { ...item, id: res.material!.id } : item))
+        );
+      }
+    }).catch(() => {});
   };
 
   const filtered = filter === "all"
@@ -5398,6 +5516,14 @@ function CalendarPage({ setActive }: { setActive?: (id: string) => void }) {
   const [selectedDay, setSelectedDay] = useState<number | null>(3);
   const [selectedClassInfo, setSelectedClassInfo] = useState<InstructorCalendarEvent | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [subDeliverables, setSubDeliverables] = useState<SubDeliverableItem[]>(() => getSharedSubDeliverables());
+
+  const handleToggleLock = (id: string, title: string, currentlyLocked: boolean) => {
+    const updated = toggleSubDeliverableLock(id);
+    setSubDeliverables(updated);
+    setToastMessage(`${title} ${currentlyLocked ? "unlocked" : "locked"} for student submissions.`);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   const baseYear = 2026;
   const baseMonth = 8; // September (0-indexed)
@@ -5965,18 +6091,53 @@ const announcementStatusColors: Record<string, string> = {
 };
 
 function InstructorAnnouncementsPage() {
-  const [announcements, setAnnouncements] = useState<IAnnouncement[]>(iAnnouncements);
+  const [announcements, setAnnouncements] = useState<IAnnouncement[]>([]);
+  const [dbIdByUiId, setDbIdByUiId] = useState<Record<number, string>>({});
   const [filter, setFilter] = useState<"All" | "Published" | "Draft" | "Scheduled">("All");
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editTarget, setEditTarget] = useState<IAnnouncement | null>(null);
   const [viewTarget, setViewTarget] = useState<IAnnouncement | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [subDeliverables, setSubDeliverables] = useState<SubDeliverableItem[]>(() => getSharedSubDeliverables());
+
+  const handleToggleLock = (id: string, title: string, currentlyLocked: boolean) => {
+    const updated = toggleSubDeliverableLock(id);
+    setSubDeliverables(updated);
+    setToastMessage(`${title} ${currentlyLocked ? "unlocked" : "locked"} for student submissions.`);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   // Form states
   const [formTitle, setFormTitle] = useState("");
   const [formDescription, setFormDescription] = useState("");
-  const [formAudience, setFormAudience] = useState("ICT301");
+  const [formAudience, setFormAudience] = useState("ICT302");
   const [formStatus, setFormStatus] = useState<"Published" | "Draft" | "Scheduled">("Published");
+  const hasMutatedRef = useRef(false);
+
+  useEffect(() => {
+    let mounted = true;
+    getStaffAnnouncementsAction().then((res) => {
+      if (!mounted || hasMutatedRef.current || !res.success || !res.announcements) return;
+      const map: Record<number, string> = {};
+      const mapped: IAnnouncement[] = res.announcements.map((a, idx) => {
+        const uiId = 20000 + idx;
+        map[uiId] = a.id;
+        return {
+          id: uiId,
+          title: a.title,
+          description: a.body,
+          audience: a.courseCode || (a.audience === "ALL_USERS" ? "All Students" : a.audience),
+          date: a.publishedAt,
+          status: a.status === "DRAFT" ? "Draft" : a.status === "SCHEDULED" ? "Scheduled" : "Published",
+        };
+      });
+      setDbIdByUiId(map);
+      setAnnouncements(mapped);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -5986,12 +6147,14 @@ function InstructorAnnouncementsPage() {
   const handleCreate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formTitle.trim()) return;
+    hasMutatedRef.current = true;
+    const uiId = Date.now();
     const newA: IAnnouncement = {
-      id: Date.now(),
+      id: uiId,
       title: formTitle.trim(),
       description: formDescription.trim(),
       audience: formAudience,
-      date: "Sep 2, 2026",
+      date: new Date().toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" }),
       status: formStatus,
     };
     setAnnouncements((prev) => [newA, ...prev]);
@@ -5999,11 +6162,23 @@ function InstructorAnnouncementsPage() {
     setFormTitle("");
     setFormDescription("");
     showToast(`Announcement "${newA.title}" published!`);
+
+    createStaffAnnouncementAction({
+      title: newA.title,
+      body: newA.description || newA.title,
+      audience: formAudience,
+      status: formStatus,
+    }).then((res) => {
+      if (res.success && res.announcement) {
+        setDbIdByUiId((prev) => ({ ...prev, [uiId]: res.announcement!.id }));
+      }
+    }).catch(() => {});
   };
 
   const handleUpdate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!editTarget || !formTitle.trim()) return;
+    hasMutatedRef.current = true;
     const updated: IAnnouncement = {
       ...editTarget,
       title: formTitle.trim(),
@@ -6014,11 +6189,27 @@ function InstructorAnnouncementsPage() {
     setAnnouncements((prev) => prev.map((a) => (a.id === editTarget.id ? updated : a)));
     setEditTarget(null);
     showToast(`Announcement "${updated.title}" updated!`);
+
+    const dbId = dbIdByUiId[editTarget.id];
+    if (dbId) {
+      updateStaffAnnouncementAction({
+        id: dbId,
+        title: updated.title,
+        body: updated.description || updated.title,
+        audience: updated.audience,
+        status: updated.status,
+      }).catch(() => {});
+    }
   };
 
   const handleDelete = (id: number) => {
+    hasMutatedRef.current = true;
     setAnnouncements((prev) => prev.filter((a) => a.id !== id));
     showToast("Announcement deleted successfully!");
+    const dbId = dbIdByUiId[id];
+    if (dbId) {
+      deleteStaffAnnouncementAction(dbId).catch(() => {});
+    }
   };
 
   const openEdit = (a: IAnnouncement) => {
@@ -6398,6 +6589,30 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
   const [attachment, setAttachment] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    let mounted = true;
+    getStudentConversationsAction().then((res) => {
+      if (!mounted || !res.success || !res.conversations || res.conversations.length === 0) return;
+      const dbThreads: IConversation[] = res.conversations.map((c) => ({
+        id: c.id,
+        name: c.sender,
+        context: c.role,
+        initials: c.initials,
+        color: c.initialsColor,
+        lastMsg: c.lastMsg,
+        time: c.time,
+        unread: c.unread,
+        messages: c.messages.map((m) => ({ from: m.from, text: m.text, time: m.time })),
+      }));
+      const merged = dbThreads;
+      setConversations(merged);
+      setActiveId(merged[0].id);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   const active = conversations.find((c) => c.id === activeId) || conversations[0];
 
   const filteredConversations = conversations.filter(
@@ -6428,13 +6643,28 @@ function InstructorMessagesPage({ userName }: { userName: string }) {
     );
     setInput("");
     setAttachment(null);
+
+    if (active && !/^c\d+$/.test(active.id)) {
+      sendStudentMessageAction({ conversationId: active.id, body: fullText }).catch(() => {});
+    }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      setAttachment(file.name);
+    if (!file) return;
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/submissions/upload", { method: "POST", body: fd });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setAttachment(`${file.name} (${data.fileSizeLabel} · key:${data.storageKey})`);
+        return;
+      }
+    } catch {
+      // Fallback to filename
     }
+    setAttachment(file.name);
   };
 
   const quickReplies = [
@@ -6601,8 +6831,8 @@ function InstructorProfilePage({ userName }: { userName: string }) {
   const effectiveEmail =
     sessionUser?.email ||
     (userName.toLowerCase().includes("anita")
-      ? "anita.humagain@eduflex.en-rich.me"
-      : "anita.humagain@eduflex.en-rich.me");
+      ? "anita.humagain@eduflex.richv.win"
+      : "anita.humagain@eduflex.richv.win");
   const parts = userName.replace(/^Prof\.\s*/i, "").split(" ");
   const initials = parts.map((p) => p[0]).join("").slice(0, 2).toUpperCase();
   const displayName = userName.startsWith("Prof.") ? userName : `Prof. ${userName}`;
@@ -6689,7 +6919,7 @@ function InstructorSettingsPage({
   onThemeChange?: (theme: "Light" | "Dark") => void;
 } = {}) {
   const [saved, setSaved] = useState(false);
-  const [email, setEmail] = useState("anita.humagain@eduflex.en-rich.me");
+  const [email, setEmail] = useState("anita.humagain@eduflex.richv.win");
   const [phone, setPhone] = useState("+61 2 9876 5432");
   const [notifs, setNotifs] = useState({
     messages:      true,
@@ -6888,6 +7118,50 @@ function Footer() {
 // ── Root ──────────────────────────────────────────────────────────────────────
 export default function InstructorDashboard({ onLogout = () => {} }: { onLogout?: () => void }) {
   const [active, setActive] = useState("dashboard");
+  const hasRestoredTabRef = useRef(false);
+  const isPopStateRef = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const syncFromHash = () => {
+      const hash = window.location.hash;
+      const nextTab = hash.startsWith("#tab=") ? hash.slice(5) : "dashboard";
+      isPopStateRef.current = true;
+      setActive(nextTab || "dashboard");
+    };
+    window.addEventListener("popstate", syncFromHash);
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.removeEventListener("popstate", syncFromHash);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!hasRestoredTabRef.current) {
+      hasRestoredTabRef.current = true;
+      const hash = window.location.hash;
+      if (hash.startsWith("#tab=")) {
+        const savedTab = hash.slice(5);
+        if (savedTab && savedTab !== "dashboard") {
+          setActive(savedTab);
+          return;
+        }
+      }
+    }
+    const targetHash = active === "dashboard" ? "" : `#tab=${active}`;
+    const targetUrl = window.location.pathname + window.location.search + targetHash;
+    if (window.location.hash !== targetHash) {
+      if (isPopStateRef.current) {
+        isPopStateRef.current = false;
+      } else {
+        window.history.pushState(null, "", targetUrl);
+      }
+    } else {
+      isPopStateRef.current = false;
+    }
+  }, [active]);
   const [collapsed, setCollapsed] = useState(false);
   const [userName, setUserName] = useState("Anita Humagain");
   const [theme, setTheme] = useState<"Light" | "Dark">("Light");

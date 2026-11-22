@@ -34,11 +34,11 @@ All notable changes to the EduFlex codebase are documented in this file.
 ### Added
 - **Institutional Identity Conventions & Seed Accounts ([`src/auth.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/src/auth.ts))**:
   - Added canonical role normalization (`normalizeRole`) supporting `"student"`, `"instructor"`, and `"admin"` / `"administrator"`.
-  - Added planned `@richacademy.en-rich.me` institutional demo accounts (`2003988@richacademy.en-rich.me`, `anita.humagain@richacademy.en-rich.me`, `a.rojit.munankarmi@richacademy.en-rich.me`) alongside existing `@eduflex.edu` accounts.
+  - Added planned `@richacademy.richv.win` institutional demo accounts (`2003988@richacademy.richv.win`, `anita.humagain@richacademy.richv.win`, `a.rojit.munankarmi@richacademy.richv.win`) alongside existing `@eduflex.edu` accounts.
   - Protected authoritative seed account roles in `getAccounts()`, `registerUser()`, and `getSessionUser()` so self-registration on `/register` cannot overwrite or downgrade Instructor or Admin privileges in `localStorage`.
   - Added case-insensitive email matching on login while strictly enforcing authorization via the account's trusted `role` property rather than email format alone.
 - **Expanded Authentication & Portal Audit Playwright Suite ([`tests/auth/sessions.spec.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/tests/auth/sessions.spec.ts), [`tests/student/features.spec.ts`](file:///c:/Users/Richard/Documents/Eduflex/EduFlex/tests/student/features.spec.ts))**:
-  - Added E2E verification for `@richacademy.en-rich.me` Student, Instructor, and Admin login, session persistence across page reload, and logout.
+  - Added E2E verification for `@richacademy.richv.win` Student, Instructor, and Admin login, session persistence across page reload, and logout.
   - Added E2E verification proving email patterns alone never grant elevated privileges and self-registration cannot overwrite seed Instructor/Admin roles.
   - Updated Student assignment and quiz E2E tests to verify genuine form validation (file requirement + explicit Academic Integrity checkbox opt-in) and interactive quiz option selection and confirmation modal submission.
 

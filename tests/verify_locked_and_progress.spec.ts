@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+﻿import { expect, test } from '@playwright/test';
 
 test('Verify Week X Progress titles and Locked Weeks 4 to 12', async ({ page }) => {
   // Clear localStorage to ensure fresh v11 state
@@ -7,7 +7,7 @@ test('Verify Week X Progress titles and Locked Weeks 4 to 12', async ({ page }) 
   await page.reload();
 
   // Log in as Richard Vitug
-  await page.getByLabel('Email address').fill('20030988@eduflex.en-rich.me');
+  await page.getByLabel('Email address').fill('20030988@eduflex.richv.win');
   await page.locator('input[type="password"]').fill('student123');
   await page.getByRole('button', { name: 'Log in' }).click();
   await expect(page).toHaveURL(/\/student$/, { timeout: 15000 });

@@ -142,7 +142,7 @@ const SEED_USERS: SeedUserSpec[] = [
   {
     externalId: "20027782",
     name: "Yusuf Rana Magar",
-    email: "20027782@eduflex.en-rich.me",
+    email: "20027782@eduflex.richv.win",
     plainPassword: "student123",
     role: UserRole.STUDENT,
     status: AccountStatus.ACTIVE,
@@ -156,7 +156,7 @@ const SEED_USERS: SeedUserSpec[] = [
   {
     externalId: "20030988",
     name: "Richard Vitug",
-    email: "20030988@eduflex.en-rich.me",
+    email: "20030988@eduflex.richv.win",
     plainPassword: "student123",
     role: UserRole.STUDENT,
     status: AccountStatus.ACTIVE,
@@ -170,7 +170,7 @@ const SEED_USERS: SeedUserSpec[] = [
   {
     externalId: "20035294",
     name: "Sadia Binte Mahmud",
-    email: "20035294@eduflex.en-rich.me",
+    email: "20035294@eduflex.richv.win",
     plainPassword: "student123",
     role: UserRole.STUDENT,
     status: AccountStatus.ACTIVE,
@@ -184,7 +184,7 @@ const SEED_USERS: SeedUserSpec[] = [
   {
     externalId: "20033316",
     name: "Anita Humagain",
-    email: "anita.humagain@eduflex.en-rich.me",
+    email: "anita.humagain@eduflex.richv.win",
     plainPassword: "instructor123",
     role: UserRole.INSTRUCTOR,
     status: AccountStatus.ACTIVE,
@@ -198,7 +198,7 @@ const SEED_USERS: SeedUserSpec[] = [
   {
     externalId: "20024439",
     name: "Rojit Munankarmi",
-    email: "a.rojit.munankarmi@eduflex.en-rich.me",
+    email: "a.rojit.munankarmi@eduflex.richv.win",
     plainPassword: "admin123",
     role: UserRole.ADMIN,
     status: AccountStatus.ACTIVE,
@@ -259,7 +259,7 @@ async function main(): Promise<void> {
   console.log(`[EduFlex Seed] Safety guard passed. Target host: ${target.host} (database: ${target.dbName})`);
 
   // Self-test password hashing before database write
-  const sampleDigest = hashSeedPassword("student123", "20030988@eduflex.en-rich.me");
+  const sampleDigest = hashSeedPassword("student123", "20030988@eduflex.richv.win");
   if (!verifySeedPassword("student123", sampleDigest) || verifySeedPassword("wrongpass", sampleDigest)) {
     throw new Error("[SEED ABORTED] Password hashing/verification self-check failed.");
   }
@@ -311,7 +311,7 @@ async function main(): Promise<void> {
       where: { id: "default" },
       update: {
         institutionName: "EduFlex University",
-        institutionEmail: "admin@eduflex.en-rich.me",
+        institutionEmail: "admin@eduflex.richv.win",
         contactNumber: "+61 2 9000 1234",
         timezone: "UTC+10:00 (Sydney / AEST)",
         academicYear: "2026",
@@ -334,7 +334,7 @@ async function main(): Promise<void> {
       create: {
         id: "default",
         institutionName: "EduFlex University",
-        institutionEmail: "admin@eduflex.en-rich.me",
+        institutionEmail: "admin@eduflex.richv.win",
         contactNumber: "+61 2 9000 1234",
         timezone: "UTC+10:00 (Sydney / AEST)",
         academicYear: "2026",
@@ -384,11 +384,11 @@ async function main(): Promise<void> {
       console.log(`  + User: ${user.name} (${spec.role}) -> ${user.email}`);
     }
 
-    const yusuf = usersMap.get("20027782@eduflex.en-rich.me")!;
-    const richard = usersMap.get("20030988@eduflex.en-rich.me")!;
-    const sadia = usersMap.get("20035294@eduflex.en-rich.me")!;
-    const anita = usersMap.get("anita.humagain@eduflex.en-rich.me")!;
-    const rojit = usersMap.get("a.rojit.munankarmi@eduflex.en-rich.me")!;
+    const yusuf = usersMap.get("20027782@eduflex.richv.win")!;
+    const richard = usersMap.get("20030988@eduflex.richv.win")!;
+    const sadia = usersMap.get("20035294@eduflex.richv.win")!;
+    const anita = usersMap.get("anita.humagain@eduflex.richv.win")!;
+    const rojit = usersMap.get("a.rojit.munankarmi@eduflex.richv.win")!;
 
     // ── Tier 3: The 2 Subjects (ICT301 & ICT302) ──────────────────────────────
     console.log("[EduFlex Seed] Seeding the 2 authoritative subjects (ICT301 & ICT302)...");
@@ -724,25 +724,6 @@ async function main(): Promise<void> {
       });
     }
 
-    // Richard has also submitted Assessment 2
-    await prisma.assignmentSubmission.create({
-      data: {
-        assignmentId: ict302A2.id,
-        studentId: richard.id,
-        receiptNumber: `#EDF-2026-3022-${richard.externalId}`,
-        attemptNumber: 1,
-        isLatest: true,
-        status: SubmissionStatus.SUBMITTED,
-        submittedAt: new Date("2026-10-18T20:45:00.000Z"),
-        fileName: "ICT302_FinalReport_GroupActivityLog_TeamEduFlex.pdf",
-        fileSizeLabel: "6.8 MB",
-        integrityAccepted: true,
-        integrityAcceptedAt: new Date("2026-10-18T20:45:00.000Z"),
-        score: null,
-        maxScore: 100,
-      },
-    });
-
     // ── Tier 6: Quizzes ───────────────────────────────────────────────────────
     console.log("[EduFlex Seed] Seeding quizzes for ICT302...");
 
@@ -777,79 +758,11 @@ async function main(): Promise<void> {
       },
     });
 
-    // ── Tier 7: Learning Materials ─────────────────────────────────────────────
-    console.log("[EduFlex Seed] Seeding course materials...");
+    // ── Tier 7: Learning Materials (Left empty for user uploads) ─────────────
+    console.log("[EduFlex Seed] Skipping sample course materials (empty by default).");
 
-    await prisma.learningMaterial.create({
-      data: {
-        courseId: ict301.id,
-        title: "ICT301 Final Project Report Template & Guidelines",
-        category: MaterialCategory.COURSE_MATERIAL,
-        format: MaterialFormat.PDF,
-        fileName: "ICT301_Final_Report_Template.pdf",
-        fileSizeLabel: "1.4 MB",
-        externalUrl: "/materials/ICT301_Final_Report_Template.pdf",
-        isPublished: true,
-      },
-    });
-
-    await prisma.learningMaterial.create({
-      data: {
-        courseId: ict302.id,
-        title: "ICT302 Capstone Project Brief & Agile Milestone Rubric",
-        category: MaterialCategory.COURSE_MATERIAL,
-        format: MaterialFormat.PDF,
-        fileName: "ICT302_Project_Brief_Rubric.pdf",
-        fileSizeLabel: "2.1 MB",
-        externalUrl: "/materials/ICT302_Project_Brief_Rubric.pdf",
-        isPublished: true,
-      },
-    });
-
-    await prisma.learningMaterial.create({
-      data: {
-        courseId: ict302.id,
-        title: "Next.js SSR & Neon PostgreSQL Architectural Specification",
-        category: MaterialCategory.ADDITIONAL_RESOURCE,
-        format: MaterialFormat.PDF,
-        fileName: "Nextjs_Neon_Architecture_Spec.pdf",
-        fileSizeLabel: "3.5 MB",
-        externalUrl: "/materials/Nextjs_Neon_Architecture_Spec.pdf",
-        isPublished: true,
-      },
-    });
-
-    // ── Tier 8: Announcements ─────────────────────────────────────────────────
-    console.log("[EduFlex Seed] Seeding announcements...");
-
-    await prisma.announcement.create({
-      data: {
-        code: "ANN-302-01",
-        title: "Welcome to ICT302 — Information Technology Project 2 Kickoff",
-        body: "Welcome to Trimester 3, 2026! We will build upon our ICT301 architecture to deliver production-ready software solutions. Please check the Sprint 1 deliverables due next week.",
-        audience: AnnouncementAudience.COURSE_ONLY,
-        authorId: anita.id,
-        authorName: anita.name,
-        authorRole: "Instructor & Unit Coordinator",
-        courseId: ict302.id,
-        isImportant: true,
-        publishedAt: new Date("2026-09-01T09:00:00.000Z"),
-      },
-    });
-
-    await prisma.announcement.create({
-      data: {
-        code: "ANN-ADM-01",
-        title: "Official Domain Migration to eduflex.en-rich.me",
-        body: "EduFlex LMS has successfully migrated to its new authoritative domain: eduflex.en-rich.me. All student and staff credentials remain active under the new domain.",
-        audience: AnnouncementAudience.ALL_USERS,
-        authorId: rojit.id,
-        authorName: rojit.name,
-        authorRole: "Platform Administrator",
-        isImportant: false,
-        publishedAt: new Date("2026-09-02T10:00:00.000Z"),
-      },
-    });
+    // ── Tier 8: Announcements (Left empty for Instructor & Admin publishing) ───
+    console.log("[EduFlex Seed] Skipping sample announcements (empty by default).");
 
     // ── Tier 9: Messaging & Conversations ─────────────────────────────────────
     console.log("[EduFlex Seed] Seeding group communications...");
@@ -923,7 +836,7 @@ async function main(): Promise<void> {
     console.log("\n========================================================");
     console.log("  EDUFLEX DATABASE SEED COMPLETE (CLEAN 5-MEMBER ROSTER)");
     console.log("========================================================");
-    console.log("  Domain: eduflex.en-rich.me");
+    console.log("  Domain: eduflex.richv.win");
     console.log("  Users: 5 Group Members (3 Students, 1 Instructor, 1 Admin)");
     console.log("  Courses: 2 Subjects (ICT301 Completed, ICT302 Active)");
     console.log("========================================================\n");

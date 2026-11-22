@@ -152,7 +152,7 @@ export const INITIAL_USERS: User[] = [
   {
     id: "20027782",
     name: "Yusuf Rana Magar",
-    email: "20027782@eduflex.en-rich.me",
+    email: "20027782@eduflex.richv.win",
     role: "Student",
     status: "Active",
     lastActive: "Today, 10:45 AM",
@@ -164,7 +164,7 @@ export const INITIAL_USERS: User[] = [
   {
     id: "20030988",
     name: "Richard Vitug",
-    email: "20030988@eduflex.en-rich.me",
+    email: "20030988@eduflex.richv.win",
     role: "Student",
     status: "Active",
     lastActive: "Just now",
@@ -176,7 +176,7 @@ export const INITIAL_USERS: User[] = [
   {
     id: "20035294",
     name: "Sadia Binte Mahmud",
-    email: "20035294@eduflex.en-rich.me",
+    email: "20035294@eduflex.richv.win",
     role: "Student",
     status: "Active",
     lastActive: "Today, 09:15 AM",
@@ -188,7 +188,7 @@ export const INITIAL_USERS: User[] = [
   {
     id: "20033316",
     name: "Anita Humagain",
-    email: "anita.humagain@eduflex.en-rich.me",
+    email: "anita.humagain@eduflex.richv.win",
     role: "Instructor",
     status: "Active",
     lastActive: "Today, 11:30 AM",
@@ -200,7 +200,7 @@ export const INITIAL_USERS: User[] = [
   {
     id: "20024439",
     name: "Rojit Munankarmi",
-    email: "a.rojit.munankarmi@eduflex.en-rich.me",
+    email: "a.rojit.munankarmi@eduflex.richv.win",
     role: "Admin",
     status: "Active",
     lastActive: "Just now",
