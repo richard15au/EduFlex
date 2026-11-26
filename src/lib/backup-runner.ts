@@ -38,6 +38,7 @@ export interface NightlyBackupResult {
 }
 
 async function tryRunPgDump(): Promise<Buffer | null> {
+  if (process.env.VERCEL === "1") return null;
   const dbUrl = process.env.DIRECT_URL?.trim() || process.env.DATABASE_URL?.trim();
   if (!dbUrl) return null;
 
@@ -185,30 +186,33 @@ export async function runNightlyR2Backup(): Promise<NightlyBackupResult> {
       pgDumpIncluded = true;
     }
 
-    // 3. Mirror all live object storage files to R2 backup prefix
+    // 3. Mirror all live object storage files to R2 backup prefix in parallel
     const liveObjects = await listPrimaryStorageObjects();
-    const backedUpFiles: NightlyBackupFileEntry[] = [];
-
-    for (const obj of liveObjects) {
-      const fetched = await getObjectFromPrimaryStorage(obj.key);
-      if (!fetched) continue;
-      const targetKey = `backups/${datePrefix}/files/${obj.key}`;
-      const uploaded = await uploadBackupToR2({
-        key: targetKey,
-        body: fetched.bytes,
-        contentType: "application/octet-stream",
-        metadata: {
+    const mirrored = await Promise.all(
+      liveObjects.map(async (obj): Promise<NightlyBackupFileEntry | null> => {
+        const fetched = await getObjectFromPrimaryStorage(obj.key);
+        if (!fetched) return null;
+        const targetKey = `backups/${datePrefix}/files/${obj.key}`;
+        const uploaded = await uploadBackupToR2({
+          key: targetKey,
+          body: fetched.bytes,
+          contentType: "application/octet-stream",
+          metadata: {
+            sourceKey: obj.key,
+            sourceProvider: fetched.provider,
+          },
+        });
+        return {
           sourceKey: obj.key,
-          sourceProvider: fetched.provider,
-        },
-      });
-      backedUpFiles.push({
-        sourceKey: obj.key,
-        backupKey: uploaded.backupKey,
-        sizeBytes: uploaded.sizeBytes,
-        sha256: uploaded.sha256,
-      });
-    }
+          backupKey: uploaded.backupKey,
+          sizeBytes: uploaded.sizeBytes,
+          sha256: uploaded.sha256,
+        };
+      })
+    );
+    const backedUpFiles: NightlyBackupFileEntry[] = mirrored.filter(
+      (entry): entry is NightlyBackupFileEntry => entry !== null
+    );
 
     // 4. Write signed manifest JSON
     const durationMs = Date.now() - startedAt;

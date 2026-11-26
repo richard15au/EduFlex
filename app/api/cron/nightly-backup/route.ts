@@ -3,6 +3,8 @@ import { getServerSession } from "@/src/actions/auth";
 import { runNightlyR2Backup } from "@/src/lib/backup-runner";
 import { getStorageConfigStatus, listR2Backups } from "@/src/lib/object-storage";
 
+export const maxDuration = 60;
+
 function isAuthorizedCron(request: Request): boolean {
   const cronSecret = process.env.CRON_SECRET?.trim();
   if (!cronSecret) return false;
