@@ -27,3 +27,6 @@ logs/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Local object storage & backup fallbacks
+/storage/

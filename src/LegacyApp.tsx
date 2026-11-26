@@ -595,9 +595,9 @@ function Header({
           onClick={onToggleTheme}
           title={theme === "Dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
           aria-label="Toggle Theme"
-          className="relative text-gray-500 hover:text-blue-700 dark:text-gray-300 dark:hover:text-amber-300 transition-colors p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer flex items-center justify-center w-8 h-8 shrink-0"
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
         >
-          {theme === "Dark" ? <IconSun className="text-amber-400" /> : <IconMoon className="text-gray-600 dark:text-gray-200" />}
+          {theme === "Dark" ? <IconSun /> : <IconMoon />}
         </button>
         <button
           type="button"

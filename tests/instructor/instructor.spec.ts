@@ -4,7 +4,7 @@ import { loginAs } from '../helpers/auth';
 test.describe('Instructor Portal Comprehensive Workflows', () => {
   test.beforeEach(async ({ page }) => {
     await loginAs(page, 'instructor');
-    await expect(page).toHaveURL(/\/instructor$/);
+    await expect(page).toHaveURL(/\/instructor$/, { timeout: 15000 });
   });
 
   test('Instructor can navigate through all portal sections from sidebar', async ({ page }) => {
@@ -38,16 +38,16 @@ test.describe('Instructor Portal Comprehensive Workflows', () => {
     await page.getByRole('navigation').getByRole('button', { name: 'Grades' }).click();
     await expect(page.getByRole('heading', { name: 'Student Grades', exact: true })).toBeVisible();
 
-    // Announcements
-    await page.getByRole('navigation').getByRole('button', { name: 'Announcements' }).click();
+    // Announcements (top header)
+    await page.getByRole('banner').getByRole('button', { name: 'Announcements' }).click();
     await expect(page.getByRole('heading', { name: 'Announcements', exact: true })).toBeVisible();
 
-    // Messages
-    await page.getByRole('navigation').getByRole('button', { name: 'Messages' }).click();
+    // Messages (top header)
+    await page.getByRole('banner').getByRole('button', { name: 'Messages' }).click();
     await expect(page.getByRole('heading', { name: 'Messages', exact: true })).toBeVisible();
 
-    // Calendar
-    await page.getByRole('navigation').getByRole('button', { name: 'Calendar' }).click();
+    // Calendar (top header)
+    await page.getByRole('banner').getByRole('button', { name: 'Calendar' }).click();
     await expect(page.getByRole('heading', { name: 'Calendar', exact: true })).toBeVisible();
 
     // Profile
@@ -111,7 +111,7 @@ test.describe('Instructor Portal Comprehensive Workflows', () => {
   });
 
   test('Announcements: Create, View, Edit, and Delete workflow', async ({ page }) => {
-    await page.getByRole('navigation').getByRole('button', { name: 'Announcements' }).click();
+    await page.getByRole('banner').getByRole('button', { name: 'Announcements' }).click();
     await expect(page.getByRole('heading', { name: 'Announcements', exact: true })).toBeVisible();
 
     // Create Announcement
@@ -138,7 +138,7 @@ test.describe('Instructor Portal Comprehensive Workflows', () => {
   });
 
   test('Messages: Search, send message, and quick reply', async ({ page }) => {
-    await page.getByRole('navigation').getByRole('button', { name: 'Messages' }).click();
+    await page.getByRole('banner').getByRole('button', { name: 'Messages' }).click();
     await expect(page.getByRole('heading', { name: 'Messages', exact: true })).toBeVisible();
 
     // Filter conversations

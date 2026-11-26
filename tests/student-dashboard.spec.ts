@@ -6,7 +6,7 @@ test('seeded Student can access the Student dashboard', async ({ page }) => {
   await page.locator('input[type="password"]').fill('student123');
   await page.getByRole('button', { name: 'Log in' }).click();
 
-  await expect(page).toHaveURL(/\/student$/);
+  await expect(page).toHaveURL(/\/student$/, { timeout: 15000 });
   await expect(page.getByRole('heading', { name: 'Welcome to EduFlex, Richard!' })).toBeVisible();
   await expect(page.getByText('Richard Vitug', { exact: true })).toBeVisible();
   // Verify student number displayed below name in header

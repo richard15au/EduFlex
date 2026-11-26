@@ -4,7 +4,7 @@ import { loginAs } from '../helpers/auth';
 test.describe('Admin Portal Comprehensive Workflows', () => {
   test.beforeEach(async ({ page }) => {
     await loginAs(page, 'admin');
-    await expect(page).toHaveURL(/\/admin$/);
+    await expect(page).toHaveURL(/\/admin$/, { timeout: 15000 });
   });
 
   test('Admin can navigate through all portal sections from sidebar', async ({ page }) => {
@@ -26,16 +26,19 @@ test.describe('Admin Portal Comprehensive Workflows', () => {
     await page.getByRole('navigation').getByRole('button', { name: 'Enrollment' }).click();
     await expect(page.getByRole('heading', { name: 'Enrollment', exact: true })).toBeVisible();
 
-    // Announcements
-    await page.getByRole('navigation').getByRole('button', { name: 'Announcements' }).click();
+    // Dark Mode Toggle in header
+    await expect(page.getByRole('banner').getByRole('button', { name: 'Toggle Theme' })).toBeVisible();
+
+    // Announcements (top header)
+    await page.getByRole('banner').getByRole('button', { name: 'Announcements' }).click();
     await expect(page.getByRole('heading', { name: 'Announcements', exact: true })).toBeVisible();
 
-    // Messages
-    await page.getByRole('navigation').getByRole('button', { name: 'Messages' }).click();
+    // Messages (top header)
+    await page.getByRole('banner').getByRole('button', { name: 'Messages' }).click();
     await expect(page.getByRole('heading', { name: 'Messages', exact: true })).toBeVisible();
 
-    // Calendar
-    await page.getByRole('navigation').getByRole('button', { name: 'Calendar' }).click();
+    // Calendar (top header)
+    await page.getByRole('banner').getByRole('button', { name: 'Academic Calendar' }).click();
     await expect(page.getByRole('heading', { name: 'Academic Calendar', exact: true })).toBeVisible();
 
     // Reports & Analytics

@@ -176,29 +176,39 @@ export function LoginPage() {
   const router = useRouter();
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
-    const email = emailRef.current?.value ?? "";
-    const password = passwordRef.current?.value ?? "";
-    const res = await loginAction({ email, password });
-    if (res.success && res.role && res.user) {
-      setSessionUser({
-        name: res.user.name,
-        email: res.user.email,
-        password: "",
-        role: res.role,
-      });
-      router.push(`/${res.role}`);
-      return;
-    }
-    const account = loginUser(email, password);
-    if (account) {
-      router.push(`/${account.role}`);
-    } else {
+    if (isLoading) return;
+    setError("");
+    setIsLoading(true);
+    try {
+      const email = emailRef.current?.value ?? "";
+      const password = passwordRef.current?.value ?? "";
+      const res = await loginAction({ email, password });
+      if (res.success && res.role && res.user) {
+        setSessionUser({
+          name: res.user.name,
+          email: res.user.email,
+          password: "",
+          role: res.role,
+        });
+        router.push(`/${res.role}`);
+        return;
+      }
+      const account = loginUser(email, password);
+      if (account) {
+        router.push(`/${account.role}`);
+        return;
+      }
       setError(res.error || "Invalid email or password.");
+      setIsLoading(false);
+    } catch {
+      setError("Unable to sign in right now. Please try again.");
+      setIsLoading(false);
     }
   };
 
@@ -227,7 +237,25 @@ export function LoginPage() {
           <button type="button" className="font-semibold text-[#173b9f]">Forgot password?</button>
         </div>
         {error && <p className="text-xs text-red-500">{error}</p>}
-        <button className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-[#173b9f] py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/15 transition hover:bg-[#102d80]">Log in <Arrow /></button>
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-[#173b9f] py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/15 transition hover:bg-[#102d80] disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer"
+        >
+          {isLoading ? (
+            <>
+              <svg className="h-4 w-4 animate-spin text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3.5" />
+                <path className="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8v3.5a4.5 4.5 0 00-4.5 4.5H4z" />
+              </svg>
+              <span>Logging in...</span>
+            </>
+          ) : (
+            <>
+              Log in <Arrow />
+            </>
+          )}
+        </button>
       </form>
     </AuthLayout>
   );

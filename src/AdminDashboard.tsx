@@ -358,6 +358,8 @@ function AdminHeader({
   searchPool,
   unreadMessagesCount,
   onToggleMobileMenu,
+  theme = "Light",
+  onToggleTheme,
 }: {
   sidebarW: string;
   userName: string;
@@ -366,6 +368,8 @@ function AdminHeader({
   searchPool: AdminSearchItem[];
   unreadMessagesCount: number;
   onToggleMobileMenu?: () => void;
+  theme?: "Light" | "Dark";
+  onToggleTheme?: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -534,6 +538,31 @@ function AdminHeader({
       </div>
 
       <div className="flex items-center gap-3 shrink-0">
+        <button
+          type="button"
+          onClick={onToggleTheme}
+          className="relative text-gray-500 hover:text-blue-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 cursor-pointer"
+          title={theme === "Dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          aria-label="Toggle Theme"
+        >
+          {theme === "Dark" ? (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          )}
+        </button>
         <button
           type="button"
           onClick={() => setActive && setActive("calendar")}
@@ -3684,6 +3713,55 @@ function AdminSystemSettings({
 }) {
   const [settings, setSettings] = useState<AdminSystemSettingsData>(INITIAL_ADMIN_SETTINGS);
   const [savedFeedback, setSavedFeedback] = useState(false);
+  const [storageStatus, setStorageStatus] = useState<{
+    primaryProvider: string;
+    primaryBucket: string;
+    r2BackupProvider: string;
+    r2Bucket: string;
+  } | null>(null);
+  const [recentBackups, setRecentBackups] = useState<
+    { key: string; sizeBytes: number; lastModified: string; provider: string }[]
+  >([]);
+  const [isLoadingStorage, setIsLoadingStorage] = useState(true);
+  const [isRunningBackup, setIsRunningBackup] = useState(false);
+
+  const loadStorageStatus = async () => {
+    setIsLoadingStorage(true);
+    try {
+      const res = await fetch("/api/cron/nightly-backup?action=status");
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setStorageStatus(data.config);
+        setRecentBackups(data.recentBackups || []);
+      }
+    } catch {
+      // Ignore network errors
+    } finally {
+      setIsLoadingStorage(false);
+    }
+  };
+
+  useEffect(() => {
+    void loadStorageStatus();
+  }, []);
+
+  const handleRunBackupNow = async () => {
+    setIsRunningBackup(true);
+    try {
+      const res = await fetch("/api/cron/nightly-backup", { method: "POST" });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        onShowToast(`R2 backup complete (${data.backedUpFilesCount} files, ${data.dbSnapshotSizeBytes} B DB snapshot).`);
+        await loadStorageStatus();
+      } else {
+        onShowToast(data.error || "Backup failed.");
+      }
+    } catch {
+      onShowToast("Failed to trigger R2 backup.");
+    } finally {
+      setIsRunningBackup(false);
+    }
+  };
 
   useEffect(() => {
     try {
@@ -3959,6 +4037,71 @@ function AdminSystemSettings({
           </button>
         </div>
       </form>
+
+      {/* Cloudflare R2 Object Storage & Nightly Backup Monitor (WBS 4.4) */}
+      <div className="mt-6 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 max-w-4xl">
+        <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
+          <div>
+            <h2 className="text-base font-bold text-gray-900">Cloudflare R2 Storage &amp; Nightly Backup Monitor</h2>
+            <p className="text-xs text-gray-500 mt-0.5">
+              Live object storage status and automated 02:00 UTC Neon PostgreSQL + R2 disaster recovery snapshots.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => void handleRunBackupNow()}
+            disabled={isRunningBackup}
+            className="px-4 py-2 rounded-xl text-xs font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 cursor-pointer"
+            style={{ background: "#1a3a9e" }}
+          >
+            {isRunningBackup ? "Running Backup..." : "Run Backup Now"}
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+          <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-blue-700">Primary Object Storage</p>
+            <p className="text-sm font-bold text-gray-900 mt-1">
+              {isLoadingStorage ? "Checking..." : storageStatus?.primaryBucket || "eduflex-objects"}
+            </p>
+            <p className="text-xs text-gray-600 mt-0.5">
+              Provider: <span className="font-semibold">{storageStatus?.primaryProvider || "checking"}</span>
+            </p>
+          </div>
+          <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">DR Backup Bucket (02:00 UTC)</p>
+            <p className="text-sm font-bold text-gray-900 mt-1">
+              {isLoadingStorage ? "Checking..." : storageStatus?.r2Bucket || "eduflex-dr-backups"}
+            </p>
+            <p className="text-xs text-gray-600 mt-0.5">
+              Provider: <span className="font-semibold">{storageStatus?.r2BackupProvider || "checking"}</span>
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+            Recent R2 Snapshots &amp; Manifests ({recentBackups.length})
+          </p>
+          {isLoadingStorage ? (
+            <p className="text-xs text-gray-400">Loading R2 backup history...</p>
+          ) : recentBackups.length === 0 ? (
+            <p className="text-xs text-gray-400">No backup snapshots recorded yet. Click &ldquo;Run Backup Now&rdquo; to create one.</p>
+          ) : (
+            <div className="divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden">
+              {recentBackups.slice(0, 6).map((b) => (
+                <div key={b.key} className="flex items-center justify-between gap-3 px-3.5 py-2.5 text-xs bg-gray-50/40">
+                  <span className="font-mono text-gray-800 truncate">{b.key}</span>
+                  <div className="flex items-center gap-3 shrink-0 text-gray-500">
+                    <span>{(b.sizeBytes / 1024).toFixed(1)} KB</span>
+                    <span>{new Date(b.lastModified).toLocaleString()}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -4012,6 +4155,21 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
   }, [active]);
   const [collapsed, setCollapsed] = useState(false);
   const [userName, setUserName] = useState("Rojit Munankarmi");
+  const [theme, setTheme] = useState<"Light" | "Dark">("Light");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const saved = localStorage.getItem("eduflex_theme");
+    if (saved === "Dark" || saved === "Light") {
+      setTheme(saved);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.classList.toggle("dark", theme === "Dark");
+    localStorage.setItem("eduflex_theme", theme);
+  }, [theme]);
 
   // Shared Admin State
   const [users, setUsers] = useState<AdminUser[]>(INITIAL_ADMIN_USERS);
@@ -4361,7 +4519,7 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <div className={`min-h-screen ${theme === "Dark" ? "dark bg-[#0b0f19] text-gray-100" : "bg-gray-50 text-gray-900"}`} style={{ fontFamily: "'Outfit', sans-serif" }}>
       <AdminSidebar
         active={active}
         setActive={(nav) => {
@@ -4385,6 +4543,8 @@ export default function AdminDashboard({ onLogout = () => {} }: { onLogout?: () 
         searchPool={searchPool}
         unreadMessagesCount={unreadMessagesCount}
         onToggleMobileMenu={() => setMobileOpen((prev) => !prev)}
+        theme={theme}
+        onToggleTheme={() => setTheme((prev) => (prev === "Dark" ? "Light" : "Dark"))}
       />
       <main
         className="pt-16 min-h-screen transition-all duration-300"

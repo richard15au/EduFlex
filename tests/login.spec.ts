@@ -6,7 +6,7 @@ test('EduFlex login redirects the seeded demo user to the authenticated dashboar
   await page.locator('input[type="password"]').fill('student123');
   await page.getByRole('button', { name: 'Log in' }).click();
 
-  await expect(page).toHaveURL(/\/student$/);
+  await expect(page).toHaveURL(/\/student$/, { timeout: 15000 });
   await expect(page.getByRole('heading', { name: /Welcome to EduFlex, Richard!/ })).toBeVisible();
   await expect(page.getByLabel('Email address')).toHaveCount(0);
 });

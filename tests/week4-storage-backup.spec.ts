@@ -59,4 +59,20 @@ test.describe("WBS 4.1: Neon Object Storage & Cloudflare R2 Nightly Backup", () 
     expect(backupJson.tableCounts.users).toBeGreaterThan(0);
     expect(backupJson.backedUpFilesCount).toBeGreaterThan(0);
   });
+
+  test("Admin System Settings displays live R2 Storage & Nightly Backup Monitor", async ({ page }) => {
+    await page.goto("/login");
+    await page.getByLabel("Email address").fill("a.rojit.munankarmi@eduflex.richv.win");
+    await page.locator('input[type="password"]').fill("admin123");
+    await page.getByRole("button", { name: "Log in" }).click();
+    await expect(page).toHaveURL(/\/admin$/, { timeout: 15000 });
+
+    await page.getByRole("navigation").getByRole("button", { name: "System Settings" }).click();
+    await expect(page.getByRole("heading", { name: /Cloudflare R2 Storage/i })).toBeVisible();
+    await expect(page.getByText("eduflex-objects").first()).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText("eduflex-dr-backups").first()).toBeVisible({ timeout: 10000 });
+
+    await page.getByRole("button", { name: "Run Backup Now" }).click();
+    await expect(page.getByText(/R2 backup complete/i)).toBeVisible({ timeout: 20000 });
+  });
 });
