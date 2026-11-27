@@ -184,6 +184,7 @@ export const INITIAL_ADMIN_USERS: AdminUser[] = [
 export const INITIAL_ADMIN_PENDING: AdminPendingItem[] = [];
 
 export const INITIAL_ADMIN_COURSES: AdminCourse[] = [
+  { code: "DAT301", name: "Data Analytics", faculty: "School of ICT", instructor: "Anita Humagain", students: 0, capacity: 120, semester: "T2 2026", status: "Active" },
   { code: "ICT301", name: "Information Technology Project 1", faculty: "School of ICT", instructor: "Anita Humagain", students: 3, capacity: 50, semester: "T2 2026", status: "Completed", description: "Capstone systems development and project management course for final year IT students (Part 1 - Architecture & Scope)." },
   { code: "ICT302", name: "Information Technology Project 2", faculty: "School of ICT", instructor: "Anita Humagain", students: 3, capacity: 50, semester: "T3 2026", status: "Active", description: "Capstone systems implementation, agile delivery, full-stack verification, and final presentation (Part 2)." },
 ];
