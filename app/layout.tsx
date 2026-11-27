@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AU",
     url: siteUrl,
-    siteName: "EduFlex LMS",
+    siteName: "EduFlex",
     title: "EduFlex — Best Course Management Tools & University LMS",
     description:
       "A flexible, high-performance cloud LMS for students, instructors, and university administrators with automated grading and instant course authoring.",
@@ -108,6 +108,14 @@ const faqSchema = {
   ],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "EduFlex",
+  alternateName: ["EduFlex LMS", "EduFlex Academic Systems"],
+  url: `${siteUrl}/`,
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
@@ -123,6 +131,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
