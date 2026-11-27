@@ -105,6 +105,7 @@ test.describe('Admin Portal Comprehensive Workflows', () => {
     // Verify courses table rendered
     await expect(page.getByText('ICT301')).toBeVisible();
     await expect(page.getByText('Information Technology Project 1')).toBeVisible();
+    await expect(page.getByText('Data Analytics', { exact: true })).toBeVisible();
 
     // Open Create Course Modal
     await page.getByRole('button', { name: /Create Course|New Course/i }).first().click();
