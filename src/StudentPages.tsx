@@ -1982,10 +1982,28 @@ export function useSharedStudentSettings(): [StudentSettingsData, (updates: Part
 // ─────────────────────────────────────────────────────────────────────────────
 // PROFILE PAGE
 // ─────────────────────────────────────────────────────────────────────────────
-export function ProfilePage({ userName, onNameChange: _onNameChange }: { userName: string; onNameChange?: (name: string) => void }) {
+export function ProfilePage({
+  userName,
+  userEmail,
+  onNameChange: _onNameChange,
+}: {
+  userName: string;
+  userEmail: string;
+  onNameChange?: (name: string) => void;
+}) {
   const [profile] = useSharedStudentProfile();
 
-  const initials = (profile.fullName || userName || "Richard Vitug")
+  const isCurrentUserProfile = profile.email.toLowerCase() === userEmail.toLowerCase();
+  const displayedProfile = {
+    ...profile,
+    fullName: userName || (isCurrentUserProfile ? profile.fullName : ""),
+    email: userEmail || profile.email,
+    phone: isCurrentUserProfile ? profile.phone : "Not provided",
+    address: isCurrentUserProfile ? profile.address : "Not provided",
+    dateOfBirth: isCurrentUserProfile ? profile.dateOfBirth : "Not provided",
+  };
+
+  const initials = (displayedProfile.fullName || userName || "Student")
     .split(" ")
     .filter(Boolean)
     .slice(0, 2)
@@ -2013,13 +2031,13 @@ export function ProfilePage({ userName, onNameChange: _onNameChange }: { userNam
           {initials}
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-1">{profile.fullName || userName}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-1">{displayedProfile.fullName || userName}</h2>
           <p className="text-sm text-gray-500 mb-3">Student · Bachelor of Information Technology</p>
           <div className="flex items-center gap-3 flex-wrap">
             <span className="text-xs font-semibold text-green-700 bg-green-50 border border-green-100 px-3 py-1 rounded-full">Enrolled</span>
             <span className="text-xs text-gray-500">Trimester T326</span>
             <span className="text-xs text-gray-400">·</span>
-            <span className="text-xs text-gray-500">{profile.email?.split("@")[0] || "20030988"}</span>
+            <span className="text-xs text-gray-500">{displayedProfile.email.split("@")[0]}</span>
           </div>
         </div>
       </div>
@@ -2030,12 +2048,12 @@ export function ProfilePage({ userName, onNameChange: _onNameChange }: { userNam
           <h3 className="text-base font-bold text-gray-800 mb-5">Personal Information</h3>
           <div className="space-y-4">
             {[
-              { label: "Full Name",     value: profile.fullName || userName },
-              { label: "Student ID",    value: profile.email?.split("@")[0] || "20030988" },
-              { label: "Email Address", value: profile.email },
-              { label: "Phone Number",  value: profile.phone },
-              { label: "Address",       value: profile.address },
-              { label: "Date of Birth", value: profile.dateOfBirth },
+              { label: "Full Name",     value: displayedProfile.fullName || userName },
+              { label: "Student ID",    value: displayedProfile.email.split("@")[0] },
+              { label: "Email Address", value: displayedProfile.email },
+              { label: "Phone Number",  value: displayedProfile.phone },
+              { label: "Address",       value: displayedProfile.address },
+              { label: "Date of Birth", value: displayedProfile.dateOfBirth },
             ].map((f) => (
               <div key={f.label} className="flex items-start justify-between py-3 border-b border-gray-100 last:border-0">
                 <span className="text-sm text-gray-400 w-36 shrink-0">{f.label}</span>
