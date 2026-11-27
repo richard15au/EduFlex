@@ -9951,6 +9951,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
   };
 
   const [userName, setUserName] = useState("Richard Maceda Vitug");
+  const [userEmail, setUserEmail] = useState("20030988@eduflex.en-rich.me");
   const [userRole, setUserRole] = useState("Student");
   const [studentNumber, setStudentNumber] = useState("2003988");
   const [theme, setTheme] = useState<"Light" | "Dark">("Light");
@@ -9963,6 +9964,9 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
     const sessionUser = getSessionUser();
     if (sessionUser?.name) {
       setUserName(sessionUser.name);
+    }
+    if (sessionUser?.email) {
+      setUserEmail(sessionUser.email);
     }
     if (sessionUser?.role) {
       setUserRole(sessionUser.role.charAt(0).toUpperCase() + sessionUser.role.slice(1));
@@ -9995,6 +9999,9 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
         setDashboardData(res);
         if (res.student?.name) {
           setUserName(res.student.name);
+        }
+        if (res.student?.email) {
+          setUserEmail(res.student.email);
         }
         if (res.student?.externalId) {
           const cleanId = res.student.externalId.replace("-LEGACY", "");
@@ -10185,7 +10192,7 @@ export function StudentDashboard({ onLogout = () => {} }: { onLogout?: () => voi
           {activeNav === "calendar" && <CalendarPage />}
           {activeNav === "announcements" && <AnnouncementsPage />}
           {activeNav === "messages" && <MessagesPage />}
-          {activeNav === "profile" && <ProfilePage userName={userName} onNameChange={setUserName} />}
+          {activeNav === "profile" && <ProfilePage userName={userName} userEmail={userEmail} onNameChange={setUserName} />}
           {activeNav === "provider-portal" && <ProviderPortalPage />}
           {activeNav === "search" && (
             <SearchResultsPage
